@@ -1,6 +1,10 @@
 # 전화번호 목록
 [링크](https://programmers.co.kr/learn/courses/30/lessons/42577)
 
+### 난이도 2
+
+## 정리 내용
+
 list를 정렬하고 싶을땐 sorted(list) 를 사용한다.
 
 ```python
@@ -13,3 +17,5 @@ sorted(list, key=key)
 
 문자열의 startswith(target) 메소드를 사용하면 접두어 여부를 판단 가능하다
 문자열의 find(target) 메소드를 사용하면 찾을경우 index, 못찾을경우 -1을 반환한다.
+
+zip을 이용해 다차원 list를 만들 수 있다.
