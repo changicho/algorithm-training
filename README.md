@@ -6,4 +6,8 @@
 
 c_cpp의 경우 컴파일러 버전 c++11에 맞춤.
 vscode의 오류 발견은 c++17 버전으로 설정 (c_cpp_properties.json 설정 필요)
-위 방법 대신 extension의 설정을 수정하는 방법을 찾는중
+
+위 방법 대신 setting.json에 아래 코드 추가로 해결 가능
+```json
+"C_Cpp.default.intelliSenseMode": "clang-x64"
+```
