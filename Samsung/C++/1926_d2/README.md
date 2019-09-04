@@ -17,11 +17,11 @@ extention으로 code runner를 사용하는데 shell script를 건드릴 수 있
   "code-runner.executorMap": {
     "c": "cd $dirWithoutTrailingSlash gcc $fileName -g -o $fileNameWithoutExt && ./$fileNameWithoutExt.exe",
     // input.txt로 바로 입력.
-    "cpp": "cd $dirWithoutTrailingSlash && g++ $fileName -g -o $fileNameWithoutExt && ./$fileNameWithoutExt.exe < input.txt cat thing > output_console.txt",
+    "cpp": "cd $dirWithoutTrailingSlash && g++ $fileName -g -o $fileNameWithoutExt && ./$fileNameWithoutExt.exe < input.txt || tee output_console.txt",
     // 직접 실행후 입력할때.
     //"cpp": "cd $dirWithoutTrailingSlash && g++ $fileName -g -o $fileNameWithoutExt && ./$fileNameWithoutExt.exe",
   },
   "code-runner.runInTerminal": true,
 ```
 terminal을 powershell에서 gitbash로 변경했다. 이로인해 answer.exe에서 input.txt을 바로 읽고 output_console.txt로 결과를 출력할 수 있게 했다.
-
+tee 명령을 수행하면 콘솔과 파일로 동시에 출력이 가능하다.
