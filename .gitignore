@@ -1,3 +1,4 @@
 Etc/
 .vscode/
 *.exe
+output_console.txt
