@@ -12,3 +12,5 @@ string.find(pattern, start_point) 메소드를 이용해 푼 문제.
 
 start_point = pattern.length() * pattern_number
 string.find(pattern, start_point) == start_point
+
+git commit --amend를 이용해 직전 커밋의 log를 변경 가능
