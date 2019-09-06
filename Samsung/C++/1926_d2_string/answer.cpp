@@ -23,6 +23,7 @@ void solution(int N) {
         }
         cout << answer << " ";
     }
+    cout << endl;
 }
 
 int main() {
