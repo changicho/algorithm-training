@@ -5,6 +5,7 @@
 ### 난이도 d2
 
 ## 정리
+- 문자열
 
 c++ 컴파일러 c++11 에서 제공하는 stoi(string), to_string(number)를 이용했다.
 

@@ -4,5 +4,6 @@
 ### 난이도 1
 
 ## 정리 내용
+- 배열
 
 python의 list 형식은 push가 아닌 append로 동작한다.

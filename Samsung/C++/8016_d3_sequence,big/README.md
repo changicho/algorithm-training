@@ -5,6 +5,9 @@
 ### 난이도 d3
 
 ## 정리
+- 수열
+- 큰수
+
 1 start : 1st, 1st
 2 start : 2nd, 4th
 3 start : 5th, 9th

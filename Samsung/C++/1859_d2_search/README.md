@@ -4,6 +4,7 @@
 ### 난이도 d2
 
 ## 정리
+- 탐색
 
 ```cpp
 freopen("input.txt", "r", stdin);
