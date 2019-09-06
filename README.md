@@ -29,11 +29,14 @@ CodeRunner Shell Script 추가
 ```json
   "code-runner.executorMap": {
     "c": "cd $dirWithoutTrailingSlash gcc $fileName -g -o $fileNameWithoutExt && ./$fileNameWithoutExt.exe",
-    // "cpp": "cd $dirWithoutTrailingSlash && g++ $fileName -g -o $fileNameWithoutExt && ./$fileNameWithoutExt.exe",
-    // "cpp": "cd $dirWithoutTrailingSlash && g++ $fileName -g -o $fileNameWithoutExt && if [ -e $'input.txt' ]; then ./$fileNameWithoutExt.exe < input.txt > output_console.txt; else ./$fileNameWithoutExt.exe > output_console.txt; fi && truncate -s -1 output_console.txt && if [ -e $'output.txt' ]; then comm -1 output.txt output_console.txt; else cat output_console.txt; fi ",
-    // "cpp": "cd $dirWithoutTrailingSlash && g++ $fileName -g -o $fileNameWithoutExt && if [ -e $'input.txt' ]; then ./$fileNameWithoutExt.exe < input.txt | tee output_console.txt; else ./$fileNameWithoutExt.exe | tee output_console.txt; fi && comm output.txt output_console.txt",
-    "cpp": "cd $dirWithoutTrailingSlash && g++ $fileName -g -o $fileNameWithoutExt && if [ -e $'input.txt' ]; then ./$fileNameWithoutExt.exe < input.txt | tee output_console.txt; else ./$fileNameWithoutExt.exe | tee output_console.txt; fi && echo '*** compare output ***' && if [ -e $'output.txt' ]; then comm -1 output.txt output_console.txt; else cat output_console.txt; fi ",
+     // input.txt로 바로 입력, 없으면 콘솔로 입력. 결과를 output_console.txt로 출력, output.txt와 비교.
+    "cpp": " clear && echo ' ' && echo '************************' && echo '****     Output     ****' && echo '************************' && echo ' ' && cd $dirWithoutTrailingSlash && g++ $fileName -g -o $fileNameWithoutExt && if [ -e $'input.txt' ]; then ./$fileNameWithoutExt.exe < input.txt | tee output_console.txt; else ./$fileNameWithoutExt.exe | tee output_console.txt; fi && echo ' ' && echo '************************' && echo '****     Result     ****' && echo '************************' && echo ' ' && if [ -e $'output.txt' ]; then diff -w -B output.txt output_console.txt; else cat output_console.txt; fi && cd '$workspaceRoot' ",
   },
 ```
-쉘 스크립트를 이용해 output.txt와 비교를 더 쉽게함. 
-다운받은 output.txt에 마지막 newline 추가 필요
+쉘 스크립트를 이용
+
+프로그램 실행 시 이전 콘솔 기록 초기화
+프로그램 실행 결과와 output.txt와 비교
+- 비교 구문을 comm 에서 diff로 변경, 공백과 newline을 무시하는 옵션을 추가했다.
+input.txt가 있는경우 읽어오고, 없는경우 콘솔에서 입력
+실행이 끝난 후 workspace 경로로 다시 돌아옴
