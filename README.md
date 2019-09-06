@@ -24,3 +24,16 @@ to_string 메소드를 사용하는 경우 multiple definition of `vsnprintf' �
  - setup to Version: 6.3.0, Architecture: i686, Threads: posix, Exception: dwarf and Build revision: 2.
  - 환경변수 설정 (바꿔주면 됨)
 이렇게 해결함.
+
+CodeRunner Shell Script 추가
+```json
+  "code-runner.executorMap": {
+    "c": "cd $dirWithoutTrailingSlash gcc $fileName -g -o $fileNameWithoutExt && ./$fileNameWithoutExt.exe",
+    // "cpp": "cd $dirWithoutTrailingSlash && g++ $fileName -g -o $fileNameWithoutExt && ./$fileNameWithoutExt.exe",
+    // "cpp": "cd $dirWithoutTrailingSlash && g++ $fileName -g -o $fileNameWithoutExt && if [ -e $'input.txt' ]; then ./$fileNameWithoutExt.exe < input.txt > output_console.txt; else ./$fileNameWithoutExt.exe > output_console.txt; fi && truncate -s -1 output_console.txt && if [ -e $'output.txt' ]; then comm -1 output.txt output_console.txt; else cat output_console.txt; fi ",
+    // "cpp": "cd $dirWithoutTrailingSlash && g++ $fileName -g -o $fileNameWithoutExt && if [ -e $'input.txt' ]; then ./$fileNameWithoutExt.exe < input.txt | tee output_console.txt; else ./$fileNameWithoutExt.exe | tee output_console.txt; fi && comm output.txt output_console.txt",
+    "cpp": "cd $dirWithoutTrailingSlash && g++ $fileName -g -o $fileNameWithoutExt && if [ -e $'input.txt' ]; then ./$fileNameWithoutExt.exe < input.txt | tee output_console.txt; else ./$fileNameWithoutExt.exe | tee output_console.txt; fi && echo '*** compare output ***' && if [ -e $'output.txt' ]; then comm -1 output.txt output_console.txt; else cat output_console.txt; fi ",
+  },
+```
+쉘 스크립트를 이용해 output.txt와 비교를 더 쉽게함. 
+다운받은 output.txt에 마지막 newline 추가 필요
