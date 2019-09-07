@@ -3,3 +3,4 @@ Etc/
 *.exe
 my_output.txt
 CodingTest/
+bin/*.exe
