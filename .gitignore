@@ -1,4 +1,5 @@
 Etc/
 .vscode/
 *.exe
-output_console.txt
+my_output.txt
+CodingTest/

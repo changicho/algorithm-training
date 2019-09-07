@@ -35,11 +35,10 @@ long long solution() {
 }
 
 int main() {
-    // freopen("input.txt", "r", stdin);
     int T;
 
     cin >> T;
-
+    
     for (int i = 0; i < T; i++) {
         cout<<"#"<<i+1<<" "<<solution()<<endl;
     }
