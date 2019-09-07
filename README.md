@@ -46,12 +46,7 @@ to_string 메소드를 사용하는 경우 multiple definition of `vsnprintf' �
 
 ### code-runnder 실행 명령
 
-```json
-  "code-runner.executorMap": {
-    "c": "cd $dirWithoutTrailingSlash gcc $fileName -g -o $fileNameWithoutExt && ./$fileNameWithoutExt.exe",
-    "cpp": "clear && echo ' ' && echo '************************' && echo '****     Output     ****' && echo '************************' && echo ' ' && cd $dirWithoutTrailingSlash && if [ ! -d 'bin' ]; then mkdir 'bin';fi&& g++ $fileName -g -o './bin/$fileNameWithoutExt' && if [ -e $'./data/input.txt' ]; then './bin/$fileNameWithoutExt.exe' < './data/input.txt' | tee './data/my_output.txt' ; else './bin/$fileNameWithoutExt.exe' | tee './data/my_output.txt' ; fi && if [ -e $'./data/output.txt' ]; then echo ' ' && echo '************************' && echo '**** CompareResult  ****' && echo '************************' && echo ' ' && diff -w -B './data/output.txt' './data/my_output.txt' ; fi && cd '$workspaceRoot'",
-  },
-```
+`custom_settings.md 파일 참고`
 
 스크립트 설명
 
@@ -61,5 +56,6 @@ to_string 메소드를 사용하는 경우 multiple definition of `vsnprintf' �
   - 비교 구문을 comm 에서 diff로 변경, 공백과 newline을 무시하는 옵션을 추가했다.
 - data 폴더에 input.txt가 있는경우 읽어오고, 없는경우 콘솔에서 입력
 - 프로그램 실행 후, 결과를 콘솔과 my_output.txt에 출력한다.
-- data 폴더에 output.txt가 있는 경우, my_output.txt와 비교, 없는경우 콘솔에 결과 출력
+- data 폴더에 output.txt가 있는 경우, my_output.txt와 비교
+  - 비교후 맞았으면 CORRECT 출력
 - 실행이 끝난 후 workspace 경로로 다시 돌아옴
