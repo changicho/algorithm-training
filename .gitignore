@@ -1,6 +1,8 @@
 Etc/
 .vscode/
 *.exe
+
 my_output.txt
-CodingTest/
-bin/*.exe
+my_input.txt
+
+result.txt
