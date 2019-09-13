@@ -15,7 +15,7 @@ int main() {
     int T;
     cin >> T;
 
-    for (int test_case = 1; teste_case <= T; test_case++) {
+    for (int test_case = 1; test_case <= T; test_case++) {
         solution(test_case);
     }
 
