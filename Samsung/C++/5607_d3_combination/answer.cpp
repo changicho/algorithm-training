@@ -40,7 +40,7 @@ void solution(int test_case) {
     long long result =
         ((factorial[N] % divition) * (squared % divition)) % divition;
 
-    cout << "#" << test_case << " " << result;
+    cout << "#" << test_case << " " << result << "\n";
 }
 
 int main() {
