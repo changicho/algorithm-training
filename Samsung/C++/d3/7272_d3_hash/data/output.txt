@@ -1,0 +1,5 @@
+#1 DIFF
+#2 SAME
+#3 SAME
+#4 SAME
+#5 DIFF
