@@ -1,9 +1,11 @@
 # 전화번호 목록
+
 [링크](https://programmers.co.kr/learn/courses/30/lessons/42577)
 
-### 난이도 2
+난이도 2
 
 ## 정리 내용
+
 - 정렬
 - 문자열
 - find
