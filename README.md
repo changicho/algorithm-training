@@ -15,7 +15,7 @@
 
 ### 문제 폴더
 
-폴더명 : 번호_난이도_태그 의 구조로 되어있다.
+폴더명 : 번호*난이도*태그 의 구조로 되어있다.
 
 내부 폴더
 
@@ -24,31 +24,32 @@
 
 ## 문제 태그 종류
 
-| 태그명      | 의미                    |
-| ----------- | ----------------------- |
-| bfs         | 너비 우선 탐색          |
-| big         | 매우 큰 수              |
-| brute       | 부르트 포스 (전부 대입) |
-| combination | 조합                    |
-| dfs         | 깊이 우선 탐색          |
-| divide      | 분할 정복 기법          |
-| dynamic     | 동적계획법              |
-| extreme     | 최대 최소 값 찾기       |
-| find        | 검색                    |
-| graph       | 그래프                  |
-| greedy      | 탐욕 알고리즘           |
-| iteration   | 반복문                  |
-| list        | 큐, 스택, 리스트        |
-| mod         | 나머지                  |
-| notation    | 진법 문제               |
-| number      | 정수론 (소수...)        |
-| recusive    | 재귀                    |
-| sequence    | 순열                    |
-| sort        | 정렬                    |
-| string      | 문자열                  |
-| tree        | 트리 구조               |
-| unique      | 유일한 값들의 집합      |
-| table       | key, value 구조         |
+| 태그명       | 의미                    |
+| ------------ | ----------------------- |
+| backtracking | 백트래킹                |
+| bfs          | 너비 우선 탐색          |
+| big          | 매우 큰 수              |
+| brute        | 부르트 포스 (전부 대입) |
+| combination  | 조합                    |
+| dfs          | 깊이 우선 탐색          |
+| divide       | 분할 정복 기법          |
+| dynamic      | 동적계획법              |
+| extreme      | 최대 최소 값 찾기       |
+| find         | 검색                    |
+| graph        | 그래프                  |
+| greedy       | 탐욕 알고리즘           |
+| iteration    | 반복문                  |
+| list         | 큐, 스택, 리스트        |
+| mod          | 나머지                  |
+| notation     | 진법 문제               |
+| number       | 정수론 (소수...)        |
+| recusive     | 재귀                    |
+| sequence     | 순열                    |
+| sort         | 정렬                    |
+| string       | 문자열                  |
+| tree         | 트리 구조               |
+| unique       | 유일한 값들의 집합      |
+| table        | key, value 구조         |
 
 ## C++ 설정
 
