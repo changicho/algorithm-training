@@ -47,9 +47,9 @@
 | sequence     | 순열                    |
 | sort         | 정렬                    |
 | string       | 문자열                  |
+| table        | key, value 구조         |
 | tree         | 트리 구조               |
 | unique       | 유일한 값들의 집합      |
-| table        | key, value 구조         |
 
 ## C++ 설정
 
