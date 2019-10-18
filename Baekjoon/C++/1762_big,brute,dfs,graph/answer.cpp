@@ -1,56 +1,48 @@
 #include <algorithm>
 #include <iostream>
-#include <string>
 #include <vector>
-
-#define MAX 100010
 
 using namespace std;
 
-long long answer = 0;
-int N;
-long long M;
+int n;
 
-vector<int> map[MAX];
+vector<int> map[100005];
 
-void solution() {
-    answer = 0;
-    cin >> N >> M;
+int main(void) {
+    ios::sync_with_stdio(0);
+    cin.tie(0);
 
-    int x, y;
-    for (int i = 0; i < M; i++) {
+    int m;
+    cin >> n >> m;
+
+    while (m--) {
+        int x, y;
         cin >> x >> y;
-        x--;
-        y--;
         map[x].push_back(y);
         map[y].push_back(x);
     }
 
-    for (int i = 0; i < N; i++) {  // i : 시작점
-        for (int j : map[i]) {     // j 는 2번째 점
-            if (j < i) {
-                continue;
+    for (int i = 1; i <= n; i++) {
+        sort(map[i].begin(), map[i].end());
+    }
+
+    int cnt = 0;
+
+    for (int i = 1; i <= n; i++) {
+        for (auto nxt : map[i]) {
+            if (nxt < i) continue;
+            int v1 = nxt;
+            int v2 = i;
+            
+            if (map[v1].size() > map[v2].size()) {
+                swap(v1, v2);
             }
-            for (int k : map[j]) {  // k 는 3번째 점
-                if (k < j) {
-                    continue;
-                }
-                if (find(map[k].begin(), map[k].end(), i) != map[k].end()) {
-                    answer++;
-                }
+
+            for (auto k : map[v1]) {
+                cnt += binary_search(map[v2].begin(), map[v2].end(), k);
             }
         }
     }
 
-    cout << answer << "\n";
-}
-
-int main() {
-    ios_base ::sync_with_stdio(false);
-    cin.tie(NULL);
-    cout.tie(NULL);
-
-    solution();
-
-    return 0;
+    cout << cnt / 3;
 }
