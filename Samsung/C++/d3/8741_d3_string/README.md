@@ -23,7 +23,6 @@ cout << str;
 
 이 방법을 통해 한 줄을 통째로 입력 받을 수 있다.
 
-
 ### split
 
 ```cpp
@@ -32,31 +31,31 @@ cout << str;
 #include <sstream>
 #include <vector>
 #include <iterator>
- 
+
 using namespace std;
- 
+
 template<typename Out>
-void split(const string &s, char delim, Out result) 
+void split(const string &s, char delim, Out result)
 {
     stringstream ss(s);
     string item;
- 
-    while (getline(ss, item, delim)) 
+
+    while (getline(ss, item, delim))
         *(result++) = item;
 }
- 
+
 vector<string> split(const string &s, const char delim)
 {
     vector<string> elems;
     split(s, delim, back_inserter(elems));
- 
+
     return elems;
 }
- 
+
 int main()
 {
     vector<string> x = split("one:two::three", ':');
- 
+
     return 0;
 }
 
