@@ -45,6 +45,7 @@
 | number       | 정수론 (소수...)        |
 | recusive     | 재귀                    |
 | sequence     | 순열                    |
+| simulation   | 시뮬레이션              |
 | sort         | 정렬                    |
 | string       | 문자열                  |
 | table        | key, value 구조         |
