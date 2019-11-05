@@ -21,7 +21,6 @@ struct fire {
 };
 
 axis moves[4] = {{0, 1}, {1, 0}, {0, -1}, {-1, 0}};
-// int map[MAX_HEIGHT][MAX_WIDTH];
 vector<vector<int> > map(MAX_HEIGHT);
 
 int N, W, H;
@@ -38,12 +37,7 @@ void print() {
   }
 }
 
-void clear() {
-  N = 0, W = 0, H = 0, answer = MAX_HEIGHT * MAX_WIDTH;
-  while (!fires.empty()) {
-    fires.pop();
-  }
-}
+void clear() { N = 0, W = 0, H = 0, answer = MAX_HEIGHT * MAX_WIDTH; }
 
 void fall() {
   for (int width = 0; width < W; width++) {
@@ -129,7 +123,6 @@ void dfs(int depth) {
 }
 
 void solution(int test_case) {
-  // 전역 변수 초기화
   clear();
 
   cin >> N >> W >> H;
