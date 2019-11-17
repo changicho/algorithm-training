@@ -1,0 +1,24 @@
+{
+  "files.associations": {
+    "string": "cpp",
+    "*.tcc": "cpp",
+    "algorithm": "cpp",
+    "random": "cpp",
+    "xutility": "cpp",
+    "vector": "cpp",
+    "iostream": "cpp",
+    "ostream": "cpp",
+    "deque": "cpp",
+    "list": "cpp",
+    "unordered_map": "cpp",
+    "xhash": "cpp",
+    "xstring": "cpp",
+    "array": "cpp",
+    "string_view": "cpp",
+    "functional": "cpp",
+    "initializer_list": "cpp",
+    "xiosbase": "cpp",
+    "xlocale": "cpp",
+    "cmath": "cpp"
+  },
+}
