@@ -2,8 +2,14 @@
   "version": "0.2.0",
   "configurations": [
     {
+      "type": "java",
+      "name": "CodeLens (Launch) - Solution",
+      "request": "launch",
+      "mainClass": "Solution",
+      "projectName": "algorithm_training_ef9d1ab4"
+    },
+    {
       "name": "(gdb) Console Launch",
-      // "preLaunchTask" : "echo helloworld",
       "type": "cppdbg",
       "request": "launch",
       "program": "${fileDirname}\\${fileBasenameNoExtension}.exe",
