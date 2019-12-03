@@ -6,16 +6,6 @@
 
 using namespace std;
 
-bool allInZero(vector<long long>& diffs) {
-  for (long long diff : diffs) {
-    if (diff != 0) {
-      return false;
-      break;
-    }
-  }
-  return true;
-}
-
 bool canMove(vector<long long>& diffs) {
   int odd = 0, even = 0;
   for (long long diff : diffs) {
@@ -33,10 +23,10 @@ bool canMove(vector<long long>& diffs) {
 }
 
 void solution(int test_case) {
-  int answer = 0;
-  vector<long long> diffs;
+  int answer = 0, N;
   long long max_diff = 0;
-  int N;
+  vector<long long> diffs;
+
   cin >> N;
 
   for (int i = 0; i < N; i++) {
