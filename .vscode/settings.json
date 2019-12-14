@@ -21,4 +21,5 @@
     "xlocale": "cpp",
     "cmath": "cpp"
   },
+  "code-runner.customCommand": "cd $dir && g++ $fileName -o $fileNameWithoutExt && Get-Content data/input.txt | $dir$fileNameWithoutExt"
 }
