@@ -8,7 +8,7 @@ using namespace std;
 void solution(int test_case) {
   int answer;
 
-  cout << "#" << test_case << " " << answer << "\n";
+  cout << "#" << test_case;
 }
 
 int main() {
