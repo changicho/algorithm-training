@@ -1,28 +1,26 @@
 # 알고리즘 문제풀이
 
-백준, 삼성, 프로그래머스
+> 알고리즘 문제 풀이 저장소입니다.
 
-## repository의 구조 설명
+백준, 삼성, 프로그래머스 등등
 
-### 폴더의 경로 설명
+README.md 에 문제를 풀며 정리한 내용과 정답률 퍼센트, 원본 링크 등을 기록했습니다.
 
-문제출처/사용언어/난이도/문제/
+## 폴더 구조
 
-### 난이도 폴더
+폴더명에 문제 번호와 문제 종류 태그로 구성 되어있습니다
 
-문제 출처에 따라 난이도를 나눔
-이 외에도 README.md 에 정답률 퍼센트를 기록
+```sh
+번호_태그
+```
 
-### 문제 폴더
+data : input.txt, output.txt, data.txt
 
-폴더명 : 번호*난이도*태그 의 구조로 되어있다.
+description : 문제 내용을 명시한 README.md
 
-내부 폴더
+## 문제 태그
 
-- data : input.txt, output.txt
-- description : 문제 내용을 명시한 README.md
-
-## 문제 태그 종류
+다음 표에 나와있는 태그 외에도 다양한 태그들이 존재합니다.
 
 | 태그명       | 의미                    |
 | ------------ | ----------------------- |
@@ -73,24 +71,5 @@ to_string 메소드를 사용하는 경우 multiple definition of `vsnprintf' �
 - download mingw-w64-install.exe
 - setup to Version: 6.3.0, Architecture: i686, Threads: posix, Exception: dwarf and Build revision: 2.
 - 환경변수 설정 (바꿔주면 됨)
-  이렇게 해결함.
 
-## CodeRunner Shell Script 추가
-
-아래 내용들은 git bash에서 사용하는것을 전재로 한다.
-
-### code-runnder 실행 명령
-
-`custom_settings.md 파일 참고`
-
-스크립트 설명
-
-- 이전 콘솔 기록 초기화
-- bin 폴더 여부 판단후 없으면 생성
-- 프로그램 실행 결과와 output.txt와 비교
-  - 비교 구문을 comm 에서 diff로 변경, 공백과 newline을 무시하는 옵션을 추가했다.
-- data 폴더에 input.txt가 있는경우 읽어오고, 없는경우 콘솔에서 입력
-- 프로그램 실행 후, 결과를 콘솔과 my_output.txt에 출력한다.
-- data 폴더에 output.txt가 있는 경우, my_output.txt와 비교
-  - 비교후 맞았으면 CORRECT 출력
-- 실행이 끝난 후 workspace 경로로 다시 돌아옴
+이렇게 해결함.
