@@ -22,14 +22,14 @@ i번째 수가 N의 배수라면 i를 출력한다.
 
 ```cpp
 bool canDivide(string number, int m) {
-	int temp = 0;
+  int temp = 0;
 
-	for (int i = 0; i < number.length(); i++) {
-		temp *= 10;
-		temp += number[i]-'0';
-		temp %= m;
-	}
-	return temp == 0;
+  for (int i = 0; i < number.length(); i++) {
+    temp *= 10;
+    temp += number[i]-'0';
+    temp %= m;
+  }
+  return temp == 0;
 }
 ```
 
