@@ -1,0 +1,16 @@
+3
+happy
+new
+year
+
+3
+
+===
+
+4
+aba
+abab
+abcabc
+a
+
+1
