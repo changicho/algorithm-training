@@ -56,6 +56,8 @@ struct node {
 ```cpp
 // 메모리 할당으로 노드 생성
 newNode = (node *)malloc(sizeof(node));
+// new를 이용한 노드 생성
+node *rootNode = new node;
 
 // 값 선언
 newNode->value = value;
@@ -69,13 +71,16 @@ newNode->right = NULL;
 
 ```cpp
 void insert(node *cur, node *newNode) {
+  // 왼쪽에  삽입
   if (cur->x > newNode->x) {
     if (cur->left != NULL) {
       insert(cur->left, newNode);
     } else {
       cur->left = newNode;
     }
-  } else if (cur->x < newNode->x) {
+  }
+  // 오른쪽에 삽입
+  if (cur->x < newNode->x) {
     if (cur->right != NULL) {
       insert(cur->right, newNode);
     } else {

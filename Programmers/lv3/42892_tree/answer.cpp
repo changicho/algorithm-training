@@ -5,17 +5,9 @@
 #include <vector>
 
 using namespace std;
-
 struct info {
   int index, x, y;
 };
-
-bool compare(info a, info b) {
-  if (a.y != b.y) {
-    return a.y > b.y;
-  }
-  return a.x < b.x;
-}
 
 struct node {
   int index;
@@ -28,13 +20,16 @@ node *root;
 vector<vector<int>> answer(2);
 
 void insert(node *cur, node *newNode) {
+  // 왼쪽에  삽입
   if (cur->x > newNode->x) {
     if (cur->left != NULL) {
       insert(cur->left, newNode);
     } else {
       cur->left = newNode;
     }
-  } else if (cur->x < newNode->x) {
+  }
+  // 오른쪽에 삽입
+  if (cur->x < newNode->x) {
     if (cur->right != NULL) {
       insert(cur->right, newNode);
     } else {
@@ -61,6 +56,13 @@ void postorder(node *cur) {
   answer[1].push_back(cur->index);
 }
 
+bool compare(info a, info b) {
+  if (a.y != b.y) {
+    return a.y > b.y;
+  }
+  return a.x < b.x;
+}
+
 vector<vector<int>> solution(vector<vector<int>> nodeinfo) {
   vector<info> nodes;
 
@@ -76,25 +78,25 @@ vector<vector<int>> solution(vector<vector<int>> nodeinfo) {
 
   sort(nodes.begin(), nodes.end(), compare);
 
-  node *newNode;
-  newNode = (node *)malloc(sizeof(node));
-  info cur_root = nodes[0];
+  info first = nodes.front();
+  node *rootNode = new node;
 
-  newNode->index = cur_root.index;
-  newNode->x = cur_root.x;
-  newNode->left = NULL;
-  newNode->right = NULL;
+  rootNode->index = first.index;
+  rootNode->x = first.x;
+  rootNode->left = NULL;
+  rootNode->right = NULL;
 
-  root = newNode;
+  root = rootNode;
 
   for (int i = 1; i < nodes.size(); i++) {
     info cur = nodes[i];
 
-    newNode = (node *)malloc(sizeof(node));
-    newNode->index = cur.index;
-    newNode->x = cur.x;
-    newNode->left = newNode->right = NULL;
-    insert(root, newNode);
+    node *nextNode = new node;
+    nextNode->index = cur.index;
+    nextNode->x = cur.x;
+    nextNode->left = nextNode->right = NULL;
+
+    insert(root, nextNode);
   }
 
   preorder(root);
