@@ -1,12 +1,14 @@
 Etc/
-*.exe
 temp/
+
+*.exe
+*.out
 
 my_output.txt
 my_input.txt
 
 tempCodeRunnerFile.cpp
 
-result.txt
 *.sh
 answer.exe
+answer
