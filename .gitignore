@@ -14,3 +14,5 @@ answer.exe
 answer
 
 *.plist
+
+.vscode/
