@@ -54,8 +54,31 @@ description : 문제 내용을 명시한 README.md
 
 ### 컴파일러
 
-c_cpp의 경우 컴파일러 버전 c++11에 맞춤.
-vscode의 오류 발견은 c++17 버전으로 설정 (c_cpp_properties.json 설정 필요)
+c_cpp의 경우 컴파일러 버전 c++14를 사용합니다.
+
+g++를 사용할 때 다음 옵션을 추가합니다.
+
+```bash
+-std=c++14
+```
+
+vscode의 오류 발견은 c++14 버전으로 설정합니다.
+
+(c_cpp_properties.json 설정 필요)
+
+### input 읽어오기
+
+PowerShell
+
+```bash
+cd $dir && g++ -std=c++14 $fileName -o $fileNameWithoutExt  && Get-Content ./data/input.txt | $dir$fileNameWithoutExt
+```
+
+bash
+
+```bash
+cd $dir && g++ -std=c++14 $fileName -o $fileNameWithoutExt  && $dir$fileNameWithoutExt < ./data/input.txt
+```
 
 ## C_Cpp extention 설정
 
