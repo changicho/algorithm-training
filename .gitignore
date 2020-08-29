@@ -16,3 +16,5 @@ answer
 *.plist
 
 .vscode/
+
+.DS_STORE
