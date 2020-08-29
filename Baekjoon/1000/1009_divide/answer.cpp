@@ -5,16 +5,24 @@
 
 using namespace std;
 
+int divide(int number, int count) {
+  if (count == 1) {
+    return number;
+  }
+
+  int val = divide(number, count / 2);
+  if (count % 2 == 1) {
+    return (val * val * number) % 10;
+  }
+  return (val * val) % 10;
+}
+
 void solution() {
   int A, B;
   cin >> A >> B;
 
   A = A % 10;
-  int temp = 1;
-
-  for (int i = 0; i < B; i++) {
-    temp = (temp * A) % 10;
-  }
+  int temp = divide(A, B);
 
   if (temp == 0) {
     temp = 10;
