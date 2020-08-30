@@ -44,3 +44,7 @@ empty_square = ceil(h2) - floor(h1);
 ```
 
 ## 고생한 점
+
+c++ 언어에서 type casting이 필요함
+
+int > long long 형태
