@@ -1,0 +1,46 @@
+ABC ABCDAB ABCDABCDABDE
+ABCDABD
+
+1
+16
+
+===
+
+ababababababababa
+ababa
+
+7
+1 3 5 7 9 11 13 
+
+===
+
+abacabacabacabaca
+abaca
+
+4
+1 5 9 13 
+
+===
+
+aaaaaaaaaaaaaaaaaaa
+aaaaa
+
+15
+1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 
+
+===
+
+banana banana
+ana
+
+4
+2 4 9 11
+
+
+===
+
+ab  ab
+  ab
+
+1
+3 
