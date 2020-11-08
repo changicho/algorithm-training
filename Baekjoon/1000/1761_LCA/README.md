@@ -83,7 +83,7 @@ int lowestCommonAncestor(int x, int y) {
 
   return parents[x][0];
 }
-``
+```
 
 ## 정리
 
@@ -92,4 +92,3 @@ int lowestCommonAncestor(int x, int y) {
 |      28      |       12       |
 
 ## 고생한 점
-```
