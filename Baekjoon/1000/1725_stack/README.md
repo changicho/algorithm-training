@@ -42,7 +42,7 @@ for (int i = 0; i <= N; i++) {
     long long top = s.top();
     s.pop();
 
-    int width = s.empty() ? i : i - s.top() - 1;
+    int width = s.empty() ? i : (i - s.top() - 1);
 
     answer = max(answer, histograms[top] * width);
   }

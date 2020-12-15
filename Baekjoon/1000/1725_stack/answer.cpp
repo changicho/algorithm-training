@@ -8,11 +8,11 @@ using namespace std;
 
 void solution() {
   int N;
-  long long answer = 0;
-  stack<long long> s;
+  int answer = 0;
+  stack<int> s;
   cin >> N;
 
-  vector<long long> histograms(N);
+  vector<int> histograms(N);
 
   for (int i = 0; i < N; i++) {
     cin >> histograms[i];
@@ -23,7 +23,7 @@ void solution() {
       long long top = s.top();
       s.pop();
 
-      int width = s.empty() ? i : i - s.top() - 1;
+      int width = s.empty() ? i : (i - s.top() - 1);
 
       answer = max(answer, histograms[top] * width);
     }
