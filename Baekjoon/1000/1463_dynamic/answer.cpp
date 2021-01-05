@@ -5,37 +5,28 @@
 
 using namespace std;
 
-int dp[1000001];
-
-// dp[n] = min(dp[n-1], dp[n/2], dp[n/3]) + 1
-// 나누어 떨어지는 경우만
-
-void dynamic() {
-  dp[1] = 0;
-  dp[2] = 1;
-  dp[3] = 1;
-}
-
 void solution() {
+  int counts[1000001];  // counts[n] = min(counts[n-1], counts[n/2], counts[n/3]) + 1
   int N;
   cin >> N;
 
+  counts[1] = 0;
+  counts[2] = 1;
+  counts[3] = 1;
+
   for (int i = 4; i <= N; i++) {
-    int div = -1;
+    int before_count = counts[i - 1];
+    if (i % 2 == 0) {
+      before_count = min(before_count, counts[i / 2]);
+    }
     if (i % 3 == 0) {
-      div = dp[i / 3];
-    } else if (i % 2 == 0) {
-      div = dp[i / 2];
+      before_count = min(before_count, counts[i / 3]);
     }
 
-    if (div == -1) {
-      dp[i] = dp[i - 1] + 1;
-    } else {
-      dp[i] = min(dp[i - 1], div) + 1;
-    }
+    counts[i] = before_count + 1;
   }
 
-  cout << dp[N] << "\n";
+  cout << counts[N] << "\n";
 }
 
 int main() {
@@ -43,7 +34,6 @@ int main() {
   cin.tie(NULL);
   cout.tie(NULL);
 
-  dynamic();
   solution();
 
   return 0;
