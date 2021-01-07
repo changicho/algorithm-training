@@ -1,0 +1,16 @@
+5 10
+apple
+actual
+banana
+brick
+courts
+1 l
+1 b
+1 c
+1 n
+2 l
+2 b
+1 s
+2 c
+2 s
+2 n
