@@ -35,10 +35,10 @@ X에서 모든 노드로 가는 costs 배열을 갱신하면 X에서 돌아갈 �
 따라서 다익스트라를 2번 수행해 문제에서 요구하는 정답을 구할 수 있다.
 
 ```cpp
-void dijkstra(int start, vector<Edge> graph[], int *costs) {
+void dijkstra(int start, vector<vector<Edge>> &graph, vector<int> &costs) {
   priority_queue<Status> pq;
 
-  fill(costs, costs + N + 1, MAX);
+  fill(costs.begin(), costs.end(), MAX);
   costs[start] = 0;
 
   pq.push({start, 0});

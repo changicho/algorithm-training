@@ -21,15 +21,15 @@ struct Status {
 };
 
 int N, M;
-int costToTarget[1001];
-int costFromTarget[1001];
-vector<Edge> toGraph[1001];
-vector<Edge> fromGraph[1001];
+vector<int> costToTarget;
+vector<int> costFromTarget;
+vector<vector<Edge>> toGraph;
+vector<vector<Edge>> fromGraph;
 
-void dijkstra(int start, vector<Edge> graph[], int *costs) {
+void dijkstra(int start, vector<vector<Edge>> &graph, vector<int> &costs) {
   priority_queue<Status> pq;
 
-  fill(costs, costs + N + 1, MAX);
+  fill(costs.begin(), costs.end(), MAX);
   costs[start] = 0;
 
   pq.push({start, 0});
@@ -53,6 +53,11 @@ void dijkstra(int start, vector<Edge> graph[], int *costs) {
 void solution() {
   int X;
   cin >> N >> M >> X;
+
+  toGraph.resize(N + 1);
+  fromGraph.resize(N + 1);
+  costToTarget.resize(N + 1);
+  costFromTarget.resize(N + 1);
 
   int from, to, cost;
   for (int i = 0; i < M; i++) {
