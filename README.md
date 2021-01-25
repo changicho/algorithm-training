@@ -4,7 +4,7 @@
 
 README.md 에 문제를 풀며 정리한 내용과 정답률 퍼센트, 원본 링크 등을 기록했습니다.
 
-[문제 풀이 정리 템플릿 보기]("./templates/c++/boj/README.md")
+[문제 풀이 정리 템플릿 보기](./templates/c++/boj/README.md)
 
 템플릿을 사용하시는것은 자유입니다. 사용하시면 star를 눌러주세요
 
