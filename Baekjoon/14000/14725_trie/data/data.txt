@@ -1,0 +1,28 @@
+3
+2 B A
+4 A B C D
+2 A C
+
+A
+--B
+----C
+------D
+--C
+B
+--A
+
+===
+
+4
+2 KIWI BANANA
+2 KIWI APPLE
+2 APPLE APPLE
+3 APPLE BANANA KIWI
+
+APPLE
+--APPLE
+--BANANA
+----KIWI
+KIWI
+--APPLE
+--BANANA
