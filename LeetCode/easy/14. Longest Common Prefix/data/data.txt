@@ -1,0 +1,12 @@
+Input: strs = ["flower","flow","flight"]
+Output: "fl"
+
+===
+
+Input: strs = ["dog","racecar","car"]
+Output: ""
+
+===
+
+Input: strs = ["asd","asdf","asdfg"]
+Output: "asd"
