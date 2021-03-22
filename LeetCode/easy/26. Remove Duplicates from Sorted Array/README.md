@@ -62,6 +62,27 @@ nums.erase(unique(nums.begin(), nums.end()), nums.end());
 return nums.size();
 ```
 
+실제로 unique함수는 아래 투포인터를 이용한 방법과 유사하다.
+
+```cpp
+template <class ForwardIterator>
+  ForwardIterator unique (ForwardIterator first, ForwardIterator last) {
+  if (first==last) {
+    return last;
+  }
+
+  ForwardIterator result = first;
+  while (++first != last) {
+    if (!(*result == *first)) {
+      // or: if (!pred(*result,*first)) for version (2)
+      *(++result)=*first;
+    }
+  }
+
+  return ++result;
+}
+```
+
 ### 투포인터 이용
 
 문제에서 요구하는 nums의 갱신은, return한 length길이까지만 unique한 값이 있으면 된다는 것이다.
