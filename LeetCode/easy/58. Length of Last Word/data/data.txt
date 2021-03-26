@@ -1,0 +1,12 @@
+Input: s = "Hello World"
+Output: 5
+
+===
+
+Input: s = " "
+Output: 0
+
+===
+
+Input: s = "b   a    "
+Output: 1
