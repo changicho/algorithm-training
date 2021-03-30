@@ -1,0 +1,17 @@
+Input: x = 4
+Output: 2
+
+===
+
+Input: x = 8
+Output: 2
+
+===
+
+Input: x = 0
+Output: 0
+
+===
+
+Input: x = 36
+Output: 6
