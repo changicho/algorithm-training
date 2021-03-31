@@ -1,0 +1,7 @@
+Input: n = 2
+Output: 2
+
+===
+
+Input: n = 3
+Output: 3
