@@ -1,0 +1,22 @@
+Input: s = "abcabcbb"
+Output: 3
+
+===
+
+Input: s = "bbbbb"
+Output: 1
+
+===
+
+Input: s = "pwwkew"
+Output: 3
+
+===
+
+Input: s = ""
+Output: 0
+
+===
+
+Input: s = "abba"
+Output: 2
