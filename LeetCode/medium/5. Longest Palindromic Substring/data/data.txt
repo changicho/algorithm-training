@@ -1,0 +1,17 @@
+Input: s = "babad"
+Output: "bab"
+
+===
+
+Input: s = "cbbd"
+Output: "bb"
+
+===
+
+Input: s = "a"
+Output: "a"
+
+===
+
+Input: s = "ac"
+Output: "a"
