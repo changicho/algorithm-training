@@ -1,0 +1,12 @@
+Input: s = "PAYPALISHIRING", numRows = 3
+Output: "PAHNAPLSIIGYIR"
+
+===
+
+Input: s = "PAYPALISHIRING", numRows = 4
+Output: "PINALSIGYAHRPI"
+
+===
+
+Input: s = "A", numRows = 1
+Output: "A"
