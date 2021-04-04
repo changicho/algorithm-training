@@ -1,0 +1,22 @@
+Input: s = "42"
+Output: 42
+
+===
+
+Input: s = "   -42"
+Output: -42
+
+===
+
+Input: s = "4193 with words"
+Output: 4193
+
+===
+
+Input: s = "words and 987"
+Output: 0
+
+===
+
+Input: s = "-91283472332"
+Output: -2147483648
