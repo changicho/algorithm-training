@@ -1,0 +1,22 @@
+Input: root = [3,9,20,null,null,15,7]
+Output: 3
+
+===
+
+Input: root = [1,null,2]
+Output: 2
+
+===
+
+Input: root = []
+Output: 0
+
+===
+
+Input: root = [0]
+Output: 1
+
+===
+
+Input: root = [0,2,4,1,null,3,-1,5,1,null,6,null,8]
+Output: 4
