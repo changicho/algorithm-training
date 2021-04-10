@@ -1,0 +1,12 @@
+Input: digits = "23"
+Output: ["ad","ae","af","bd","be","bf","cd","ce","cf"]
+
+===
+
+Input: digits = ""
+Output: []
+
+===
+
+Input: digits = "2"
+Output: ["a","b","c"]
