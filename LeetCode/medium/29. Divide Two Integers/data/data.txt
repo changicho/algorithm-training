@@ -1,0 +1,17 @@
+Input: dividend = 10, divisor = 3
+Output: 3
+
+===
+
+Input: dividend = 7, divisor = -3
+Output: -2
+
+===
+
+Input: dividend = 0, divisor = 1
+Output: 0
+
+===
+
+Input: dividend = 1, divisor = 1
+Output: 1
