@@ -1,0 +1,7 @@
+Input: n = 19
+Output: true
+
+===
+
+Input: n = 2
+Output: false
