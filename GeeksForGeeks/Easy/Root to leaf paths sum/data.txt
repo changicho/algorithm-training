@@ -1,0 +1,7 @@
+Input : 6 3 5 2 5 N 4 N N 7 4 N N N N N N
+Output : 13997
+
+===
+
+Input : 10 20 30 40 60
+Output : 2630
