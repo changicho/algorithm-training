@@ -68,4 +68,34 @@ bool detectLoop(Node* head) {
 }
 ```
 
+### 플로이드 사이클 찾기 알고리즘
+
+| 내 코드 (s) | 시간 복잡도 | 공간 복잡도 |
+| :---------: | :---------: | :---------: |
+|    0.12     |    O(N)     |    O(1)     |
+
+두 포인터를 이용한다.
+
+처음 포인터는 한칸씩 이동하고, 두번째 포인터는 두칸씩 이동한다.
+
+만약 사이클이 존재할 경우 두 포인터는 한 지점에서 만난다.
+
+사이클이 존재하지 않을 경우 두번째 포인터가 먼저 끝점에 도달한다.
+
+```cpp
+bool detectLoop(Node* head) {
+  if (head->next == NULL) return false;
+
+  Node *first = head->next, *second = head->next->next;
+
+  while (first != second) {
+    if (second == NULL || second->next == NULL) return false;
+    first = first->next;
+    second = second->next->next;
+  }
+
+  return true;
+}
+```
+
 ## 고생한 점

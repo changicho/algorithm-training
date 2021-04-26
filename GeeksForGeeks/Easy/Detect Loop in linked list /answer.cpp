@@ -50,3 +50,22 @@ class Solution {
     return true;
   }
 };
+
+// floyd cycle search
+
+class Solution {
+ public:
+  bool detectLoop(Node* head) {
+    if (head->next == NULL) return false;
+
+    Node *first = head->next, *second = head->next->next;
+
+    while (first != second) {
+      if (second == NULL || second->next == NULL) return false;
+      first = first->next;
+      second = second->next->next;
+    }
+
+    return true;
+  }
+};
