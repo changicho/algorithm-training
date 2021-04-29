@@ -1,0 +1,13 @@
+Input:
+LinkList1 = 3->6->9->common
+LinkList2 = 10->common
+common = 15->30->NULL
+Output: 15
+
+===
+
+Input: 
+Linked List 1 = 4->1->common
+Linked List 2 = 5->6->1->common
+common = 8->4->5->NULL
+Output: 8
