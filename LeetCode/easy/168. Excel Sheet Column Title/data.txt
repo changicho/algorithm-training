@@ -1,0 +1,17 @@
+Input: columnNumber = 1
+Output: "A"
+
+===
+
+Input: columnNumber = 28
+Output: "AB"
+
+===
+
+Input: columnNumber = 701
+Output: "ZY"
+
+===
+
+Input: columnNumber = 2147483647
+Output: "FXSHRXW"
