@@ -1,0 +1,17 @@
+Input: columnTitle = "A"
+Output: 1
+
+===
+
+Input: columnTitle = "AB"
+Output: 28
+
+===
+
+Input: columnTitle = "ZY"
+Output: 701
+
+===
+
+Input: columnTitle = "FXSHRXW"
+Output: 2147483647
