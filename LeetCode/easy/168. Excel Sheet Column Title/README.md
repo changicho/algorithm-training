@@ -58,4 +58,22 @@ string convertToTitle(int columnNumber) {
 }
 ```
 
+### 재귀함수 이용
+
+| 내 코드 (ms) | 시간 복잡도 | 공간 복잡도 |
+| :----------: | :---------: | :---------: |
+|      0       |    O(1)     |    O(1)     |
+
+현재 자리수에 해당하는 문자를 만들었을 경우, 나머지 문자들은 재귀함수를 호출해 풀이할 수 있다.
+
+columnNumber가 0인 경우 아무 문자를 추가하지 않는다.
+
+다음 재귀를 호출할 때 convertToTitle((columnNumber - 1) / 26)를 이용한다.
+
+```cpp
+string convertToTitle(int columnNumber) {
+  return columnNumber == 0 ? "" : convertToTitle((columnNumber - 1) / 26) + (char)((columnNumber - 1) % 26 + 'A');
+}
+```
+
 ## 고생한 점
