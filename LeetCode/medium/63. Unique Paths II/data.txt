@@ -1,0 +1,7 @@
+Input: obstacleGrid = [[0,0,0],[0,1,0],[0,0,0]]
+Output: 2
+
+===
+
+Input: obstacleGrid = [[0,1],[0,0]]
+Output: 1
