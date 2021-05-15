@@ -1,10 +1,13 @@
 #include <algorithm>
 #include <iostream>
+#include <sstream>
 #include <stack>
 #include <string>
 #include <vector>
 
 using namespace std;
+
+// use stack
 
 class Solution {
  public:
@@ -56,5 +59,33 @@ class Solution {
 
     if (temp.length() > 0) ret.push_back(temp);
     return ret;
+  }
+};
+
+// use stringstream
+
+class Solution {
+ public:
+  string simplifyPath(string path) {
+    string res = "";
+    string dir;
+    vector<string> st;
+    stringstream ss(path);
+
+    while (getline(ss, dir, '/')) {
+      if (dir == "" || dir == ".") {
+        continue;
+      } else if (dir == ".." && !st.empty()) {
+        st.pop_back();
+      } else if (dir != "..") {
+        st.push_back(dir);
+      }
+    }
+
+    for (string dir : st) {
+      res += "/" + dir;
+    }
+
+    return res.empty() ? "/" : res;
   }
 };
