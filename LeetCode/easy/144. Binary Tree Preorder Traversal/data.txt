@@ -1,0 +1,22 @@
+Input: root = [1,null,2,3]
+Output: [1,2,3]
+
+===
+
+Input: root = []
+Output: []
+
+===
+
+Input: root = [1]
+Output: [1]
+
+===
+
+Input: root = [1,2]
+Output: [1,2]
+
+===
+
+Input: root = [1,null,2]
+Output: [1,2]
