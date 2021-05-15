@@ -1,0 +1,17 @@
+Input: path = "/home/"
+Output: "/home"
+
+===
+
+Input: path = "/../"
+Output: "/"
+
+===
+
+Input: path = "/home//foo/"
+Output: "/home/foo"
+
+===
+
+Input: path = "/a/./b/../../c/"
+Output: "/c"
