@@ -124,4 +124,29 @@ void reverseGrayCode(vector<int> &array, int number, int n, int index) {
 }
 ```
 
+### 반복문 (동적 계획법)
+
+| 내 코드 (ms) | 시간 복잡도 | 공간 복잡도 |
+| :----------: | :---------: | :---------: |
+|      8       |   O(2^N)    |    O(N)     |
+
+앞서 설명한 그레이코드를 만드는 방법을 이용한다.
+
+현재 그레이 코드를 만들 때 지금까지 만든 그레이 코드를 역순으로 순회하며, 최상위 비트를 추가해준다.
+
+```cpp
+vector<int> grayCode(int n) {
+  vector<int> answer = {0};
+  int limit = 1 << n;
+
+  for (int size = 1; size < limit; size *= 2) {
+    for (int i = size - 1; i >= 0; i--) {
+      answer.push_back(answer[i] + size);
+    }
+  }
+
+  return answer;
+}
+```
+
 ## 고생한 점

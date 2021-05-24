@@ -85,3 +85,21 @@ class Solution {
     reverseGrayCode(array, number, n, index + 1);
   }
 };
+
+// use dynamic programming
+
+class Solution {
+ public:
+  vector<int> grayCode(int n) {
+    vector<int> answer = {0};
+    int limit = 1 << n;
+
+    for (int size = 1; size < limit; size *= 2) {
+      for (int i = size - 1; i >= 0; i--) {
+        answer.push_back(answer[i] + size);
+      }
+    }
+
+    return answer;
+  }
+};
