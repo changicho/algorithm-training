@@ -1,0 +1,12 @@
+Input: s1 = "aabcc", s2 = "dbbca", s3 = "aadbbcbcac"
+Output: true
+
+===
+
+Input: s1 = "aabcc", s2 = "dbbca", s3 = "aadbbbaccc"
+Output: false
+
+===
+
+Input: s1 = "", s2 = "", s3 = ""
+Output: true
