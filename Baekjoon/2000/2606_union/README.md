@@ -29,6 +29,32 @@ union_find의 경우 최악 O(log(N)) 정도이며 union_merge의 경우 에커�
 
 따라서 이 방법 또한 제한 시간 1초 내에 사용할 수 있다.
 
+### BFS
+
+1번 노드에서부터 도달할 수 있는 모든 노드들을 검사한다.
+
+이후 1번 노드를 제외한 방문한 노드의 갯수를 센다.
+
+```cpp
+queue<int> q;
+bool visited[101] = {false};
+int answer = -1;
+q.push(1);
+
+while (!q.empty()) {
+  int cur = q.front();
+  q.pop();
+
+  if (visited[cur]) continue;
+  visited[cur] = true;
+  answer += 1;
+
+  for (int next : graph[cur]) {
+    q.push(next);
+  }
+}
+```
+
 ### 유니온 파인드
 
 한 정점에서 루트 노드를 찾는 find 함수의 경우 다음과 같다.
@@ -50,8 +76,6 @@ int union_find(int index) {
 
 ```cpp
 void union_merge(int first, int second) {
-  // 입력받은 인자의 순서를 고려하지 않기 위해
-  // 하나의 기준을 적용
   if (first > second) {
     swap(first, second);
   }
@@ -59,21 +83,15 @@ void union_merge(int first, int second) {
   first = union_find(first);
   second = union_find(second);
 
-  // 두 루트 노드가 같은경우는 merge할 필요 없음
   if (first == second) {
     return;
   }
 
-  // level은 각 루트 노드의 자식 노드의 개수 나타낸다.
-  // 자식 노드의 개수가 큰 루트에 다른 루트를 연결하기 위함이다.
-  if (level[first] < level[second]) {
+  if (first > second) {
     swap(first, second);
   }
 
-  // 한쪽의 루트를 다른 루트로 변경한다.
   links[second] = first;
-  level[first] += level[second];
-  level[second] = 0;
 }
 ```
 

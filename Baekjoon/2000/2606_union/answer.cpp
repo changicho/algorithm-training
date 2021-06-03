@@ -6,7 +6,6 @@
 using namespace std;
 
 int links[101];
-int level[101];
 
 int union_find(int index) {
   if (links[index] == index) {
@@ -27,13 +26,11 @@ void union_merge(int first, int second) {
     return;
   }
 
-  if (level[first] < level[second]) {
+  if (first > second) {
     swap(first, second);
   }
 
   links[second] = first;
-  level[first] += level[second];
-  level[second] = 0;
 }
 
 void solution() {
@@ -43,7 +40,6 @@ void solution() {
 
   for (int i = 1; i <= N; i++) {
     links[i] = i;
-    level[i] = 1;
   }
 
   for (int i = 0; i < M; i++) {
@@ -53,7 +49,12 @@ void solution() {
     union_merge(to, from);
   }
 
-  cout << level[links[1]] - 1 << "\n";
+  int count = -1;
+  for (int i = 1; i <= N; i++) {
+    if (union_find(i) == 1) count += 1;
+  }
+
+  cout << count << "\n";
 }
 
 int main() {
