@@ -1,0 +1,7 @@
+Input: "abaccdeff"
+Output:  'b'
+
+===
+
+Input: "aabccd"
+Output:  'b'
