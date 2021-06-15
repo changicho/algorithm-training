@@ -1,0 +1,7 @@
+Input: num = 38
+Output: 2
+
+===
+
+Input: num = 0
+Output: 0
