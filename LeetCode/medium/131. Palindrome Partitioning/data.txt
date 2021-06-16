@@ -1,0 +1,7 @@
+Input: s = "aab"
+Output: [["a","a","b"],["aa","b"]]
+
+===
+
+Input: s = "a"
+Output: [["a"]]
