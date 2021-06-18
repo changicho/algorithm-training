@@ -1,0 +1,12 @@
+Input: root = [3,9,20,null,null,15,7]
+Output: [[15,7],[9,20],[3]]
+
+===
+
+Input: root = [1]
+Output: [[1]]
+
+===
+
+Input: root = []
+Output: []
