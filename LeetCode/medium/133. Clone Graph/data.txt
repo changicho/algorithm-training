@@ -1,0 +1,17 @@
+Input: adjList = [[2,4],[1,3],[2,4],[1,3]]
+Output: [[2,4],[1,3],[2,4],[1,3]]
+
+===
+
+Input: adjList = [[]]
+Output: [[]]
+
+===
+
+Input: adjList = []
+Output: []
+
+===
+
+Input: adjList = [[2],[1]]
+Output: [[2],[1]]
