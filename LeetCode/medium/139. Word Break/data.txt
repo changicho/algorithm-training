@@ -1,0 +1,12 @@
+Input: s = "leetcode", wordDict = ["leet","code"]
+Output: true
+
+===
+
+Input: s = "applepenapple", wordDict = ["apple","pen"]
+Output: true
+
+===
+
+Input: s = "catsandog", wordDict = ["cats","dog","sand","and","cat"]
+Output: false
