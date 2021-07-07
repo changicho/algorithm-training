@@ -1,0 +1,17 @@
+Input: s = "3[a]2[bc]"
+Output: "aaabcbc"
+
+===
+
+Input: s = "3[a2[c]]"
+Output: "accaccacc"
+
+===
+
+Input: s = "2[abc]3[cd]ef"
+Output: "abcabccdcdcdef"
+
+===
+
+Input: s = "abc3[cd]xyz"
+Output: "abccdcdcdxyz"
