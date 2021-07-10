@@ -78,4 +78,16 @@ int maxAreaOfIsland(vector<vector<int>>& grid) {
 }
 ```
 
+좌표를 나타내는 구조체 struct끼리 더할 때 다음과 같이 operator를 오버로딩 할 수 있다.
+
+```cpp
+struct Axis {
+  int y, x;
+
+  Axis operator+(const Axis& B) const {
+    return {y + B.y, x + B.x};
+  }
+};
+```
+
 ## 고생한 점
