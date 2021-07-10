@@ -1,0 +1,7 @@
+Input: employees = [[1,5,[2,3]],[2,3,[]],[3,3,[]]], id = 1
+Output: 11
+
+===
+
+Input: employees = [[1,2,[5]],[5,-3,[]]], id = 5
+Output: -3
