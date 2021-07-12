@@ -1,0 +1,7 @@
+Input: expression = "2-1-1"
+Output: [0,2]
+
+===
+
+Input: expression = "2*3-4*5"
+Output: [-34,-14,-10,-10,10]
