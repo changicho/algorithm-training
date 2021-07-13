@@ -1,0 +1,17 @@
+Input: s = "the sky is blue"
+Output: "blue is sky the"
+
+===
+
+Input: s = "  hello world  "
+Output: "world hello"
+
+===
+
+Input: s = "a good   example"
+Output: "example good a"
+
+===
+
+Input: s = "  Bob    Loves  Alice   "
+Output: "Alice Loves Bob"
