@@ -1,0 +1,12 @@
+Input: sentence = ["hello","world"], rows = 2, cols = 8
+Output: 1
+
+===
+
+Input: sentence = ["a", "bcd", "e"], rows = 3, cols = 6
+Output: 2
+
+===
+
+Input: sentence = ["i","had","apple","pie"], rows = 4, cols = 5
+Output: 1
