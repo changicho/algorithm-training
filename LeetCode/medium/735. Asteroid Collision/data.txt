@@ -1,0 +1,17 @@
+Input: asteroids = [5,10,-5]
+Output: [5,10]
+
+===
+
+Input: asteroids = [8,-8]
+Output: []
+
+===
+
+Input: asteroids = [10,2,-5]
+Output: [10]
+
+===
+
+Input: asteroids = [-2,-1,1,2]
+Output: [-2,-1,1,2]
