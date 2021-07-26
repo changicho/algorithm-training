@@ -1,0 +1,12 @@
+Input: nestedList = [[1,1],2,[1,1]]
+Output: 10
+
+===
+
+Input: nestedList = [1,[4,[6]]]
+Output: 27
+
+===
+
+Input: nestedList = [0]
+Output: 0
