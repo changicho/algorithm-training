@@ -1,0 +1,5 @@
+Input
+["WordDistance", "shortest", "shortest"]
+[[["practice", "makes", "perfect", "coding", "makes"]], ["coding", "practice"], ["makes", "coding"]]
+Output
+[null, 3, 1]
