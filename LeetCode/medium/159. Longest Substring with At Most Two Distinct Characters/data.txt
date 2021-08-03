@@ -1,0 +1,7 @@
+Input: s = "eceba"
+Output: 3
+
+===
+
+Input: s = "ccaabbb"
+Output: 5
