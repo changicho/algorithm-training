@@ -1,0 +1,17 @@
+Input: s = "ab", t = "acb"
+Output: true
+
+===
+
+Input: s = "", t = ""
+Output: false
+
+===
+
+Input: s = "a", t = ""
+Output: true
+
+===
+
+Input: s = "", t = "A"
+Output: true
