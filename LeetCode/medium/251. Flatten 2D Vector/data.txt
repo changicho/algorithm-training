@@ -1,0 +1,5 @@
+Input
+["Vector2D", "next", "next", "next", "hasNext", "hasNext", "next", "hasNext"]
+[[[[1, 2], [3], [4]]], [], [], [], [], [], [], []]
+Output
+[null, 1, 2, 3, true, true, 4, false]
