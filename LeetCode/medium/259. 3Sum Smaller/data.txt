@@ -1,0 +1,12 @@
+Input: nums = [-2,0,1,3], target = 2
+Output: 2
+
+===
+
+Input: nums = [], target = 0
+Output: 0
+
+===
+
+Input: nums = [0], target = 0
+Output: 0
