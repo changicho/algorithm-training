@@ -1,0 +1,12 @@
+Input: s = "code"
+Output: false
+
+===
+
+Input: s = "aab"
+Output: true
+
+===
+
+Input: s = "carerac"
+Output: true
