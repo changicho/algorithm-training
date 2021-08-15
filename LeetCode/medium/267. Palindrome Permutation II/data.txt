@@ -1,0 +1,7 @@
+Input: s = "aabb"
+Output: ["abba","baab"]
+
+===
+
+Input: s = "abc"
+Output: []
