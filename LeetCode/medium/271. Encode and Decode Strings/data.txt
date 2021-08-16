@@ -1,0 +1,7 @@
+Input: dummy_input = ["Hello","World"]
+Output: ["Hello","World"]
+
+===
+
+Input: dummy_input = [""]
+Output: [""]
