@@ -1,0 +1,7 @@
+Input: n = 5, bad = 4
+Output: 4
+
+===
+
+Input: n = 1, bad = 1
+Output: 1
