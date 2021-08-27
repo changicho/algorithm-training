@@ -1,0 +1,12 @@
+Input: instructions = "GGLLGG"
+Output: true
+
+===
+
+Input: instructions = "GG"
+Output: false
+
+===
+
+Input: instructions = "GL"
+Output: true
