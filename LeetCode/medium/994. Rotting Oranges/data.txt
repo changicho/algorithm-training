@@ -1,0 +1,12 @@
+Input: grid = [[2,1,1],[1,1,0],[0,1,1]]
+Output: 4
+
+===
+
+Input: grid = [[2,1,1],[0,1,1],[1,0,1]]
+Output: -1
+
+===
+
+Input: grid = [[0,2]]
+Output: 0
