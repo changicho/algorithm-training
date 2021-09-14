@@ -1,0 +1,7 @@
+Input: values = [8,1,5,2,6]
+Output: 11
+
+===
+
+Input: values = [1,2]
+Output: 2
