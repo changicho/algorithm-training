@@ -1,0 +1,7 @@
+Input: n = 10
+Output: 12
+
+===
+
+Input: n = 1
+Output: 1
