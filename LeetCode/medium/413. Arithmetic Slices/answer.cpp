@@ -35,3 +35,28 @@ class Solution {
     return answer;
   }
 };
+
+// use dynamic programming one pass
+
+class Solution {
+ public:
+  int numberOfArithmeticSlices(vector<int>& nums) {
+    int size = nums.size();
+    if (size < 3) return 0;
+
+    vector<int> dp(size, 0);  // i번째 index가 끝 range일 때의 arithmetic 개수
+    dp[0] = 0;
+    dp[1] = 0;
+    dp[2] = nums[2] - nums[1] == nums[1] - nums[0] ? 1 : 0;
+
+    int answer = dp[2];
+    for (int i = 3; i < size; ++i) {
+      int left = nums[i - 1] - nums[i - 2];
+      int right = nums[i] - nums[i - 1];
+
+      dp[i] = right == left ? dp[i - 1] + 1 : 0;
+      answer += dp[i];
+    }
+    return answer;
+  }
+};
