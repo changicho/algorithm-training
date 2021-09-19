@@ -109,4 +109,72 @@ void solve(vector<vector<char>>& board) {
 }
 ```
 
+### BFS with update fast
+
+| 내 코드 (ms) | 시간 복잡도 | 공간 복잡도 |
+| :----------: | :---------: | :---------: |
+|      12      |  O(N \* M)  |  O(N \* M)  |
+
+edge에 붙어있는 'O' 외에 다른 'O'들은 모두 X로 바뀔 것이다.
+
+따라서 edge에 붙은 'O'만 BFS로 탐색하고, 이후 one pass를 통해 업데이트한다.
+
+```cpp
+void BFS(vector<vector<char>>& board, Axis axis, char skip, char newValue) {
+  if (board[axis.y][axis.x] != skip) return;
+
+  int rows = board.size();
+  int cols = board.front().size();
+
+  queue<Axis> q;
+  q.push(axis);
+  board[axis.y][axis.x] = newValue;
+
+  while (!q.empty()) {
+    Axis cur = q.front();
+    q.pop();
+
+    for (Axis dir : dirs) {
+      Axis next = {cur.y + dir.y, cur.x + dir.x};
+
+      if (next.x < 0 || next.x >= cols || next.y < 0 || next.y >= rows)
+        continue;
+      if (board[next.y][next.x] != skip) continue;
+
+      board[next.y][next.x] = newValue;
+      q.push(next);
+    }
+  }
+}
+
+void solve(vector<vector<char>>& board) {
+  int rows = board.size();
+  int cols = board.front().size();
+
+  vector<Axis> edges;
+  for (int y = 0; y < rows; y++) {
+    if (board[y][0] == 'O') edges.push_back({y, 0});
+    if (board[y][cols - 1] == 'O') edges.push_back({y, cols - 1});
+  }
+  for (int x = 0; x < cols; x++) {
+    if (board[0][x] == 'O') edges.push_back({0, x});
+    if (board[rows - 1][x] == 'O') edges.push_back({rows - 1, x});
+  }
+
+  for (Axis edge : edges) {
+    BFS(board, edge, 'O', 'E');
+  }
+
+  for (int y = 0; y < rows; y++) {
+    for (int x = 0; x < cols; x++) {
+      if (board[y][x] == 'O') {
+        board[y][x] = 'X';
+      } else if (board[y][x] == 'E') {
+        board[y][x] = 'O';
+      }
+    }
+  }
+}
+```
+
 ## 고생한 점
