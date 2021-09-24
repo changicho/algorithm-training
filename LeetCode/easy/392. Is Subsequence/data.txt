@@ -1,0 +1,7 @@
+Input: s = "abc", t = "ahbgdc"
+Output: true
+
+===
+
+Input: s = "axc", t = "ahbgdc"
+Output: false
