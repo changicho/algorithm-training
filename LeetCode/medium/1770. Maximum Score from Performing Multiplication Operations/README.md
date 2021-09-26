@@ -106,4 +106,46 @@ int maximumScore(vector<int>& nums, vector<int>& multipliers) {
 }
 ```
 
+### 동적 계획법 (bottom-up)
+
+| 내 코드 (ms) | 시간 복잡도 | 공간 복잡도 |
+| :----------: | :---------: | :---------: |
+|     280      |   O(N^2)    |    O(N)     |
+
+```cpp
+int maximumScore(vector<int>& nums, vector<int>& multipliers) {
+  int n = nums.size();
+  int m = multipliers.size();
+  int diff = n - m;
+
+  vector<int> dp(m, 0), before(m, 0);
+
+  // initialize
+  for (int left = 0; left < n - diff; left++) {
+    int right = left;
+
+    int fromLeft = nums[left] * multipliers[m - 1];
+    int fromRight = nums[right + diff] * multipliers[m - 1];
+
+    dp[right] = max(fromLeft, fromRight);
+  }
+
+  for (int length = 1; length < m; length++) {
+    for (int left = 0; left < n - length - diff; left++) {
+      int right = left + length;
+
+      int fromLeft = dp[right] + nums[left] * multipliers[m - 1 - length];
+      int fromRight =
+          dp[right - 1] + nums[right + diff] * multipliers[m - 1 - length];
+
+      before[right] = max(fromLeft, fromRight);
+    }
+
+    swap(dp, before);
+  }
+
+  return dp.back();
+}
+```
+
 ## 고생한 점
