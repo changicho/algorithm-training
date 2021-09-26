@@ -1,0 +1,7 @@
+Input: nums = [1,2,3], multipliers = [3,2,1]
+Output: 14
+
+===
+
+Input: nums = [-5,-3,-3,-2,7,1], multipliers = [-10,-5,3,4,6]
+Output: 102
