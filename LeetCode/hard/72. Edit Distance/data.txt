@@ -1,0 +1,7 @@
+Input: word1 = "horse", word2 = "ros"
+Output: 3
+
+===
+
+Input: word1 = "intention", word2 = "execution"
+Output: 5
