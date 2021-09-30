@@ -1,0 +1,22 @@
+Input: coins = [1,2,5], amount = 11
+Output: 3
+
+===
+
+Input: coins = [2], amount = 3
+Output: -1
+
+===
+
+Input: coins = [1], amount = 0
+Output: 0
+
+===
+
+Input: coins = [1], amount = 1
+Output: 1
+
+===
+
+Input: coins = [1], amount = 2
+Output: 2
