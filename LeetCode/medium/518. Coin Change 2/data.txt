@@ -1,0 +1,12 @@
+Input: amount = 5, coins = [1,2,5]
+Output: 4
+
+===
+
+Input: amount = 3, coins = [2]
+Output: 0
+
+===
+
+Input: amount = 10, coins = [10]
+Output: 1
