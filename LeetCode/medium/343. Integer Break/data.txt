@@ -1,0 +1,7 @@
+Input: n = 2
+Output: 1
+
+===
+
+Input: n = 10
+Output: 36
