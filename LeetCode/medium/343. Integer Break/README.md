@@ -55,7 +55,6 @@ dp[1] = 1;
 ```cpp
 dp[cur] = cur;
 // 모든 pre값에 대해서 탐색
-dp[cur] = cur;
 for (int part = 1; part <= cur / 2; ++part) {
   int left = dp[cur - part];
   int right = dp[part];
@@ -95,6 +94,63 @@ int integerBreak(int n) {
     answer = max(answer, dp[i] * dp[n - i]);
   }
   return answer;
+}
+```
+
+### 동적 계획법 - dp only
+
+| 내 코드 (ms) | 시간 복잡도 | 공간 복잡도 |
+| :----------: | :---------: | :---------: |
+|      0       |   O(N^2)    |    O(N)     |
+
+위 식에서 초기값을 설정하기 위해 다음 식을 추가한다.
+
+```cpp
+dp[cur] = max(dp[cur], max(part * (cur - part), part * dp[cur - part]));
+// part * (cur - part)를 추가함.
+```
+
+이는 2개의 숫자로만 이루어지는 경우와 2개 이상의 숫자로 구성되는 경우 모두 탐색하기 위함이다.
+
+```cpp
+int integerBreak(int n) {
+  if (n <= 2) return 1;
+
+  vector<int> dp(n + 1, 0);
+
+  dp[1] = 0;
+  dp[2] = 1;
+
+  for (int cur = 3; cur <= n; cur++) {
+    for (int part = 1; part < cur; part++) {
+      dp[cur] = max(dp[cur], max(part * (cur - part), part * dp[cur - part]));
+    }
+  }
+  return dp[n];
+}
+```
+
+### 수학
+
+| 내 코드 (ms) | 시간 복잡도 | 공간 복잡도 |
+| :----------: | :---------: | :---------: |
+|      0       | O(log_2(N)) |    O(1)     |
+
+[풀이 링크](<https://leetcode.com/problems/integer-break/discuss/80785/O(log(n))-Time-solution-with-explanation>)
+
+```cpp
+int integerBreak(int n) {
+  if (n <= 3) {
+    return n - 1;
+  }
+
+  if (n % 3 == 0) {
+    return (int)pow(3, n / 3);
+  } else if (n % 3 == 1) {
+    return 2 * 2 * (int)pow(3, (n - 4) / 3);
+  }
+
+  return 2 * (int)pow(3, n / 3);
 }
 ```
 
