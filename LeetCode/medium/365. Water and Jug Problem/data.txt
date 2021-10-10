@@ -1,0 +1,12 @@
+Input: jug1Capacity = 3, jug2Capacity = 5, targetCapacity = 4
+Output: true
+
+===
+
+Input: jug1Capacity = 2, jug2Capacity = 6, targetCapacity = 5
+Output: false
+
+===
+
+Input: jug1Capacity = 1, jug2Capacity = 2, targetCapacity = 3
+Output: true
