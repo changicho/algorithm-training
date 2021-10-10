@@ -18,3 +18,5 @@ answer
 .vscode/
 
 .DS_STORE
+
+!count.sh
