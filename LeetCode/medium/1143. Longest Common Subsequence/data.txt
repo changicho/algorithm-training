@@ -1,0 +1,12 @@
+Input: text1 = "abcde", text2 = "ace" 
+Output: 3
+
+===
+
+Input: text1 = "abc", text2 = "abc"
+Output: 3
+
+===
+
+Input: text1 = "abc", text2 = "def"
+Output: 0
