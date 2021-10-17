@@ -1,0 +1,22 @@
+Input: num = 555
+Output: 888
+
+===
+
+Input: num = 9
+Output: 8
+
+===
+
+Input: num = 123456
+Output: 820000
+
+===
+
+Input: num = 10000
+Output: 80000
+
+===
+
+Input: num = 9288
+Output: 8700
