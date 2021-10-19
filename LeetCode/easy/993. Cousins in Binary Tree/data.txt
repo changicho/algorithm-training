@@ -1,0 +1,12 @@
+Input: root = [1,2,3,4], x = 4, y = 3
+Output: false
+
+===
+
+Input: root = [1,2,3,null,4,null,5], x = 5, y = 4
+Output: true
+
+===
+
+Input: root = [1,2,3,null,4], x = 2, y = 3
+Output: false
