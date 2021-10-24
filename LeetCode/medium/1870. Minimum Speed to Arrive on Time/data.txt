@@ -1,0 +1,12 @@
+Input: dist = [1,3,2], hour = 6
+Output: 1
+
+===
+
+Input: dist = [1,3,2], hour = 2.7
+Output: 3
+
+===
+
+Input: dist = [1,3,2], hour = 1.9
+Output: -1
