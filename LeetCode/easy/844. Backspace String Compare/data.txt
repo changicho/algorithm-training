@@ -1,0 +1,17 @@
+Input: s = "ab#c", t = "ad#c"
+Output: true
+
+===
+
+Input: s = "ab##", t = "c#d#"
+Output: true
+
+===
+
+Input: s = "a##c", t = "#a#c"
+Output: true
+
+===
+
+Input: s = "a#c", t = "b"
+Output: false
