@@ -1,0 +1,7 @@
+Input: word1 = "sea", word2 = "eat"
+Output: 2
+
+===
+
+Input: word1 = "leetcode", word2 = "etco"
+Output: 4
