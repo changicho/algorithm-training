@@ -1,0 +1,7 @@
+Input: n = 5
+Output: 2
+
+===
+
+Input: n = 8
+Output: 3
