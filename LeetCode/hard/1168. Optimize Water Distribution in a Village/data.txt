@@ -1,0 +1,7 @@
+Input: n = 3, wells = [1,2,2], pipes = [[1,2,1],[2,3,1]]
+Output: 3
+
+===
+
+Input: n = 2, wells = [1,1], pipes = [[1,2,1]]
+Output: 2
