@@ -1,5 +1,6 @@
 #include <algorithm>
 #include <iostream>
+#include <queue>
 #include <string>
 #include <vector>
 
@@ -76,5 +77,41 @@ class Solution {
     }
 
     return find(start) == find(end);
+  }
+};
+
+// use BFS
+
+class Solution {
+ public:
+  bool validPath(int n, vector<vector<int>> &edges, int start, int end) {
+    vector<vector<int>> graph(n);
+    vector<bool> visited(n, false);
+
+    for (vector<int> &edge : edges) {
+      int &from = edge[0], &to = edge[1];
+
+      graph[from].emplace_back(to);
+      graph[to].emplace_back(from);
+    }
+
+    queue<int> q;
+    q.push(start);
+
+    while (!q.empty()) {
+      int cur = q.front();
+      q.pop();
+
+      visited[cur] = true;
+      if (cur == end) break;
+
+      for (int &next : graph[cur]) {
+        if (visited[next]) continue;
+
+        q.push(next);
+      }
+    }
+
+    return visited[end];
   }
 };

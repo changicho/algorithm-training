@@ -110,4 +110,45 @@ bool validPath(int n, vector<vector<int>> &edges, int start, int end) {
 }
 ```
 
+### BFS
+
+| 내 코드 (ms) | 시간 복잡도 | 공간 복잡도 |
+| :----------: | :---------: | :---------: |
+|     508      |  O(V + E)   |  O(V + E)   |
+
+시작 노드부터 BFS를 이용해 탐색을 진행한다.
+
+```cpp
+bool validPath(int n, vector<vector<int>> &edges, int start, int end) {
+  vector<vector<int>> graph(n);
+  vector<bool> visited(n, false);
+
+  for (vector<int> &edge : edges) {
+    int &from = edge[0], &to = edge[1];
+
+    graph[from].emplace_back(to);
+    graph[to].emplace_back(from);
+  }
+
+  queue<int> q;
+  q.push(start);
+
+  while (!q.empty()) {
+    int cur = q.front();
+    q.pop();
+
+    visited[cur] = true;
+    if (cur == end) break;
+
+    for (int &next : graph[cur]) {
+      if (visited[next]) continue;
+
+      q.push(next);
+    }
+  }
+
+  return visited[end];
+}
+```
+
 ## 고생한 점
