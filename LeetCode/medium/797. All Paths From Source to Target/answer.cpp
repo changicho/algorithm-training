@@ -1,5 +1,6 @@
 #include <algorithm>
 #include <iostream>
+#include <queue>
 #include <string>
 #include <vector>
 
@@ -45,6 +46,45 @@ class Solution {
     vector<int> path;
 
     recursive(0, path, visited, graph, answer);
+
+    return answer;
+  }
+};
+
+// use BFS
+
+class Solution {
+ private:
+  struct Status {
+    int node;
+    vector<int> path;
+  };
+
+ public:
+  vector<vector<int>> allPathsSourceTarget(vector<vector<int>> &graph) {
+    vector<vector<int>> answer;
+
+    queue<Status> q;
+
+    int size = graph.size();
+    int from = 0, to = size - 1;
+    q.push({from, {from}});
+
+    while (!q.empty()) {
+      Status cur = q.front();
+      q.pop();
+
+      if (cur.node == to) {
+        answer.emplace_back(cur.path);
+        continue;
+      }
+
+      for (int next : graph[cur.node]) {
+        cur.path.emplace_back(next);
+        q.push({next, cur.path});
+        cur.path.pop_back();
+      }
+    }
 
     return answer;
   }

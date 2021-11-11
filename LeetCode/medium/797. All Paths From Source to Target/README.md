@@ -87,4 +87,53 @@ vector<vector<int>> allPathsSourceTarget(vector<vector<int>> &graph) {
 }
 ```
 
+### BFS
+
+| 내 코드 (ms) | 시간 복잡도 | 공간 복잡도 |
+| :----------: | :---------: | :---------: |
+|      24      | O(N \* 2^N) | O(N \* 2^N) |
+
+이력받은 그래프는 유향 비순환 그래프(Directed Acyclic Graph, DAG)이므로 사이클이 존재하지 않는다.
+
+따라서 BFS를 이용해 탐색할 때 중복 방문 체크를 하지 않아도 된다.
+
+이를 이용해 시작점부터 끝점까지의 모든 경로를 저장한다.
+
+탐색 시에 현재 상태에서 방문한 노드와 경로를 함께 탐색해야 한다.
+
+```cpp
+struct Status {
+  int node;
+  vector<int> path;
+};
+
+vector<vector<int>> allPathsSourceTarget(vector<vector<int>> &graph) {
+  vector<vector<int>> answer;
+
+  queue<Status> q;
+
+  int size = graph.size();
+  int from = 0, to = size - 1;
+  q.push({from, {from}});
+
+  while (!q.empty()) {
+    Status cur = q.front();
+    q.pop();
+
+    if (cur.node == to) {
+      answer.emplace_back(cur.path);
+      continue;
+    }
+
+    for (int next : graph[cur.node]) {
+      cur.path.emplace_back(next);
+      q.push({next, cur.path});
+      cur.path.pop_back();
+    }
+  }
+
+  return answer;
+}
+```
+
 ## 고생한 점
