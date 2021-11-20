@@ -1,0 +1,11 @@
+Input: root = [1,2,3,4,5]
+Output: [[4,5,3],[2],[1]]
+
+===
+
+Input: root = [1]
+Output: [[1]]
+
+===
+
+[1,2,null,3,null,4,null,5,null,null]
