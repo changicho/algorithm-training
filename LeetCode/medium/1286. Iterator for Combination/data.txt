@@ -1,0 +1,8 @@
+Input
+["CombinationIterator", "next", "hasNext", "next", "hasNext", "next", "hasNext"]
+[["abc", 2], [], [], [], [], [], []]
+Output
+[null, "ab", true, "ac", true, "bc", false]
+
+===
+
