@@ -1,0 +1,30 @@
+Input: times = [[2,1,1],[2,3,1],[3,4,1]], n = 4, k = 2
+Output: 2
+
+===
+
+Input: times = [[1,2,1]], n = 2, k = 1
+Output: 1
+
+===
+
+Input: times = [[1,2,1]], n = 2, k = 2
+Output: -1
+
+===
+
+// test case 4 : linked list case
+[[1,2,1],[2,3,1],[3,4,1]], n = 4, k = 1
+answer : 3
+
+// test case 5 : same route with different time
+[[1,2,1],[2,3,2],[1,3,3]] n = 3, k = 1
+answer : 3 (1 > 2 > 3)
+
+// test case 6 : has cycle but not already visit all nodes
+[[1,2,2],[2,1,1]] n = 2, k = 1
+answer : 2 (1 > 2)
+
+// test case 7 : same route with different time
+[[1,2,1],[2,3,2],[1,3,4]] n = 3, k = 1
+answer : 3 (1 > 2 > 3)
