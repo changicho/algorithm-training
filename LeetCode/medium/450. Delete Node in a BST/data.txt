@@ -1,0 +1,13 @@
+Input: root = [5,3,6,2,4,null,7], key = 3
+Output: [5,4,6,2,null,null,7]
+
+===
+
+Input: root = [5,3,6,2,4,null,7], key = 0
+Output: [5,3,6,2,4,null,7]
+
+
+===
+
+Input: root = [], key = 0
+Output: []
