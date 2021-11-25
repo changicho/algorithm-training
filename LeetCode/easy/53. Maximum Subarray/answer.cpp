@@ -58,3 +58,63 @@ class Solution {
     return max(max(leftMax, rightMax), leftSumMax + rightSumMax + nums[mid]);
   }
 };
+
+// use sliding window with explain
+
+class Solution {
+ public:
+  int maxSubArray(vector<int>& nums) {
+    // currentSum = 0
+    int currentSum = 0;
+    int answer = 0;
+
+    // for(num : nums)
+    for (int& num : nums) {
+      // if currentSum + num lower than 0
+      // currentSum = 0
+      // else (currentSum + num eqaul or bigger than 0
+      // currentSum += num
+      if (currentSum + num < 0) {
+        currentSum = 0;
+      } else {
+        currentSum += num;
+      }
+      // update answer
+      answer = max(answer, currentSum);
+    }
+    // if currentSum == 0
+    // we find the maximum one of nums
+    if (answer == 0) {
+      int maximum = nums.front();
+      for (int& num : nums) {
+        maximum = max(num, maximum);
+      }
+      answer = maximum;
+    }
+    return answer;
+  }
+};
+
+// use one pass
+
+class Solution {
+ public:
+  int maxSubArray(vector<int>& nums) {
+    int currentSum = 0;
+    // we set the value can be answer. one of nums
+    int answer = nums.front();
+
+    // iterate all num in nums
+    for (int& num : nums) {
+      // update current Sum
+      currentSum += num;
+      // update answer
+      answer = max(answer, currentSum);
+
+      // if currentSum is smaller than 0, we don't use current subArray
+      currentSum = max(0, currentSum);
+    }
+
+    return answer;
+  }
+};

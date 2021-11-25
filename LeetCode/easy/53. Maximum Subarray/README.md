@@ -24,7 +24,9 @@
 
 ### 그리디 알고리즘
 
-> 0ms
+| 내 코드 (ms) | 시간 복잡도 | 공간 복잡도 |
+| :----------: | :---------: | :---------: |
+|     100      |    O(N)     |    O(1)     |
 
 부분합 A를 다른 부분합 B, C로 나눠서 생각한다고 하자.
 
@@ -39,22 +41,31 @@ A = B + C 로 표현할 수 있다.
 (배열의 맨 앞이 정답이며, 이것이 음수인 경우)
 
 ```cpp
-int answer = nums.front();
-int temp = 0;
+int maxSubArray(vector<int>& nums) {
+  int currentSum = 0;
+  // we set the value can be answer. one of nums
+  int answer = nums.front();
 
-for (int num : nums) {
-  temp += num;
-  answer = max(temp, answer);
+  // iterate all num in nums
+  for (int& num : nums) {
+    // update current Sum
+    currentSum += num;
+    // update answer
+    answer = max(answer, currentSum);
 
-  if (temp < 0) {
-    temp = 0;
+    // if currentSum is smaller than 0, we don't use current subArray
+    currentSum = max(0, currentSum);
   }
+
+  return answer;
 }
 ```
 
 ### 분할정복 기법
 
-> 4ms
+| 내 코드 (ms) |   시간 복잡도    | 공간 복잡도 |
+| :----------: | :--------------: | :---------: |
+|     124      | O(N \* log_2(N)) | O(log_2(N)) |
 
 현재 범위 left ~ right에서 정답이 될 수 있는 경우는 다음 경우이다.
 
@@ -97,12 +108,10 @@ int divide(vector<int>& nums, int left, int right) {
 
   return max(max(leftMax, rightMax), leftSumMax + rightSumMax + nums[mid]);
 }
+
+int maxSubArray(vector<int>& nums) {
+  return divide(nums, 0, nums.size() - 1);
+}
 ```
-
-## 정리
-
-| 내 코드 (ms) |
-| :----------: |
-|      0       |
 
 ## 고생한 점
