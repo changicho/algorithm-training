@@ -1,0 +1,29 @@
+Input: nums = [3,5,2,3]
+Output: 7
+
+===
+
+Input: nums = [3,5,4,2,4,6]
+Output: 8
+
+===
+
+### test case 3 (just one pair case)
+[1,1]
+answer : 2
+
+### test case 4 (half of element are same - minimum value)
+[0,0,0,1,2,3]
+1, 2, 3 answer : 3
+
+### test case 5 (half of element are same - mid value)
+[0,1,2,2,2,3]
+4, 3, 3 answer : 4
+
+### test case 6 (half of element are same - maximum value)
+[0,1,2,3,3,3]
+5,4,3 answer : 5
+
+### test case 7
+[0,1,1,1,1,1,2,3]
+2 2 3 3
