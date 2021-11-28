@@ -22,6 +22,10 @@
 
 ### lower_bound
 
+| 내 코드 (ms) | 시간 복잡도 | 공간 복잡도 |
+| :----------: | :---------: | :---------: |
+|      0       | O(log_2(N)) |    O(1)     |
+
 > STL사용 : 0ms, 직접 구현 : 4ms
 
 이분 탐색을 이용해 시간 복잡도를 최적화 할 수 있다.
@@ -69,10 +73,39 @@ ForwardIterator lower_bound(ForwardIterator first, ForwardIterator last, const T
 }
 ```
 
-## 정리
+### 이분 탐색
 
-| 내 코드 (ms) |
-| :----------: |
-|      0       |
+| 내 코드 (ms) | 시간 복잡도 | 공간 복잡도 |
+| :----------: | :---------: | :---------: |
+|      4       | O(log_2(N)) |    O(1)     |
+
+lower bound와 동일한 방법을 이분탐색으로 구현해 사용한다.
+
+```cpp
+int searchInsert(vector<int>& nums, int target) {
+  int size = nums.size();
+  // first we set the range of part
+  int left = 0, right = size;
+  // we will set left is the answer.
+  // so we set the right is the limit + 1 of the range (cannot be answer)
+
+  // while left is lower than right
+  while (left < right) {
+    int mid = (left + right) / 2;
+
+    // if mid < target
+    if (nums[mid] < target) {
+      // target will be in right part
+      left = mid + 1;
+    } else {  // else
+      // target will be in left part
+      right = mid;
+    }
+  }
+
+  // left is the answer
+  return left;
+}
+```
 
 ## 고생한 점

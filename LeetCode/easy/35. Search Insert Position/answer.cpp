@@ -38,3 +38,33 @@ class Solution {
     return end;
   }
 };
+
+// use binary search
+
+class Solution {
+ public:
+  int searchInsert(vector<int>& nums, int target) {
+    int size = nums.size();
+    // first we set the range of part
+    int left = 0, right = size;
+    // we will set left is the answer.
+    // so we set the right is the limit + 1 of the range (cannot be answer)
+
+    // while left is lower than right
+    while (left < right) {
+      int mid = (left + right) / 2;
+
+      // if mid < target
+      if (nums[mid] < target) {
+        // target will be in right part
+        left = mid + 1;
+      } else {  // else
+        // target will be in left part
+        right = mid;
+      }
+    }
+
+    // left is the answer
+    return left;
+  }
+};
