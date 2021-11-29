@@ -136,4 +136,41 @@ vector<vector<int>> allPathsSourceTarget(vector<vector<int>> &graph) {
 }
 ```
 
+이를 단순 DFS로 구현하면 다음과 같다.
+
+```cpp
+// void DFS(graph, node, path, answer)
+void DFS(vector<vector<int>> &graph, int node, vector<int> &path, vector<vector<int>> &answer) {
+  // if node is goal
+  if (node == graph.size() - 1) {
+    // push path to answer
+    answer.push_back(path);
+    // return
+    return;
+  }
+  // iterate graph[node]
+  for (int &next : graph[node]) {
+    // we use next node
+    // insert next node to path
+    path.push_back(next);
+    // call DFS function
+    DFS(graph, next, path, answer);
+    // DFS
+    // pop last node of path
+    path.pop_back();
+  }
+
+  // return
+}
+
+vector<vector<int>> allPathsSourceTarget(vector<vector<int>> &graph) {
+  vector<vector<int>> answer;
+  vector<int> path = {0};
+
+  DFS(graph, 0, path, answer);
+
+  return answer;
+}
+```
+
 ## 고생한 점
