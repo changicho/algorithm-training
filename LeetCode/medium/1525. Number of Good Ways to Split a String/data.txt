@@ -1,0 +1,17 @@
+Input: s = "aacaba"
+Output: 2
+
+===
+
+Input: s = "abcd"
+Output: 1
+
+===
+
+Input: s = "aaaaa"
+Output: 4
+
+===
+
+Input: s = "acbadbaada"
+Output: 2
