@@ -1,0 +1,12 @@
+Input: words = ["a","b","ba","bca","bda","bdca"]
+Output: 4
+
+===
+
+Input: words = ["xbc","pcxbcf","xb","cxbc","pcxbc"]
+Output: 5
+
+===
+
+Input: words = ["abcd","dbqca"]
+Output: 1
