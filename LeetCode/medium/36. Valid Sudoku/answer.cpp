@@ -5,6 +5,46 @@
 
 using namespace std;
 
+// use duplicate check
+
+class Solution {
+ public:
+  bool isValidSudoku(vector<vector<char>>& board) {
+    // we check colFine[index][number], rowFine[index][number],
+    // sectionFine[y][y][number]
+    bool colFine[10][10] =
+        {
+            false,
+        },
+         rowFine[10][10] =
+             {
+                 false,
+             },
+         sectionFine[3][3][10] = {
+             false,
+         };
+
+    // fill fine check array's
+    for (int y = 0; y < 9; y++) {
+      for (int x = 0; x < 9; x++) {
+        if (board[y][x] == '.') continue;
+        int num = board[y][x] - '0';
+
+        if (colFine[x][num] || rowFine[y][num] ||
+            sectionFine[y / 3][x / 3][num]) {
+          return false;
+        }
+
+        colFine[x][num] = true;
+        rowFine[y][num] = true;
+        sectionFine[y / 3][x / 3][num] = true;
+      }
+    }
+
+    return true;
+  }
+};
+
 class Solution {
  public:
   bool isValidSudoku(vector<vector<char>>& board) {
@@ -34,7 +74,5 @@ class Solution {
     return true;
   }
 
-  int getFieldIndex(int y, int x) {
-    return (y / 3) * 3 + x / 3;
-  }
+  int getFieldIndex(int y, int x) { return (y / 3) * 3 + x / 3; }
 };
