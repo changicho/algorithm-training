@@ -16,7 +16,9 @@ transaction을 수행하며 나오는 계좌의 from, to 정보는 최대 2 \* N
 
 이를 순회하며 각 계좌별로 입금, 출금액으로 변하는 총 금액을 저장한다.
 
-이 계좌마다의 차이된 값에 대해서 DFS로 모든 경우를 순회하며 최소한의 transaction 횟수를 찾는다.
+이 계좌마다의 차이 값에 대해서 DFS로 현재 금액을 다른 금액에 transaction 하는 경우들을 탐색한다.
+
+이 과정에서 최소한의 transaction 횟수를 찾는다.
 
 이 경우에 한번의 호출에 시작하는 위치부터 끝 위치까지 호출을 수행하게 된다.
 
@@ -26,6 +28,10 @@ transaction을 수행하며 나오는 계좌의 from, to 정보는 최대 2 \* N
 - ...
 
 따라서 시간 복잡도는 O(N!)이다.
+
+N은 최대 8 이므로 최악의 경우 N!은 제한시간 내에 불가능하다.
+
+따라서 백트래킹을 이용해 무의미한 경우의 탐색을 줄인다.
 
 ### 공간 복잡도
 
@@ -46,58 +52,69 @@ transactions를 순회하며 각 계좌별로 최종 금액의 변경을 합산�
 
 이렇게 정리한 금액의 변경 중에서 0인 경우는 제외하고 변경을 배열에 저장한다.
 
-이 변경에 대해서 첫번째 index부터 DFS를 순회하며 현재 금액 변경을 다른 금액 변경에 적용했을 때 앞으로 진행하는 과정중에서 가장 transaction이 적게 일어나는 경우를 찾는다.
+이 변경에 대해서 첫번째 index부터 DFS를 이용해 순회한다.
+
+이 때 현재 금액 변경을 다른 금액 변경에 적용했을 때 앞으로 진행하는 과정중에서 가장 transaction이 적게 일어나는 경우를 찾는다.
 
 현재 call stack에서 아무런 transaction이 일어나지 않은 경우는 0을 반환하고, 그 외에 transaction이 일어난 경우는 가장 최소의 횟수를 반환한다.
 
 transaction의 구현은 다음과 같다.
 
-현재 index에 해당하는 금액 차이(변경)을 index + 1 부터 순회하며 다른 금액 차이에 더해본다.
+현재 index에 해당하는 금액 차이를 index + 1 부터 순회하며 다른 금액에 더해본다. (이동시켜본다)
 
-따라서 모든 index에 대해, 현재 값을 다른 금액 변경들에 더해보는 경우들을 모두 탐색헤게 된다.
+이 과정중에서 모든 index에 대해 현재 값을 다른 금액 변경들에 더해보는 경우들을 모두 탐색하게 된다.
+
+이후 index + 1번째에 대해서 DFS를 톨린다.
 
 이 때 현재 금액차이와, 다음 금액차이의 등호가 같은 경우는 절대값이 커지므로 이 경우는 건너뛴다.
 
 ```cpp
-vector<int> debts;  // all debts (not zero)
+vector<int> diffArr;
+int answer = INT_MAX;
 
-// min number of transactions to settle starting from debt[s]
-int dfs(int start) {
-  while (start < debts.size() && debts[start] == 0) {
-    start++;  // get next debt index
+void dfs(int from, int count) {
+  // skip zero diff
+  while (from < diffArr.size() && diffArr[from] == 0) {
+    from++;
+  }
+  // if from reach to edge update answer
+  if (from == diffArr.size()) {
+    answer = min(count, answer);
+    return;
   }
 
-  int minimum = INT_MAX;
-  for (int i = start + 1; i < debts.size(); ++i) {
-    // skip if debts[start], debts[i] are same sign
-    if (debts[i] * debts[start] > 0) continue;
+  int cur = diffArr[from];
+  // start from (fromIdx + 1) cause we already moved all value before
+  for (int to = from + 1; to < diffArr.size(); to++) {
+    // skip to's diff is zero, or same plus or minus
+    // cause it make absolute value bigger
+    if (diffArr[to] * cur >= 0) {
+      continue;
+    }
 
-    debts[i] += debts[start];
-    minimum = min(minimum, 1 + dfs(start + 1));
-    debts[i] -= debts[start];
+    diffArr[to] += cur;
+    dfs(from + 1, count + 1);
+    diffArr[to] -= cur;
   }
-
-  return minimum < INT_MAX ? minimum : 0;
 }
 
 int minTransfers(vector<vector<int>>& transactions) {
-  unordered_map<int, int> diffs;
+  unordered_map<int, int> accountDiff;
+  for (vector<int>& t : transactions) {
+    int from = t[0], to = t[1], amount = t[2];
 
-  for (vector<int>& transaction : transactions) {
-    int from = transaction[0], to = transaction[1], amount = transaction[2];
-
-    diffs[from] -= amount;
-    diffs[to] += amount;
+    accountDiff[from] -= amount;
+    accountDiff[to] += amount;
   }
 
-  // only deal with non-zero debts
-  for (auto& p : diffs) {
-    if (p.second == 0) continue;
+  for (auto& it : accountDiff) {
+    if (it.second == 0) continue;
 
-    debts.push_back(p.second);
+    diffArr.push_back(it.second);
   }
 
-  return dfs(0);
+  dfs(0, 0);
+  return answer;
 }
 ```
 

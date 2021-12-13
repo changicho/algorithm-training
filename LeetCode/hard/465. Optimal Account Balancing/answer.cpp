@@ -6,6 +6,60 @@
 
 using namespace std;
 
+// use DFS update at last
+
+class Solution {
+ private:
+  vector<int> diffArr;
+  int answer = INT_MAX;
+
+  void dfs(int from, int count) {
+    // skip zero diff
+    while (from < diffArr.size() && diffArr[from] == 0) {
+      from++;
+    }
+    // if from reach to edge update answer
+    if (from == diffArr.size()) {
+      answer = min(count, answer);
+      return;
+    }
+
+    int cur = diffArr[from];
+    // start from (fromIdx + 1) cause we already moved all value before
+    for (int to = from + 1; to < diffArr.size(); to++) {
+      // skip to's diff is zero, or same plus or minus
+      // cause it make absolute value bigger
+      if (diffArr[to] * cur >= 0) {
+        continue;
+      }
+
+      diffArr[to] += cur;
+      dfs(from + 1, count + 1);
+      diffArr[to] -= cur;
+    }
+  }
+
+ public:
+  int minTransfers(vector<vector<int>>& transactions) {
+    unordered_map<int, int> accountDiff;
+    for (vector<int>& t : transactions) {
+      int from = t[0], to = t[1], amount = t[2];
+
+      accountDiff[from] -= amount;
+      accountDiff[to] += amount;
+    }
+
+    for (auto& it : accountDiff) {
+      if (it.second == 0) continue;
+
+      diffArr.push_back(it.second);
+    }
+
+    dfs(0, 0);
+    return answer;
+  }
+};
+
 // use DFS
 
 class Solution {
