@@ -25,6 +25,10 @@ next_permutation의 연산은 다음과 같다.
 
 ### next_permutation
 
+| 내 코드 (ms) | 시간 복잡도 | 공간 복잡도 |
+| :----------: | :---------: | :---------: |
+|      0       |    O(N)     |    O(1)     |
+
 STL의 next_permutation은 다음과 같다.
 
 ```cpp
@@ -59,27 +63,36 @@ bool next_permutation(BidirIt first, BidirIt last) {
 ```cpp
 void nextPermutation(vector<int>& nums) {
   int size = nums.size();
-  int decreasingIdx = size - 2;
+  int left = size - 2, right = size - 1;
 
-  while (decreasingIdx >= 0 && nums[decreasingIdx] >= nums[decreasingIdx + 1]) {
-    decreasingIdx--;
-  }
-
-  if (decreasingIdx >= 0) {
-    int largerIdx = size - 1;
-    while (largerIdx >= 0 && nums[largerIdx] <= nums[decreasingIdx]) {
-      largerIdx--;
+  // find first decreasing point from back (nums[i] < nums[i+1])
+  while (left >= 0) {
+    if (nums[left] < nums[left + 1]) {
+      break;
     }
-    swap(nums[decreasingIdx], nums[largerIdx]);
+    left--;
   }
-  reverse(nums.begin() + decreasingIdx + 1, nums.end());
+
+  // if there are no decreasing point (already sorted descending order)
+  if (left < 0) {
+    // rearrange it sorted in ascending order
+    reverse(nums.begin(), nums.end());
+    return;
+  }
+
+  // find first point nums[left] < nums[right]
+  while (left < right) {
+    if (nums[left] < nums[right]) {
+      break;
+    }
+    right--;
+  }
+
+  // swap left and right
+  swap(nums[left], nums[right]);
+  // reverse the part after left
+  reverse(nums.begin() + left + 1, nums.end());
 }
 ```
-
-## 정리
-
-| 내 코드 (ms) |
-| :----------: |
-|      0       |
 
 ## 고생한 점
