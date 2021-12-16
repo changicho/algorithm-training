@@ -1,0 +1,17 @@
+Input: words = ["wrt","wrf","er","ett","rftt"]
+Output: "wertf"
+
+===
+
+Input: words = ["z","x"]
+Output: "zx"
+
+===
+
+Input: words = ["z","x","z"]
+Output: ""
+
+===
+
+["asdf", "asdfg"]
+"asdfg"
