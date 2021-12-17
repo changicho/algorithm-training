@@ -1,0 +1,7 @@
+Input: s = "heeellooo", words = ["hello", "hi", "helo"]
+Output: 1
+
+===
+
+Input: s = "zzzzzyyyyy", words = ["zzyy","zy","zyy"]
+Output: 3
