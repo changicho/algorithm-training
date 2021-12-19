@@ -1,0 +1,12 @@
+Input: arr = [5,4,3,2,1], k = 1
+Output: 4
+
+===
+
+Input: arr = [4,1,5,2,6,2], k = 2
+Output: 0
+
+===
+
+Input: arr = [4,1,5,2,6,2], k = 3
+Output: 2
