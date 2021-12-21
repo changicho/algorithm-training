@@ -1,0 +1,26 @@
+Input: courses = [[100,200],[200,1300],[1000,1250],[2000,3200]]
+Output: 3
+
+===
+
+Input: courses = [[1,2]]
+Output: 1
+
+===
+
+Input: courses = [[3,2],[4,3]]
+Output: 0
+
+===
+
+edge case : cannot pick by lastDay minimum
+
+[[2,5],[2,6],[5,5]]
+answer : 2
+
+===
+
+edge case : cannot make answer pick fastest using greedy
+
+[[7,11],[1,11],[1,3],[2,6],[5,6],[7,7],[4,8],[2,20],[1,17],[8,11]]
+answer : 6
