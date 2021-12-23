@@ -1,0 +1,7 @@
+Input: words = ["area","lead","wall","lady","ball"]
+Output: [["ball","area","lead","lady"],["wall","area","lead","lady"]]
+
+===
+
+Input: words = ["abat","baba","atan","atal"]
+Output: [["baba","abat","baba","atal"],["baba","abat","baba","atan"]]
