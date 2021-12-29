@@ -1,0 +1,12 @@
+Input: jobDifficulty = [6,5,4,3,2,1], d = 2
+Output: 7
+
+===
+
+Input: jobDifficulty = [9,9,9], d = 4
+Output: -1
+
+===
+
+Input: jobDifficulty = [1,1,1], d = 3
+Output: 3
