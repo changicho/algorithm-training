@@ -1,0 +1,12 @@
+Input: s = "aba"
+Output: true
+
+===
+
+Input: s = "abca"
+Output: true
+
+===
+
+Input: s = "abc"
+Output: false
