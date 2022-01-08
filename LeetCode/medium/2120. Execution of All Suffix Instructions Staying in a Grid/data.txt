@@ -1,0 +1,12 @@
+Input: n = 3, startPos = [0,1], s = "RRDDLU"
+Output: [1,5,4,3,1,0]
+
+===
+
+Input: n = 2, startPos = [1,1], s = "LURD"
+Output: [4,1,0,0]
+
+===
+
+Input: n = 1, startPos = [0,0], s = "LRUD"
+Output: [0,0,0,0]
