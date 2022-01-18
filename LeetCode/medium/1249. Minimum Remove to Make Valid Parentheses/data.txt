@@ -1,0 +1,17 @@
+Input: s = "lee(t(c)o)de)"
+Output: "lee(t(c)o)de"
+
+===
+
+Input: s = "a)b(c)d"
+Output: "ab(c)d"
+
+===
+
+Input: s = "))(("
+Output: ""
+
+===
+
+"a(b(c)d"
+"ab(c)d"
