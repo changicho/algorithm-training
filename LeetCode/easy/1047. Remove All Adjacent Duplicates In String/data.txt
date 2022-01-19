@@ -1,0 +1,7 @@
+Input: s = "abbaca"
+Output: "ca"
+
+===
+
+Input: s = "azxxzy"
+Output: "ay"
