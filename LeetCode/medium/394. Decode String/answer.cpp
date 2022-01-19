@@ -57,36 +57,40 @@ class Solution {
   string decodeString(string s) {
     stack<int> numberStk;
     stack<string> stringStk;
-    string ret = "";
+    string temp = "";
     int number = 0;
 
-    for (char c : s) {
+    for (char& c : s) {
       if (isdigit(c)) {
+        // pick number part
         number = number * 10 + c - '0';
       } else if (c == '[') {
         // push the number k to numberStk
         numberStk.push(number);
-        stringStk.push(ret);
+        stringStk.push(temp);
 
         // initialize
-        ret = "";
+        temp = "";
         number = 0;
       } else if (c == ']') {
         string before = stringStk.top();
-        stringStk.pop();
-
         int count = numberStk.top();
+
+        stringStk.pop();
         numberStk.pop();
+
         while (count--) {
-          before += ret;
+          before += temp;
         }
 
-        ret = before;
+        // swap before
+        temp = before;
       } else {
-        ret += c;
+        temp += c;
       }
     }
-    return ret;
+
+    return temp;
   }
 };
 
