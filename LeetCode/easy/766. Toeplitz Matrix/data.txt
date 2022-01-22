@@ -1,0 +1,7 @@
+Input: matrix = [[1,2,3,4],[5,1,2,3],[9,5,1,2]]
+Output: true
+
+===
+
+Input: matrix = [[1,2],[2,2]]
+Output: false
