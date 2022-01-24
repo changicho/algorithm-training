@@ -1,0 +1,7 @@
+Input: secret = "acckzz", wordlist = ["acckzz","ccbazz","eiowzz","abcczz"], numguesses = 10
+Output: You guessed the secret word correctly.
+
+===
+
+Input: secret = "hamada", wordlist = ["hamada","khaled"], numguesses = 10
+Output: You guessed the secret word correctly.
