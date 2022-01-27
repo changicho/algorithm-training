@@ -128,4 +128,117 @@ int largestIsland(vector<vector<int>> &grid) {
 }
 ```
 
+### 유니온 파인드
+
+| 내 코드 (ms) | 시간 복잡도 | 공간 복잡도 |
+| :----------: | :---------: | :---------: |
+|     974      |   O(N^2)    |   O(N^2)    |
+
+각 행, 열의 노드에 대해서 유니온 파인드를 이용해 섬들끼리 그룹으로 묶을 수 있다.
+
+이를 이용해 각 섬마다의 크기또한 구할 수 있다.
+
+빈 공간을 순회하며 4방향에 연결된 섬들을 찾고 이를 연결했을 때의 총 크기를 구하며 정답을 갱신한다.
+
+이 때 같은 부모를 가지는 경우는 제외해야 하므로 인접한 섬들의 부모를 hash set으로 관리한다.
+
+유니온 파인드의 구현은 다음과 같다.
+
+```cpp
+vector<int> parents;
+vector<int> counts;
+
+int find(int node) {
+  if (parents[node] == node) return node;
+
+  return parents[node] = find(parents[node]);
+}
+
+void merge(int a, int b) {
+  int pA = find(a), pB = find(b);
+
+  if (pA == pB) return;
+  if (pA > pB) swap(pA, pB);
+
+  counts[pA] += counts[pB];
+  counts[pB] = 0;
+
+  parents[pB] = pA;
+}
+```
+
+이를 이용해 구현하면 다음과 같다.
+
+```cpp
+int largestIsland(vector<vector<int>> &grid) {
+  int rows = grid.size();
+  int cols = grid.front().size();
+
+  int size = rows * cols;
+
+  // initialize
+  parents.resize(size);
+  counts.resize(size, 1);
+
+  for (int i = 0; i < size; i++) {
+    parents[i] = i;
+  }
+
+  vector<Axis> zeros;
+  int answer = 0;
+
+  for (int y = 0; y < rows; y++) {
+    for (int x = 0; x < cols; x++) {
+      if (grid[y][x] == 0) {
+        zeros.push_back({y, x});
+        continue;
+      }
+
+      int index = y * cols + x;
+
+      for (Axis &dir : dirs) {
+        Axis next = {y + dir.y, x + dir.x};
+
+        if (next.y < 0 || next.y >= rows || next.x < 0 || next.x >= cols)
+          continue;
+        if (grid[next.y][next.x] == 0) continue;
+
+        int target = next.y * cols + next.x;
+        merge(index, target);
+      }
+
+      answer = max(answer, counts[find(index)]);
+    }
+  }
+
+  for (Axis &zero : zeros) {
+    int index = zero.y * cols + zero.x;
+
+    unordered_set<int> colors;
+    for (Axis &dir : dirs) {
+      Axis next = {zero.y + dir.y, zero.x + dir.x};
+
+      if (next.y < 0 || next.y >= rows || next.x < 0 || next.x >= cols)
+        continue;
+      if (grid[next.y][next.x] == 0) continue;
+
+      int target = next.y * cols + next.x;
+
+      colors.insert(find(target));
+    }
+
+    int count = 1;
+    for (int n : colors) {
+      count += counts[n];
+    }
+
+    answer = max(answer, count);
+  }
+
+  return answer;
+}
+```
+
 ## 고생한 점
+
+유니온 파인드에서 merge함수에 parent설정에 문제가 있었다.

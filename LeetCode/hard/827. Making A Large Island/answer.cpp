@@ -101,3 +101,104 @@ class Solution {
     return answer;
   }
 };
+
+// use union find
+
+class Solution {
+ private:
+  struct Axis {
+    int y, x;
+  };
+
+  Axis dirs[4] = {{-1, 0}, {0, 1}, {1, 0}, {0, -1}};
+
+  vector<int> parents;
+  vector<int> counts;
+
+  int find(int node) {
+    if (parents[node] == node) return node;
+
+    return parents[node] = find(parents[node]);
+  }
+
+  void merge(int a, int b) {
+    int pA = find(a), pB = find(b);
+
+    if (pA == pB) return;
+    if (pA > pB) swap(pA, pB);
+
+    counts[pA] += counts[pB];
+    counts[pB] = 0;
+
+    parents[pB] = pA;
+  }
+
+ public:
+  int largestIsland(vector<vector<int>> &grid) {
+    int rows = grid.size();
+    int cols = grid.front().size();
+
+    int size = rows * cols;
+
+    // initialize
+    parents.resize(size);
+    counts.resize(size, 1);
+
+    for (int i = 0; i < size; i++) {
+      parents[i] = i;
+    }
+
+    vector<Axis> zeros;
+    int answer = 0;
+
+    for (int y = 0; y < rows; y++) {
+      for (int x = 0; x < cols; x++) {
+        if (grid[y][x] == 0) {
+          zeros.push_back({y, x});
+          continue;
+        }
+
+        int index = y * cols + x;
+
+        for (Axis &dir : dirs) {
+          Axis next = {y + dir.y, x + dir.x};
+
+          if (next.y < 0 || next.y >= rows || next.x < 0 || next.x >= cols)
+            continue;
+          if (grid[next.y][next.x] == 0) continue;
+
+          int target = next.y * cols + next.x;
+          merge(index, target);
+        }
+
+        answer = max(answer, counts[find(index)]);
+      }
+    }
+
+    for (Axis &zero : zeros) {
+      int index = zero.y * cols + zero.x;
+
+      unordered_set<int> colors;
+      for (Axis &dir : dirs) {
+        Axis next = {zero.y + dir.y, zero.x + dir.x};
+
+        if (next.y < 0 || next.y >= rows || next.x < 0 || next.x >= cols)
+          continue;
+        if (grid[next.y][next.x] == 0) continue;
+
+        int target = next.y * cols + next.x;
+
+        colors.insert(find(target));
+      }
+
+      int count = 1;
+      for (int n : colors) {
+        count += counts[n];
+      }
+
+      answer = max(answer, count);
+    }
+
+    return answer;
+  }
+};
