@@ -1,0 +1,7 @@
+Input: root = [1,2,3,4,5,6]
+Output: true
+
+===
+
+Input: root = [1,2,3,4,5,null,7]
+Output: false
