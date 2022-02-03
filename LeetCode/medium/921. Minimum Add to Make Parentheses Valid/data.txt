@@ -1,0 +1,7 @@
+Input: s = "())"
+Output: 1
+
+===
+
+Input: s = "((("
+Output: 3
