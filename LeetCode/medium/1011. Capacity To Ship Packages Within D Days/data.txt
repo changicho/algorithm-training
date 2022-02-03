@@ -1,0 +1,12 @@
+Input: weights = [1,2,3,4,5,6,7,8,9,10], days = 5
+Output: 15
+
+===
+
+Input: weights = [3,2,2,4,1,4], days = 3
+Output: 6
+
+===
+
+Input: weights = [1,2,3,1,1], days = 4
+Output: 3
