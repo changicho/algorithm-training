@@ -1,0 +1,7 @@
+Input: order = "cba", s = "abcd"
+Output: "cbad"
+
+===
+
+Input: order = "cbafg", s = "abcd"
+Output: "cbad"
