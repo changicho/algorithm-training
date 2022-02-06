@@ -1,0 +1,7 @@
+Input: num = 2736
+Output: 7236
+
+===
+
+Input: num = 9973
+Output: 9973
