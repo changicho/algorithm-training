@@ -1,0 +1,7 @@
+Input: s = "abcd", t = "abcde"
+Output: "e"
+
+===
+
+Input: s = "", t = "y"
+Output: "y"
