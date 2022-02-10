@@ -1,0 +1,7 @@
+Input: arr = [3,1,2,4]
+Output: 17
+
+===
+
+Input: arr = [11,81,94,43,3]
+Output: 444
