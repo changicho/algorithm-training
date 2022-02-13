@@ -1,0 +1,12 @@
+Input: ribbons = [9,7,5], k = 3
+Output: 5
+
+===
+
+Input: ribbons = [7,5,9], k = 4
+Output: 4
+
+===
+
+Input: ribbons = [5,7,9], k = 22
+Output: 0
