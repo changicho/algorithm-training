@@ -1,0 +1,7 @@
+Input: inventory = [2,5], orders = 4
+Output: 14
+
+===
+
+Input: inventory = [3,5], orders = 6
+Output: 19
