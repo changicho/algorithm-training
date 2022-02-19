@@ -1,0 +1,7 @@
+Input: nums = [5,3,6,1,12], original = 3
+Output: 24
+
+===
+
+Input: nums = [2,7,9], original = 4
+Output: 4
