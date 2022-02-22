@@ -1,0 +1,7 @@
+Input: intervals = [[1,4],[3,6],[2,8]]
+Output: 2
+
+===
+
+Input: intervals = [[1,4],[2,3]]
+Output: 1
