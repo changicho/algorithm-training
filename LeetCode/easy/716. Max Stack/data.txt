@@ -1,0 +1,5 @@
+Input
+["MaxStack", "push", "push", "push", "top", "popMax", "top", "peekMax", "pop", "top"]
+[[], [5], [1], [5], [], [], [], [], [], []]
+Output
+[null, null, null, null, 5, 5, 1, 5, 1, 5]
