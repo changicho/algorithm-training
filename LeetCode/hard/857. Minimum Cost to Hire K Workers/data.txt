@@ -1,0 +1,7 @@
+Input: quality = [10,20,5], wage = [70,50,30], k = 2
+Output: 105.00000
+
+===
+
+Input: quality = [3,1,10,10,1], wage = [4,8,2,2,7], k = 3
+Output: 30.66667
