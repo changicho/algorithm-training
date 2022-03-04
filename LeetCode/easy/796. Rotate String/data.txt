@@ -1,0 +1,7 @@
+Input: s = "abcde", goal = "cdeab"
+Output: true
+
+===
+
+Input: s = "abcde", goal = "abced"
+Output: false
