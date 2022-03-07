@@ -103,4 +103,36 @@ vector<vector<string>> groupAnagrams(vector<string>& strs) {
 }
 ```
 
+key를 생성할 때 각 count별로 구분을 원하는 경우 다음과 같이 구성할 수 도 있다.
+
+```cpp
+vector<vector<string>> groupAnagrams(vector<string>& strs) {
+  // space : O(N * L)
+  unordered_map<string, vector<string>> groups;
+
+  // O(N)
+  for (string& str : strs) {
+    vector<int> charCount('z' - 'a' + 1, 0);
+    for (char& c : str) {
+      charCount[c - 'a']++;
+    }
+
+    string key = "";
+    // O(26)
+    for (int& c : charCount) {
+      key += "#" + to_string(c);
+    }
+
+    groups[key].push_back(str);
+  }
+
+  // O(N * L)
+  vector<vector<string>> answer;
+  for (auto it : groups) {
+    answer.push_back(it.second);
+  }
+  return answer;
+}
+```
+
 ## 고생한 점
