@@ -36,91 +36,142 @@
 - sub_string은 기존 string에서 start_index ~ end_index 까지의 문자열이다.
 - sub_string의 문자들은 서로 중복되지 않는다.
 
-### 투 포인터
+### 슬라이딩 윈도우
 
-> 4ms
+| 내 코드 (ms) | 시간 복잡도 | 공간 복잡도 |
+| :----------: | :---------: | :---------: |
+|      47      |    O(N)     |    O(N)     |
 
-start index와 end index를 이용한다.
+가능한 subString의 left index와 right index를 이용한다.
 
-현재 end index에서 만들 수 있는 가장 작은 sub 문자열을 탐색하며, 이 때 이전에 만들어 놓은 sub 문자열을 이용할 수 있다.
+right index를 순회하며 현재 문자가 이전에 사용되지 않은 경우 sub문자열에 추가한다.
 
-현재 문자가 이전에 사용되지 않은 경우 sub문자열에 추가한다.
+만약 이전에 사용된 문자인 경우, hash set에 현재 문자가 없을 때 까지 sub문자열의 left index를 증가시키며 hash set에서 삭제한다.
 
-만약 이전에 사용된 문자인 경우, 현재 문자가 나타나지 않을 때 까지 sub문자열의 start index를 증가시킨다.
-
-매 경우마다 sub 문자열을 만들 수 있으므로 정답을 갱신한다.
+따라서 현재 index가 subString의 마지막 index인 경우의 최대 subString을 유지하며 탐색할 수 있다.
 
 ```cpp
+// use hash set
 int lengthOfLongestSubstring(string s) {
-  int count = 0;
-  int temp_count = 0;
-  bool visited[128] = {
-      false,
-  };
+  int length = s.length();
+  // O(M)
+  unordered_set<char> hashSet;
 
-  for (int start = 0, end = 0; end < s.length(); end++) {
-    char cur = s[end];
-    while (visited[cur] && start < end) {
-      char target = s[start];
-      start += 1;
-      if (visited[target]) {
-        visited[target] = false;
-        temp_count -= 1;
-      }
+  int answer = 0;
+  // O(N)
+  for (int left = 0, right = 0; right < length; right++) {
+    char c = s[right];
+    // total : O(N)
+    while (left < right && hashSet.find(c) != hashSet.end()) {
+      hashSet.erase(s[left]);
+      left++;
     }
 
-    visited[cur] = true;
-    temp_count += 1;
-
-    if (count < temp_count) {
-      count = temp_count;
-    }
+    hashSet.insert(c);
+    int length = right - left + 1;
+    answer = max(length, answer);
   }
 
-  return count;
+  return answer;
 }
 ```
 
-### table을 이용
+배열을 이용하는 경우 다음과 같이 풀이가 가능하다.
 
-> 4ms
+```cpp
+int lengthOfLongestSubstring(string s) {
+  int length = s.length();
+  int answer = 0;
+  int tempLength = 0;
+  // english letters, digits, symbols and spaces
+  // O(M)
+  bool visited[256] = {
+      false,
+  };
 
-투 포인터를 응용해서 다음과 같은 table을 이용하자
+  // O(N)
+  for (int left = 0, right = 0; right < length; right++) {
+    char c = s[right];
+    // total O(N)
+    while (left < right && visited[c]) {
+      char target = s[left];
+      left += 1;
+
+      if (visited[target]) tempLength--;
+      visited[target] = false;
+    }
+
+    visited[c] = true;
+    tempLength++;
+    answer = max(answer, tempLength);
+  }
+
+  return answer;
+}
+```
+
+### 슬라이딩 윈도우 (end index)
+
+| 내 코드 (ms) | 시간 복잡도 | 공간 복잡도 |
+| :----------: | :---------: | :---------: |
+|      14      |    O(N)     |    O(N)     |
+
+다음과 같은 hash map을 생성한다.
 
 - key : 문자
 - value : 해당 문자를 포함한 subString이 끝나는 위치
 
-그리고 시작점 start와 끝점 end을 이용한다.
+index를 순회하며 해당 문자가 가장 마지막에 나타난 index를 갱신한다.
 
-현재 문자가 이전에 사용된 문자인 경우 해당 문자가 이전에 사용된 index 이후부터 시작해야한다.
+기존에 해당 문자가 나타났던 경우 index + 1번째부터 해당 문자가 없으므로 길이를 바로 구할 수 있다.
 
-따라서 start를 해당 위치까지 옮겨준다. (이때 start가 해당 위치보다 큰 경우 기존 start를 유지한다.)
+이후 현재 문자가 나타난 위치를 현재 index로 갱신한다.
+
+모든 문자들은 맨 처음에는 나타나지 않았으므로 만약 hash set에 포함되지 않은경우 left를 갱신하지않는다.
 
 ```cpp
+// use hash map
 int lengthOfLongestSubstring(string s) {
-  int myMap[128] = {
-      0,
-  };
+  int length = s.length();
+  unordered_map<char, int> lastApearIdx;
 
-  int res = 0;
-  int start = 0;
-  for (int end = 0; end < s.size(); end++) {
-    if (myMap[s[end]] != 0) {
-      start = max(start, myMap[s[end]]);
+  int answer = 0;
+  for (int left = 0, right = 0; right < length; right++) {
+    char c = s[right];
+
+    if (lastApearIdx.count(c) > 0) {
+      left = max(left, lastApearIdx[c] + 1);
     }
-    myMap[s[end]] = end + 1;
-
-    res = max(res, end - start + 1 );
+    // update lastIdx of cur
+    lastApearIdx[c] = right;
+    answer = max(answer, right - left + 1);
   }
 
-  return res;
+  return answer;
 }
 ```
 
-## 정리
+```cpp
+int lengthOfLongestSubstring(string s) {
+  int length = s.length();
+  int lastApearIdx[128] = {
+      0,
+  };
 
-| 내 코드 (ms) |
-| :----------: |
-|      4       |
+  int answer = 0;
+  for (int left = 0, right = 0; right < length; right++) {
+    char c = s[right];
+
+    if (lastApearIdx[c] != 0) {
+      left = max(left, lastApearIdx[c]);
+    }
+    lastApearIdx[c] = right + 1;
+
+    answer = max(answer, right - left + 1);
+  }
+
+  return answer;
+}
+```
 
 ## 고생한 점

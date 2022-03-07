@@ -2,85 +2,125 @@
 #include <iostream>
 #include <set>
 #include <string>
+#include <unordered_map>
+#include <unordered_set>
 #include <vector>
 
 using namespace std;
 
+// use sliding window with hash set
+// time : O(N)
+// space : O(M)
 class Solution {
  public:
   int lengthOfLongestSubstring(string s) {
-    int count = 0;
-    set<char> visited;
+    int length = s.length();
+    // O(M)
+    unordered_set<char> hashSet;
 
-    for (int start = 0, end = 0; end < s.length(); end++) {
-      char cur = s[end];
-      while (visited.find(cur) != visited.end() && start < end) {
-        char target = s[start];
-        start += 1;
-        visited.erase(target);
+    int answer = 0;
+    // O(N)
+    for (int left = 0, right = 0; right < length; right++) {
+      char c = s[right];
+      // total : O(N)
+      while (left < right && hashSet.find(c) != hashSet.end()) {
+        hashSet.erase(s[left]);
+        left++;
       }
 
-      visited.insert(cur);
-
-      count = max(count, (int)visited.size());
+      hashSet.insert(c);
+      int length = right - left + 1;
+      answer = max(length, answer);
     }
 
-    return count;
+    return answer;
   }
 };
 
-// use array
-
+// use sliding window with char array
+// time : O(N)
+// space : O(M)
 class Solution {
  public:
   int lengthOfLongestSubstring(string s) {
-    int count = 0;
-    int temp_count = 0;
-    bool visited[128] = {
+    int length = s.length();
+    int answer = 0;
+    int tempLength = 0;
+    // english letters, digits, symbols and spaces
+    // O(M)
+    bool visited[256] = {
         false,
     };
 
-    for (int start = 0, end = 0; end < s.length(); end++) {
-      char cur = s[end];
-      while (visited[cur] && start < end) {
-        char target = s[start];
-        start += 1;
-        if (visited[target]) {
-          visited[target] = false;
-          temp_count -= 1;
-        }
+    // O(N)
+    for (int left = 0, right = 0; right < length; right++) {
+      char c = s[right];
+      // total O(N)
+      while (left < right && visited[c]) {
+        char target = s[left];
+        left += 1;
+
+        if (visited[target]) tempLength--;
+        visited[target] = false;
       }
 
-      visited[cur] = true;
-      temp_count += 1;
-
-      count = max(count, temp_count);
+      visited[c] = true;
+      tempLength++;
+      answer = max(answer, tempLength);
     }
 
-    return count;
+    return answer;
   }
 };
 
-// use end index
-
+// use sliding window with end index
+// time : O(N)
+// space : O(M)
 class Solution {
  public:
   int lengthOfLongestSubstring(string s) {
-    int myMap[128] = {
+    int length = s.length();
+    unordered_map<char, int> lastApearIdx;
+
+    int answer = 0;
+    for (int left = 0, right = 0; right < length; right++) {
+      char c = s[right];
+
+      if (lastApearIdx.count(c) > 0) {
+        left = max(left, lastApearIdx[c] + 1);
+      }
+      // update lastIdx of cur
+      lastApearIdx[c] = right;
+      answer = max(answer, right - left + 1);
+    }
+
+    return answer;
+  }
+};
+
+// use sliding window with end index (array)
+// time : O(N)
+// space : O(M)
+class Solution {
+ public:
+  int lengthOfLongestSubstring(string s) {
+    int length = s.length();
+    int lastApearIdx[128] = {
         0,
     };
 
-    int res = 0;
-    int start = 0;
-    for (int end = 0; end < s.size(); end++) {
-      if (myMap[s[end]] != 0) {
-        start = max(start, myMap[s[end]]);
-      }
-      myMap[s[end]] = end + 1;
+    int answer = 0;
+    for (int left = 0, right = 0; right < length; right++) {
+      char c = s[right];
 
-      res = max(res, end - start + 1);
+      if (lastApearIdx[c] != 0) {
+        left = max(left, lastApearIdx[c]);
+      }
+      lastApearIdx[c] = right + 1;
+
+      answer = max(answer, right - left + 1);
     }
 
-    return res;
+    return answer;
   }
 };
