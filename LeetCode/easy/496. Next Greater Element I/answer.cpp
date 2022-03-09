@@ -15,22 +15,24 @@ class Solution {
     int size = nums2.size();
 
     vector<int> nextGreaters(size, 0);
-    unordered_map<int, int> nextPair;
-    stack<int> st;
+    // key : index, value : next greater element
+    unordered_map<int, int> nextGreaterByIndex;
+    stack<int> minStack;
 
     for (int i = 0; i < size; i++) {
-      while (!st.empty() && nums2[st.top()] < nums2[i]) {
-        int target = st.top();
-        st.pop();
-        nextPair[nums2[target]] = nums2[i];
+      while (!minStack.empty() && nums2[minStack.top()] < nums2[i]) {
+        int target = minStack.top();
+        minStack.pop();
+        nextGreaterByIndex[nums2[target]] = nums2[i];
       }
 
-      st.push(i);
+      minStack.push(i);
     }
 
     vector<int> answers;
     for (int& num : nums1) {
-      answers.emplace_back(nextPair.count(num) ? nextPair[num] : -1);
+      answers.emplace_back(
+          nextGreaterByIndex.count(num) ? nextGreaterByIndex[num] : -1);
     }
     return answers;
   }

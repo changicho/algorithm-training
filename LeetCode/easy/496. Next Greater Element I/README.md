@@ -22,21 +22,21 @@ stack을 이용해 모든 nums2의 원소에 대해 next greater element를 구�
 
 stack과 hash map을 사용하는 데 공간 복잡도는 O(M)이 필요하다.
 
-### stack & hash map
+### monotonic stack & hash map
 
 | 내 코드 (ms) | 시간 복잡도 | 공간 복잡도 |
 | :----------: | :---------: | :---------: |
 |      4       |  O(N + M)   |    O(M)     |
 
-nums2의 모든 원소를 순차적으로 순회한다.
+nums2의 모든 원소를 순차적으로 순회하며 각 index의 nextGreaterElement를 구한다.
 
-이 때 stack에는 현재 원소보다 작고 왼쪽에 있는 index들이 존재한다.
+이 때 monotonic stack을 이용하며, stack에는 현재 원소보다 작고 왼쪽에 있는 index들이 존재한다. (minStack, decreasing)
 
-따라서 현재 원소가 stack의 top보다 큰 값인 경우 해당 index에 해당하는 next greater element는 현재 원소가 된다.
+현재 원소가 stack의 top보다 큰 값인 경우 해당 index에 해당하는 next greater element는 현재 원소가 된다.
 
-이는 스택 안에 들어있는 모든 원소의 index에 해당한다.
+이는 스택 안에 들어있는 모든 원소의 index에 해당한다. 따라서 stack이 비거나 stack.top이 이를 만족하지 못할 때 까지 반복한다.
 
-stack이 쌓이는 경우는 위로 갈수록 작은 값인 경우에만 쌓이기 때문이다.
+stack을 단조롭게 유지하기 때문이다. (위로 갈수록 작은 값인 경우에만 쌓이기 때문이다.)
 
 이후 스택이 비어있거나, 스택의 top이 현재 값보다 큰 경우 스택에 현재 index를 삽입한다.
 
@@ -47,22 +47,24 @@ vector<int> nextGreaterElement(vector<int>& nums1, vector<int>& nums2) {
   int size = nums2.size();
 
   vector<int> nextGreaters(size, 0);
-  unordered_map<int, int> nextPair;
-  stack<int> st;
+  // key : index, value : next greater element
+  unordered_map<int, int> nextGreaterByIndex;
+  stack<int> minStack;
 
   for (int i = 0; i < size; i++) {
-    while (!st.empty() && nums2[st.top()] < nums2[i]) {
-      int target = st.top();
-      st.pop();
-      nextPair[nums2[target]] = nums2[i];
+    while (!minStack.empty() && nums2[minStack.top()] < nums2[i]) {
+      int target = minStack.top();
+      minStack.pop();
+      nextGreaterByIndex[nums2[target]] = nums2[i];
     }
 
-    st.push(i);
+    minStack.push(i);
   }
 
   vector<int> answers;
   for (int& num : nums1) {
-    answers.emplace_back(nextPair.count(num) ? nextPair[num] : -1);
+    answers.emplace_back(
+        nextGreaterByIndex.count(num) ? nextGreaterByIndex[num] : -1);
   }
   return answers;
 }
