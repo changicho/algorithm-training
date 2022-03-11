@@ -7,65 +7,59 @@
 
 using namespace std;
 
-// use half backtracking
-
+// use half backtracking (refactor)
+// time : O(N * 5^(N/2))
+// space : O(N * 5^(N/2))
 class Solution {
  private:
-  unordered_map<char, char> table = {{'0', '0'}, {'1', '1'}, {'6', '9'}, {'8', '8'}, {'9', '6'}};
+  unordered_map<char, char> table = {
+      {'0', '0'}, {'1', '1'}, {'6', '9'}, {'8', '8'}, {'9', '6'}};
+  vector<char> digits = {'0', '1', '6', '8', '9'};
 
-  bool startZero(string &num) {
-    if (num.length() > 1 && num[0] == '0') return true;
-    return false;
-  }
+  // O(N)
+  string getReverse(string half, int n) {
+    int length = half.length(), center = n / 2;
 
-  bool canRotate(string &num) {
-    int length = num.length();
-    string rotated = num;
-    reverse(rotated.begin(), rotated.end());
-
-    for (int i = 0; i < length; i++) {
-      rotated[i] = table[rotated[i]];
+    for (int i = 0; i < center; i++) {
+      char c = half[center - 1 - i];
+      half += table[c];
     }
-
-    return rotated == num;
+    return half;
   }
 
  public:
   vector<string> findStrobogrammatic(int n) {
     queue<string> q;
+    q.push("");
 
-    vector<string> nums = {"0", "1", "6", "8", "9"};
+    // O(N)
+    for (int i = 0; i < n / 2; i++) {
+      int size = q.size();
+      // O(N^(N / 2))
+      while (size--) {
+        string before = q.front();
+        q.pop();
 
-    for (string num : nums) {
-      q.push(num);
+        for (char &digit : digits) {
+          string num = before + digit;
+
+          if (num[0] == '0') continue;
+          q.push(num);
+        }
+      }
     }
 
     vector<string> answer;
     while (!q.empty()) {
-      string cur = q.front();
+      string num = q.front();
       q.pop();
 
-      int length = cur.length();
-
-      if (length == n) {
-        if (canRotate(cur)) {
-          answer.emplace_back(cur);
+      if (n % 2 == 1) {
+        for (char c : {'0', '1', '8'}) {
+          answer.emplace_back(getReverse(num + c, n));
         }
-        continue;
-      }
-
-      if (length > n / 2) {
-        string next = cur + table[cur[n - 1 - length]];
-        q.push(next);
-        continue;
-      }
-
-      for (string num : nums) {
-        string next = cur + num;
-
-        if (startZero(next)) continue;
-
-        q.push(next);
+      } else {
+        answer.emplace_back(getReverse(num, n));
       }
     }
 
@@ -96,7 +90,5 @@ class Solution {
   }
 
  public:
-  vector<string> findStrobogrammatic(int n) {
-    return makePart(n, n);
-  }
+  vector<string> findStrobogrammatic(int n) { return makePart(n, n); }
 };

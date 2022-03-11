@@ -18,86 +18,87 @@
 
 따라서 백트래킹을 이용하거나 분할 정복을 이용한다.
 
-백트래킹을 이용할 경우 N / 2 크기의 경우의 수를 만드는 경우, 이후에는 각 경우의 수을 반대로 뒤집는 경우에 대한 수들만 생성하면 된다.
+백트래킹을 이용할 경우 (N / 2) 크기의 경우의 수를 만드는 경우, 이후에는 각 경우의 수을 반대로 뒤집는 경우에 대한 수들만 생성하면 된다.
 
-따라서 5 ^ (N / 2) 까지만 탐색하면 되며 이는 N = 14인 최악의 경우 O(78,125)이다.
+따라서 5^(N / 2)가지 경우를 생성할 수 있다.
 
-내부적으로 유효한지 판별하는 데 O(N)만큼 소요되므로 최악의 경우 시간 복잡도는 O(1,093,750) 이다.
+이후 나머지 절반을 채우는 경우와, 내부적으로 유효한지 판별하는 데 O(N)만큼 사용한다.
 
-혹은 분할 정복을 이용할 수 있다.
-
-이 경우 각 경우마다 유효한 경우만 탐색을 진행하면 되므로 이 또한 시간 복잡도는 O(5^(N/2))이다.
+따라서 시간 복잡도는 O(N \* 5^(N/2))이다.
 
 ### 공간 복잡도
 
-모든 경우에 대해서 vector에 저장해야 하므로 공간 복잡도는 O(5^(N/2))이다.
+모든 경우에 대해서 vector에 저장해야 하므로 공간 복잡도는 O(N \* 5^(N/2)))이다.
 
 ### 백트래킹
 
-| 내 코드 (ms) | 시간 복잡도 | 공간 복잡도 |
-| :----------: | :---------: | :---------: |
-|    1,379     | O(5^(N/2))  | O(5^(N/2))  |
+| 내 코드 (ms) |   시간 복잡도   |   공간 복잡도   |
+| :----------: | :-------------: | :-------------: |
+|      64      | O(N \* 5^(N/2)) | O(N \* 5^(N/2)) |
 
 유효한 숫자를 구성하는 각각 숫자들은 ("0", "1", "6", "8", "9") 이 5가지이다.
 
-BFS를 이용해 구성할 수 있는 모든 숫자를 만들고 해당 숫자가 뒤집어도 유효한지 판별한다.
+BFS를 이용해 N / 2크기의 문자열 모두를 만든다.
 
-이때 N / 2크기의 문자열을 만든 경우는 이후에는 중심을 기준으로 뒤집은 글자들만 탐색을 진행한다.
+이후에는 중심을 기준으로 각 문자열들의 나머지 절반을 채워넣는다.
+
+이 때 N이 홀수인 경우는 가운데 글자로 들어올 수 있는 글자는 3가지 경우만 존재한다.
+
+- 0
+- 1
+- 8
+
+따라서 N이 짝수, 홀수 여부에 따라서 별도로 정답에 삽입한다.
 
 ```cpp
 unordered_map<char, char> table = {{'0', '0'}, {'1', '1'}, {'6', '9'}, {'8', '8'}, {'9', '6'}};
+vector<char> digits = {'0', '1', '6', '8', '9'};
 
-bool startZero(string &num) {
-  if (num.length() > 1 && num[0] == '0') return true;
-  return false;
-}
+// O(N)
+string getReverse(string half, int n) {
+  int length = half.length(), center = n / 2;
 
-bool canRotate(string &num) {
-  int length = num.length();
-  string rotated = num;
-  reverse(rotated.begin(), rotated.end());
-
-  for (int i = 0; i < length; i++) {
-    rotated[i] = table[rotated[i]];
+  for (int i = 0; i < center; i++) {
+    char c = half[center - 1 - i];
+    half += table[c];
   }
-
-  return rotated == num;
+  return half;
 }
 
 vector<string> findStrobogrammatic(int n) {
   queue<string> q;
-  vector<string> nums = {"0", "1", "6", "8", "9"};
+  q.push("");
 
-  for (string num : nums) {
-    q.push(num);
+  // make all half
+  // O(N)
+  for (int i = 0; i < n / 2; i++) {
+    int size = q.size();
+    // O(N^(N / 2))
+    while (size--) {
+      string before = q.front();
+      q.pop();
+
+      for (char &digit : digits) {
+        string num = before + digit;
+
+        if (num[0] == '0') continue;
+        q.push(num);
+      }
+    }
   }
 
+  // fill half and push to answer
   vector<string> answer;
   while (!q.empty()) {
-    string cur = q.front();
+    string num = q.front();
     q.pop();
 
-    int length = cur.length();
-
-    if (length == n) {
-      if (canRotate(cur)) {
-        answer.emplace_back(cur);
+    if (n % 2 == 1) {
+      for (char c : {'0', '1', '8'}) {
+        answer.emplace_back(getReverse(num + c, n));
       }
-      continue;
-    }
-
-    if (length > n / 2) {
-      string next = cur + table[cur[n - 1 - length]];
-      q.push(next);
-      continue;
-    }
-
-    for (string num : nums) {
-      string next = cur + num;
-
-      if (startZero(next)) continue;
-
-      q.push(next);
+    } else {
+      answer.emplace_back(getReverse(num, n));
     }
   }
 
@@ -107,9 +108,9 @@ vector<string> findStrobogrammatic(int n) {
 
 ### 분할 정복
 
-| 내 코드 (ms) | 시간 복잡도 | 공간 복잡도 |
-| :----------: | :---------: | :---------: |
-|      32      | O(5^(N/2))  | O(5^(N/2))  |
+| 내 코드 (ms) |   시간 복잡도   |   공간 복잡도   |
+| :----------: | :-------------: | :-------------: |
+|      32      | O(N \* 5^(N/2)) | O(N \* 5^(N/2)) |
 
 뒤집어도 유효한 숫자 S가 존재할 때 S의 길이 + 2 크기의 뒤집어도 유효한 숫자는 다음과 같은 방법으로 생성한다.
 
