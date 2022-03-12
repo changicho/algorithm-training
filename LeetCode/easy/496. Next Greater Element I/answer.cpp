@@ -7,8 +7,36 @@
 
 using namespace std;
 
-// use stack & hash map
+// use brute force
+// time : O(N * M)
+// space : O(N)
+class Solution {
+ public:
+  vector<int> nextGreaterElement(vector<int>& nums1, vector<int>& nums2) {
+    vector<int> answer(nums1.size(), -1);
+    for (int idx = 0; idx < nums1.size(); idx++) {
+      int num = nums1[idx];
+      bool isFind = false;
 
+      for (int i = 0; i < nums2.size(); i++) {
+        if (nums2[i] == num) {
+          isFind = true;
+          continue;
+        }
+        if (nums2[i] > num && isFind) {
+          answer[idx] = nums2[i];
+          break;
+        }
+      }
+    }
+
+    return answer;
+  }
+};
+
+// use monotonic stack & hash map
+// time : O(N + M)
+// space : O(N + M)
 class Solution {
  public:
   vector<int> nextGreaterElement(vector<int>& nums1, vector<int>& nums2) {

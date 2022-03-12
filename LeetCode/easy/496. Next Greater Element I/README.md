@@ -12,7 +12,9 @@
 
 nums1의 크기를 N, nums2의 크기를 M이라 하자.
 
-모든 index에 대해서 직접 next greater element를 탐색할 경우 O(M^2)의 시간 복잡도를 사용하며 이를 모든 nums1에 대해서 매번 찾을 경우 O(M \* (N + M))의 시간 복잡도를 사용한다.
+nums2의 하나의 index에 대해서 직접 next greater element를 탐색할 경우 O(M)의 시간 복잡도를 사용한다.
+
+이를 모든 nums1에 대해서 매번 찾을 경우 O(N \* M)의 시간 복잡도를 사용한다.
 
 stack을 이용해 모든 nums2의 원소에 대해 next greater element를 구할 경우 O(M)의 시간 복잡도로 모두 구할 수 있다.
 
@@ -20,13 +22,52 @@ stack을 이용해 모든 nums2의 원소에 대해 next greater element를 구�
 
 ### 공간 복잡도
 
+정답의 공간을 만드는 데 O(N)의 공간 복잡도를 사용한다.
+
 stack과 hash map을 사용하는 데 공간 복잡도는 O(M)이 필요하다.
+
+### 브루트 포스
+
+| 내 코드 (ms) | 시간 복잡도 | 공간 복잡도 |
+| :----------: | :---------: | :---------: |
+|      44      |  O(N \* M)  |    O(N)     |
+
+nums1의 각 원소에 대해서 nums2를 순회하며 다음 과정을 수행한다.
+
+- 현재 nums1에 있는 값을 nums2에서 찾은 경우 그보다 큰 값을 탐색한다.
+
+이 과정은 nums2를 한번 순회하며 풀이가 가능하다.
+
+이를 구현하면 다음과 같다.
+
+```cpp
+vector<int> nextGreaterElement(vector<int>& nums1, vector<int>& nums2) {
+  vector<int> answer(nums1.size(), -1);
+  for (int idx = 0; idx < nums1.size(); idx++) {
+    int num = nums1[idx];
+    bool isFind = false;
+
+    for (int i = 0; i < nums2.size(); i++) {
+      if (nums2[i] == num) {
+        isFind = true;
+        continue;
+      }
+      if (nums2[i] > num && isFind) {
+        answer[idx] = nums2[i];
+        break;
+      }
+    }
+  }
+
+  return answer;
+}
+```
 
 ### monotonic stack & hash map
 
 | 내 코드 (ms) | 시간 복잡도 | 공간 복잡도 |
 | :----------: | :---------: | :---------: |
-|      4       |  O(N + M)   |    O(M)     |
+|      4       |  O(N + M)   |  O(N + M)   |
 
 nums2의 모든 원소를 순차적으로 순회하며 각 index의 nextGreaterElement를 구한다.
 
