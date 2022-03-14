@@ -6,8 +6,38 @@
 
 using namespace std;
 
-// use hash map
+// use prefix sum (TLE)
+// time : O(N^2)
+// space : O(N)
+class Solution {
+ public:
+  int subarraySum(vector<int> &nums, int k) {
+    int size = nums.size();
+    vector<int> prefixSums(size + 1,
+                           0);  // prefixSums[index + 1], 0 ~ index sum
+    for (int i = 0; i < size; i++) {
+      prefixSums[i + 1] = prefixSums[i] + nums[i];
+    }
 
+    int answer = 0;
+
+    for (int left = 0; left < size; left++) {
+      for (int right = left; right < size; right++) {
+        int curSum = prefixSums[right + 1] - prefixSums[left];
+
+        if (curSum == k) {
+          answer++;
+        }
+      }
+    }
+
+    return answer;
+  }
+};
+
+// use hash map
+// time : O(N)
+// space : O(N)
 class Solution {
  public:
   int subarraySum(vector<int> &nums, int k) {
