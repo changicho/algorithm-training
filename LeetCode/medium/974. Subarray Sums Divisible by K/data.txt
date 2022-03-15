@@ -1,0 +1,13 @@
+Input: nums = [4,5,0,-2,-3,1], k = 5
+Output: 7
+
+===
+
+Input: nums = [5], k = 9
+Output: 0
+
+===
+
+// minus case
+[-1,2,9]
+2
