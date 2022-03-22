@@ -1,0 +1,7 @@
+Input: nums = [5,2,2,4,0,6], k = 4
+Output: 5
+
+===
+
+Input: nums = [2], k = 1
+Output: -1
