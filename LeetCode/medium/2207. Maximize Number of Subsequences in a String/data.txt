@@ -1,0 +1,7 @@
+Input: text = "abdcdbc", pattern = "ac"
+Output: 4
+
+===
+
+Input: text = "aabb", pattern = "ab"
+Output: 6
