@@ -1,0 +1,12 @@
+Input: nums = [5,19,8,1]
+Output: 3
+
+===
+
+Input: nums = [3,8,20]
+Output: 3
+
+===
+
+[3,3,3,3]
+4
