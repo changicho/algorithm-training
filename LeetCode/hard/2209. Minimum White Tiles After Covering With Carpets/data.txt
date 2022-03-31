@@ -1,0 +1,7 @@
+Input: floor = "10110101", numCarpets = 2, carpetLen = 2
+Output: 2
+
+===
+
+Input: floor = "11111", numCarpets = 2, carpetLen = 3
+Output: 0
