@@ -1,0 +1,7 @@
+Input: words = ["pay","attention","practice","attend"], pref = "at"
+Output: 2
+
+===
+
+Input: words = ["leetcode","win","loops","success"], pref = "code"
+Output: 0
