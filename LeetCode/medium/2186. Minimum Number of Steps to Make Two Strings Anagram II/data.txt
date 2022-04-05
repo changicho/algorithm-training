@@ -1,0 +1,7 @@
+Input: s = "leetcode", t = "coats"
+Output: 7
+
+===
+
+Input: s = "night", t = "thing"
+Output: 0
