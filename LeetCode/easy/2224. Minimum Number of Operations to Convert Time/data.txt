@@ -1,0 +1,7 @@
+Input: current = "02:30", correct = "04:35"
+Output: 3
+
+===
+
+Input: current = "11:00", correct = "11:01"
+Output: 1
