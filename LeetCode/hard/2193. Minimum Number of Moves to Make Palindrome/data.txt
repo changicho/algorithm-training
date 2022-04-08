@@ -1,0 +1,7 @@
+Input: s = "aabb"
+Output: 2
+
+===
+
+Input: s = "letelt"
+Output: 2
