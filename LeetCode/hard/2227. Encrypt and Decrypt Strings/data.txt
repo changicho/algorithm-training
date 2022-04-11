@@ -1,0 +1,5 @@
+Input
+["Encrypter", "encrypt", "decrypt"]
+[[['a', 'b', 'c', 'd'], ["ei", "zf", "ei", "am"], ["abcd", "acbd", "adbc", "badc", "dacb", "cadb", "cbda", "abad"]], ["abcd"], ["eizfeiam"]]
+Output
+[null, "eizfeiam", 2]
