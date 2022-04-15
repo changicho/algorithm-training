@@ -1,0 +1,12 @@
+Input: expression = "247+38"
+Output: "2(47+38)"
+
+===
+
+Input: expression = "12+34"
+Output: "1(2+3)4"
+
+===
+
+Input: expression = "999+999"
+Output: "(999+999)"
