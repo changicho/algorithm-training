@@ -1,0 +1,7 @@
+Input: nums = [0,4], k = 5
+Output: 20
+
+===
+
+Input: nums = [6,3,3,2], k = 2
+Output: 216
