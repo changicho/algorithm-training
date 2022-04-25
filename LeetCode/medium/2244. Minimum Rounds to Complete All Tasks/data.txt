@@ -1,0 +1,7 @@
+Input: tasks = [2,2,3,3,2,4,4,4,4,4]
+Output: 4
+
+===
+
+Input: tasks = [2,3,3]
+Output: -1
