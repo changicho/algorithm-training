@@ -1,0 +1,7 @@
+Input: circles = [[2,2,1]]
+Output: 5
+
+===
+
+Input: circles = [[2,2,2],[3,4,1]]
+Output: 16
