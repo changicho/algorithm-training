@@ -1,0 +1,7 @@
+Input: tickets = [2,3,2], k = 2
+Output: 6
+
+===
+
+Input: tickets = [5,1,1,1], k = 0
+Output: 8
