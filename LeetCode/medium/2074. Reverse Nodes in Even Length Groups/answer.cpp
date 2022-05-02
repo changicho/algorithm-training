@@ -48,7 +48,8 @@ class Solution {
 };
 
 // use pointer
-
+// time : O(N)
+// space : O(1)
 class Solution {
  private:
   ListNode* reverseList(ListNode* cur, int n) {
@@ -82,6 +83,59 @@ class Solution {
     }
     if (cnt % 2 == 0 && start->next) {
       start->next = reverseList(start->next, cnt);
+    }
+
+    return head;
+  }
+};
+
+// use pointer
+// time : O(N)
+// space : O(1)
+class Solution {
+ private:
+  int getLength(ListNode* head) {
+    int length = 0;
+    while (head) {
+      head = head->next;
+      length++;
+    }
+    return length;
+  }
+
+  void reverse(ListNode* before, int length) {
+    ListNode* head = before->next;
+
+    for (int i = 0; i < length - 1 && head->next; i++) {
+      ListNode* target = head->next;
+      head->next = head->next->next;
+      target->next = before->next;
+      before->next = target;
+    }
+  }
+
+ public:
+  ListNode* reverseEvenLengthGroups(ListNode* head) {
+    int length = getLength(head);
+
+    ListNode* before = new ListNode();
+    ListNode* cur = head;
+    before->next = cur;
+
+    for (int i = 0, step = 1; i < length; i += step, step++) {
+      int curSize = i + step < length ? step : length - i;
+
+      if (curSize % 2 == 0) {
+        reverse(before, curSize);
+
+        before = cur;
+        cur = cur->next;
+      } else {
+        for (int j = 0; j < curSize; j++) {
+          before = cur;
+          cur = cur->next;
+        }
+      }
     }
 
     return head;

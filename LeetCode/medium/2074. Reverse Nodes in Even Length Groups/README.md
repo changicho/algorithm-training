@@ -66,4 +66,62 @@ ListNode* reverseEvenLengthGroups(ListNode* head) {
 }
 ```
 
+### 포인터
+
+| 내 코드 (ms) | 시간 복잡도 | 공간 복잡도 |
+| :----------: | :---------: | :---------: |
+|     1967     |    O(N)     |    O(1)     |
+
+위 배열을 이용한 방법에서 뒤집는 부분을 연결 리스트의 뒤집는 연산으로 변경한다.
+
+이후 현재 그룹의 원소의 갯수가 짝수일 때만 뒤집어준다.
+
+```cpp
+int getLength(ListNode* head) {
+  int length = 0;
+  while (head) {
+    head = head->next;
+    length++;
+  }
+  return length;
+}
+
+void reverse(ListNode* before, int length) {
+  ListNode* head = before->next;
+
+  for (int i = 0; i < length - 1 && head->next; i++) {
+    ListNode* target = head->next;
+    head->next = head->next->next;
+    target->next = before->next;
+    before->next = target;
+  }
+}
+
+ListNode* reverseEvenLengthGroups(ListNode* head) {
+  int length = getLength(head);
+
+  ListNode* before = new ListNode();
+  ListNode* cur = head;
+  before->next = cur;
+
+  for (int i = 0, step = 1; i < length; i += step, step++) {
+    int curSize = i + step < length ? step : length - i;
+
+    if (curSize % 2 == 0) {
+      reverse(before, curSize);
+
+      before = cur;
+      cur = cur->next;
+    } else {
+      for (int j = 0; j < curSize; j++) {
+        before = cur;
+        cur = cur->next;
+      }
+    }
+  }
+
+  return head;
+}
+```
+
 ## 고생한 점
