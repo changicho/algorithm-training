@@ -1,0 +1,7 @@
+Input: ratings = [1,0,2]
+Output: 5
+
+===
+
+Input: ratings = [1,2,2]
+Output: 4
