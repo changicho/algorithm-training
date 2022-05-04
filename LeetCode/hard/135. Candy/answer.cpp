@@ -55,7 +55,7 @@ class Solution {
   }
 };
 
-// use two pass
+// use two array
 // time : O(N)
 // space : O(N)
 class Solution {
@@ -64,14 +64,14 @@ class Solution {
     int size = ratings.size();
 
     vector<int> fromLeft(size, 1), fromRight(size, 1);
-    for (int i = 1; i < size; i++) {
-      if (ratings[i - 1] < ratings[i]) {
+    for (int i = 0; i < size; i++) {
+      int rIdx = size - 1 - i;
+
+      if (0 <= i - 1 && ratings[i - 1] < ratings[i]) {
         fromLeft[i] = fromLeft[i - 1] + 1;
       }
-    }
-    for (int i = size - 2; i >= 0; i--) {
-      if (ratings[i] > ratings[i + 1]) {
-        fromRight[i] = fromRight[i + 1] + 1;
+      if (rIdx + 1 < size && ratings[rIdx] > ratings[rIdx + 1]) {
+        fromRight[rIdx] = fromRight[rIdx + 1] + 1;
       }
     }
 
@@ -80,5 +80,41 @@ class Solution {
       count += max(fromLeft[i], fromRight[i]);
     }
     return count;
+  }
+};
+
+// use constant space
+// time : O(N)
+// space : O(1)
+class Solution {
+ public:
+  int candy(vector<int> &ratings) {
+    int size = ratings.size();
+    int count = 1;
+    if (size == 1) return count;
+
+    int i, pPos, peak = 1;
+    bool isDes = false;
+    for (i = 1; i < size; i++) {
+      if (ratings[i] >= ratings[i - 1]) {  // it is increasing
+        if (isDes) {
+          count -= (peak - 1) * (i - pPos - (peak > 0));
+          peak = 1;
+          isDes = false;
+        }
+        // update child i candy number, if equal, set to 1
+        peak = (ratings[i] == ratings[i - 1]) ? 1 : peak + 1;
+        count += peak;
+      } else {
+        if (!isDes) {
+          pPos = i - 1;
+          isDes = true;
+        }
+        peak--;
+        count += peak;
+      }
+    }
+
+    return !isDes ? count : count - (peak - 1) * (i - pPos - (peak > 0));
   }
 };
