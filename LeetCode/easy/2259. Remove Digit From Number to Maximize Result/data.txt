@@ -1,0 +1,12 @@
+Input: number = "123", digit = "3"
+Output: "12"
+
+===
+
+Input: number = "1231", digit = "1"
+Output: "231"
+
+===
+
+Input: number = "551", digit = "5"
+Output: "51"
