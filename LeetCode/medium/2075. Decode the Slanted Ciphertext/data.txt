@@ -1,0 +1,12 @@
+Input: encodedText = "ch   ie   pr", rows = 3
+Output: "cipher"
+
+===
+
+Input: encodedText = "iveo    eed   l te   olc", rows = 4
+Output: "i love leetcode"
+
+===
+
+Input: encodedText = "coding", rows = 1
+Output: "coding"
