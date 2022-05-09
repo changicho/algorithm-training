@@ -1,0 +1,7 @@
+Input: cards = [3,4,2,3,4,7]
+Output: 4
+
+===
+
+Input: cards = [1,0,5,3]
+Output: -1
