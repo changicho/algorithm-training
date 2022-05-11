@@ -75,7 +75,7 @@ class Solution {
  private:
   struct Trie {
     unordered_map<int, Trie*> ch;
-    int cnt = 0;
+    int count = 0;
 
     int insert(vector<int>& nums, int i, int k, int p) {
       if (i == nums.size() || k - (nums[i] % p == 0) < 0) return 0;
@@ -84,19 +84,21 @@ class Solution {
       }
 
       int next = ch[nums[i]]->insert(nums, i + 1, k - (nums[i] % p == 0), p);
-      ch[nums[i]]->cnt++;
+      ch[nums[i]]->count++;
+      bool isFirst = ch[nums[i]]->count == 1;
 
-      return (ch[nums[i]]->cnt == 1) + next;
+      return isFirst ? next + 1 : next;
     }
   };
 
  public:
   int countDistinct(vector<int>& nums, int k, int p) {
+    int size = nums.size();
     int count = 0;
-    Trie t;
+    Trie trie;
 
-    for (int i = 0; i < nums.size(); ++i) {
-      count += t.insert(nums, i, k, p);
+    for (int i = 0; i < size; i++) {
+      count += trie.insert(nums, i, k, p);
     }
 
     return count;

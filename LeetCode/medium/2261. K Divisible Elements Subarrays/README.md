@@ -102,4 +102,52 @@ int countDistinct(vector<int>& nums, int k, int p) {
 }
 ```
 
+### trie
+
+| 내 코드 (ms) | 시간 복잡도 | 공간 복잡도  |
+| :----------: | :---------: | :----------: |
+|     467      |   O(N^2)    | O(N + 200^N) |
+
+각 index를 시작점으로 설정한 후 조전에 맞는 subArray를 탐색하며 트라이에 삽입한다.
+
+(left ~ right 범위 탐색)
+
+이 과정에서 처음 들어오는 문자열에 대해서 count를 수행한다.
+
+각 시작점을 탐색하는데 O(N), 각 시작점에서 트라이를 이용해 가능한 subArray들을 탐색하는 데 O(N)의 시간 복잡도를 사용한다.
+
+이를 구현하면 다음과 같다.
+
+```cpp
+struct Trie {
+  unordered_map<int, Trie*> ch;
+  int count = 0;
+
+  int insert(vector<int>& nums, int i, int k, int p) {
+    if (i == nums.size() || k - (nums[i] % p == 0) < 0) return 0;
+    if (!ch[nums[i]]) {
+      ch[nums[i]] = new Trie();
+    }
+
+    int next = ch[nums[i]]->insert(nums, i + 1, k - (nums[i] % p == 0), p);
+    ch[nums[i]]->count++;
+    bool isFirst = ch[nums[i]]->count == 1;
+
+    return isFirst ? next + 1 : next;
+  }
+};
+
+int countDistinct(vector<int>& nums, int k, int p) {
+  int size = nums.size();
+  int count = 0;
+  Trie trie;
+
+  for (int i = 0; i < size; i++) {
+    count += trie.insert(nums, i, k, p);
+  }
+
+  return count;
+}
+```
+
 ## 고생한 점
