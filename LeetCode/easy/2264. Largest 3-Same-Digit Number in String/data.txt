@@ -1,0 +1,12 @@
+Input: num = "6777133339"
+Output: "777"
+
+===
+
+Input: num = "2300019"
+Output: "000"
+
+===
+
+Input: num = "42352338"
+Output: ""
