@@ -1,0 +1,7 @@
+Input: pressedKeys = "22233"
+Output: 8
+
+===
+
+Input: pressedKeys = "222222222222222222222222222222222222"
+Output: 82876089
