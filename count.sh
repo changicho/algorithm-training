@@ -17,3 +17,6 @@ sh ./count.sh
 
 cd $DIR/Samsung
 sh ./count.sh
+
+cd $DIR/CodeForces
+sh ./count.sh
