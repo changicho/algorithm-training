@@ -1,0 +1,7 @@
+Input: num = 240, k = 2
+Output: 2
+
+===
+
+Input: num = 430043, k = 2
+Output: 2
