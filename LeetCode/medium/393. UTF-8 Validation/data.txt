@@ -1,0 +1,7 @@
+Input: data = [197,130,1]
+Output: true
+
+===
+
+Input: data = [235,140,4]
+Output: false
