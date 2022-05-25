@@ -1,0 +1,7 @@
+Input: nums = [4,3,2,6]
+Output: 26
+
+===
+
+Input: nums = [100]
+Output: 0
