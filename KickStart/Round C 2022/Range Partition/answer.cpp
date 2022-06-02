@@ -8,12 +8,10 @@
 
 using namespace std;
 
-vector<int> prefixSums;
-
 vector<int> canDivide(int N, int X, int Y) {
   double target = (double)X / (double)Y;
   int div = X + Y;
-  int sum = prefixSums[N];
+  int sum = N * (N + 1) / 2;
 
   // edge case
   if (div > sum) return {};
@@ -22,33 +20,19 @@ vector<int> canDivide(int N, int X, int Y) {
   int alanTarget = (sum / div) * X;
 
   vector<int> res;
-  set<int> nums;
-  for (int n = 1; n <= N; n++) {
-    nums.insert(n);
+
+  for (int n = N; n >= 1; n--) {
+    if (alanTarget > n) {
+      alanTarget -= n;
+      res.push_back(n);
+    } else {
+      res.push_back(min(alanTarget, n));
+      alanTarget = 0;
+      break;
+    }
   }
-
-  while (alanTarget > 0 && !nums.empty()) {
-    auto it = prev(nums.upper_bound(alanTarget));
-
-    if (it == nums.end()) return {};
-
-    int cur = *it;
-    nums.erase(cur);
-    alanTarget -= cur;
-    res.push_back(cur);
-  }
-
-  if (alanTarget > 0) return {};
 
   return res;
-}
-
-void init() {
-  prefixSums.resize(5001);
-
-  for (int n = 1; n <= 5000; n++) {
-    prefixSums[n] = prefixSums[n - 1] + n;
-  }
 }
 
 int main() {
@@ -58,8 +42,6 @@ int main() {
 
   int T;
   cin >> T;
-
-  init();
 
   for (int testCase = 1; testCase <= T; testCase++) {
     int N, X, Y;
