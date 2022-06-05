@@ -7,8 +7,8 @@
 using namespace std;
 
 // use topological sort
-// time : O(N)
-// space : O(N)
+// time : O(N + V)
+// space : O(N + V)
 class Solution {
  public:
   bool sequenceReconstruction(vector<int>& nums,
