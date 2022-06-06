@@ -49,3 +49,35 @@ class Solution {
     return true;
   }
 };
+
+// use one pass
+// time : O(N + S)
+// space : O(N)
+class Solution {
+ public:
+  bool sequenceReconstruction(vector<int>& nums,
+                              vector<vector<int>>& sequences) {
+    int size = nums.size();
+
+    vector<int> order(size + 1);
+    vector<bool> visited(size + 1, false);
+    for (int i = 0; i < size; i++) {
+      order[nums[i]] = i;
+    }
+
+    int toMatch = size - 1;
+    for (vector<int>& sequence : sequences) {
+      for (int i = 1; i < sequence.size(); i++) {
+        int from = sequence[i - 1], to = sequence[i];
+
+        if (order[from] >= order[to]) return false;
+        if (visited[from] == false && order[from] + 1 == order[to]) {
+          visited[from] = true;
+          --toMatch;
+        }
+      }
+    }
+
+    return toMatch == 0;
+  }
+};

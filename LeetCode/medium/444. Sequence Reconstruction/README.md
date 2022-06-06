@@ -83,4 +83,51 @@ bool sequenceReconstruction(vector<int>& nums, vector<vector<int>>& sequences) {
 }
 ```
 
+### 관계 비교 (one pass)
+
+| 내 코드 (ms) | 시간 복잡도 | 공간 복잡도 |
+| :----------: | :---------: | :---------: |
+|      77      |  O(N + V)   |  O(N + V)   |
+
+각 sequence를 순회하며 현재 각 노드들의 연결 구조가 다른 sequence에서도 동일하게 나타나는지 판단한다.
+
+이는 nums의 순서대로만 sequence를 만족해야 하기 때문이다.
+
+미리 nums를 순회하며 order를 정하고, 이후 sequence를 순회하며 연결 구조가 깨지는 지를 판단한다.
+
+이때 중복된 경우가 생성될 수 있으므로, 만약 (i), (i+1) 번째 두 노드에 대해서 연결 구조를 방문하는것이 확실한 경우 i번째 노드에 대해 최소 요구조건을 만족 했다고 볼 수 있다.
+
+따라서 i번째에 대해서 최소 조건을 충족했으므로 마킹한다.
+
+맨 마지막 노드는 마킹할 수 없으므로 N-1개의 마킹이 완료된 경우 유일한 order임을 판단할 수 있다.
+
+이를 구현하면 다음과 같다.
+
+```cpp
+bool sequenceReconstruction(vector<int>& nums, vector<vector<int>>& sequences) {
+  int size = nums.size();
+
+  vector<int> order(size + 1);
+  vector<bool> visited(size + 1, false);
+  for (int i = 0; i < size; i++) {
+    order[nums[i]] = i;
+  }
+
+  int toMatch = size - 1;
+  for (vector<int>& sequence : sequences) {
+    for (int i = 1; i < sequence.size(); i++) {
+      int from = sequence[i - 1], to = sequence[i];
+
+      if (order[from] >= order[to]) return false;
+      if (visited[from] == false && order[from] + 1 == order[to]) {
+        visited[from] = true;
+        --toMatch;
+      }
+    }
+  }
+
+  return toMatch == 0;
+}
+```
+
 ## 고생한 점
