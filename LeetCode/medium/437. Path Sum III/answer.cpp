@@ -18,11 +18,13 @@ struct TreeNode {
 };
 
 // use BFS with recursive
-
+// time : O(N^2)
+// space : O(H)
 class Solution {
  private:
   int answer = 0;
-  void recursive(TreeNode *node, int target, int sum) {
+
+  void recursive(TreeNode *node, int target, long long sum) {
     if (!node) return;
 
     sum += node->val;
@@ -52,31 +54,66 @@ class Solution {
   }
 };
 
-// use hash map
-
+// use DFS with recursive
+// time : O(N^2)
+// space : O(H)
 class Solution {
  private:
-  int recursive(TreeNode *root, int curSum, int target,
-                unordered_map<int, int> &sums) {
-    if (!root) return 0;
+  int countSame = 0;
 
-    curSum += root->val;
-    sums[curSum] += 1;
+  void recursive(TreeNode *node, long long curSum, long long target) {
+    if (!node) return;
 
-    int response = sums[curSum - target];
+    curSum += node->val;
+    if (curSum == target) countSame++;
 
-    response += recursive(root->left, curSum, target, sums) +
-                recursive(root->right, curSum, target, sums);
+    if (node->left) recursive(node->left, curSum, target);
+    if (node->right) recursive(node->right, curSum, target);
+  }
 
-    sums[curSum] -= 1;
-    return response;
+  void startNode(TreeNode *node, int target) {
+    if (!node) return;
+
+    recursive(node, 0, target);
+
+    if (node->left) startNode(node->left, target);
+    if (node->right) startNode(node->right, target);
   }
 
  public:
   int pathSum(TreeNode *root, int targetSum) {
-    unordered_map<int, int> sums;
-    sums[0] = 1;
+    startNode(root, targetSum);
 
-    return recursive(root, 0, targetSum, sums);
+    return countSame;
+  }
+};
+
+// use hash map
+// time : O(N)
+// space : O(N)
+class Solution {
+ private:
+  int countSame = 0;
+
+  unordered_map<long long, int> sums;
+
+  void recursive(TreeNode *node, long long curSum, int target) {
+    curSum += node->val;
+
+    if (curSum == target) countSame++;
+    countSame += sums[curSum - target];
+    sums[curSum] += 1;
+
+    if (node->left) recursive(node->left, curSum, target);
+    if (node->right) recursive(node->right, curSum, target);
+
+    sums[curSum] -= 1;
+  }
+
+ public:
+  int pathSum(TreeNode *root, int targetSum) {
+    if (root) recursive(root, 0, targetSum);
+
+    return countSame;
   }
 };

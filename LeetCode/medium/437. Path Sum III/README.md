@@ -38,7 +38,8 @@
 
 ```cpp
 int answer = 0;
-void recursive(TreeNode *node, int target, int sum) {
+
+void recursive(TreeNode *node, int target, long long sum) {
   if (!node) return;
 
   sum += node->val;
@@ -67,6 +68,37 @@ int pathSum(TreeNode *root, int targetSum) {
 }
 ```
 
+DFS로 각 노드를 시작점으로 탐색하는 경우 다음과 같다.
+
+```cpp
+int countSame = 0;
+
+void recursive(TreeNode *node, long long curSum, long long target) {
+  if (!node) return;
+
+  curSum += node->val;
+  if (curSum == target) countSame++;
+
+  if (node->left) recursive(node->left, curSum, target);
+  if (node->right) recursive(node->right, curSum, target);
+}
+
+void startNode(TreeNode *node, int target) {
+  if (!node) return;
+
+  recursive(node, 0, target);
+
+  if (node->left) startNode(node->left, target);
+  if (node->right) startNode(node->right, target);
+}
+
+int pathSum(TreeNode *root, int targetSum) {
+  startNode(root, targetSum);
+
+  return countSame;
+}
+```
+
 ### 부분합
 
 | 내 코드 (ms) | 시간 복잡도 | 공간 복잡도 |
@@ -86,27 +118,27 @@ int pathSum(TreeNode *root, int targetSum) {
 부분합들을 저장하기 위해 hash map을 사용한다.
 
 ```cpp
-int recursive(TreeNode *root, int curSum, int target,
-              unordered_map<int, int> &sums) {
-  if (!root) return 0;
+int countSame = 0;
 
-  curSum += root->val;
+unordered_map<long long, int> sums;
+
+void recursive(TreeNode *node, long long curSum, int target) {
+  curSum += node->val;
+
+  if (curSum == target) countSame++;
+  countSame += sums[curSum - target];
   sums[curSum] += 1;
 
-  int response = sums[curSum - target];
-
-  response += recursive(root->left, curSum, target, sums) +
-              recursive(root->right, curSum, target, sums);
+  if (node->left) recursive(node->left, curSum, target);
+  if (node->right) recursive(node->right, curSum, target);
 
   sums[curSum] -= 1;
-  return response;
 }
 
 int pathSum(TreeNode *root, int targetSum) {
-  unordered_map<int, int> sums;
-  sums[0] = 1;
+  if (root) recursive(root, 0, targetSum);
 
-  return recursive(root, 0, targetSum, sums);
+  return countSame;
 }
 ```
 
