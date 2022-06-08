@@ -1,0 +1,13 @@
+Input: expression = "T?2:3"
+Output: "2"
+
+
+===
+
+Input: expression = "F?1:T?4:5"
+Output: "4"
+
+===
+
+Input: expression = "T?T?F:5:3"
+Output: "F"
