@@ -41,3 +41,33 @@ class Solution {
     return res;
   }
 };
+
+// use sliding window
+// time : O(N + M)
+// space : O(1)
+class Solution {
+ public:
+  vector<int> findAnagrams(string s, string p) {
+    vector<int> target(26, 0), counts(26, 0);
+    for (char &c : p) {
+      target[c - 'a']++;
+    }
+
+    int length = p.length();
+
+    vector<int> indexes;
+    for (int i = 0; i < s.length(); i++) {
+      counts[s[i] - 'a']++;
+
+      if (i - length >= 0) {
+        counts[s[i - length] - 'a']--;
+      }
+
+      if (target == counts) {
+        indexes.push_back(i - length + 1);
+      }
+    }
+
+    return indexes;
+  }
+};
