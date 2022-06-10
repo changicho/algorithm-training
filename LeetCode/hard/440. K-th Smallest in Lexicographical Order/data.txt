@@ -1,0 +1,7 @@
+Input: n = 13, k = 2
+Output: 10
+
+===
+
+Input: n = 1, k = 1
+Output: 1
