@@ -1,0 +1,12 @@
+Input: s = "fool3e7bar", sub = "leet", mappings = [["e","3"],["t","7"],["t","8"]]
+Output: true
+
+===
+
+Input: s = "fooleetbar", sub = "f00l", mappings = [["o","0"]]
+Output: false
+
+===
+
+Input: s = "Fool33tbaR", sub = "leetd", mappings = [["e","3"],["t","7"],["t","8"],["d","b"],["p","b"]]
+Output: true
