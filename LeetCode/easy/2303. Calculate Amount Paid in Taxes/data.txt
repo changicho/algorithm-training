@@ -1,0 +1,12 @@
+Input: brackets = [[3,50],[7,10],[12,25]], income = 10
+Output: 2.65000
+
+===
+
+Input: brackets = [[1,0],[4,25],[5,50]], income = 2
+Output: 0.25000
+
+===
+
+Input: brackets = [[2,50]], income = 0
+Output: 0.00000
