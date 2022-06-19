@@ -1,0 +1,7 @@
+Input: cookies = [8,15,10,20,8], k = 2
+Output: 31
+
+===
+
+Input: cookies = [6,1,3,2,2,4,1,2], k = 3
+Output: 7
