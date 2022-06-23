@@ -2,6 +2,7 @@
 #include <iostream>
 #include <map>
 #include <string>
+#include <unordered_map>
 #include <vector>
 
 using namespace std;
@@ -48,5 +49,29 @@ class Solution {
       answer = max(answer, num);
     }
     return answer;
+  }
+};
+
+// use dynamic programming
+// time : O(N + K)
+// space : O(N)
+class Solution {
+ public:
+  int deleteAndEarn(vector<int> &nums) {
+    unordered_map<int, int> counts;
+    int maximum = nums.front();
+    for (int &n : nums) {
+      counts[n]++;
+      maximum = max(maximum, n);
+    }
+
+    vector<int> dp(10001, 0);
+
+    dp[1] = counts[1] > 0 ? counts[1] : 0;
+    for (int i = 2; i <= maximum; i++) {
+      dp[i] = max(dp[i - 1], dp[i - 2] + i * counts[i]);
+    }
+
+    return dp[maximum];
   }
 };

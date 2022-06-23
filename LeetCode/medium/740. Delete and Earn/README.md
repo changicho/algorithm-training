@@ -20,6 +20,8 @@
 
 이를 한번의 순회로 해결할 수 있으므로 총 시간복잡도는 O(N \* log_2(N))이다.
 
+혹은 각 값들을 count한 뒤 1부터 maximum까지 순회하며 동적 계획법을 이용해 최대 값을 구할 수 있다.
+
 ### 공간 복잡도
 
 입력받은 숫자들의 각 값마다의 count를 구해야한다.
@@ -31,6 +33,49 @@
 동적 계획법을 위한 dp배열의 크기도 N'만큼 필요하다.
 
 최악의 경우 N'는 N이므로 공간 복잡도는 O(N)이다.
+
+### 동적 계획법
+
+| 내 코드 (ms) | 시간 복잡도 | 공간 복잡도 |
+| :----------: | :---------: | :---------: |
+|      8       |  O(N + K)   |    O(N)     |
+
+특정 수를 지웠을 때의 점수를 계산하기 위해 각 값들을 count한다.
+
+이후 dp 식을 다음과 같이 선언한다.
+
+```cpp
+dp[num]; // 숫자 num까지 순회했을 때의 최대값
+
+dp[num] = max(dp[num - 1], dp[num - 2] + num * counts[num]);
+
+dp[0] = 0;
+dp[1] = counts[1];
+```
+
+하나의 값을 선택했을 때 해당 값과 차이가 1인 값들은 모두 삭제되므로 현재 값을 선택하는 경우 -2 한 숫자에 대한 값을 더한다.
+
+이를 구현하면 다음과 같다.
+
+```cpp
+int deleteAndEarn(vector<int> &nums) {
+  unordered_map<int, int> counts;
+  int maximum = nums.front();
+  for (int &n : nums) {
+    counts[n]++;
+    maximum = max(maximum, n);
+  }
+
+  vector<int> dp(10001, 0);
+
+  dp[1] = counts[1] > 0 ? counts[1] : 0;
+  for (int i = 2; i <= maximum; i++) {
+    dp[i] = max(dp[i - 1], dp[i - 2] + i * counts[i]);
+  }
+
+  return dp[maximum];
+}
+```
 
 ### 동적 계획법
 
