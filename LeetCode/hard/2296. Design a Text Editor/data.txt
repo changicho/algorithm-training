@@ -1,0 +1,5 @@
+Input
+["TextEditor", "addText", "deleteText", "addText", "cursorRight", "cursorLeft", "deleteText", "cursorLeft", "cursorRight"]
+[[], ["leetcode"], [4], ["practice"], [3], [8], [10], [2], [6]]
+Output
+[null, null, 4, null, "etpractice", "leet", 4, "", "practi"]
