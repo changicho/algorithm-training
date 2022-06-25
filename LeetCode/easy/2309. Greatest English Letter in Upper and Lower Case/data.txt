@@ -1,0 +1,12 @@
+Input: s = "lEeTcOdE"
+Output: "E"
+
+===
+
+Input: s = "arRAzFif"
+Output: "R"
+
+===
+
+Input: s = "AbCdEfGhIjK"
+Output: ""
