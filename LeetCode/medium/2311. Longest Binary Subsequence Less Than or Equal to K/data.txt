@@ -1,0 +1,7 @@
+Input: s = "1001010", k = 5
+Output: 5
+
+===
+
+Input: s = "00101001", k = 1
+Output: 6
