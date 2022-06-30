@@ -1,0 +1,12 @@
+Input: s = "l|*e*et|c**o|*de|"
+Output: 2
+
+===
+
+Input: s = "iamprogrammer"
+Output: 0
+
+===
+
+Input: s = "yo|uar|e**|b|e***au|tifu|l"
+Output: 5
