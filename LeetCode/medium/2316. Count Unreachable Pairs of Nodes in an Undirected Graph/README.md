@@ -84,4 +84,49 @@ long long countPairs(int n, vector<vector<int>> &edges) {
 }
 ```
 
+### DFS
+
+| 내 코드 (ms) | 시간 복잡도 | 공간 복잡도 |
+| :----------: | :---------: | :---------: |
+|     1030     |  O(N + E)   |  O(N + E)   |
+
+위 방법과 동일하게 현재 그룹의 노드의 수를 DFS로 탐색해 구한다.
+
+이후 각 그룹마다 순회하며 정답을 갱신한다.
+
+```cpp
+vector<bool> visited;
+
+void recursive(int node, vector<vector<int>> &graph, int &count) {
+  count++;
+  visited[node] = true;
+  for (int &next : graph[node]) {
+    if (visited[next]) continue;
+    recursive(next, graph, count);
+  }
+}
+
+long long countPairs(int n, vector<vector<int>> &edges) {
+  visited.resize(n, false);
+  vector<vector<int>> graph(n);
+  for (vector<int> &e : edges) {
+    int from = e[0], to = e[1];
+    graph[from].push_back(to);
+    graph[to].push_back(from);
+  }
+
+  long long answer = 0;
+  for (int node = 0; node < n; node++) {
+    if (visited[node]) continue;
+
+    int count = 0;
+    recursive(node, graph, count);
+
+    answer += (long long)(count) * (n - count);
+  }
+
+  return answer / 2;
+}
+```
+
 ## 고생한 점
