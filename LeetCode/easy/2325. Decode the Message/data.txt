@@ -1,0 +1,7 @@
+Input: key = "the quick brown fox jumps over the lazy dog", message = "vkbs bs t suepuv"
+Output: "this is a secret"
+
+===
+
+Input: key = "eljuxhpwnyrdgtqkviszcfmabo", message = "zwx hnfx lqantp mnoeius ycgk vcnjrdb"
+Output: "the five boxing wizards jump quickly"
