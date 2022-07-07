@@ -36,20 +36,20 @@ class Solution {
   int longestSubsequence(string s, int k) {
     // dp[i] : the minimum value of subsequence with length i
     int dp[1010] = {};
-    int index = 0;
+    int length = 0;
 
     for (char& c : s) {
-      int curCost = dp[index] * 2 + c - '0';
+      int curCost = dp[length] * 2 + c - '0';
 
       if (curCost <= k) {
-        index++;
-        dp[index] = curCost;
+        length++;
+        dp[length] = curCost;
       }
 
-      for (int i = index; i > 0; --i) {
+      for (int i = length; i > 0; --i) {
         dp[i] = min(dp[i], dp[i - 1] * 2 + c - '0');
       }
     }
-    return index;
+    return length;
   }
 };

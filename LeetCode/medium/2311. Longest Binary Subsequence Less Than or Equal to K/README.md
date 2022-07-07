@@ -67,4 +67,40 @@ int longestSubsequence(string s, int k) {
 }
 ```
 
+### 동적 계획법
+
+| 내 코드 (ms) | 시간 복잡도 | 공간 복잡도 |
+| :----------: | :---------: | :---------: |
+|      55      |   O(N^2)    |    O(N)     |
+
+dp식을 다음과 같이 정의한다.
+
+- 길이가 i일 때의 subSequence의 최소값
+
+이후 각 문자를 순차적으로 순회하며 dp값을 갱신해나간다.
+
+여기서 현재 문자를 더했을 때의 cost를 계산 후 이전 dp들을 갱신한다.
+
+```cpp
+int longestSubsequence(string s, int k) {
+  // dp[i] : the minimum value of subsequence with length i
+  int dp[1010] = {};
+  int length = 0;
+
+  for (char& c : s) {
+    int curCost = dp[length] * 2 + c - '0';
+
+    if (curCost <= k) {
+      length++;
+      dp[length] = curCost;
+    }
+
+    for (int i = length; i > 0; --i) {
+      dp[i] = min(dp[i], dp[i - 1] * 2 + c - '0');
+    }
+  }
+  return length;
+}
+```
+
 ## 고생한 점
