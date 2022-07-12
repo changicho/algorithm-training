@@ -1,0 +1,12 @@
+Input: words = ["abcd","bnrt","crmy","dtye"]
+Output: true
+
+===
+
+Input: words = ["abcd","bnrt","crm","dt"]
+Output: true
+
+===
+
+Input: words = ["ball","area","read","lady"]
+Output: false
