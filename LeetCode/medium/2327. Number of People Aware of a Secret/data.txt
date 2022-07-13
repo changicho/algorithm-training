@@ -1,0 +1,7 @@
+Input: n = 6, delay = 2, forget = 4
+Output: 5
+
+===
+
+Input: n = 4, delay = 1, forget = 3
+Output: 6
