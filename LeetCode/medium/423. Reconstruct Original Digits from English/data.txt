@@ -1,0 +1,7 @@
+Input: s = "owoztneoer"
+Output: "012"
+
+===
+
+Input: s = "fviefuro"
+Output: "45"
