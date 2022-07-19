@@ -1,0 +1,12 @@
+Input: maxChoosableInteger = 10, desiredTotal = 11
+Output: false
+
+===
+
+Input: maxChoosableInteger = 10, desiredTotal = 0
+Output: true
+
+===
+
+Input: maxChoosableInteger = 10, desiredTotal = 1
+Output: true
