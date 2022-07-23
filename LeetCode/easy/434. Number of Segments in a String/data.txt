@@ -1,0 +1,7 @@
+Input: s = "Hello, my name is John"
+Output: 5
+
+===
+
+Input: s = "Hello"
+Output: 1
