@@ -1,0 +1,12 @@
+Input: p = "a"
+Output: 1
+
+===
+
+Input: p = "cac"
+Output: 2
+
+===
+
+Input: p = "zab"
+Output: 6
