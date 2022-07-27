@@ -1,0 +1,83 @@
+# 475. Heaters
+
+[링크](https://leetcode.com/problems/heaters/)
+
+| 난이도 |
+| :----: |
+| Medium |
+
+## 설계
+
+### 시간 복잡도
+
+houses의 크기를 N, heaters의 크기를 M, houses와 heaters의 값 중 가장 큰 차이를 K라 하자.
+
+특정 radius일 때 모든 집을 따뜻하게 할 수 있는지 투 포인터를 이용할 경우 O(N + M)의 시간 복잡도를 사용할 수 있다.
+
+이를 K에 대해서 이분 탐색으로 정답을 구할 경우 O((N + M)log_2(K))의 시간 복잡도를 사용한다.
+
+### 공간 복잡도
+
+이분 탐색을 사용하는 데 O(1)의 공간 복잡도를 사용한다.
+
+### 이분 탐색
+
+| 내 코드 (ms) |    시간 복잡도     | 공간 복잡도 |
+| :----------: | :----------------: | :---------: |
+|     104      | O((N + M)log_2(K)) |    O(1)     |
+
+특정 radius에 대해서 정답 이상의 값은 모든 집을 따뜻하게 하는것이 가능하고, 정답 미만의 값은 모든 집을 따뜻하게 하는게 불가능하다.
+
+따라서 이는 linear하므로 이 값에 대해 이분 탐색을 사용할 수 있다.
+
+특정 radius에 대해서 houses와 heaters에 대해 모두 따뜻하게 가능한지는 투 포인터를 이용해 구현 할 수 있다.
+
+이 경우 houses와 heaters의 index를 순회하며 radius에 대해 범위에 포함 되는지를 검사한다.
+
+이를 위해서 두 배열은 모두 정렬되어있어야 하므로 정렬에 O(N \* log_2(N)), O(M \* log_2(M))의 시간 복잡도를 각각 사용한다.
+
+이를 구현하면 다음과 같다.
+
+```cpp
+bool isPossible(vector<int>& houses, vector<int>& heaters, int radius) {
+  int n = houses.size(), m = heaters.size();
+  int i = 0, j = 0;
+  // use two pointer
+  while (i < n && j < m) {
+    int left = heaters[j] - radius, right = heaters[j] + radius;
+
+    if (left <= houses[i] && houses[i] <= right) {
+      i++;
+    } else {
+      j++;
+    }
+  }
+
+  if (j == m) return false;
+  return true;
+}
+
+int findRadius(vector<int>& houses, vector<int>& heaters) {
+  sort(houses.begin(), houses.end());
+  sort(heaters.begin(), heaters.end());
+
+  int answer = max(houses.back(), heaters.back()) + 1;
+  int left = 0, right = max(houses.back(), heaters.back()) + 1;
+  while (left < right) {
+    int mid = left + (right - left) / 2;
+
+    if (isPossible(houses, heaters, mid)) {
+      // pick left part
+      answer = mid;
+      right = mid;
+    } else {
+      // pick right part
+      left = mid + 1;
+    }
+  }
+
+  return answer;
+}
+```
+
+## 고생한 점
