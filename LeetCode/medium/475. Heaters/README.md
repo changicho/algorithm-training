@@ -80,4 +80,50 @@ int findRadius(vector<int>& houses, vector<int>& heaters) {
 }
 ```
 
+### 정렬 & 투 포인터
+
+| 내 코드 (ms) |           시간 복잡도            | 공간 복잡도 |
+| :----------: | :------------------------------: | :---------: |
+|      92      | O(N \* log_2(N) + M \* log_2(M)) |    O(N)     |
+
+houses와 heaters를 모두 정렬한다.
+
+이후 i번째 house와 가장 가까운 히터의 거리차이를 저장할 크기 N의 배열을 선언한다.
+
+이를 투 포인터를 이용해 왼쪽에서 봤을 때, 오른쪽에서 봤을 때에 대한 값을 갱신한다.
+
+이를 이용해 각 house에 대한 다른 히터까지의 최소 거리를 각각 구할 수 있고 이 중에 가장 큰 값이 정답이다.
+
+```cpp
+int findRadius(vector<int>& houses, vector<int>& heaters) {
+  int n = houses.size(), m = heaters.size();
+
+  sort(houses.begin(), houses.end());
+  sort(heaters.begin(), heaters.end());
+  vector<int> res(n, INT_MAX);
+
+  // distance to nearest RHS heater
+  for (int i = 0, j = 0; i < n && j < m;) {
+    if (houses[i] <= heaters[j]) {
+      res[i] = heaters[j] - houses[i];
+      i++;
+    } else {
+      j++;
+    }
+  }
+
+  // distance to nearest LHS heater
+  for (int i = n - 1, j = m - 1; i >= 0 && j >= 0;) {
+    if (houses[i] >= heaters[j]) {
+      res[i] = min(res[i], houses[i] - heaters[j]);
+      i--;
+    } else {
+      j--;
+    }
+  }
+
+  return *max_element(res.begin(), res.end());
+}
+```
+
 ## 고생한 점
