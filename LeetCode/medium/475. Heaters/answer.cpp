@@ -87,3 +87,31 @@ class Solution {
     return *max_element(res.begin(), res.end());
   }
 };
+
+// use binary search
+// time : O((N + M)log_2(M))
+// space : O(1)
+class Solution {
+ public:
+  int findRadius(vector<int>& houses, vector<int>& heaters) {
+    sort(heaters.begin(), heaters.end());
+
+    int answer = 0;
+    for (int& house : houses) {
+      // nearest right one
+      auto right = lower_bound(heaters.begin(), heaters.end(), house);
+      int curRadius = INT_MAX;
+
+      if (right != heaters.end()) {
+        curRadius = *right - house;
+      }
+      if (right != heaters.begin()) {
+        // nearest left one
+        auto left = prev(right);
+        curRadius = min(curRadius, house - *left);
+      }
+      answer = max(answer, curRadius);
+    }
+    return answer;
+  }
+};

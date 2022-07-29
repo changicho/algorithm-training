@@ -24,6 +24,42 @@ houses의 크기를 N, heaters의 크기를 M, houses와 heaters의 값 중 가�
 
 | 내 코드 (ms) |    시간 복잡도     | 공간 복잡도 |
 | :----------: | :----------------: | :---------: |
+|      83      | O((N + M)log_2(M)) |    O(1)     |
+
+heaters를 정렬한다.
+
+이후 houses를 순회하며 houses의 가장 왼쪽에서 가장 가까운 heater, 오른쪽에서 가장 가까운 heater를 구하고 그 거리의 차이를 구한다.
+
+두 차이값중 작은값을 정답의 후보군으로 두고 정답의 후보군 중 가장 큰 값을 고른다.
+
+```cpp
+int findRadius(vector<int>& houses, vector<int>& heaters) {
+  sort(heaters.begin(), heaters.end());
+
+  int answer = 0;
+  for (int& house : houses) {
+    // nearest right one
+    auto right = lower_bound(heaters.begin(), heaters.end(), house);
+    int curRadius = INT_MAX;
+
+    if (right != heaters.end()) {
+      curRadius = *right - house;
+    }
+    if (right != heaters.begin()) {
+      // nearest left one
+      auto left = prev(right);
+      curRadius = min(curRadius, house - *left);
+    }
+    answer = max(answer, curRadius);
+  }
+  return answer;
+}
+```
+
+### 이분 탐색
+
+| 내 코드 (ms) |    시간 복잡도     | 공간 복잡도 |
+| :----------: | :----------------: | :---------: |
 |     104      | O((N + M)log_2(K)) |    O(1)     |
 
 특정 radius에 대해서 정답 이상의 값은 모든 집을 따뜻하게 하는것이 가능하고, 정답 미만의 값은 모든 집을 따뜻하게 하는게 불가능하다.
