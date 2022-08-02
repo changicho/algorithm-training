@@ -1,0 +1,7 @@
+Input: x = 1, y = 4
+Output: 2
+
+===
+
+Input: x = 3, y = 1
+Output: 1
