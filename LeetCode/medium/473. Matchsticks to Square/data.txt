@@ -1,0 +1,7 @@
+Input: matchsticks = [1,1,2,2,2]
+Output: true
+
+===
+
+Input: matchsticks = [3,3,3,3,4]
+Output: false
