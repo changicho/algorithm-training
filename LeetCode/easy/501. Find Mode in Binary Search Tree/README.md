@@ -69,4 +69,56 @@ vector<int> findMode(TreeNode *root) {
 }
 ```
 
+### 중위 순회
+
+| 내 코드 (ms) | 시간 복잡도 | 공간 복잡도 |
+| :----------: | :---------: | :---------: |
+|      11      |    O(N)     |    O(N)     |
+
+원소들은 중복되어있더라고, BST기반으로 배치되어있다.
+
+- 왼쪽 : 현재값보다 같거나 작은값들 위치
+- 오른쪽 : 현재값보다 같거나 큰값들 위치
+
+따라서 중위 순회를 이용해 같은 값들을 연이어 순회할 수 있다.
+
+이는 같은 값들의 갯수를 연속해서 탐색할 수 있음을 의미하므로 count하는 배열을 생성하지 않아도 된다.
+
+따라서 count와 동시에 정답배열을 갱신할 수 있다.
+
+이를 구현하면 다음과 같다.
+
+```cpp
+int maximum = 0, curCount = 0, curVal = INT_MIN;
+vector<int> answer;
+
+void inOrder(TreeNode *root) {
+  if (root == NULL) return;
+
+  inOrder(root->left);
+  if (curVal == root->val) {
+    curCount++;
+  } else {
+    curCount = 1;
+  }
+
+  if (curCount > maximum) {
+    answer.clear();
+    maximum = curCount;
+    answer.push_back(root->val);
+  } else if (curCount == maximum) {
+    answer.push_back(root->val);
+  }
+  curVal = root->val;
+  inOrder(root->right);
+}
+
+vector<int> findMode(TreeNode *root) {
+  inOrder(root);
+
+  return answer;
+}
+```
+
+
 ## 고생한 점

@@ -53,3 +53,40 @@ class Solution {
     return answer;
   }
 };
+
+// use inOrder
+// time : O(N)
+// space : O(1)
+class Solution {
+ private:
+  int maximum = 0, curCount = 0, curVal = INT_MIN;
+  vector<int> answer;
+
+  void inOrder(TreeNode *root) {
+    if (root == NULL) return;
+
+    inOrder(root->left);
+    if (curVal == root->val) {
+      curCount++;
+    } else {
+      curCount = 1;
+    }
+
+    if (curCount > maximum) {
+      answer.clear();
+      maximum = curCount;
+      answer.push_back(root->val);
+    } else if (curCount == maximum) {
+      answer.push_back(root->val);
+    }
+    curVal = root->val;
+    inOrder(root->right);
+  }
+
+ public:
+  vector<int> findMode(TreeNode *root) {
+    inOrder(root);
+
+    return answer;
+  }
+};
