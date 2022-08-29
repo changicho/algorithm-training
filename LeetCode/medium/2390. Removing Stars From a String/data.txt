@@ -1,0 +1,7 @@
+Input: s = "leet**cod*e"
+Output: "lecoe"
+
+===
+
+Input: s = "erase*****"
+Output: ""
