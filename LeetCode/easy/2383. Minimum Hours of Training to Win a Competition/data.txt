@@ -1,0 +1,7 @@
+Input: initialEnergy = 5, initialExperience = 3, energy = [1,4,3,2], experience = [2,6,3,1]
+Output: 8
+
+===
+
+Input: initialEnergy = 2, initialExperience = 4, energy = [1], experience = [3]
+Output: 0
