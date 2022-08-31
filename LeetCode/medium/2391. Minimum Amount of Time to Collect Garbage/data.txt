@@ -1,0 +1,7 @@
+Input: garbage = ["G","P","GP","GG"], travel = [2,4,3]
+Output: 21
+
+===
+
+Input: garbage = ["MMM","PGM","GP"], travel = [3,10]
+Output: 37
