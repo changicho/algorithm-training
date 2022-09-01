@@ -1,0 +1,7 @@
+Input: num = "444947137"
+Output: "7449447"
+
+===
+
+Input: num = "00009"
+Output: "9"
