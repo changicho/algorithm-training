@@ -1,6 +1,9 @@
 #include <algorithm>
 #include <iostream>
+#include <queue>
 #include <string>
+#include <unordered_map>
+#include <unordered_set>
 #include <vector>
 
 using namespace std;
@@ -66,5 +69,47 @@ class Solution {
       time++;
     }
     return time - 1;
+  }
+};
+
+// use DFS
+// time : O(N)
+// space : O(N)
+class Solution {
+ private:
+  struct Data {
+    int depth, infectDepth;
+  };
+
+  int distance = 0;
+
+  Data dfs(TreeNode *node, int start) {
+    if (!node) return {0, 0};
+
+    Data left = dfs(node->left, start);
+    Data right = dfs(node->right, start);
+
+    if (left.infectDepth != right.infectDepth) {
+      int infectDepth = left.infectDepth > 0 ? right.depth + left.infectDepth
+                                             : left.depth + right.infectDepth;
+      distance = max(distance, infectDepth);
+    }
+
+    Data ret;
+    ret.depth = max(left.depth, right.depth) + 1;
+    ret.infectDepth = max(left.infectDepth, right.infectDepth);
+
+    if (node->val == start || left.infectDepth != right.infectDepth) {
+      ret.infectDepth++;
+    }
+
+    return ret;
+  }
+
+ public:
+  int amountOfTime(TreeNode *root, int start) {
+    auto [depth, inf_depth] = dfs(root, start);
+
+    return max(distance, depth - inf_depth);
   }
 };
