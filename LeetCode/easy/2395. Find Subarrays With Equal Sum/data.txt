@@ -1,0 +1,12 @@
+Input: nums = [4,2,4]
+Output: true
+
+===
+
+Input: nums = [1,2,3,4,5]
+Output: false
+
+===
+
+Input: nums = [0,0,0]
+Output: true
