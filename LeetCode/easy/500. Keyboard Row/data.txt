@@ -1,0 +1,12 @@
+Input: words = ["Hello","Alaska","Dad","Peace"]
+Output: ["Alaska","Dad"]
+
+===
+
+Input: words = ["omk"]
+Output: []
+
+===
+
+Input: words = ["adsdf","sfd"]
+Output: ["adsdf","sfd"]
