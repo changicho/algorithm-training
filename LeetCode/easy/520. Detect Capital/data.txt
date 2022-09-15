@@ -1,0 +1,7 @@
+Input: word = "USA"
+Output: true
+
+===
+
+Input: word = "FlaG"
+Output: false
