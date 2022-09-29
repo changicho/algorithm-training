@@ -85,4 +85,40 @@ string findLongestWord(string s, vector<string> &dictionary) {
 }
 ```
 
+### two pointer
+
+| 내 코드 (ms) |   시간 복잡도   | 공간 복잡도 |
+| :----------: | :-------------: | :---------: |
+|      75      | O((L + M) \* N) |    O(1)     |
+
+dictionary의 각 단어들이 S의 subsequence인지 찾으면 된다.
+
+S의 특정 글자들을 지웠을 때 단어가 나오면 되므로, 투 포인터를 이용해 subsequence인지 판단한다.
+
+이를 구현하면 다음과 같다.
+
+```cpp
+bool isSubsequence(string &target, string &origin) {
+  int j = 0;
+  for (int i = 0; i < origin.length() && j < target.length(); i++) {
+    if (target[j] == origin[i]) j++;
+  }
+  return j == target.length();
+}
+
+string findLongestWord(string s, vector<string> &dictionary) {
+  string answer = "";
+  for (string &word : dictionary) {
+    if (isSubsequence(word, s)) {
+      if (answer.length() < word.length()) {
+        answer = word;
+      } else if (answer.length() == word.length() && answer > word) {
+        answer = word;
+      }
+    }
+  }
+  return answer;
+}
+```
+
 ## 고생한 점

@@ -45,3 +45,32 @@ class Solution {
     return answer;
   }
 };
+
+// use two pointer
+// time : O((L + M) * N)
+// space : O(1)
+class Solution {
+ private:
+  bool isSubsequence(string &target, string &origin) {
+    int j = 0;
+    for (int i = 0; i < origin.length() && j < target.length(); i++) {
+      if (target[j] == origin[i]) j++;
+    }
+    return j == target.length();
+  }
+
+ public:
+  string findLongestWord(string s, vector<string> &dictionary) {
+    string answer = "";
+    for (string &word : dictionary) {
+      if (isSubsequence(word, s)) {
+        if (answer.length() < word.length()) {
+          answer = word;
+        } else if (answer.length() == word.length() && answer > word) {
+          answer = word;
+        }
+      }
+    }
+    return answer;
+  }
+};
