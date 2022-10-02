@@ -1,0 +1,7 @@
+Input: edges = [1,0,0,0,0,7,7,5]
+Output: 7
+
+===
+
+Input: edges = [2,0,0,2]
+Output: 0
