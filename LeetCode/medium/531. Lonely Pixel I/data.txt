@@ -1,0 +1,7 @@
+Input: picture = [["W","W","B"],["W","B","W"],["B","W","W"]]
+Output: 3
+
+===
+
+Input: picture = [["B","B","B"],["B","B","W"],["B","B","B"]]
+Output: 0
