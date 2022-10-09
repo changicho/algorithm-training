@@ -1,0 +1,7 @@
+Input: pattern = "IIIDIDDD"
+Output: "123549876"
+
+===
+
+Input: pattern = "DDD"
+Output: "4321"
