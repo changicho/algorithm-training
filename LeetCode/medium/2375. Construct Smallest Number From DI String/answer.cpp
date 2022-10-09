@@ -59,3 +59,24 @@ class Solution {
     return answer;
   }
 };
+
+// use greedy
+// time : O(N)
+// space : O(N)
+class Solution {
+ public:
+  string smallestNumber(string s) {
+    int size = s.size();
+
+    string answer;
+    for (int num = 0, index = 0; num <= size; num++) {
+      answer.push_back('1' + num);
+
+      if (num == size || s[num] == 'I') {
+        reverse(answer.begin() + index, answer.end());
+        index = num + 1;
+      }
+    }
+    return answer;
+  }
+};

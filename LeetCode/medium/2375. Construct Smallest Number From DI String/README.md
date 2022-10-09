@@ -81,4 +81,41 @@ string smallestNumber(string pattern) {
 }
 ```
 
+### 그리디 알고리즘
+
+| 내 코드 (ms) | 시간 복잡도 | 공간 복잡도 |
+| :----------: | :---------: | :---------: |
+|      0       |    O(N)     |    O(N)     |
+
+모든 경우가 I인 경우 1부터 차례로 증가시키는 경우가 정답일 것이다.
+
+만약 중간에 D를 만나는 경우를 생각해보자.
+
+이 경우 I인 구간을 I', D인 구간을 D'라 하자.
+
+I' + D'으로 구성된 배열의 경우 D'을 뒤집을 경우 모든 패턴이 I인 경우가 된다.
+
+I' + D' + I' 으로 구성된 경우 또한 마찬가지이다.
+
+따라서 1부터 숫자를 차례로 정답에 더해가며, D'인 구간을 뒤집는 경우가 정답이 된다.
+
+이를 구현하면 다음과 같다.
+
+```cpp
+string smallestNumber(string s) {
+  int size = s.size();
+
+  string answer;
+  for (int num = 0, index = 0; num <= size; num++) {
+    answer.push_back('1' + num);
+
+    if (num == size || s[num] == 'I') {
+      reverse(answer.begin() + index, answer.end());
+      index = num + 1;
+    }
+  }
+  return answer;
+}
+```
+
 ## 고생한 점
