@@ -1,0 +1,12 @@
+Input: s = "zza"
+Output: "azz"
+
+===
+
+Input: s = "bac"
+Output: "abc"
+
+===
+
+Input: s = "bdda"
+Output: "addb"
