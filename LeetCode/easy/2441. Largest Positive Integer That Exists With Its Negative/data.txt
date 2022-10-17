@@ -1,0 +1,12 @@
+Input: nums = [-1,2,-3,3]
+Output: 3
+
+===
+
+Input: nums = [-1,10,6,7,-7,1]
+Output: 7
+
+===
+
+Input: nums = [-10,8,6,7,-2,-3]
+Output: -1
