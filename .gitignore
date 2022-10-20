@@ -20,3 +20,4 @@ answer
 .DS_STORE
 
 !count.sh
+!count-cpp.sh
