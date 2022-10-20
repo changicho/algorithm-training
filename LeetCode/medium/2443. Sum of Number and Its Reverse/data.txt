@@ -1,0 +1,12 @@
+Input: num = 443
+Output: true
+
+===
+
+Input: num = 63
+Output: false
+
+===
+
+Input: num = 181
+Output: true
