@@ -1,0 +1,12 @@
+Input: arr = ["un","iq","ue"]
+Output: 4
+
+===
+
+Input: arr = ["cha","r","act","ers"]
+Output: 6
+
+===
+
+Input: arr = ["abcdefghijklmnopqrstuvwxyz"]
+Output: 26
