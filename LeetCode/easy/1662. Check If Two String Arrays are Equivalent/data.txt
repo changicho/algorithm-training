@@ -1,0 +1,12 @@
+Input: word1 = ["ab", "c"], word2 = ["a", "bc"]
+Output: true
+
+===
+
+Input: word1 = ["a", "cb"], word2 = ["ab", "c"]
+Output: false
+
+===
+
+Input: word1  = ["abc", "d", "defg"], word2 = ["abcddefg"]
+Output: true
