@@ -1,0 +1,7 @@
+Input: color = "#09f166"
+Output: "#11ee66"
+
+===
+
+Input: color = "#4e3fe1"
+Output: "#5544dd"
