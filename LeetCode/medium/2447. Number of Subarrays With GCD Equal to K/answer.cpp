@@ -34,7 +34,7 @@ class Solution {
 
 // count gcds
 // time : O(N * log_2(M))
-// space : O(N)
+// space : log_2(M)
 class Solution {
  public:
   int subarrayGCD(vector<int>& nums, int k) {

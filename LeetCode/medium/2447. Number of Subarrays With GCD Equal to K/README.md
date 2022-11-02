@@ -55,4 +55,33 @@ int subarrayGCD(vector<int>& nums, int k) {
 }
 ```
 
+### gcd count
+
+| 내 코드 (ms) |   시간 복잡도    | 공간 복잡도 |
+| :----------: | :--------------: | :---------: |
+|      27      | O(N \* log_2(M)) |  log_2(M)   |
+
+```cpp
+int subarrayGCD(vector<int>& nums, int k) {
+  int size = nums.size();
+  int answer = 0;
+
+  unordered_map<int, int> gcds;
+  for (int i = 0; i < size; i++) {
+    unordered_map<int, int> new_gcds;
+
+    if (nums[i] % k == 0) {
+      gcds[nums[i]]++;
+      for (auto [prev_gcd, cnt] : gcds) {
+        new_gcds[gcd(prev_gcd, nums[i])] += cnt;
+      }
+    }
+
+    answer += new_gcds[k];
+    swap(gcds, new_gcds);
+  }
+  return answer;
+}
+```
+
 ## 고생한 점
