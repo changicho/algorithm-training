@@ -1,0 +1,12 @@
+Input: words = ["lc","cl","gg"]
+Output: 6
+
+===
+
+Input: words = ["ab","ty","yt","lc","cl","ab"]
+Output: 8
+
+===
+
+Input: words = ["cc","ll","xx"]
+Output: 2
