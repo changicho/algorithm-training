@@ -1,0 +1,7 @@
+Input: s = "hello"
+Output: "holle"
+
+===
+
+Input: s = "leetcode"
+Output: "leotcede"
