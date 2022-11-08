@@ -1,0 +1,7 @@
+Input: startGene = "AACCGGTT", endGene = "AACCGGTA", bank = ["AACCGGTA"]
+Output: 1
+
+===
+
+Input: startGene = "AACCGGTT", endGene = "AAACGGTA", bank = ["AACCGGTA","AACCGCTA","AAACGGTA"]
+Output: 2
