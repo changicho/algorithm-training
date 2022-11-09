@@ -1,0 +1,7 @@
+Input: s = "cba", k = 1
+Output: "acb"
+
+===
+
+Input: s = "baaca", k = 3
+Output: "aaabc"
