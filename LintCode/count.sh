@@ -17,4 +17,3 @@ done
 
 echo
 echo "total : $count"
-totalCount=$(expr $totalCount + $count)
