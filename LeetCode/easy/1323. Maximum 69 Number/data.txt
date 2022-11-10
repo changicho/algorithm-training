@@ -1,0 +1,12 @@
+Input: num = 9669
+Output: 9969
+
+===
+
+Input: num = 9996
+Output: 9999
+
+===
+
+Input: num = 9999
+Output: 9999
