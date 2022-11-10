@@ -1,6 +1,4 @@
-echo "CodeForces solved count"
-echo
-
+echo "Meta Hacker Cup solved count"
 DIR="$(cd "$(dirname "$0")" && pwd -P)"
 # echo "path : $DIR"
 # echo
