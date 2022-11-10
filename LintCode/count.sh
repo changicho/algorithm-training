@@ -2,8 +2,8 @@ echo "LintCode solved count"
 echo
 
 DIR="$(cd "$(dirname "$0")" && pwd -P)"
-# echo "path : $DIR"
-# echo
+
+count=0
 
 shopt -s dotglob
 shopt -s nullglob
