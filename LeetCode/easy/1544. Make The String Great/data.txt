@@ -1,0 +1,12 @@
+Input: s = "leEeetcode"
+Output: "leetcode"
+
+===
+
+Input: s = "abBAcC"
+Output: ""
+
+===
+
+Input: s = "s"
+Output: "s"
