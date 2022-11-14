@@ -1,0 +1,12 @@
+Input: s = "aa", p = "a"
+Output: false
+
+===
+
+Input: s = "aa", p = "a*"
+Output: true
+
+===
+
+Input: s = "ab", p = ".*"
+Output: true
