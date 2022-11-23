@@ -9,18 +9,31 @@
 using namespace std;
 
 // use dynamic programming
-
+// time : O(N * sqrt(N))
+// space : O(N)
 class Solution {
  public:
   int numSquares(int n) {
-    vector<int> dp(n + 1, 0);
+    vector<int> perfectSquares;
 
-    for (int cur = 1; cur <= n; ++cur) {
-      dp[cur] = cur;
+    for (int i = 1; i * i <= n; i++) {
+      perfectSquares.push_back(i * i);
+    }
 
-      for (int part = 1; part * part <= cur; ++part) {
-        dp[cur] = min(dp[cur], dp[cur - part * part] + 1);
+    vector<long> dp(n + 1, INT_MAX);
+    for (int& sq : perfectSquares) {
+      dp[sq] = 1;
+    }
+
+    for (int i = 1; i <= n; i++) {
+      long cur = dp[i - 1] + 1;
+
+      for (int& sq : perfectSquares) {
+        if (i - sq < 0) break;
+        cur = min(cur, dp[i - sq] + 1);
       }
+
+      dp[i] = min(dp[i], cur);
     }
 
     return dp[n];
@@ -28,7 +41,8 @@ class Solution {
 };
 
 // use static dynamic programming
-
+// time : O(N * sqrt(N))
+// space : O(N)
 class Solution {
  public:
   int numSquares(int n) {
@@ -50,7 +64,8 @@ class Solution {
 };
 
 // use BFS
-
+// time : O(N * sqrt(N))
+// space : O(N)
 class Solution {
  public:
   int numSquares(int n) {
