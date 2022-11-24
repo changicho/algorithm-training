@@ -1,0 +1,12 @@
+Input: num = "69"
+Output: true
+
+===
+
+Input: num = "88"
+Output: true
+
+===
+
+Input: num = "962"
+Output: false
