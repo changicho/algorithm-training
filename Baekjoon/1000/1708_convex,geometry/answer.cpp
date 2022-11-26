@@ -1,6 +1,5 @@
 #include <algorithm>
 #include <iostream>
-#include <stack>
 #include <string>
 #include <vector>
 
@@ -8,74 +7,67 @@ using namespace std;
 
 struct Point {
   int x, y;
-  int xDiff, yDiff;
 
   bool operator<(const Point &B) const {
-    // 벡터의 내적을 이용해 사이각을 구함
-    if (1LL * (yDiff * B.xDiff) != 1LL * (xDiff * B.yDiff)) {
-      return 1LL * (yDiff * B.xDiff) < 1LL * (xDiff * B.yDiff);
-    }
-    if (y != B.y) {
-      return y < B.y;
-    }
+    if (y != B.y) return y < B.y;
     return x < B.x;
   }
 };
 
 // 벡터의 내적을 이용해 사이각을 구함
-inline long long getInnerProduct(Point &A, Point &B, Point &C) {
-  return 1LL * ((A.x * B.y + B.x * C.y + C.x * A.y) - (B.x * A.y + C.x * B.y + A.x * C.y));
+// 벡터의 내적을 구할 때 범위 초과가 일어날 수 있으므로 타입에 주의
+long long getInnerProduct(Point &a, Point &b, Point &c) {
+  return (1LL * a.x * b.y + 1LL * b.x * c.y + 1LL * c.x * a.y) -
+         (1LL * b.x * a.y + 1LL * c.x * b.y + 1LL * a.x * c.y);
 }
 
-inline bool isCCW(Point &A, Point &B, Point &C) {
-  return getInnerProduct(A, B, C) > 0;
+bool isCCW(Point &a, Point &b, Point &c) {
+  return getInnerProduct(a, b, c) > 0;
 }
 
-void solution() {
-  int N;
-  cin >> N;
+vector<Point> getConvexHull(vector<Point> &points) {
+  int size = points.size();
 
-  vector<Point> points(N);
+  vector<Point> stk;
 
-  for (int i = 0; i < N; i++) {
-    cin >> points[i].x >> points[i].y;
+  for (int next = 0; next < size; next++) {
+    while (stk.size() >= 2) {
+      Point second = stk.back();
+      stk.pop_back();
+      Point first = stk.back();
 
-    points[i].xDiff = points[i].yDiff = 0;
-  }
-
-  sort(points.begin(), points.end());
-  // 첫번째 점(기준점)에 맞춰 기준과의 거리를 계산
-  for (int i = 1; i < N; i++) {
-    points[i].xDiff = points[i].x - points.front().x;
-    points[i].yDiff = points[i].y - points.front().y;
-  }
-  sort(points.begin(), points.end());
-
-  stack<int> s;
-
-  s.push(0);
-  s.push(1);
-
-  int next = 2;
-
-  while (next < N) {
-    while (s.size() >= 2) {
-      int first, second;
-      second = s.top();
-      s.pop();
-      first = s.top();
-
-      if (isCCW(points[first], points[second], points[next])) {
-        s.push(second);
+      if (isCCW(first, second, points[next])) {
+        stk.push_back(second);
         break;
       }
     }
 
-    s.push(next);
-    next += 1;
+    stk.push_back(points[next]);
   }
 
-  cout << s.size() << "\n";
+  return stk;
+}
+
+int solution(vector<Point> &points) {
+  int size = points.size();
+
+  sort(points.begin(), points.end());
+
+  vector<Point> ccwPoints = getConvexHull(points);
+  reverse(points.begin(), points.end());
+  vector<Point> cwPoints = getConvexHull(points);
+
+  vector<vector<int>> answer;
+  for (Point &point : cwPoints) {
+    answer.push_back({point.x, point.y});
+  }
+  for (Point &point : ccwPoints) {
+    answer.push_back({point.x, point.y});
+  }
+  sort(answer.begin(), answer.end());
+  answer.erase(unique(answer.begin(), answer.end()), answer.end());
+
+  return answer.size();
 }
 
 int main() {
@@ -83,7 +75,20 @@ int main() {
   cin.tie(NULL);
   cout.tie(NULL);
 
-  solution();
+  // freopen("input.txt", "r", stdin);
+
+  int N;
+  cin >> N;
+
+  vector<Point> points(N);
+
+  for (int i = 0; i < N; i++) {
+    cin >> points[i].x >> points[i].y;
+  }
+
+  int answer = solution(points);
+
+  cout << answer << "\n";
 
   return 0;
 }

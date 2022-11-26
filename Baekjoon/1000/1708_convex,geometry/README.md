@@ -2,9 +2,9 @@
 
 [링크](https://www.acmicpc.net/problem/1708)
 
-| 난이도 | 정답률(\_%) | 시간 제한(초) |
-| :----: | :---------: | :-----------: |
-| Gold I |   24.906    |       2       |
+|   난이도   | 정답률(\_%) | 시간 제한(초) |
+| :--------: | :---------: | :-----------: |
+| 플래티넘 V |   24.451    |       2       |
 
 ## 설계
 
@@ -12,13 +12,21 @@
 
 점의 개수 N은 최대 100,000개이다.
 
+볼록 껍질 (Convex Hull) 알고리즘을 이용할 경우 정렬에 O(N \* log_2(N)), 탐색에 O(N)의 시간 복잡도를 사용한다.
+
 ### 공간 복잡도
 
 정답은 N이하이므로 최악의 경우 100,000이다. 이는 int형으로 충분하다.
 
-### 볼록 껍질 (Convex Hull)
+정렬 시 O(N)의 시간 복잡도를 사용할 수 있다.
+
+또한 각 좌표의 내적을 구할 때 int형을 초과할 수 있으므로 long long 형으로 연산을 수행한다.
+
+### 볼록 껍질 (Convex Hull) - Graham scan
 
 점들이 막 주어져 있을때 모든 점을 포함하는 볼록한 다각형을 의미한다.
+
+그라함 스캔 알고리즘을 이용해 컨벡스 헐을 구할 수 있다.
 
 컨벡스 헐에서 연속한 세 점을 한 쪽 방향으로 잡고 CCW 방향으로 탐색하면 동일한 컨벡스 헐을 생성할 수 있다.
 
@@ -91,6 +99,85 @@ while (next < N) {
 
   s.push(next);
   next += 1;
+}
+```
+
+### 볼록 껍질 (Convex Hull) - Monotone Chain
+
+위 그라함 스캔 알고리즘에서 모든 점에 대해 기준점과의 기울기를 구하지 않고 컨벡스 헐을 구할 수 있다.
+
+각 좌표를 정렬 후 (y, x가 작은순으로) 시작점을 잡는다.
+
+이후 스택을 이용해 연속된 3개의 점을 스택에 넣으면서 스택의 제일 최근 3점의 ccw방향이 아니면 그 세 점중 중간 점을 뺀다.
+
+이를 한번 반복 후, 끝점부터 역방향으로 같은 방법으로 수행한다.
+
+두 과정중에서 생긴 컨벡스 헐의 합집합이 현재 좌표들의 최종 컨벡스 헐이 된다.
+
+```cpp
+struct Point {
+  int x, y;
+
+  bool operator<(const Point &B) const {
+    if (y != B.y) return y < B.y;
+    return x < B.x;
+  }
+};
+
+// 벡터의 내적을 이용해 사이각을 구함
+// 벡터의 내적을 구할 때 범위 초과가 일어날 수 있으므로 타입에 주의
+long long getInnerProduct(Point &a, Point &b, Point &c) {
+  return (1LL * a.x * b.y + 1LL * b.x * c.y + 1LL * c.x * a.y) -
+         (1LL * b.x * a.y + 1LL * c.x * b.y + 1LL * a.x * c.y);
+}
+
+bool isCCW(Point &a, Point &b, Point &c) {
+  return getInnerProduct(a, b, c) > 0;
+}
+
+vector<Point> getConvexHull(vector<Point> &points) {
+  int size = points.size();
+
+  vector<Point> stk;
+
+  for (int next = 0; next < size; next++) {
+    while (stk.size() >= 2) {
+      Point second = stk.back();
+      stk.pop_back();
+      Point first = stk.back();
+
+      if (isCCW(first, second, points[next])) {
+        stk.push_back(second);
+        break;
+      }
+    }
+
+    stk.push_back(points[next]);
+  }
+
+  return stk;
+}
+
+int solution(vector<Point> &points) {
+  int size = points.size();
+
+  sort(points.begin(), points.end());
+
+  vector<Point> ccwPoints = getConvexHull(points);
+  reverse(points.begin(), points.end());
+  vector<Point> cwPoints = getConvexHull(points);
+
+  vector<vector<int>> answer;
+  for (Point &point : cwPoints) {
+    answer.push_back({point.x, point.y});
+  }
+  for (Point &point : ccwPoints) {
+    answer.push_back({point.x, point.y});
+  }
+  sort(answer.begin(), answer.end());
+  answer.erase(unique(answer.begin(), answer.end()), answer.end());
+
+  return answer.size();
 }
 ```
 
