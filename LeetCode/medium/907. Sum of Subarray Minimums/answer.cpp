@@ -7,7 +7,8 @@
 using namespace std;
 
 // use monotonic stack with dynamic programming
-
+// time : O(N)
+// space : O(N)
 class Solution {
  private:
   const int MOD = 1e9 + 7;
@@ -46,7 +47,8 @@ class Solution {
 };
 
 // use stack
-
+// time : O(N)
+// space : O(N)
 class Solution {
  private:
   const int MOD = 1e9 + 7;
@@ -56,7 +58,7 @@ class Solution {
     int size = arr.size();
     int answer = 0;
 
-    vector<int> left(size), right(size);
+    vector<int> leftSizes(size), rightSizes(size);
 
     stack<pair<int, int>> s1, s2;  // {val, count}
 
@@ -68,7 +70,7 @@ class Solution {
         s1.pop();
       }
       s1.push({arr[i], count});
-      left[i] = count;
+      leftSizes[i] = count;
     }
 
     for (int i = size - 1; i >= 0; i--) {
@@ -79,12 +81,47 @@ class Solution {
         s2.pop();
       }
       s2.push({arr[i], count});
-      right[i] = count;
+      rightSizes[i] = count;
     }
 
     for (int i = 0; i < size; ++i) {
-      answer = (answer + (long)arr[i] * left[i] * right[i]) % MOD;
+      answer = (answer + (long)arr[i] * leftSizes[i] * rightSizes[i]) % MOD;
     }
+    return answer;
+  }
+};
+
+// use monotonic stack
+// time : O(N)
+// space : O(N)
+class Solution {
+ private:
+  const int MOD = 1e9 + 7;
+
+ public:
+  int sumSubarrayMins(vector<int>& arr) {
+    int size = arr.size();
+
+    stack<int> stk;
+
+    long answer = 0;
+    for (int i = 0; i <= size; i++) {
+      while (!stk.empty() && (i == size || arr[stk.top()] >= arr[i])) {
+        int mid = stk.top();
+        stk.pop();
+
+        int left = stk.empty() ? -1 : stk.top();
+        int right = i;
+
+        long count = ((mid - left) * (right - mid)) % MOD;
+
+        answer += (count * arr[mid]) % MOD;
+        answer %= MOD;
+      }
+
+      stk.push(i);
+    }
+
     return answer;
   }
 };
