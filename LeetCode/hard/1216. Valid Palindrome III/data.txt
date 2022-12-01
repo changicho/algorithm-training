@@ -1,0 +1,7 @@
+Input: s = "abcdeca", k = 2
+Output: true
+
+===
+
+Input: s = "abbababa", k = 1
+Output: true
