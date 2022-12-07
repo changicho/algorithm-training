@@ -1,0 +1,7 @@
+Input: keyboard = "abcdefghijklmnopqrstuvwxyz", word = "cba"
+Output: 4
+
+===
+
+Input: keyboard = "pqrstuvwxyzabcdefghijklmno", word = "leetcode"
+Output: 73
