@@ -1,0 +1,12 @@
+Input: word1 = "abc", word2 = "bca"
+Output: true
+
+===
+
+Input: word1 = "a", word2 = "aa"
+Output: false
+
+===
+
+Input: word1 = "cabbba", word2 = "abbccc"
+Output: true
