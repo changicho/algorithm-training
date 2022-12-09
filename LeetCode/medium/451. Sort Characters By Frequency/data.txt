@@ -1,0 +1,12 @@
+Input: s = "tree"
+Output: "eert"
+
+===
+
+Input: s = "cccaaa"
+Output: "aaaccc"
+
+===
+
+Input: s = "Aabb"
+Output: "bbAa"
