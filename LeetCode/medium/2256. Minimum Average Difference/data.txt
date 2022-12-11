@@ -1,0 +1,7 @@
+Input: nums = [2,5,3,9,5,3]
+Output: 3
+
+===
+
+Input: nums = [0]
+Output: 0
