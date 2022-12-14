@@ -1,0 +1,7 @@
+Input: s = "book"
+Output: true
+
+===
+
+Input: s = "textbook"
+Output: false
