@@ -1,0 +1,7 @@
+Input: grid = [[1,2,4],[3,3,1]]
+Output: 8
+
+===
+
+Input: grid = [[10]]
+Output: 10
