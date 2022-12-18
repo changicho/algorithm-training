@@ -7,27 +7,23 @@
 using namespace std;
 
 // use stack
-
+// time : O(N)
+// space : O(N)
 class Solution {
  public:
   vector<int> dailyTemperatures(vector<int>& temperatures) {
     int size = temperatures.size();
-    vector<int> answer(size, 0);
+    stack<int> stk;
 
-    stack<int> st;
-    st.push(0);
-
-    for (int i = 1; i < size; i++) {
-      while (!st.empty() && temperatures[st.top()] < temperatures[i]) {
-        int idx = st.top();
-        st.pop();
-
-        answer[idx] = i - idx;
+    vector<int> answer(size);
+    for (int i = 0; i < size; i++) {
+      while (!stk.empty() && temperatures[stk.top()] < temperatures[i]) {
+        answer[stk.top()] = i - stk.top();
+        stk.pop();
       }
 
-      st.push(i);
+      stk.push(i);
     }
-
     return answer;
   }
 };

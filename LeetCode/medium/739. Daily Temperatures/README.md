@@ -29,11 +29,17 @@ stack을 사용하는 경우 O(N)의 공간 복잡도를 사용한다.
 
 역순으로 순회하며 가장 최적의 해를 구하는 경우 O(1)의 공간 복잡도를 사용한다.
 
-### 스택
+### 모노토닉 스택
 
 | 내 코드 (ms) | 시간 복잡도 | 공간 복잡도 |
 | :----------: | :---------: | :---------: |
 |     160      |    O(N)     |    O(N)     |
+
+각 온도는 오른쪽에 있는 최초로 큰 값에 대해 해당 index를 정답으로 갖는다.
+
+따라서 모노토닉 스택을 사용해 오른쪽으로 순회하며 기존보다 큰 온도를 만났을 때 현재 값의 정답을 갱신하는 식으로 O(N)의 시간 복잡도로 풀이할 수 있다.
+
+이 때 모노토닉 스택 내부는 값이 내림차순으로 되어잇어야 한다.
 
 온도의 index를 저장하는 stack을 사용한다.
 
@@ -50,22 +56,17 @@ stack을 사용하는 경우 O(N)의 공간 복잡도를 사용한다.
 ```cpp
 vector<int> dailyTemperatures(vector<int>& temperatures) {
   int size = temperatures.size();
-  vector<int> answer(size, 0);
+  stack<int> stk;
 
-  stack<int> st;
-  st.push(0);
-
-  for (int i = 1; i < size; i++) {
-    while (!st.empty() && temperatures[st.top()] < temperatures[i]) {
-      int idx = st.top();
-      st.pop();
-
-      answer[idx] = i - idx;
+  vector<int> answer(size);
+  for (int i = 0; i < size; i++) {
+    while (!stk.empty() && temperatures[stk.top()] < temperatures[i]) {
+      answer[stk.top()] = i - stk.top();
+      stk.pop();
     }
 
-    st.push(i);
+    stk.push(i);
   }
-
   return answer;
 }
 ```
