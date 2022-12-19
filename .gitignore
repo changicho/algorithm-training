@@ -1,6 +1,11 @@
 Etc/
 temp/
 
+# No file format
+*
+!/**/
+!*.*
+
 *.exe
 *.out
 
