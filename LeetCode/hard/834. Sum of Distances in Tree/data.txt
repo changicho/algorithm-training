@@ -1,0 +1,12 @@
+Input: n = 6, edges = [[0,1],[0,2],[2,3],[2,4],[2,5]]
+Output: [8,12,6,10,10,10]
+
+===
+
+Input: n = 1, edges = []
+Output: [0]
+
+===
+
+Input: n = 2, edges = [[1,0]]
+Output: [1,1]
