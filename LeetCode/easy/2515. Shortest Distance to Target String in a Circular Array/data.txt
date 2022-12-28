@@ -1,0 +1,12 @@
+Input: words = ["hello","i","am","leetcode","hello"], target = "hello", startIndex = 1
+Output: 1
+
+===
+
+Input: words = ["a","b","leetcode"], target = "leetcode", startIndex = 0
+Output: 1
+
+===
+
+Input: words = ["i","eat","leetcode"], target = "ate", startIndex = 0
+Output: -1
