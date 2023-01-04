@@ -20,7 +20,7 @@
 
 테이블을 만들어야 하므로 O(N)의 공간 복잡도가 필요하다.
 
-### hahs map
+### hash map
 
 | 내 코드 (ms) | 시간 복잡도 | 공간 복잡도 |
 | :----------: | :---------: | :---------: |
@@ -45,36 +45,64 @@ vector<string> split(string s) {
 }
 ```
 
+단어와 패턴, 패턴과 단어를 매칭하는 hash map을 생성한다.
+
+이후 추출한 단어들과 패턴을 순차적으로 같이 순회하며 다음과 같은 경우를 판별한다.
+
+- 현재 단어와 패턴이 나타나지 않은 경우 : hash map에 둘다 저장
+- 현재 단어와 패턴이 hash map에 있는 경우와 같은 : PASS
+- 그 외의 경우 : 에러
+
+이를 구현하면 다음과 같다.
+
 ```cpp
 bool wordPattern(string pattern, string s) {
-  unordered_map<char, string> table;
-  unordered_map<string, char> reversed;
+  vector<string> tokens = split(s);
 
-  vector<string> words = split(s);
+  if (pattern.size() != tokens.size()) return false;
+  unordered_map<char, string> patternToWord;
+  unordered_map<string, char> wordToPattern;
 
-  int length = pattern.length();
-  int size = words.size();
+  for (int i = 0; i < pattern.size(); i++) {
+    char key = pattern[i];
+    string val = tokens[i];
 
-  if (size != length) return false;
-
-  for (int i = 0; i < size; i++) {
-    char p = pattern[i];
-    string word = words[i];
-
-    if (table.find(p) != table.end() && table[p] != word) {
-      return false;
+    if (patternToWord.count(key) == 0 && wordToPattern.count(val) == 0) {
+      patternToWord[key] = val;
+      wordToPattern[val] = key;
+    } else if (patternToWord[key] == val && wordToPattern[val] == key) {
+      continue;
     } else {
-      table[p] = word;
-    }
-
-    if (reversed.find(word) != reversed.end() && reversed[word] != p) {
       return false;
-    } else {
-      reversed[word] = p;
     }
   }
-
   return true;
+}
+```
+
+### convert
+
+| 내 코드 (ms) | 시간 복잡도 | 공간 복잡도 |
+| :----------: | :---------: | :---------: |
+|      0       |    O(N)     |    O(N)     |
+
+입력받은 pattern과 s를 hash map을 이용해 패턴으로 변환한다.
+
+이후 두 패턴이 같은지 판단한다.
+
+```cpp
+string convert(vector<string> &words) {
+  unordered_map<string, int> um;
+
+  string ret = "";
+  for (string &word : words) {
+    if (um.count(word) == 0) {
+      um[word] = um.size();
+    }
+    ret += to_string(um[word]);
+  }
+
+  return ret;
 }
 ```
 
