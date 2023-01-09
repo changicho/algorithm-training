@@ -22,7 +22,51 @@
 
 좌표마다 기울기를 저장하는 데 O(N)의 공간 복잡도를 사용한다.
 
-### 기울기 계산
+### 기울기 계산 (double)
+
+| 내 코드 (ms) | 시간 복잡도 | 공간 복잡도 |
+| :----------: | :---------: | :---------: |
+|     117      |   O(N^2)    |    O(N)     |
+
+입력받은 점들 중 한 점을 기준으로 기울기가 같은 것들끼리 묶어서 정답을 구한다.
+
+이후 현재 점을 포함한 가장 기울기가 같은 점이 많은 수를 정답으로 갱신한다.
+
+```cpp
+double getDiff(vector<int>& a, vector<int>& b) {
+  double first = a.front() - b.front();
+  double second = a.back() - b.back();
+
+  return first / second;
+}
+
+int maxPoints(vector<vector<int>>& points) {
+  // [diff, startPoint]
+
+  int answer = 1;
+  int size = points.size();
+  for (int i = 0; i < size; i++) {
+    unordered_map<double, int> counts;
+
+    for (int j = 0; j < size; j++) {
+      if (i == j) continue;
+
+      vector<int> a = points[i], b = points[j];
+
+      double diff = getDiff(a, b);
+      counts[diff]++;
+    }
+
+    for (auto [key, val] : counts) {
+      answer = max(answer, val + 1);
+    }
+  }
+
+  return answer;
+}
+```
+
+### 기울기 계산 (문자열)
 
 | 내 코드 (ms) | 시간 복잡도 | 공간 복잡도 |
 | :----------: | :---------: | :---------: |
@@ -35,7 +79,7 @@ Axis a, b;
 int gradient = (a.y - b.y) / (a.x - b.x);
 ```
 
-이 기울기를 double로 선언하고 풀이할 경우 부동소수점 연산에 의하여 다른 기르기를 계산했을 때 같은 값이 나오는 문제가 발생한다.
+이 기울기를 double로 선언하고 풀이할 경우 부동소수점 연산에 의하여 다른 기울기를 계산했을 때 같은 값이 나오는 문제가 발생한다.
 
 ```javascript
 // double error case
