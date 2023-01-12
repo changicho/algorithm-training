@@ -1,0 +1,12 @@
+Input: n = 7, edges = [[0,1],[0,2],[1,4],[1,5],[2,3],[2,6]], labels = "abaedcd"
+Output: [2,1,1,1,1,1,1]
+
+===
+
+Input: n = 4, edges = [[0,1],[1,2],[0,3]], labels = "bbbb"
+Output: [4,2,1,1]
+
+===
+
+Input: n = 5, edges = [[0,1],[0,2],[1,3],[0,4]], labels = "aabab"
+Output: [3,2,1,1,1]
