@@ -1,0 +1,7 @@
+Input: parent = [-1,0,0,1,1,2], s = "abacbe"
+Output: 3
+
+===
+
+Input: parent = [-1,0,0,0], s = "aabc"
+Output: 3
