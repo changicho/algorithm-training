@@ -1,0 +1,12 @@
+Input: s1 = "parker", s2 = "morris", baseStr = "parser"
+Output: "makkek"
+
+===
+
+Input: s1 = "hello", s2 = "world", baseStr = "hold"
+Output: "hdld"
+
+===
+
+Input: s1 = "leetcode", s2 = "programs", baseStr = "sourcecode"
+Output: "aauaaaaada"
