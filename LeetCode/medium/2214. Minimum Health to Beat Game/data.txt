@@ -1,0 +1,12 @@
+Input: damage = [2,7,4,3], armor = 4
+Output: 13
+
+===
+
+Input: damage = [2,5,3,4], armor = 7
+Output: 10
+
+===
+
+Input: damage = [3,3,3], armor = 0
+Output: 10
