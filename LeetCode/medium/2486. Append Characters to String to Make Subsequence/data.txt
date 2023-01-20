@@ -1,0 +1,12 @@
+Input: s = "coaching", t = "coding"
+Output: 4
+
+===
+
+Input: s = "abcde", t = "a"
+Output: 0
+
+===
+
+Input: s = "z", t = "abcde"
+Output: 5
