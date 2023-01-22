@@ -1,0 +1,7 @@
+Input: n = 20
+Output: 6
+
+===
+
+Input: n = 100
+Output: 19
