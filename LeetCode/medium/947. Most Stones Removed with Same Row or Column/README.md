@@ -22,7 +22,9 @@ stones의 갯수를 N이라 하자. (N은 최대 10^3)
 
 이 경우 대략 O(1)의 시간 복잡도로 merge와 find를 수행할 수 있다.
 
-이를 모든 stone에 대해 수행하므로 O(N)의 시간 복잡도를 사용한다.
+이를 모든 stone에 대해 수행할 경우 최소 O(N)의 시간 복잡도를 사용한다.
+
+각 stone마다 다른 연결할 수 있는 stone들과 직접 비교할 경우 O(N^2)의 시간 복잡도를 사용한다.
 
 ### 공간 복잡도
 
@@ -40,7 +42,7 @@ stones의 갯수를 N이라 하자. (N은 최대 10^3)
 
 | 내 코드 (ms) | 시간 복잡도 | 공간 복잡도 |
 | :----------: | :---------: | :---------: |
-|     125      |    O(N)     |    O(N)     |
+|     125      |   O(N^2)    |    O(N)     |
 
 stone의 y, x를 하나의 key로 관리하기 위해 convert 함수를 생성하고 사용한다.
 
@@ -103,6 +105,49 @@ int removeStones(vector<vector<int>> &stones) {
     for (int curY : boardXy[x]) {
       int next = convert(curY, x);
       merge(cur, next);
+    }
+  }
+
+  return size - parentCount;
+}
+```
+
+### union find (optimized)
+
+| 내 코드 (ms) | 시간 복잡도 | 공간 복잡도 |
+| :----------: | :---------: | :---------: |
+|     125      |    O(N)     |    O(N)     |
+
+위 방법에서 같은 x좌표, y좌표에 대해서 stone들을 묶어 이들만 탐색할 경우 각 좌표에 대한 탐색에 O(N)의 시간 복잡도를 사용한다.
+
+```cpp
+int removeStones(vector<vector<int>> &stones) {
+  int size = stones.size();
+  unordered_map<int, unordered_set<int>> boardYx, boardXy;
+
+  // initialize
+  parentCount = size;
+  for (vector<int> &stone : stones) {
+    int y = stone[1], x = stone[0];
+
+    boardYx[y].insert(x);
+    boardXy[x].insert(y);
+
+    int index = convert(y, x);
+    parents[index] = index;
+  }
+
+  for (auto &[y, xs] : boardYx) {
+    int curX = *xs.begin();
+    for (int x : xs) {
+      merge(convert(y, curX), convert(y, x));
+    }
+  }
+
+  for (auto &[x, ys] : boardXy) {
+    int curY = *ys.begin();
+    for (int y : ys) {
+      merge(convert(curY, x), convert(y, x));
     }
   }
 
