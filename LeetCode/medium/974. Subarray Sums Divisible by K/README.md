@@ -26,13 +26,13 @@ hash map과 mod의 성질을 이용할 경우 한번의 순회로 풀이가 가�
 
 prefixSum을 사용하는 경우 O(N)의 공간 복잡도를 사용한다.
 
-hash map을 사용하는 경우 O(N)의 공간 복잡도를 사용한다.
+hash map을 사용하는 경우 mod값만 저장할 경우 O(K)의 공간 복잡도를 사용한다.
 
-### hash map & mod
+### mod count
 
 | 내 코드 (ms) | 시간 복잡도 | 공간 복잡도 |
 | :----------: | :---------: | :---------: |
-|      63      |    O(N)     |    O(N)     |
+|      63      |    O(N)     |    O(K)     |
 
 특정 범위 left ~ right의 subArray의 합을 k로 나눈 값에 대해 생각해보자.
 
@@ -72,6 +72,28 @@ int subarraysDivByK(vector<int>& nums, int k) {
     }
 
     mods[target]++;
+  }
+
+  return answer;
+}
+```
+
+vector로 구현할 경우 다음과 같다.
+
+```cpp
+int subarraysDivByK(vector<int>& nums, int k) {
+  vector<int> mods(k);
+  int sum = 0;
+  int answer = 0;
+  mods[0] = 1;
+  for (int& num : nums) {
+    sum += num;
+
+    int mod = (sum % k + k) % k;
+
+    answer += mods[mod];
+
+    mods[mod]++;
   }
 
   return answer;
