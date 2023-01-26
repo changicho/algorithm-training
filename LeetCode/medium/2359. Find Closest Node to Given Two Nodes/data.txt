@@ -1,0 +1,7 @@
+Input: edges = [2,2,3,-1], node1 = 0, node2 = 1
+Output: 2
+
+===
+
+Input: edges = [1,2,-1], node1 = 0, node2 = 2
+Output: 2
