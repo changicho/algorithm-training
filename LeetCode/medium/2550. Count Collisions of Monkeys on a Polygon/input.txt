@@ -1,0 +1,7 @@
+Input: n = 3
+Output: 6
+
+===
+
+Input: n = 4
+Output: 14
