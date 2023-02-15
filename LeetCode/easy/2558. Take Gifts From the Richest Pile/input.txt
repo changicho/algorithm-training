@@ -1,0 +1,7 @@
+Input: gifts = [25,64,9,4,100], k = 4
+Output: 29
+
+===
+
+Input: gifts = [1,1,1,1], k = 4
+Output: 4
