@@ -2,6 +2,8 @@
 
 [링크](https://leetcode.com/problems/minimum-absolute-difference-in-bst/)
 
+Note: This question is the same as 783: https://leetcode.com/problems/minimum-distance-between-bst-nodes/
+
 | 난이도 |
 | :----: |
 |  Easy  |
@@ -56,6 +58,36 @@ int getMinimumDifference(TreeNode *root) {
   for (int i = 0; i < nums.size() - 1; i++) {
     answer = min(answer, abs(nums[i] - nums[i + 1]));
   }
+
+  return answer;
+}
+```
+
+### 중위 순회 (공간 최적화)
+
+| 내 코드 (ms) | 시간 복잡도 | 공간 복잡도 |
+| :----------: | :---------: | :---------: |
+|      16      |    O(N)     |    O(H)     |
+
+트리를 중위순회로 방문하며 이전값과 현재값의 차이를 계산한다.
+
+```cpp
+int answer = INT_MAX;
+int prev = -1;
+
+void recursive(TreeNode *node) {
+  if (!node) return;
+
+  recursive(node->left);
+
+  if (prev != -1) answer = min(answer, abs(node->val - prev));
+  prev = node->val;
+
+  recursive(node->right);
+}
+
+int getMinimumDifference(TreeNode *root) {
+  recursive(root);
 
   return answer;
 }
