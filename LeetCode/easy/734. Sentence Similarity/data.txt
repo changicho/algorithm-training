@@ -1,0 +1,12 @@
+Input: sentence1 = ["great","acting","skills"], sentence2 = ["fine","drama","talent"], similarPairs = [["great","fine"],["drama","acting"],["skills","talent"]]
+Output: true
+
+===
+
+Input: sentence1 = ["great"], sentence2 = ["great"], similarPairs = []
+Output: true
+
+===
+
+Input: sentence1 = ["great"], sentence2 = ["doubleplus","good"], similarPairs = [["great","doubleplus"]]
+Output: false
