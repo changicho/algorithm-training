@@ -126,3 +126,39 @@ class Solution {
     return nums[left];
   }
 };
+
+// use binary search
+// time : O(log_2(N))
+// space : O(1)
+class Solution {
+ public:
+  int singleNonDuplicate(vector<int>& nums) {
+    int size = nums.size();
+    int left = 0, right = size;
+    // if(size==1) return nums[0];
+    while (left < right) {
+      int mid = left + (right - left) / 2;
+      bool isOdd = mid % 2 == 1;
+      int target = isOdd ? mid - 1 : mid + 1;
+
+      if (target < 0 || target >= size) {
+        right = mid;
+        continue;
+      }
+
+      // odd & mid-1 == mid || even & mid == mid+1
+      // pick right
+      // even & mid != mid+1 || odd & mid-1 != mid
+      // pick left
+      if (nums[mid] == nums[target]) {
+        // pick right part
+        left = mid + 1;
+      } else {
+        // pick left part;
+        right = mid;
+      }
+    }
+
+    return nums[left];
+  }
+};
