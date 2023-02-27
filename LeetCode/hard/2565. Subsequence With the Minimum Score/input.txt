@@ -1,0 +1,7 @@
+Input: s = "abacaba", t = "bzaa"
+Output: 1
+
+===
+
+Input: s = "cde", t = "xyz"
+Output: 3
