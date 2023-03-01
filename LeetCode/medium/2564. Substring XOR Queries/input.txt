@@ -1,0 +1,12 @@
+Input: s = "101101", queries = [[0,5],[1,2]]
+Output: [[0,2],[2,3]]
+
+===
+
+Input: s = "0101", queries = [[12,8]]
+Output: [[-1,-1]]
+
+===
+
+Input: s = "1", queries = [[4,5]]
+Output: [[0,0]]
