@@ -1,0 +1,7 @@
+Input: nums = [10,4,8,3]
+Output: [15,1,11,22]
+
+===
+
+Input: nums = [1]
+Output: [0]
