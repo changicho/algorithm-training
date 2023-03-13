@@ -10,15 +10,23 @@
 
 ### 시간 복잡도
 
-트리의 노드의 개수는 최대 1000개 이다.
+트리의 노드의 개수를 N이라 하자. 이는 최대 1000개 이다.
 
 왼쪽과 오른쪽을 나눠서 탐색을 진행해야 하며, 이 경우에 최종 시간 복잡도는 O(N)이다.
 
+단계별 BFS를 이용할 경우 O(N)의 시간 복잡도가 소요된다.
+
 ### 공간 복잡도
 
-왼쪽에서 현재 진행하는 노드, 오른쪽에서 현재 진행하는 노드를 비교할 경우 별도의 공간이 필요하지 않다.
+BFS를 이용할 경우 O(N)의 공간 복잡도를 사용한다.
 
-### 트리 순회
+DFS를 이용할 경우 최대 O(H)의 공간 복잡도를 사용한다.
+
+### 트리 순회 (왼쪽, 오른쪽)
+
+| 내 코드 (ms) | 시간 복잡도 | 공간 복잡도 |
+| :----------: | :---------: | :---------: |
+|      4       |    O(N)     |    O(N)     |
 
 root노드를 기준으로 왼쪽 노드는 DLR, 오른쪽 노드는 DRL 순으로 탐색을 진행한다고 하자.
 
@@ -81,11 +89,71 @@ bool isMirror(TreeNode *t1, TreeNode *t2) {
 }
 ```
 
-## 정리
+### 트리 순회 (DFS)
 
-| 내 코드 (ms) |
-| :----------: |
-|      4       |
+| 내 코드 (ms) | 시간 복잡도 | 공간 복잡도 |
+| :----------: | :---------: | :---------: |
+|      0       |    O(N)     |    O(H)     |
+
+각 트리를 루트에서부터 왼쪽, 오른쪽에 대해 같은 순서로 DFS를 수행한다.
+
+```cpp
+bool isMirror(TreeNode *t1, TreeNode *t2) {
+  if (!t1 && !t2) return true;
+  if (!t1 || !t2) return false;
+
+  if (t1->val != t2->val) return false;
+  if (!isMirror(t1->right, t2->left)) return false;
+  if (!isMirror(t1->left, t2->right)) return false;
+
+  return true;
+}
+
+bool isSymmetric(TreeNode *root) { return isMirror(root, root); }
+```
+
+### 트리 순회 (BFS by level)
+
+| 내 코드 (ms) | 시간 복잡도 | 공간 복잡도 |
+| :----------: | :---------: | :---------: |
+|      8       |    O(N)     |    O(N)     |
+
+각 depth 별로 BFS를 수행한다.
+
+이 때 빈값인 경우 또한 표시해야 하므로, 각 단계마다 자식노드의 값을 vector에 저장하고 비교한다.
+
+```cpp
+bool isSymmetric(TreeNode *root) {
+  queue<TreeNode *> q;
+
+  if (root) q.push(root);
+
+  while (!q.empty()) {
+    int size = q.size();
+
+    vector<int> line;
+    while (size--) {
+      TreeNode *cur = q.front();
+      q.pop();
+
+      line.push_back(cur->left ? cur->left->val : -1000);
+      if (cur->left) q.push(cur->left);
+      line.push_back(cur->right ? cur->right->val : -1000);
+      if (cur->right) q.push(cur->right);
+    }
+
+    if (line.size() % 2 == 1) return false;
+    int left = 0, right = line.size() - 1;
+    while (left < right) {
+      if (line[left] != line[right]) return false;
+      left++;
+      right--;
+    }
+  }
+
+  return true;
+}
+```
 
 ## 고생한 점
 
