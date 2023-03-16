@@ -1,0 +1,7 @@
+Input: n = 4, time = 5
+Output: 2
+
+===
+
+Input: n = 3, time = 2
+Output: 3
