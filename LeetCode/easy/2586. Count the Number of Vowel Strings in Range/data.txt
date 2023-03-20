@@ -1,0 +1,7 @@
+Input: words = ["are","amy","u"], left = 0, right = 2
+Output: 2
+
+===
+
+Input: words = ["hey","aeo","mu","ooo","artro"], left = 1, right = 4
+Output: 3
