@@ -1,0 +1,7 @@
+Input: n = 17
+Output: [2,0]
+
+===
+
+Input: n = 2
+Output: [0,1]
