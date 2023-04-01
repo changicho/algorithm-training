@@ -1,0 +1,12 @@
+Input: satisfaction = [-1,-8,0,5,-9]
+Output: 14
+
+===
+
+Input: satisfaction = [4,3,2]
+Output: 20
+
+===
+
+Input: satisfaction = [-1,-4,-5]
+Output: 0
