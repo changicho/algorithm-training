@@ -1,0 +1,12 @@
+Input: people = [1,2], limit = 3
+Output: 1
+
+===
+
+Input: people = [3,2,2,1], limit = 3
+Output: 3
+
+===
+
+Input: people = [3,5,3,4], limit = 5
+Output: 4
