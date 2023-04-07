@@ -1,0 +1,7 @@
+Input: s = "abacaba"
+Output: 4
+
+===
+
+Input: s = "ssssss"
+Output: 6
