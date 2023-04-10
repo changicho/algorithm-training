@@ -1,0 +1,7 @@
+Input: numOnes = 3, numZeros = 2, numNegOnes = 0, k = 2
+Output: 2
+
+===
+
+Input: numOnes = 3, numZeros = 2, numNegOnes = 0, k = 4
+Output: 3
