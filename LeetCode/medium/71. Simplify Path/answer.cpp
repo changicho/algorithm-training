@@ -89,3 +89,42 @@ class Solution {
     return res.empty() ? "/" : res;
   }
 };
+
+// use stack & stringstream
+// time : O(N)
+// space : O(N)
+class Solution {
+ private:
+  vector<string> split(string str) {
+    string temp;
+    stringstream ss(str);
+    vector<string> ret;
+    while (getline(ss, temp, '/')) {
+      ret.push_back(temp);
+    }
+    return ret;
+  }
+
+ public:
+  string simplifyPath(string path) {
+    string res = "";
+    vector<string> stk;
+    vector<string> dirs = split(path);
+
+    for (string dir : dirs) {
+      if (dir == "" || dir == ".") {
+        continue;
+      } else if (dir == ".." && !stk.empty()) {
+        stk.pop_back();
+      } else if (dir != "..") {
+        stk.push_back(dir);
+      }
+    }
+
+    for (string dir : stk) {
+      res += "/" + dir;
+    }
+
+    return res.empty() ? "/" : res;
+  }
+};
