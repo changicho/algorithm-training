@@ -1,0 +1,12 @@
+Input: nums = [4,9,6,10]
+Output: true
+
+===
+
+Input: nums = [6,8,11,12]
+Output: true
+
+===
+
+Input: nums = [5,8,3]
+Output: false
