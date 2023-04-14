@@ -1,0 +1,7 @@
+Input: nums = [3,1,6,8], queries = [1,5]
+Output: [14,10]
+
+===
+
+Input: nums = [2,9,6,3], queries = [10]
+Output: [20]
