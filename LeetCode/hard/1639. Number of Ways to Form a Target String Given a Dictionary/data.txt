@@ -1,0 +1,7 @@
+Input: words = ["acca","bbbb","caca"], target = "aba"
+Output: 6
+
+===
+
+Input: words = ["abba","baab"], target = "bab"
+Output: 4
