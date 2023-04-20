@@ -1,0 +1,12 @@
+Input: word1 = "abc", word2 = "pqr"
+Output: "apbqcr"
+
+===
+
+Input: word1 = "ab", word2 = "pqrs"
+Output: "apbqrs"
+
+===
+
+Input: word1 = "abcd", word2 = "pq"
+Output: "apbqcd"
