@@ -1,0 +1,7 @@
+Input: strs = ["tars","rats","arts","star"]
+Output: 2
+
+===
+
+Input: strs = ["omv","ovm"]
+Output: 1
