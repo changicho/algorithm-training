@@ -1,0 +1,7 @@
+Input: s = "abciiidef", k = 3
+Output: 3
+
+===
+
+Input: s = "aeiou", k = 2
+Output: 2
