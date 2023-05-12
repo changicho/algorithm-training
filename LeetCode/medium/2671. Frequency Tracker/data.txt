@@ -1,0 +1,21 @@
+Input
+["FrequencyTracker", "add", "add", "hasFrequency"]
+[[], [3], [3], [2]]
+Output
+[null, null, null, true]
+
+===
+
+Input
+["FrequencyTracker", "add", "deleteOne", "hasFrequency"]
+[[], [1], [1], [1]]
+Output
+[null, null, null, false]
+
+===
+
+Input
+["FrequencyTracker", "hasFrequency", "add", "hasFrequency"]
+[[], [2], [3], [1]]
+Output
+[null, false, null, true]
