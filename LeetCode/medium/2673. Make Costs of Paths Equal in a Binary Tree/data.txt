@@ -1,0 +1,7 @@
+Input: n = 7, cost = [1,5,2,2,3,3,1]
+Output: 6
+
+===
+
+Input: n = 3, cost = [5,3,3]
+Output: 0
