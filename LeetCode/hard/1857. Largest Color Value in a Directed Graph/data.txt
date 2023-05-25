@@ -1,0 +1,7 @@
+Input: colors = "abaca", edges = [[0,1],[0,2],[2,3],[3,4]]
+Output: 3
+
+===
+
+Input: colors = "a", edges = [[0,0]]
+Output: -1
