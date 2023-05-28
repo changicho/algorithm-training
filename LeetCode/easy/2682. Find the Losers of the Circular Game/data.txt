@@ -1,0 +1,7 @@
+Input: n = 5, k = 2
+Output: [4,5]
+
+===
+
+Input: n = 4, k = 4
+Output: [2,3,4]
