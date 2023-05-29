@@ -1,0 +1,12 @@
+Input: values = [1,2,3,7]
+Output: "Bob"
+
+===
+
+Input: values = [1,2,3,-9]
+Output: "Alice"
+
+===
+
+Input: values = [1,2,3,6]
+Output: "Tie"
