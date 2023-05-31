@@ -1,0 +1,12 @@
+Input: derived = [1,1,0]
+Output: true
+
+===
+
+Input: derived = [1,1]
+Output: true
+
+===
+
+Input: derived = [1,0]
+Output: false
