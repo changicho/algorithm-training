@@ -1,0 +1,7 @@
+Input: s = "ABFCACDB"
+Output: 2
+
+===
+
+Input: s = "ACBBD"
+Output: 5
