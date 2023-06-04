@@ -1,0 +1,12 @@
+Input: s = "egcfe"
+Output: "efcfe"
+
+===
+
+Input: s = "abcd"
+Output: "abba"
+
+===
+
+Input: s = "seven"
+Output: "neven"
