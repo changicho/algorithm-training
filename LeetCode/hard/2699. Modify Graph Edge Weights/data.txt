@@ -1,0 +1,12 @@
+Input: n = 5, edges = [[4,1,-1],[2,0,-1],[0,3,-1],[4,3,-1]], source = 0, destination = 1, target = 5
+Output: [[4,1,1],[2,0,1],[0,3,3],[4,3,1]]
+
+===
+
+Input: n = 3, edges = [[0,1,-1],[0,2,5]], source = 0, destination = 2, target = 6
+Output: []
+
+===
+
+Input: n = 4, edges = [[1,0,4],[1,2,3],[2,3,5],[0,3,-1]], source = 0, destination = 2, target = 6
+Output: [[1,0,4],[1,2,3],[2,3,5],[0,3,1]]
