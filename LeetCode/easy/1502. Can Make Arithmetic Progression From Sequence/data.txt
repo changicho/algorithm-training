@@ -1,0 +1,7 @@
+Input: arr = [3,5,1]
+Output: true
+
+===
+
+Input: arr = [1,2,4]
+Output: false
