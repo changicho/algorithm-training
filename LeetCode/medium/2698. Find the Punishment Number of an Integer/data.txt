@@ -1,0 +1,7 @@
+Input: n = 10
+Output: 182
+
+===
+
+Input: n = 37
+Output: 1478
