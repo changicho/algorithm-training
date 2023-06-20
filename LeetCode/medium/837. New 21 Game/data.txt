@@ -1,0 +1,12 @@
+Input: n = 10, k = 1, maxPts = 10
+Output: 1.00000
+
+===
+
+Input: n = 6, k = 1, maxPts = 10
+Output: 0.60000
+
+===
+
+Input: n = 21, k = 17, maxPts = 10
+Output: 0.73278
