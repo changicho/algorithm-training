@@ -1,0 +1,39 @@
+6
+ABCD
+AC
+ABCD
+ABD
+AC
+ABC
+3
+AB
+A
+BC
+
+ABCD 2
+ABCD 2
+0
+
+===
+
+8
+ACD
+ACD
+ABD
+CAB
+ABD
+ABD
+CAB
+ACD
+5
+A
+C
+B
+ACD
+AB
+
+ABD 3
+CAB 2
+0
+ACD 3
+ABD 3
