@@ -1,0 +1,12 @@
+Input: grid = ["@.a..","###.#","b.A.B"]
+Output: 8
+
+===
+
+Input: grid = ["@..aA","..B#.","....b"]
+Output: 6
+
+===
+
+Input: grid = ["@Aa"]
+Output: -1
