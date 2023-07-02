@@ -1,0 +1,7 @@
+Input: costs = [17,12,10,2,7,2,11,20,8], k = 3, candidates = 4
+Output: 11
+
+===
+
+Input: costs = [1,2,4,1], k = 3, candidates = 3
+Output: 4
