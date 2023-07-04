@@ -8,7 +8,8 @@
 using namespace std;
 
 // use hash map, set
-
+// time : O(N)
+// space : O(N)
 class Solution {
  public:
   int singleNumber(vector<int>& nums) {
@@ -29,7 +30,8 @@ class Solution {
 };
 
 // use bit operation
-
+// time : O(N)
+// space : O(1)
 class Solution {
  public:
   int singleNumber(vector<int>& nums) {
@@ -50,7 +52,8 @@ class Solution {
 };
 
 // use bit operation (other)
-
+// time : O(N)
+// space : O(1)
 class Solution {
  public:
   int singleNumber(vector<int>& nums) {
@@ -71,7 +74,8 @@ class Solution {
 };
 
 // use bit mask
-
+// time : O(N)
+// space : O(1)
 class Solution {
  public:
   int singleNumber(vector<int>& nums) {
@@ -93,5 +97,36 @@ class Solution {
     }
 
     return answer;
+  }
+};
+
+// use sort
+// time : O(N * log_2(N))
+// space : O(N)
+class Solution {
+ public:
+  int singleNumber(vector<int>& nums) {
+    sort(nums.begin(), nums.end());
+
+    int size = nums.size();
+
+    for (int i = 0; i < size; i++) {
+      bool leftDiff = false, rightDiff = false;
+      if (i - 1 < 0) {
+        leftDiff = true;
+      } else {
+        leftDiff = nums[i - 1] != nums[i];
+      }
+      if (i + 1 >= size) {
+        rightDiff = true;
+      } else {
+        rightDiff = nums[i] != nums[i + 1];
+      }
+
+      if (leftDiff && rightDiff) {
+        return nums[i];
+      }
+    }
+    return 0;
   }
 };

@@ -155,4 +155,39 @@ int singleNumber(vector<int>& nums) {
 }
 ```
 
+### 정렬
+
+| 내 코드 (ms) |   시간 복잡도    | 공간 복잡도 |
+| :----------: | :--------------: | :---------: |
+|      9       | O(N \* log_2(N)) |    O(N)     |
+
+수를 정렬할 경우, 한번만 나오는 수는 양 옆의 두개의 수와 모두 다를것이다.
+
+```cpp
+int singleNumber(vector<int>& nums) {
+  sort(nums.begin(), nums.end());
+
+  int size = nums.size();
+
+  for (int i = 0; i < size; i++) {
+    bool leftDiff = false, rightDiff = false;
+    if (i - 1 < 0) {
+      leftDiff = true;
+    } else {
+      leftDiff = nums[i - 1] != nums[i];
+    }
+    if (i + 1 >= size) {
+      rightDiff = true;
+    } else {
+      rightDiff = nums[i] != nums[i + 1];
+    }
+
+    if (leftDiff && rightDiff) {
+      return nums[i];
+    }
+  }
+  return 0;
+}
+```
+
 ## 고생한 점
