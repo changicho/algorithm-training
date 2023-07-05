@@ -1,0 +1,12 @@
+Input: s = "ab", goal = "ba"
+Output: true
+
+===
+
+Input: s = "ab", goal = "ab"
+Output: false
+
+===
+
+Input: s = "aa", goal = "aa"
+Output: true
