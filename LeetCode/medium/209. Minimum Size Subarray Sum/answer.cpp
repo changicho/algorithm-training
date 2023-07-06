@@ -6,30 +6,27 @@
 using namespace std;
 
 // use sliding window
-
+// time : O(N)
+// space : O(1)
 class Solution {
  public:
   int minSubArrayLen(int target, vector<int>& nums) {
     int size = nums.size();
-    int left = 0, right = 0;
-    int answer = size + 1;
+    int answer = INT_MAX;
 
-    int curSum = 0;
-    while (left < size) {
-      if (target <= curSum) {
-        answer = min(answer, right - left);
+    for (int right = 0, left = 0, sum = 0; right < size; right++) {
+      sum += nums[right];
+
+      while (left < right && sum - nums[left] >= target) {
+        sum -= nums[left];
+        left++;
       }
 
-      if (curSum < target && right < size) {
-        curSum += nums[right];
-        right++;
-        continue;
+      if (sum >= target) {
+        answer = min(answer, right - left + 1);
       }
-
-      curSum -= nums[left];
-      left += 1;
     }
 
-    return answer == size + 1 ? 0 : answer;
+    return answer == INT_MAX ? 0 : answer;
   }
 };

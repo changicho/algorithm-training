@@ -66,4 +66,32 @@ int minSubArrayLen(int target, vector<int>& nums) {
 }
 ```
 
+혹은 right를 증가시키며 sum에 현재 right에 위치한 nums의 값을 더한다.
+
+이 때 sum이 target 이상이 되는 경우 left를 증가시키며 sum에서 left에 위치한 nums의 값을 뺀다.
+
+각 과정마다 sum이 target 이상인 경우 정답을 갱신한다.
+
+```cpp
+int minSubArrayLen(int target, vector<int>& nums) {
+  int size = nums.size();
+  int answer = INT_MAX;
+
+  for (int right = 0, left = 0, sum = 0; right < size; right++) {
+    sum += nums[right];
+
+    while (left < right && sum - nums[left] >= target) {
+      sum -= nums[left];
+      left++;
+    }
+
+    if (sum >= target) {
+      answer = min(answer, right - left + 1);
+    }
+  }
+
+  return answer == INT_MAX ? 0 : answer;
+}
+```
+
 ## 고생한 점
