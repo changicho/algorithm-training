@@ -1,0 +1,12 @@
+Input: answerKey = "TTFF", k = 2
+Output: 4
+
+===
+
+Input: answerKey = "TFFT", k = 1
+Output: 3
+
+===
+
+Input: answerKey = "TTFTTFTT", k = 1
+Output: 5
