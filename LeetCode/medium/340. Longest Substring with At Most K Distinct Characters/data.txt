@@ -1,0 +1,12 @@
+Input: s = "eceba", k = 2
+Output: 3
+
+===
+
+Input: s = "aa", k = 1
+Output: 2
+
+===
+
+"a"
+0
