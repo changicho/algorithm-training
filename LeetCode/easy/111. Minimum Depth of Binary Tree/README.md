@@ -10,47 +10,48 @@
 
 ### 시간 복잡도
 
-노드의 개수는 최대 10^5이다. 모든 노드를 탐색해야 하므로 시간 복잡도는 O(N) 이다.
+노드의 갯수를 N이라 하자. (N <= 10^5)
+
+모든 노드를 탐색하며 깊이를 구할 수 있으므로 시간 복잡도는 O(N) 이다.
 
 ### 공간 복잡도
 
-최악의 경우 정답은 10^5이다.
+최악의 경우 DFS, BFS에 O(N)의 공간 복잡도를 사용한다.
 
-### 재귀호출
+### DFS
 
-현재 노드가 리프 노드인 경우에만 정답을 갱신해야한다.
+| 내 코드 (ms) | 시간 복잡도 | 공간 복잡도 |
+| :----------: | :---------: | :---------: |
+|     298      |    O(N)     |    O(N)     |
+
+DFS로 탐색을 진행하며 루트 노드에서부터 깊이를 증가시키며 인자로 넣어준다.
+
+만약 현재 노드가 리프노드인 경우 정답을 갱신한다.
+
+이 때 루트가 없는 경우 0을 반환한다.
 
 ```cpp
-class Solution {
- public:
-  int answer = 100001;
-  int minDepth(TreeNode *root) {
-    findDepth(root, 1);
+int answer = INT_MAX;
 
-    if (answer == 100001) answer = 0;
-    return answer;
+void recursive(TreeNode *node, int d) {
+  if (!node) return;
+
+  if (!node->left && !node->right) {
+    answer = min(answer, d);
+
+    return;
   }
 
-  void findDepth(TreeNode *cur, int depth) {
-    if (!cur) {
-      return;
-    }
+  if (node->left) recursive(node->left, d + 1);
+  if (node->right) recursive(node->right, d + 1);
+}
 
-    if (!cur->left && !cur->right) {
-      answer = min(depth, answer);
-      return;
-    }
+int minDepth(TreeNode *root) {
+  recursive(root, 1);
 
-    findDepth(cur->left, depth + 1);
-    findDepth(cur->right, depth + 1);
-  }
-};
+  if (answer == INT_MAX) return 0;
+  return answer;
+}
 ```
-
-## 정리
-
-| 내 코드 (ms) |
-| :----------: |
-|              |
 
 ## 고생한 점
