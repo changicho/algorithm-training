@@ -1,0 +1,7 @@
+Input: m = 3, n = 3, coordinates = [[0,0]]
+Output: [3,1,0,0,0]
+
+===
+
+Input: m = 3, n = 3, coordinates = [[0,0],[1,1],[0,2]]
+Output: [0,2,2,0,0]
