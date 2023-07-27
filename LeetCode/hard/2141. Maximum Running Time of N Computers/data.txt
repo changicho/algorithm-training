@@ -1,0 +1,7 @@
+Input: n = 2, batteries = [3,3,3]
+Output: 4
+
+===
+
+Input: n = 2, batteries = [1,1,1,1]
+Output: 2
