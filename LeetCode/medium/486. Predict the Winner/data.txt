@@ -1,0 +1,7 @@
+Input: nums = [1,5,2]
+Output: false
+
+===
+
+Input: nums = [1,5,233,7]
+Output: true
