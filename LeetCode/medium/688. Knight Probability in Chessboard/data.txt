@@ -1,0 +1,7 @@
+Input: n = 3, k = 2, row = 0, column = 0
+Output: 0.06250
+
+===
+
+Input: n = 1, k = 0, row = 0, column = 0
+Output: 1.00000
