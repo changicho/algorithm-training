@@ -20,11 +20,15 @@ digits의 길이는 최대 4이다. 각 digit의 종류는 3~4 가지이다.
 
 ### 공간 복잡도
 
-BFS로 탐색할 경우 큐 안에 필요한 공간은 최대 O(4^N)이다.
+BFS로 탐색할 경우 큐 안에 정답의 경우의 수만큼 담길 수 있으므로 공간은 최대 O(4^N \* N)이다.
 
-DFS로 탐색할 경우 콜스택에서 사용할 수 있으므로 필요한 공간이 더 존재하지 않는다.
+DFS로 탐색할 경우 콜스택에서 사용할 수 있으므로 O(N)의 공간 복잡도를 사용한다.
 
 ### DFS
+
+| 내 코드 (ms) | 시간 복잡도 | 공간 복잡도 |
+| :----------: | :---------: | :---------: |
+|      0       | O(4^N \* N) |    O(N)     |
 
 전역변수에 정답을 담고 return한다.
 
@@ -53,6 +57,10 @@ void recursive(int index, string digits, string cur) {
 ```
 
 ### BFS
+
+| 내 코드 (ms) | 시간 복잡도 | 공간 복잡도 |
+| :----------: | :---------: | :---------: |
+|      0       | O(4^N \* N) | O(4^N \* N) |
 
 ```cpp
 vector<string> letterCombinations(string digits) {
@@ -87,11 +95,5 @@ vector<string> letterCombinations(string digits) {
   return ret;
 }
 ```
-
-## 정리
-
-| 내 코드 (ms) |
-| :----------: |
-|      0       |
 
 ## 고생한 점

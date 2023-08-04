@@ -7,17 +7,14 @@
 using namespace std;
 
 // use BFS
-
+// time : O(4^N * N)
+// space : O(4^N * N)
 class Solution {
  public:
   vector<string> letterCombinations(string digits) {
-    string letters[10] = {"", "", "abc", "def", "ghi", "jkl", "mno", "pqrs", "tuv", "wxyz"};
+    string letters[10] = {"",    "",    "abc",  "def", "ghi",
+                          "jkl", "mno", "pqrs", "tuv", "wxyz"};
     vector<string> ret;
-
-    vector<string> combi;
-    for (char digit : digits) {
-      combi.push_back(letters[digit - '0']);
-    }
 
     queue<string> q;
     q.push("");
@@ -34,7 +31,8 @@ class Solution {
       }
 
       int index = cur.length();
-      for (char c : combi[index]) {
+      int digit = digits[index] - '0';
+      for (char &c : letters[digit]) {
         q.push(cur + c);
       }
     }
@@ -44,18 +42,15 @@ class Solution {
 };
 
 // use DFS
-
+// time : O(4^N * N)
+// space : O(N)
 class Solution {
- public:
-  string letters[10] = {"", "", "abc", "def", "ghi", "jkl", "mno", "pqrs", "tuv", "wxyz"};
+ private:
+  string letters[10] = {"",    "",    "abc",  "def", "ghi",
+                        "jkl", "mno", "pqrs", "tuv", "wxyz"};
   vector<string> answer;
-  vector<string> letterCombinations(string digits) {
-    recursive(0, digits, "");
 
-    return answer;
-  }
-
-  void recursive(int index, string digits, string cur) {
+  void recursive(int index, string &digits, string &cur) {
     if (index == digits.length()) {
       if (cur != "") {
         answer.push_back(cur);
@@ -65,7 +60,17 @@ class Solution {
 
     int targetIndex = digits[index] - '0';
     for (char c : letters[targetIndex]) {
-      recursive(index + 1, digits, cur + c);
+      cur.push_back(c);
+      recursive(index + 1, digits, cur);
+      cur.pop_back();
     }
+  }
+
+ public:
+  vector<string> letterCombinations(string digits) {
+    string cur = "";
+    recursive(0, digits, cur);
+
+    return answer;
   }
 };
