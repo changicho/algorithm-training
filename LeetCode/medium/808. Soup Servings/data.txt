@@ -1,0 +1,7 @@
+Input: n = 50
+Output: 0.62500
+
+===
+
+Input: n = 100
+Output: 0.71875
