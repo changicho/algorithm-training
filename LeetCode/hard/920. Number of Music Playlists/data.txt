@@ -1,0 +1,12 @@
+Input: n = 3, goal = 3, k = 1
+Output: 6
+
+===
+
+Input: n = 2, goal = 3, k = 0
+Output: 6
+
+===
+
+Input: n = 2, goal = 3, k = 1
+Output: 2
