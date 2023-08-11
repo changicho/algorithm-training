@@ -1,0 +1,7 @@
+Input: s = "string"
+Output: "rtsng"
+
+===
+
+Input: s = "poiinter"
+Output: "ponter"
