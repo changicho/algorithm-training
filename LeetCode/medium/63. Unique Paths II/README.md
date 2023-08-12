@@ -10,28 +10,36 @@
 
 ### 시간 복잡도
 
-세로의 길이를 N, 가로의 길이를 M이라 하자.
+세로의 길이를 R, 가로의 길이를 C이라 하자.
 
-모든 경우를 탐색할 경우 2^(N+M)의 시간 복잡도가 소요되므로 제한시간 내에 불가능하다.
+모든 경우를 탐색할 경우 2^(R + C)의 시간 복잡도가 소요되므로 제한시간 내에 불가능하다.
 
-동적 계획법을 이용해 모든 경우를 O(N \* M)의 시간 내에 탐색할 수 있다.
+동적 계획법을 이용해 각 좌표마다의 경로의 수를 계산할 수 있다.
+
+이 경우 O(R \* C)의 시간 내에 탐색할 수 있다.
 
 ### 공간 복잡도
 
-동적 계획법을 이용할 경우 보드의 크기 만큼의 공간 복잡도를 이용한다. O(N \* M)
+동적 계획법을 이용할 경우 보드의 크기 만큼의 공간 복잡도를 이용한다. O(R \* C)
 
-이를 최적화 할 경우 갱신에 2개의 row만 필요하므로 공간 복잡도를 낮출 수 있다. O(N)
+이를 최적화 할 경우 갱신에 2개의 row만 필요하므로 공간 복잡도를 낮출 수 있다. O(R)
 
 ### 동적 계획법 (full)
 
 | 내 코드 (ms) | 시간 복잡도 | 공간 복잡도 |
 | :----------: | :---------: | :---------: |
-|      0       |  O(N \* M)  |  O(N \* M)  |
+|      0       |  O(R \* C)  |  O(R \* C)  |
 
-일반식은 다음과 같다.
+일반식은 다음과 같이 구성할 수 있다.
 
 ```cpp
+int dp[y][x]; // y,x 좌표로 오는 경로의 수
+
+// not obstacle
 dp[y][x] = dp[y][x - 1] + dp[y - 1][x];
+
+// obstacle
+dp[y][x] = 0;
 ```
 
 이 때 바위가 시작 위치에 있을수도 있으므로 초기값을 설정할 때 주의해야 한다.
@@ -42,35 +50,23 @@ dp[y][x] = dp[y][x - 1] + dp[y - 1][x];
 
 ```cpp
 int uniquePathsWithObstacles(vector<vector<int>>& obstacleGrid) {
-  int row = obstacleGrid.size();
-  int col = obstacleGrid.front().size();
+  int rows = obstacleGrid.size(), cols = obstacleGrid[0].size();
 
-  vector<vector<int>> dp(row, vector<int>(col, 0));
+  int dp[101][101] = {
+      0,
+  };
+  dp[0][0] = obstacleGrid[0][0] == 1 ? 0 : 1;
 
-  dp[0][0] = obstacleGrid[0][0] == 0 ? 1 : 0;
-  if (dp[0][0] == 0) return 0;
+  for (int y = 0; y < rows; y++) {
+    for (int x = 0; x < cols; x++) {
+      if (obstacleGrid[y][x] == 1) continue;
 
-  for (int y = 1; y < row; y++) {
-    if (obstacleGrid[y][0] != 0) break;
-
-    dp[y][0] = dp[y - 1][0];
-  }
-
-  for (int x = 1; x < col; x++) {
-    if (obstacleGrid[0][x] != 0) break;
-
-    dp[0][x] = dp[0][x - 1];
-  }
-
-  for (int y = 1; y < row; y++) {
-    for (int x = 1; x < col; x++) {
-      if (obstacleGrid[y][x]) continue;
-
-      dp[y][x] += dp[y][x - 1] + dp[y - 1][x];
+      dp[y][x] += y - 1 < 0 ? 0 : dp[y - 1][x];
+      dp[y][x] += x - 1 < 0 ? 0 : dp[y][x - 1];
     }
   }
 
-  return dp[row - 1][col - 1];
+  return dp[rows - 1][cols - 1];
 }
 ```
 

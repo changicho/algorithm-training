@@ -6,44 +6,34 @@
 using namespace std;
 
 // use full dynamic programming
-
+// time : O(R * C)
+// space : O(R * C)
 class Solution {
  public:
   int uniquePathsWithObstacles(vector<vector<int>>& obstacleGrid) {
-    int row = obstacleGrid.size();
-    int col = obstacleGrid.front().size();
+    int rows = obstacleGrid.size(), cols = obstacleGrid[0].size();
 
-    vector<vector<int>> dp(row, vector<int>(col, 0));
+    int dp[101][101] = {
+        0,
+    };
+    dp[0][0] = obstacleGrid[0][0] == 1 ? 0 : 1;
 
-    dp[0][0] = obstacleGrid[0][0] == 0 ? 1 : 0;
-    if (dp[0][0] == 0) return 0;
+    for (int y = 0; y < rows; y++) {
+      for (int x = 0; x < cols; x++) {
+        if (obstacleGrid[y][x] == 1) continue;
 
-    for (int y = 1; y < row; y++) {
-      if (obstacleGrid[y][0] != 0) break;
-
-      dp[y][0] = dp[y - 1][0];
-    }
-
-    for (int x = 1; x < col; x++) {
-      if (obstacleGrid[0][x] != 0) break;
-
-      dp[0][x] = dp[0][x - 1];
-    }
-
-    for (int y = 1; y < row; y++) {
-      for (int x = 1; x < col; x++) {
-        if (obstacleGrid[y][x]) continue;
-
-        dp[y][x] += dp[y][x - 1] + dp[y - 1][x];
+        dp[y][x] += y - 1 < 0 ? 0 : dp[y - 1][x];
+        dp[y][x] += x - 1 < 0 ? 0 : dp[y][x - 1];
       }
     }
 
-    return dp[row - 1][col - 1];
+    return dp[rows - 1][cols - 1];
   }
 };
 
 // use minimum dynamic programming
-
+// time : O(R * C)
+// space : O(R)
 class Solution {
  public:
   int uniquePathsWithObstacles(vector<vector<int>>& obstacleGrid) {
