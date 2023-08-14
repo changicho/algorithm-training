@@ -1,0 +1,7 @@
+Input: a = "abc", b = "bca", c = "aaa"
+Output: "aaabca"
+
+===
+
+Input: a = "ab", b = "ba", c = "aba"
+Output: "aba"
