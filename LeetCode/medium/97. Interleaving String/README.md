@@ -26,7 +26,7 @@ sub string들을 만느는 것과 어떻게 붙일 지 여부를 완전 탐색�
 
 이에 필요한 공간 복잡도는 O(N \* M)이다.
 
-### 정리
+### 동적 계획법 (DFS)
 
 | 내 코드 (ms) | 시간 복잡도 | 공간 복잡도 |
 | :----------: | :---------: | :---------: |
@@ -69,6 +69,84 @@ bool recursive(string &s1, string &s2, string &s3, int idx1, int idx2, int idx3)
 
   visited[idx1][idx2] = true;
   return dp[idx1][idx2] = response;
+}
+```
+
+### 동적 계획법 (BFS)
+
+| 내 코드 (ms) | 시간 복잡도 | 공간 복잡도 |
+| :----------: | :---------: | :---------: |
+|      4       |  O(N \* M)  |  O(N \* M)  |
+
+```cpp
+bool isInterleave(string s1, string s2, string s3) {
+  int size1 = s1.size(), size2 = s2.size(), size3 = s3.size();
+
+  if (size1 + size2 != size3) return false;
+
+  bool dp[101][101] = {
+      false,
+  };
+
+  queue<pair<int, int>> q;
+  q.push({0, 0});
+
+  while (!q.empty()) {
+    auto cur = q.front();
+    q.pop();
+
+    if (dp[cur.first][cur.second]) continue;
+    dp[cur.first][cur.second] = true;
+
+    if (cur.first == size1 && cur.second == size2) break;
+
+    int target = cur.first + cur.second;
+
+    if (cur.first < size1 && s3[target] == s1[cur.first]) {
+      q.push({cur.first + 1, cur.second});
+    }
+    if (cur.second < size2 && s3[target] == s2[cur.second]) {
+      q.push({cur.first, cur.second + 1});
+    }
+  }
+
+  return dp[size1][size2];
+}
+```
+
+### 동적 계획법 (순회)
+
+| 내 코드 (ms) | 시간 복잡도 | 공간 복잡도 |
+| :----------: | :---------: | :---------: |
+|      0       |  O(N \* M)  |  O(N \* M)  |
+
+```cpp
+bool isInterleave(string s1, string s2, string s3) {
+  int size1 = s1.size(), size2 = s2.size(), size3 = s3.size();
+  if (size1 + size2 != size3) return false;
+
+  bool dp[101][101] = {
+      false,
+  };
+
+  for (int i = 0; i <= size1; i++) {
+    for (int j = 0; j <= size2; j++) {
+      int target = i + j - 1;
+
+      if (i == 0 && j == 0) {
+        dp[i][j] = true;
+      } else if (i == 0) {
+        dp[i][j] = (dp[i][j - 1] && s2[j - 1] == s3[target]);
+      } else if (j == 0) {
+        dp[i][j] = (dp[i - 1][j] && s1[i - 1] == s3[target]);
+      } else {
+        dp[i][j] = (dp[i - 1][j] && s1[i - 1] == s3[target]) ||
+                    (dp[i][j - 1] && s2[j - 1] == s3[target]);
+      }
+    }
+  }
+
+  return dp[size1][size2];
 }
 ```
 
