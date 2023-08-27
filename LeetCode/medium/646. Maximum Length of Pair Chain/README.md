@@ -56,4 +56,38 @@ int findLongestChain(vector<vector<int>> &pairs) {
 }
 ```
 
+### 동적 계획법
+
+| 내 코드 (ms) | 시간 복잡도 | 공간 복잡도 |
+| :----------: | :---------: | :---------: |
+|     189      |   O(N^2)    |    O(N)     |
+
+pairs를 오름차순으로 정렬한다.
+
+dp배열로 각 pair를 선택했을 때 최대로 선택할 수 있는 pair의 개수를 저장한다.
+
+맨 끝 pairs부터 역순으로 순회하며, 각 과정마다 현재 pair보다 오른쪽에 있는 값들을 탐색한다.
+
+이 때 현재 pair의 끝점보다 다음 pair의 시작점이 큰 경우에만 dp를 갱신한다.
+
+```cpp
+int findLongestChain(vector<vector<int>> &pairs) {
+  int size = pairs.size();
+  sort(pairs.begin(), pairs.end());
+
+  vector<int> dp(size, 1);
+
+  int answer = 1;
+  for (int i = size - 1; i >= 0; i--) {
+    for (int j = i + 1; j < size; j++) {
+      if (pairs[i][1] < pairs[j][0]) {
+        dp[i] = max(dp[i], 1 + dp[j]);
+      }
+    }
+    answer = max(answer, dp[i]);
+  }
+  return answer;
+}
+```
+
 ## 고생한 점

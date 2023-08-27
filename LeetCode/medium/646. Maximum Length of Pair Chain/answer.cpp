@@ -28,3 +28,27 @@ class Solution {
     return answer;
   }
 };
+
+// use dynamic programming
+// time : O(N^2)
+// space : O(N)
+class Solution {
+ public:
+  int findLongestChain(vector<vector<int>> &pairs) {
+    int size = pairs.size();
+    sort(pairs.begin(), pairs.end());
+
+    vector<int> dp(size, 1);
+
+    int answer = 1;
+    for (int i = size - 1; i >= 0; i--) {
+      for (int j = i + 1; j < size; j++) {
+        if (pairs[i][1] < pairs[j][0]) {
+          dp[i] = max(dp[i], 1 + dp[j]);
+        }
+      }
+      answer = max(answer, dp[i]);
+    }
+    return answer;
+  }
+};
