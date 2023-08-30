@@ -1,0 +1,12 @@
+Input: customers = "YYNY"
+Output: 2
+
+===
+
+Input: customers = "NNNNN"
+Output: 0
+
+===
+
+Input: customers = "YYYY"
+Output: 4
