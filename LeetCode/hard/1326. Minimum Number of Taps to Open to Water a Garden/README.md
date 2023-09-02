@@ -10,7 +10,7 @@
 
 ### 시간 복잡도
 
-주어진 ranges의 크기, 물을 뿌릴 수 있는 공간의 길이를 N이라 하자.
+주어진 ranges의 크기, 물을 뿌릴 수 있는 공간의 길이를 N, 각 range의 범위를 M이라 하자.
 
 각 범위에 대해 정렬 후 각 진행상황마다 제일 유리한 범위를 선택할 수 있다.
 
@@ -19,6 +19,10 @@
 이후 순회를 이용해 최소한의 횟수를 구할 수 있다.
 
 이 경우 O(N)의 시간 복잡도를 사용한다.
+
+동적 계획법을 이용해 각 index와 range에 대해 최소한의 횟수를 구할 수 있다.
+
+이 경우 O(N \* M)의 시간 복잡도를 사용한다.
 
 ### 공간 복잡도
 
@@ -73,6 +77,34 @@ int minTaps(int n, vector<int> &ranges) {
 
   if (answer == 0) return -1;
   return answer;
+}
+```
+
+### 동적 계획법
+
+| 내 코드 (ms) | 시간 복잡도 | 공간 복잡도 |
+| :----------: | :---------: | :---------: |
+|      34      |  O(N \* M)  |    O(N)     |
+
+```cpp
+int minTaps(int n, vector<int>& ranges) {
+  const int MAX = 1e9;
+  vector<int> dp(n + 1, MAX);
+
+  dp[0] = 0;
+
+  for (int i = 0; i <= n; i++) {
+    int left = max(0, i - ranges[i]);
+    int right = min(n, i + ranges[i]);
+
+    for (int j = left; j <= right; j++) {
+      dp[right] = min(dp[right], dp[j] + 1);
+    }
+  }
+
+  if (dp[n] == MAX) return -1;
+
+  return dp[n];
 }
 ```
 

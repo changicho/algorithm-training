@@ -10,7 +10,7 @@ using namespace std;
 // space : O(N)
 class Solution {
  public:
-  int minTaps(int n, vector<int> &ranges) {
+  int minTaps(int n, vector<int>& ranges) {
     int size = ranges.size();
 
     vector<pair<int, int>> arr;
@@ -40,5 +40,31 @@ class Solution {
 
     if (answer == 0) return -1;
     return answer;
+  }
+};
+
+// use dynamic programming
+// time : O(N * M)
+// space : O(N)
+class Solution {
+ public:
+  int minTaps(int n, vector<int>& ranges) {
+    const int MAX = 1e9;
+    vector<int> dp(n + 1, MAX);
+
+    dp[0] = 0;
+
+    for (int i = 0; i <= n; i++) {
+      int left = max(0, i - ranges[i]);
+      int right = min(n, i + ranges[i]);
+
+      for (int j = left; j <= right; j++) {
+        dp[right] = min(dp[right], dp[j] + 1);
+      }
+    }
+
+    if (dp[n] == MAX) return -1;
+
+    return dp[n];
   }
 };
