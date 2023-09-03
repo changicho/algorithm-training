@@ -6,7 +6,8 @@
 using namespace std;
 
 // use brute force
-
+// time : O(N * log_2(N))
+// space : O(1)
 class Solution {
  private:
   int counting(int n) {
@@ -31,7 +32,8 @@ class Solution {
 };
 
 // use memoization
-
+// time : O(N)
+// space : O(N)
 class Solution {
  public:
   vector<int> countBits(int n) {
