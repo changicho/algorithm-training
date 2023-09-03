@@ -1,0 +1,7 @@
+Input: s = "leetscode", dictionary = ["leet","code","leetcode"]
+Output: 1
+
+===
+
+Input: s = "sayhelloworld", dictionary = ["hello","world"]
+Output: 3
