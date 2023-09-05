@@ -1,0 +1,7 @@
+Input: hours = [0,1,2,3,4], target = 2
+Output: 3
+
+===
+
+Input: hours = [5,1,4,2,2], target = 6
+Output: 0
