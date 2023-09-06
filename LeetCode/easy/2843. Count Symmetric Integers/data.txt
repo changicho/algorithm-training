@@ -1,0 +1,7 @@
+Input: low = 1, high = 100
+Output: 9
+
+===
+
+Input: low = 1200, high = 1230
+Output: 4
