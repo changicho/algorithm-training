@@ -1,0 +1,12 @@
+Input: num = "2245047"
+Output: 2
+
+===
+
+Input: num = "2908305"
+Output: 3
+
+===
+
+Input: num = "10"
+Output: 1
