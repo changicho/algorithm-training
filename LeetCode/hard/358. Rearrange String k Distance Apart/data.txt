@@ -1,0 +1,12 @@
+Input: s = "aabbcc", k = 3
+Output: "abcabc"
+
+===
+
+Input: s = "aaabc", k = 3
+Output: ""
+
+===
+
+Input: s = "aaadbbcc", k = 2
+Output: "abacabcd"
