@@ -1,0 +1,12 @@
+Input: s = "aab"
+Output: 0
+
+===
+
+Input: s = "aaabbbcc"
+Output: 2
+
+===
+
+Input: s = "ceabaacb"
+Output: 2
