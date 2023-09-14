@@ -1,0 +1,7 @@
+Input: s1 = "abcdba", s2 = "cabdab"
+Output: true
+
+===
+
+Input: s1 = "abe", s2 = "bea"
+Output: false
