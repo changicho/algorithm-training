@@ -1,0 +1,12 @@
+Input: words = ["alice","bob","charlie"], s = "abc"
+Output: true
+
+===
+
+Input: words = ["an","apple"], s = "a"
+Output: false
+
+===
+
+Input: words = ["never","gonna","give","up","on","you"], s = "ngguoy"
+Output: true
