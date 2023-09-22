@@ -1,0 +1,12 @@
+Input: nums = [1,4,2,5,3]
+Output: 11
+
+===
+
+Input: nums = [3,2,1]
+Output: 3
+
+===
+
+Input: nums = [2,2,2]
+Output: 6
