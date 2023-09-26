@@ -1,0 +1,7 @@
+Input: s = "bcabc"
+Output: "abc"
+
+===
+
+Input: s = "cbacdcbc"
+Output: "acdb"
