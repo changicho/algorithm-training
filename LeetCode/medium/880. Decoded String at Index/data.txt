@@ -1,0 +1,7 @@
+Input: s = "leet2code3", k = 10
+Output: "o"
+
+===
+
+Input: s = "ha22", k = 5
+Output: "h"
