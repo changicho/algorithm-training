@@ -1,0 +1,7 @@
+Input: s = "Let's take LeetCode contest"
+Output: "s'teL ekat edoCteeL tsetnoc"
+
+===
+
+Input: s = "God Ding"
+Output: "doG gniD"
