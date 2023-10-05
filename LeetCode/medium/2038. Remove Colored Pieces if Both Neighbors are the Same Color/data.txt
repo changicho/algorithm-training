@@ -1,0 +1,12 @@
+Input: colors = "AAABABB"
+Output: true
+
+===
+
+Input: colors = "AA"
+Output: false
+
+===
+
+Input: colors = "ABBBBBBBAAA"
+Output: false
