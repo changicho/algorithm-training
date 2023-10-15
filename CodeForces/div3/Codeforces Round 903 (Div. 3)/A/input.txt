@@ -1,0 +1,37 @@
+12
+1 5
+a
+aaaaa
+5 5
+eforc
+force
+2 5
+ab
+ababa
+3 5
+aba
+ababa
+4 3
+babb
+bbb
+5 1
+aaaaa
+a
+4 2
+aabb
+ba
+2 8
+bk
+kbkbkbkb
+12 2
+fjdgmujlcont
+tf
+2 2
+aa
+aa
+3 5
+abb
+babba
+1 19
+m
+mmmmmmmmmmmmmmmmmmm
