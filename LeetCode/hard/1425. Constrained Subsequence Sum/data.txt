@@ -1,0 +1,12 @@
+Input: nums = [10,2,-10,5,20], k = 2
+Output: 37
+
+===
+
+Input: nums = [-1,-2,-3], k = 1
+Output: -1
+
+===
+
+Input: nums = [10,-2,-10,-5,20], k = 2
+Output: 23
