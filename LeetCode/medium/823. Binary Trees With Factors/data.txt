@@ -1,0 +1,7 @@
+Input: arr = [2,4]
+Output: 3
+
+===
+
+Input: arr = [2,4,5,10]
+Output: 7
