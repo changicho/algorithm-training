@@ -1,0 +1,7 @@
+Input: arr = [2,1,3,5,4,6,7], k = 2
+Output: 5
+
+===
+
+Input: arr = [3,2,1], k = 10
+Output: 3
