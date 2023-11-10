@@ -1,0 +1,12 @@
+Input: s = "abbcccaa"
+Output: 13
+
+===
+
+Input: s = "xy"
+Output: 2
+
+===
+
+Input: s = "zzzzz"
+Output: 15
