@@ -1,0 +1,12 @@
+Input: arr = [2,2,1,2,1]
+Output: 2
+
+===
+
+Input: arr = [100,1,1000]
+Output: 3
+
+===
+
+Input: arr = [1,2,3,4,5]
+Output: 5
