@@ -1,0 +1,12 @@
+Input: nums = ["01","10"]
+Output: "11"
+
+===
+
+Input: nums = ["00","01"]
+Output: "11"
+
+===
+
+Input: nums = ["111","011","001"]
+Output: "101"
