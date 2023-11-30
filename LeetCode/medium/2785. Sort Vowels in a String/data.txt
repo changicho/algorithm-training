@@ -1,0 +1,7 @@
+Input: s = "lEetcOde"
+Output: "lEOtcede"
+
+===
+
+Input: s = "lYmpH"
+Output: "lYmpH"
