@@ -1,0 +1,7 @@
+Input: words = ["cat","bt","hat","tree"], chars = "atach"
+Output: 6
+
+===
+
+Input: words = ["hello","world","leetcode"], chars = "welldonehoneyr"
+Output: 10
