@@ -1,0 +1,12 @@
+Input: n = 4
+Output: 10
+
+===
+
+Input: n = 10
+Output: 37
+
+===
+
+Input: n = 20
+Output: 96
