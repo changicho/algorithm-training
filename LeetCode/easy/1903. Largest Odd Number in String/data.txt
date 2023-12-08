@@ -1,0 +1,12 @@
+Input: num = "52"
+Output: "5"
+
+===
+
+Input: num = "4206"
+Output: ""
+
+===
+
+Input: num = "35427"
+Output: "35427"
