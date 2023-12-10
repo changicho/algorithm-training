@@ -1,0 +1,7 @@
+Input: root = [1,2,3,4]
+Output: "1(2(4))(3)"
+
+===
+
+Input: root = [1,2,3,null,4]
+Output: "1(2()(4))(3)"
