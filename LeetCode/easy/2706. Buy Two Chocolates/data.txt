@@ -1,0 +1,7 @@
+Input: prices = [1,2,2], money = 3
+Output: 0
+
+===
+
+Input: prices = [3,2,3], money = 3
+Output: 3
