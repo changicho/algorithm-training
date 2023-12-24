@@ -1,0 +1,7 @@
+Input: path = "NES"
+Output: false 
+
+===
+
+Input: path = "NESWW"
+Output: true
