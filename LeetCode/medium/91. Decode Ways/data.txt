@@ -15,3 +15,8 @@ Output: 0
 
 Input: s = "06"
 Output: 0
+
+===
+
+Input: "2012"
+Output: 2
