@@ -1,0 +1,7 @@
+Input: root = [5,6,1]
+Output: 6.00000
+
+===
+
+Input: root = [0,null,1]
+Output: 1.00000
