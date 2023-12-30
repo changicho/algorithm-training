@@ -1,0 +1,7 @@
+Input: piles = [2,4,1,2,7,8]
+Output: 9
+
+===
+
+Input: piles = [2,4,5]
+Output: 4
