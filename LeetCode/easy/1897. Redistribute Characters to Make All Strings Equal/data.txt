@@ -1,0 +1,7 @@
+Input: words = ["abc","aabc","bc"]
+Output: true
+
+===
+
+Input: words = ["ab","a"]
+Output: false
