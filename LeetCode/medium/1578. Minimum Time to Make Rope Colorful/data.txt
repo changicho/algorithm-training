@@ -1,0 +1,12 @@
+Input: colors = "abaac", neededTime = [1,2,3,4,5]
+Output: 3
+
+===
+
+Input: colors = "abc", neededTime = [1,2,3]
+Output: 0
+
+===
+
+Input: colors = "aabaa", neededTime = [1,2,3,4,1]
+Output: 2
