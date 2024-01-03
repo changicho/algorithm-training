@@ -68,13 +68,31 @@ int numberOfBeams(vector<string> &bank) {
 }
 ```
 
-## 고생한 점
+### 인접 곱 (space optimized)
 
-다음과 같은 경우 for루프가 실행되 에러가 발생한다.
+| 내 코드 (ms) | 시간 복잡도 | 공간 복잡도 |
+| :----------: | :---------: | :---------: |
+|      83      |  O(R \* C)  |    O(1)     |
+
+위 방법에서 인접한 값만을 곱해 정답을 구하므로 매번 이전 값과 곱해 정답에 더한다.
 
 ```cpp
-// beams.size() == 0 case
-for (int i = 0; i < beams.size() - 1; i++) {
-  answer += beams[i] * beams[i + 1];
+int numberOfBeams(vector<string> &bank) {
+  int answer = 0;
+
+  int before = 0;
+  for (string &line : bank) {
+    int count = 0;
+    for (char &c : line) {
+      if (c == '1') count++;
+    }
+    if (count == 0) continue;
+
+    answer += count * before;
+    before = count;
+  }
+  return answer;
 }
 ```
+
+## 고생한 점
