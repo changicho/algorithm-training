@@ -1,0 +1,12 @@
+Input: n = 1
+Output: 10
+
+===
+
+Input: n = 2
+Output: 20
+
+===
+
+Input: n = 3131
+Output: 136006598
