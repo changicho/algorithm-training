@@ -1,0 +1,7 @@
+Input: dimensions = [[9,3],[8,6]]
+Output: 48
+
+===
+
+Input: dimensions = [[3,4],[4,3]]
+Output: 12
