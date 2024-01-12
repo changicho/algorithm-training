@@ -1,0 +1,12 @@
+Input: x = 26, y = 1
+Output: 3
+
+===
+
+Input: x = 54, y = 2
+Output: 4
+
+===
+
+Input: x = 25, y = 30
+Output: 5
