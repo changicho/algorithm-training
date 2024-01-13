@@ -1,0 +1,7 @@
+Input: a = 1, b = 1, c = 8, d = 8, e = 2, f = 3
+Output: 2
+
+===
+
+Input: a = 5, b = 3, c = 3, d = 4, e = 5, f = 2
+Output: 1
