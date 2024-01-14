@@ -1,0 +1,12 @@
+Input: s = "bab", t = "aba"
+Output: 1
+
+===
+
+Input: s = "leetcode", t = "practice"
+Output: 5
+
+===
+
+Input: s = "anagram", t = "mangaar"
+Output: 0
