@@ -1,0 +1,12 @@
+Input: word = "aaaaa"
+Output: 2
+
+===
+
+Input: word = "abddez"
+Output: 2
+
+===
+
+Input: word = "zyxyxyz"
+Output: 3
