@@ -1,0 +1,7 @@
+Input: mountain = [2,4,4]
+Output: []
+
+===
+
+Input: mountain = [1,4,3,8,5]
+Output: [1,3]
