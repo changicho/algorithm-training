@@ -112,3 +112,44 @@ class Solution {
     return answer;
   }
 };
+
+// use DFS with bit
+// time : O(2^N)
+// space : O(N)
+class Solution {
+ private:
+  int getMask(string word) {
+    int bit = 0;
+    for (char &c : word) {
+      if ((bit & (1 << (c - 'a'))) > 0) return -1;
+      bit |= 1 << (c - 'a');
+    }
+    return bit;
+  }
+
+  int answer = 0;
+  void recursive(int index, vector<string> &arr, int bit) {
+    if (index == arr.size()) {
+      int curAnswer = __builtin_popcount(bit);
+      answer = max(answer, curAnswer);
+
+      return;
+    }
+
+    recursive(index + 1, arr, bit);
+    int curBit = getMask(arr[index]);
+    if (curBit == -1) return;
+
+    if ((curBit & bit) == 0) {
+      bit |= curBit;
+      recursive(index + 1, arr, bit);
+    }
+  }
+
+ public:
+  int maxLength(vector<string> &arr) {
+    recursive(0, arr, 0);
+
+    return answer;
+  }
+};
