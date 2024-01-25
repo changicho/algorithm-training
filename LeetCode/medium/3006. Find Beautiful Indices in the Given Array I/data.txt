@@ -1,0 +1,7 @@
+Input: s = "isawsquirrelnearmysquirrelhouseohmy", a = "my", b = "squirrel", k = 15
+Output: [16,33]
+
+===
+
+Input: s = "abcd", a = "a", b = "a", k = 4
+Output: [0]
