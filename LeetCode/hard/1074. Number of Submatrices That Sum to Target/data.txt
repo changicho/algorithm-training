@@ -1,0 +1,12 @@
+Input: matrix = [[0,1,0],[1,1,1],[0,1,0]], target = 0
+Output: 4
+
+===
+
+Input: matrix = [[1,-1],[-1,1]], target = 0
+Output: 5
+
+===
+
+Input: matrix = [[904]], target = 0
+Output: 0
