@@ -1,0 +1,7 @@
+Input: currentState = "++++"
+Output: ["--++","+--+","++--"]
+
+===
+
+Input: currentState = "+"
+Output: []
