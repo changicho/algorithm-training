@@ -1,0 +1,7 @@
+Input: nums = [2,3,6,1,9,2], x = 5
+Output: 13
+
+===
+
+Input: nums = [2,4,6,8], x = 3
+Output: 20
