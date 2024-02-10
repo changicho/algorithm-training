@@ -1,0 +1,7 @@
+Input: s = "abc"
+Output: 3
+
+===
+
+Input: s = "aaa"
+Output: 6
