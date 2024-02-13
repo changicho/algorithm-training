@@ -1,0 +1,12 @@
+Input: words = ["abc","car","ada","racecar","cool"]
+Output: "ada"
+
+===
+
+Input: words = ["notapalindrome","racecar"]
+Output: "racecar"
+
+===
+
+Input: words = ["def","ghi"]
+Output: ""
