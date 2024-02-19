@@ -1,0 +1,12 @@
+Input: word = "abacaba", k = 3
+Output: 2
+
+===
+
+Input: word = "abacaba", k = 4
+Output: 1
+
+===
+
+Input: word = "abcbabcd", k = 2
+Output: 4
