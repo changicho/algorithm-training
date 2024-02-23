@@ -1,0 +1,12 @@
+Input: words = ["a","aba","ababa","aa"]
+Output: 4
+
+===
+
+Input: words = ["pa","papa","ma","mama"]
+Output: 2
+
+===
+
+Input: words = ["abab","ab"]
+Output: 0
