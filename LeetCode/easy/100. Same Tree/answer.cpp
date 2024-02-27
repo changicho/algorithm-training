@@ -12,11 +12,13 @@ struct TreeNode {
   TreeNode* right;
   TreeNode() : val(0), left(nullptr), right(nullptr) {}
   TreeNode(int x) : val(x), left(nullptr), right(nullptr) {}
-  TreeNode(int x, TreeNode* left, TreeNode* right) : val(x), left(left), right(right) {}
+  TreeNode(int x, TreeNode* left, TreeNode* right)
+      : val(x), left(left), right(right) {}
 };
 
 // use BFS
-
+// time : O(N)
+// space :O(N)
 class Solution {
  public:
   bool isSameTree(TreeNode* p, TreeNode* q) {
@@ -55,7 +57,8 @@ class Solution {
 };
 
 // use DFS
-
+// time : O(N)
+// space :O(N)
 class Solution {
  public:
   bool isSameTree(TreeNode* p, TreeNode* q) {
@@ -69,8 +72,6 @@ class Solution {
       return false;
     }
 
-    bool ret = isSameTree(p->right, q->right) &&
-               isSameTree(p->left, q->left);
-    return ret;
+    return isSameTree(p->right, q->right) && isSameTree(p->left, q->left);
   }
 };
