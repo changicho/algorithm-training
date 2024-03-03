@@ -46,9 +46,13 @@ vector<int> sortedSquares(vector<int>& nums) {
 
 | 내 코드 (ms) | 시간 복잡도 | 공간 복잡도 |
 | :----------: | :---------: | :---------: |
-|      36      |    O(N)     |    O(N)     |
+|      18      |    O(N)     |    O(N)     |
 
-0을 기준으로 음수와 양수에서 음수인 수의 제곱이 양수의 수의 제곱보다 더 커질 수 있다.
+배열 nums는 정렬되어 있다.
+
+따라서 0에 가까울 수록 제곱값이 작아지고 양 끝값으로 갈수록 제곱값이 커진다.
+
+0을 기준으로 음수 부분과 양수 부분에서 음수인 수의 제곱이 양수의 수의 제곱보다 더 커질 수 있다.
 
 따라서 양 끝부터 절대값이 큰 값부터 deque에 push_front를 통해 오름차순으로 정렬이 가능하다. (앞에 삽입)
 
@@ -75,6 +79,36 @@ vector<int> sortedSquares(vector<int>& nums) {
     array.emplace_back(num);
   }
   return array;
+}
+```
+
+### 투 포인터
+
+| 내 코드 (ms) | 시간 복잡도 | 공간 복잡도 |
+| :----------: | :---------: | :---------: |
+|      15      |    O(N)     |    O(N)     |
+
+위 방법에서 큰 값부터 삽입하므로 배열을 이용해 제곱수가 큰 순서대로 삽입하며 마지막에 배열을 뒤집어 정답을 생성한다.
+
+```cpp
+vector<int> sortedSquares(vector<int>& nums) {
+  vector<int> answer;
+
+  int left = 0, right = nums.size() - 1;
+
+  while (left < right) {
+    if (abs(nums[left]) > abs(nums[right])) {
+      answer.push_back(nums[left] * nums[left]);
+      left += 1;
+    } else {
+      answer.push_back(nums[right] * nums[right]);
+      right -= 1;
+    }
+  }
+
+  answer.push_back(nums[left] * nums[left]);
+  reverse(answer.begin(), answer.end());
+  return answer;
 }
 ```
 
