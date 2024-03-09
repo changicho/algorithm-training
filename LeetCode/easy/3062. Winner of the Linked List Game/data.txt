@@ -1,0 +1,9 @@
+Input: head = [2,1]
+
+Output: "Even"
+
+===
+
+Input: head = [2,5,4,7,20,5]
+
+Output: "Odd"
