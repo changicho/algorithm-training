@@ -42,3 +42,32 @@ class Solution {
     return -1;
   }
 };
+
+// use binary search
+// time : O(log_2(N))
+// space : O(1)
+class Solution {
+ public:
+  int pivotInteger(int n) {
+    int left = 1, right = n;
+    int sum = n * (n + 1) / 2;
+
+    while (left < right) {
+      int mid = left + (right - left) / 2;
+
+      if (mid * mid - sum < 0) {
+        // pick right part
+        left = mid + 1;
+      } else {
+        // pick left part
+        right = mid;
+      }
+    }
+
+    if (left * left == sum) {
+      return left;
+    }
+
+    return -1;
+  }
+};
