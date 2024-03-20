@@ -1,0 +1,12 @@
+Input: head = [1,2,-3,3,1]
+Output: [3,1]
+
+===
+
+Input: head = [1,2,3,-3,4]
+Output: [1,2,4]
+
+===
+
+Input: head = [1,2,3,-3,-2]
+Output: [1]
