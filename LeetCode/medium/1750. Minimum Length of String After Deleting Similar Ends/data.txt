@@ -1,0 +1,12 @@
+Input: s = "ca"
+Output: 2
+
+===
+
+Input: s = "cabaabac"
+Output: 0
+
+===
+
+Input: s = "aabccabba"
+Output: 3
