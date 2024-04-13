@@ -27,41 +27,41 @@ long long solution(int n, vector<Edge> &edges, vector<long long> &costs) {
     graph[b].push_back(a);
   }
 
-  long long sum = accumulate(costs.begin(), costs.end(), 0LL);
-  long long temp = 0;
-  long long answer = 0;
-  vector<long long> costSums(n, 0);
+  long long costSum = accumulate(costs.begin(), costs.end(), 0LL);
+  long long costsFromRoot = 0;
+  long long answer = LLONG_MAX;
+  vector<long long> subTreeCostSums(n, 0);
 
-  function<void(int, int, int)> preprocess = [&](int node, int parent,
+  function<void(int, int, int)> preProcess = [&](int node, int parent,
                                                  int depth) -> void {
-    for (int &child : graph[node]) {
-      if (child == parent) continue;
-
-      preprocess(child, node, depth + 1);
-      costSums[node] += costSums[child];
-    }
-
-    temp += costs[node] * depth;
-    costSums[node] += costs[node];
-  };
-
-  function<void(int, int)> recursive = [&](int node, int parent) -> void {
-    answer = min(answer, temp);
+    costsFromRoot += costs[node] * depth;
+    subTreeCostSums[node] += costs[node];
 
     for (int &child : graph[node]) {
       if (child == parent) continue;
 
-      temp -= costSums[child];
-      temp += sum - costSums[child];
-      recursive(child, node);
-      temp += costSums[child];
-      temp -= sum - costSums[child];
+      preProcess(child, node, depth + 1);
+      subTreeCostSums[node] += subTreeCostSums[child];
     }
   };
 
-  preprocess(0, 0, 0);
-  answer = temp;
-  recursive(0, 0);
+  function<void(int, int, long long)> recursive =
+      [&](int node, int parent, long long curCost) -> void {
+    answer = min(answer, curCost);
+
+    for (int &child : graph[node]) {
+      if (child == parent) continue;
+
+      long long curPartSum = subTreeCostSums[child];
+      long long otherPartSum = costSum - subTreeCostSums[child];
+
+      long long nextCost = curCost - curPartSum + otherPartSum;
+      recursive(child, node, nextCost);
+    }
+  };
+
+  preProcess(0, -1, 0);
+  recursive(0, 0, costsFromRoot);
 
   return answer;
 }

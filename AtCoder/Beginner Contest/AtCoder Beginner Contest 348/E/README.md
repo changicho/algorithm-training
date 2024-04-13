@@ -28,6 +28,26 @@ DFS에 O(N)의 공간 복잡도를 사용한다.
 | :----------: | :---------: | :---------: |
 |      42      |    O(N)     |    O(N)     |
 
+임의의 노드를 루트로 지정하고 트리를 루트부터 탐색하며 각 노드가 루트인 서브트리의 아래 2가지 값을 구한다.
+
+- 서브트리의 자식 노드들의 cost들의 합
+- 루트 노드부터 다른 노드들까지 distance와 각 cost만큼 가중치의 합
+
+이를 완료하면 지정한 임의의 루트 노드를 기준으로 다른 노드들까지의 거리와 cost의 합을 구할 수 있다. (정답의 후보 중 하나)
+
+이후 다시 임의의 루트 노드에서부터 DFS로 탐색을 진행하며 각 노드가 루트가 되었을 때의 정답을 구한다.
+
+각 노드가 새로운 루트가 되었을 때 다음과 같은 변동사항이 발생한다.
+
+- 새로운 루트와 가까워진 노드들은 depth(거리)가 1씩 줄어든다.
+- 새로운 루트와 멀어진 노드들은 depth(거리)가 1씩 증가한다.
+
+거리가 1씩 증가하는 경우 멀어지는 costs 만큼 증가시켜야 하며 거리가 1씩 줄어드는 경우 가까워지는 costs 만큼 감소시켜야 한다.
+
+여기서 가까워지는 노드들은 해당 노드를 subTree의 루트로 하는 자식 노드들로, 멀어지는 노드들은 그 외 노드들로 생각할 수 있다.
+
+따라서 감소하는 costs들과 증가하는 costs들은 이미 구해놨으므로 바로 계산이 가능하다.
+
 ```cpp
 long long solution(int n, vector<Edge> &edges, vector<long long> &costs) {
   vector<vector<int>> graph(n);
@@ -37,41 +57,40 @@ long long solution(int n, vector<Edge> &edges, vector<long long> &costs) {
     graph[b].push_back(a);
   }
 
-  long long sum = accumulate(costs.begin(), costs.end(), 0LL);
-  long long temp = 0;
-  long long answer = 0;
-  vector<long long> costSums(n, 0);
+  long long costSum = accumulate(costs.begin(), costs.end(), 0LL);
+  long long costsFromRoot = 0;
+  long long answer = LLONG_MAX;
+  vector<long long> subTreeCostSums(n, 0);
 
-  function<void(int, int, int)> preprocess = [&](int node, int parent,
-                                                 int depth) -> void {
-    for (int &child : graph[node]) {
-      if (child == parent) continue;
-
-      preprocess(child, node, depth + 1);
-      costSums[node] += costSums[child];
-    }
-
-    temp += costs[node] * depth;
-    costSums[node] += costs[node];
-  };
-
-  function<void(int, int)> recursive = [&](int node, int parent) -> void {
-    answer = min(answer, temp);
+  function<void(int, int, int)> preProcess = [&](int node, int parent, int depth) -> void {
+    costsFromRoot += costs[node] * depth;
+    subTreeCostSums[node] += costs[node];
 
     for (int &child : graph[node]) {
       if (child == parent) continue;
 
-      temp -= costSums[child];
-      temp += sum - costSums[child];
-      recursive(child, node);
-      temp += costSums[child];
-      temp -= sum - costSums[child];
+      preProcess(child, node, depth + 1);
+      subTreeCostSums[node] += subTreeCostSums[child];
     }
   };
 
-  preprocess(0, 0, 0);
-  answer = temp;
-  recursive(0, 0);
+  function<void(int, int, long long)> recursive =
+      [&](int node, int parent, long long curCost) -> void {
+    answer = min(answer, curCost);
+
+    for (int &child : graph[node]) {
+      if (child == parent) continue;
+
+      long long curPartSum = subTreeCostSums[child];
+      long long otherPartSum = costSum - subTreeCostSums[child];
+
+      long long nextCost = curCost - curPartSum + otherPartSum;
+      recursive(child, node, nextCost);
+    }
+  };
+
+  preProcess(0, -1, 0);
+  recursive(0, 0, costsFromRoot);
 
   return answer;
 }
