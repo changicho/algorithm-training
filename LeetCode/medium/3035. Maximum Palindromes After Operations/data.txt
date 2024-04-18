@@ -1,0 +1,12 @@
+Input: words = ["abbb","ba","aa"]
+Output: 3
+
+===
+
+Input: words = ["abc","ab"]
+Output: 2
+
+===
+
+Input: words = ["cd","ef","a"]
+Output: 1
