@@ -1,0 +1,7 @@
+Input: nums = [1,0,1,0,1], goal = 2
+Output: 4
+
+===
+
+Input: nums = [0,0,0,0,0], goal = 0
+Output: 15
