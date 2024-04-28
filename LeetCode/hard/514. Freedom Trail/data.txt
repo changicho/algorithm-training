@@ -1,0 +1,7 @@
+Input: ring = "godding", key = "gd"
+Output: 4
+
+===
+
+Input: ring = "godding", key = "godding"
+Output: 13
