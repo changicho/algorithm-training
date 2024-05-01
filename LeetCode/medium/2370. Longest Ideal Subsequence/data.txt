@@ -1,0 +1,7 @@
+Input: s = "acfgbd", k = 2
+Output: 4
+
+===
+
+Input: s = "abcd", k = 3
+Output: 4
