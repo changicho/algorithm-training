@@ -29,3 +29,22 @@ class Solution {
     return answer;
   }
 };
+
+// use hash set & one pass
+// time : O(N)
+// space : O(N)
+class Solution {
+ public:
+  int findMaxK(vector<int> &nums) {
+    unordered_set<int> us;
+
+    int answer = -1;
+    for (int &num : nums) {
+      if (us.count(-num)) {
+        answer = max(answer, abs(num));
+      }
+      us.insert(num);
+    }
+    return answer;
+  }
+};

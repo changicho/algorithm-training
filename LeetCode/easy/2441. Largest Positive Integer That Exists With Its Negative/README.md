@@ -54,4 +54,29 @@ int findMaxK(vector<int> &nums) {
 }
 ```
 
+### hash set & one pass
+
+| 내 코드 (ms) | 시간 복잡도 | 공간 복잡도 |
+| :----------: | :---------: | :---------: |
+|      19      |    O(N)     |    O(N)     |
+
+nums의 각 원소를 순회하며 음수인 경우와 양수인 경우, 절대값이 같고 부호가 다른 값이 존재하는 경우 answer를 갱신한다.
+
+이 때 절대값으로 갱신해야 함에 유의한다.
+
+```cpp
+int findMaxK(vector<int> &nums) {
+  unordered_set<int> us;
+
+  int answer = -1;
+  for (int &num : nums) {
+    if (us.count(-num)) {
+      answer = max(answer, abs(num));
+    }
+    us.insert(num);
+  }
+  return answer;
+}
+```
+
 ## 고생한 점
