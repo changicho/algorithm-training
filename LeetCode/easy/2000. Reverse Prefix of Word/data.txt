@@ -1,0 +1,12 @@
+Input: word = "abcdefd", ch = "d"
+Output: "dcbaefd"
+
+===
+
+Input: word = "xyxzxe", ch = "z"
+Output: "zxyxxe"
+
+===
+
+Input: word = "abcd", ch = "z"
+Output: "abcd"
