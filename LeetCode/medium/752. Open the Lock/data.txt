@@ -1,0 +1,12 @@
+Input: deadends = ["0201","0101","0102","1212","2002"], target = "0202"
+Output: 6
+
+===
+
+Input: deadends = ["8888"], target = "0009"
+Output: 1
+
+===
+
+Input: deadends = ["8887","8889","8878","8898","8788","8988","7888","9888"], target = "8888"
+Output: -1
