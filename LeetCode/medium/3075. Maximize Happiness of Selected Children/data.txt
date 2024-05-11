@@ -1,0 +1,7 @@
+Input: happiness = [1,2,3], k = 2
+Output: 4
+
+===
+
+Input: happiness = [1,1,1,1], k = 2
+Output: 1
