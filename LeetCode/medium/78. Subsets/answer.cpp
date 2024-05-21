@@ -7,7 +7,8 @@
 using namespace std;
 
 // use recursive
-
+// time : O(N * 2^N)
+// space : O(N * 2^N)
 class Solution {
  public:
   vector<vector<int>> subsets(vector<int> &nums) {
@@ -18,7 +19,8 @@ class Solution {
     return ret;
   }
 
-  void recursive(vector<int> &array, int index, vector<int> &nums, vector<vector<int>> &answer) {
+  void recursive(vector<int> &array, int index, vector<int> &nums,
+                 vector<vector<int>> &answer) {
     answer.push_back(array);
 
     for (int i = index + 1; i < nums.size(); i++) {
@@ -31,8 +33,40 @@ class Solution {
   }
 };
 
-// use bitmask
+// use recursive (lambda)
+// time : O(N * 2^N)
+// space : O(N * 2^N)
+class Solution {
+ public:
+  vector<vector<int>> subsets(vector<int> &nums) {
+    int size = nums.size();
 
+    vector<vector<int>> answer;
+
+    function<void(int, vector<int> &)> backtrack =
+        [&](int index, vector<int> &subset) -> void {
+      if (index == size) {
+        answer.push_back(subset);
+        return;
+      }
+
+      backtrack(index + 1, subset);
+
+      subset.push_back(nums[index]);
+      backtrack(index + 1, subset);
+      subset.pop_back();
+    };
+
+    vector<int> subset;
+    backtrack(0, subset);
+
+    return answer;
+  }
+};
+
+// use bitmask
+// time : O(N * 2^N)
+// space : O(N * 2^N)
 class Solution {
  public:
   vector<vector<int>> subsets(vector<int> &nums) {
@@ -55,7 +89,8 @@ class Solution {
 };
 
 // use iterate
-
+// time : O(N * 2^N)
+// space : O(N * 2^N)
 class Solution {
  public:
   vector<vector<int>> subsets(vector<int> &nums) {

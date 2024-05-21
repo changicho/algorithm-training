@@ -18,11 +18,13 @@ subset을 생성할 때 시간복잡도는 O(N)이 소요되므로 중복을 제
 
 하나의 subset을 임시로 만드는데 최대 O(N)의 공간 복잡도가 소요된다.
 
-### 재귀호출
+모든 subset을 저장하는 반환값에 O(N * 2^N)의 공간 복잡도가 필요하다.
+
+### 완전 탐색 (DFS)
 
 | 내 코드 (ms) | 시간 복잡도 | 공간 복잡도 |
 | :----------: | :---------: | :---------: |
-|      0       | O(N \* 2^N) |    O(N)     |
+|      0       | O(N \* 2^N) | O(N \* 2^N) |
 
 재귀 호출에서 매 경우를 subset에 저장한다.
 
@@ -50,11 +52,40 @@ void recursive(vector<int> &array, int index, vector<int> &nums, vector<vector<i
 }
 ```
 
+c++ 의 lambda식을 이용하면 다음과 같다.
+
+```cpp
+vector<vector<int>> subsets(vector<int> &nums) {
+  int size = nums.size();
+
+  vector<vector<int>> answer;
+
+  function<void(int, vector<int> &)> backtrack =
+      [&](int index, vector<int> &subset) -> void {
+    if (index == size) {
+      answer.push_back(subset);
+      return;
+    }
+
+    backtrack(index + 1, subset);
+
+    subset.push_back(nums[index]);
+    backtrack(index + 1, subset);
+    subset.pop_back();
+  };
+
+  vector<int> subset;
+  backtrack(0, subset);
+
+  return answer;
+}
+```
+
 ### 비트마스킹
 
 | 내 코드 (ms) | 시간 복잡도 | 공간 복잡도 |
 | :----------: | :---------: | :---------: |
-|      4       | O(N \* 2^N) |    O(N)     |
+|      4       | O(N \* 2^N) | O(N \* 2^N) |
 
 결국 2^N개의 경우를 세야 하는 문제이며, 이는 비트마스킹으로 표현이 가능하다.
 
@@ -84,7 +115,7 @@ vector<vector<int>> subsets(vector<int> &nums) {
 
 | 내 코드 (ms) | 시간 복잡도 | 공간 복잡도 |
 | :----------: | :---------: | :---------: |
-|      4       | O(N \* 2^N) |    O(N)     |
+|      4       | O(N \* 2^N) | O(N \* 2^N) |
 
 숫자를 순회하며 현재 숫자가 포함된 subset을 만들 때 이전 subset들에 현재 숫자를 추가하는 식으로 만들 수 있다.
 
