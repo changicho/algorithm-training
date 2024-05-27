@@ -1,0 +1,12 @@
+Input: n = 2
+Output: 8
+
+===
+
+Input: n = 1
+Output: 3
+
+===
+
+Input: n = 10101
+Output: 183236316
