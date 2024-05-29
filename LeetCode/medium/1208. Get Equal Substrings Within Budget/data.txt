@@ -1,0 +1,12 @@
+Input: s = "abcd", t = "bcdf", maxCost = 3
+Output: 3
+
+===
+
+Input: s = "abcd", t = "cdef", maxCost = 3
+Output: 1
+
+===
+
+Input: s = "abcd", t = "acde", maxCost = 0
+Output: 1
