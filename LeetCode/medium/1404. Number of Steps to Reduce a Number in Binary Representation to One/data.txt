@@ -1,0 +1,12 @@
+Input: s = "1101"
+Output: 6
+
+===
+
+Input: s = "10"
+Output: 1
+
+===
+
+Input: s = "1"
+Output: 0
