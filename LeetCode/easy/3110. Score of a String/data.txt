@@ -1,0 +1,9 @@
+Input: s = "hello"
+
+Output: 13
+
+===
+
+Input: s = "zaz"
+
+Output: 50
