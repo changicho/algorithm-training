@@ -1,0 +1,12 @@
+Input: k = 4
+Output: "47"
+
+===
+
+Input: k = 10
+Output: "477"
+
+===
+
+Input: k = 1000
+Output: "777747447"
