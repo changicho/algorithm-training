@@ -1,0 +1,12 @@
+Input: pattern = "abab", s = "redblueredblue"
+Output: true
+
+===
+
+Input: pattern = "aaaa", s = "asdasdasdasd"
+Output: true
+
+===
+
+Input: pattern = "aabb", s = "xyzabcxzyabc"
+Output: false
