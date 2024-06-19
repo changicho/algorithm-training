@@ -1,0 +1,7 @@
+Input: boxes = [1,2,2,3,4], warehouse = [3,4,1,2]
+Output: 4
+
+===
+
+Input: boxes = [3,5,5,2], warehouse = [2,1,3,4,5]
+Output: 3
