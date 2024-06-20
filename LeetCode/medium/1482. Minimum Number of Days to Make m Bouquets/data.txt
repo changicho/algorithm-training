@@ -1,0 +1,12 @@
+Input: bloomDay = [1,10,3,10,2], m = 3, k = 1
+Output: 3
+
+===
+
+Input: bloomDay = [1,10,3,10,2], m = 3, k = 2
+Output: -1
+
+===
+
+Input: bloomDay = [7,7,7,7,12,7,7], m = 2, k = 3
+Output: 12
