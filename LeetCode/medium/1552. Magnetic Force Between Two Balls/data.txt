@@ -1,0 +1,7 @@
+Input: position = [1,2,3,4,7], m = 3
+Output: 3
+
+===
+
+Input: position = [5,4,3,2,1,1000000000], m = 2
+Output: 999999999
