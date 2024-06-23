@@ -1,0 +1,12 @@
+Input: s = "abcba"
+Output: 7
+
+===
+
+Input: s = "abacad"
+Output: 9
+
+===
+
+Input: s = "a"
+Output: 1
