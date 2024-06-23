@@ -1,0 +1,7 @@
+Input: c = 5
+Output: true
+
+===
+
+Input: c = 3
+Output: false
