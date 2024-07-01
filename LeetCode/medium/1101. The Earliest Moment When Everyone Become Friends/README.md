@@ -22,17 +22,19 @@
 
 이 경우 merge에 O(a(N))만큼의 시간복잡도를 사용하며 이는 거의 상수이므로 O(1)이다.
 
-따라서 최종 시간 복잡도는 O(M \* log_2(M))이 된다.
+따라서 최종 시간 복잡도는 O(N + M \* log_2(M))이 된다.
 
 ### 공간 복잡도
+
+정렬에 O(M)의 공간 복잡도를 사용한다.
 
 유니온 파인드를 사용하기 위해 O(N) 크기만큼의 공간을 사용한다.
 
 ### 유니온 파인드
 
-| 내 코드 (ms) |   시간 복잡도    | 공간 복잡도 |
-| :----------: | :--------------: | :---------: |
-|      52      | O(M \* log_2(M)) |    O(N)     |
+| 내 코드 (ms) |     시간 복잡도      | 공간 복잡도 |
+| :----------: | :------------------: | :---------: |
+|      52      | O(N + M \* log_2(M)) |  O(N + M)   |
 
 로그들을 우선 timestamp에 대해서 정렬한다.
 
@@ -42,6 +44,7 @@
 
 ```cpp
 vector<int> parents;
+vector<int> counts;
 
 int find(int node) {
   if (parents[node] == node) return node;
@@ -51,50 +54,46 @@ int find(int node) {
 
 void merge(int a, int b) {
   int parentA = find(a), parentB = find(b);
+  if (parentA == parentB) return;
 
   if (parentA > parentB) swap(parentA, parentB);
+  if (counts[parentA] < counts[parentB]) swap(parentA, parentB);
 
   parents[parentB] = parentA;
-}
-
-int countParents() {
-  unordered_set<int> us;
-  for (int parent : parents) {
-    us.insert(find(parent));
-  }
-  return us.size();
+  counts[parentA] += counts[parentB];
 }
 
 int earliestAcq(vector<vector<int>>& logs, int n) {
-  int answer = -1;
-  sort(logs.begin(), logs.end());
-
   parents.resize(n);
+  counts.resize(n, 1);
+
   for (int i = 0; i < n; i++) {
     parents[i] = i;
   }
 
+  sort(logs.begin(), logs.end());
+
+  int answer = -1;
   for (vector<int>& log : logs) {
     int timestamp = log[0];
-    int from = log[1], to = log[2];
+    int first = find(log[1]), second = find(log[2]);
 
-    merge(from, to);
+    merge(first, second);
 
-    if (countParents() == 1) {
+    if (counts[find(first)] == n) {
       answer = timestamp;
       break;
     }
   }
-
   return answer;
 }
 ```
 
 ### 유니온 파인드 - rank
 
-| 내 코드 (ms) |   시간 복잡도    | 공간 복잡도 |
-| :----------: | :--------------: | :---------: |
-|      52      | O(M \* log_2(M)) |    O(N)     |
+| 내 코드 (ms) |     시간 복잡도      | 공간 복잡도 |
+| :----------: | :------------------: | :---------: |
+|      52      | O(N + M \* log_2(M)) |  O(N + M)   |
 
 merge를 수행할 때마다 그룹중에서 노드의 개수가 많은 쪽을 부모로 선택한다.
 

@@ -7,10 +7,13 @@
 using namespace std;
 
 // use union find
-
+// time : O(N + M \* log_2(M))
+// space : O(N + M)
 class Solution {
  private:
   vector<int> parents;
+  int count = 0;
+
   int find(int node) {
     if (parents[node] == node) return node;
 
@@ -19,48 +22,43 @@ class Solution {
 
   void merge(int a, int b) {
     int parentA = find(a), parentB = find(b);
+    if (parentA == parentB) return;
 
     if (parentA > parentB) swap(parentA, parentB);
-
+    count--;
     parents[parentB] = parentA;
-  }
-
-  int countParents() {
-    unordered_set<int> us;
-    for (int parent : parents) {
-      us.insert(find(parent));
-    }
-    return us.size();
   }
 
  public:
   int earliestAcq(vector<vector<int>>& logs, int n) {
-    int answer = -1;
-    sort(logs.begin(), logs.end());
-
     parents.resize(n);
+    count = n;
+
     for (int i = 0; i < n; i++) {
       parents[i] = i;
     }
 
+    sort(logs.begin(), logs.end());
+
+    int answer = -1;
     for (vector<int>& log : logs) {
       int timestamp = log[0];
-      int from = log[1], to = log[2];
+      int first = find(log[1]), second = find(log[2]);
 
-      merge(from, to);
+      merge(first, second);
 
-      if (countParents() == 1) {
+      if (count == 1) {
         answer = timestamp;
         break;
       }
     }
-
     return answer;
   }
 };
 
 // use union find by rank
-
+// time : O(N + M \* log_2(M))
+// space : O(N + M)
 class Solution {
  private:
   vector<int> parents;
