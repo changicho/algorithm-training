@@ -1,0 +1,12 @@
+Input: num = "1432219", k = 3
+Output: "1219"
+
+===
+
+Input: num = "10200", k = 1
+Output: "200"
+
+===
+
+Input: num = "10", k = 2
+Output: "0"
