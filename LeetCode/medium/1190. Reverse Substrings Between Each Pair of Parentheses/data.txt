@@ -1,0 +1,12 @@
+Input: s = "(abcd)"
+Output: "dcba"
+
+===
+
+Input: s = "(u(love)i)"
+Output: "iloveu"
+
+===
+
+Input: s = "(ed(et(oc))el)"
+Output: "leetcode"
