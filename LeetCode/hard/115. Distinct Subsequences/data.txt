@@ -1,0 +1,7 @@
+Input: s = "rabbbit", t = "rabbit"
+Output: 3
+
+===
+
+Input: s = "babgbag", t = "bag"
+Output: 5
