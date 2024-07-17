@@ -1,0 +1,7 @@
+Input: s = "cdbcbbaaabab", x = 4, y = 5
+Output: 19
+
+===
+
+Input: s = "aabbaaxybbaabb", x = 5, y = 4
+Output: 20
