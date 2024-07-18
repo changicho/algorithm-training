@@ -1,0 +1,12 @@
+Input: root = [3,5,1,6,2,0,8,null,null,7,4], p = 5, q = 0
+Output: 3
+
+===
+
+Input: root = [3,5,1,6,2,0,8,null,null,7,4], p = 5, q = 7
+Output: 2
+
+===
+
+Input: root = [3,5,1,6,2,0,8,null,null,7,4], p = 5, q = 5
+Output: 0
