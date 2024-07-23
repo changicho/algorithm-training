@@ -1,0 +1,12 @@
+Input: s = "()"
+Output: true
+
+===
+
+Input: s = "(*)"
+Output: true
+
+===
+
+Input: s = "(*))"
+Output: true
