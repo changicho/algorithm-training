@@ -1,0 +1,12 @@
+Input: target = [1,2,3,2,1]
+Output: 3
+
+===
+
+Input: target = [3,1,1,2]
+Output: 4
+
+===
+
+Input: target = [3,1,5,4,2]
+Output: 7
