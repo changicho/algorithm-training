@@ -1,0 +1,12 @@
+Input: source = "abcd", target = "acbe", original = ["a","b","c","c","e","d"], changed = ["b","c","b","e","b","e"], cost = [2,5,5,1,2,20]
+Output: 28
+
+===
+
+Input: source = "aaaa", target = "bbbb", original = ["a","c"], changed = ["c","b"], cost = [1,2]
+Output: 12
+
+===
+
+Input: source = "abcd", target = "abce", original = ["a"], changed = ["e"], cost = [10000]
+Output: -1
