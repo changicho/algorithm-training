@@ -1,0 +1,15 @@
+Input: n = 13, k = 4
+
+Output: 2
+
+===
+
+Input: n = 21, k = 21
+
+Output: 0
+
+===
+
+Input: n = 14, k = 13
+
+Output: -1
