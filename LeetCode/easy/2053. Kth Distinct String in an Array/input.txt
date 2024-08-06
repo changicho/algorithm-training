@@ -1,0 +1,12 @@
+Input: arr = ["d","b","c","b","c","a"], k = 2
+Output: "a"
+
+===
+
+Input: arr = ["aaa","aa","a"], k = 1
+Output: "aaa"
+
+===
+
+Input: arr = ["a","b","a"], k = 3
+Output: ""
