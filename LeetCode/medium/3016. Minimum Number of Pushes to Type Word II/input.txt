@@ -1,0 +1,12 @@
+Input: word = "abcde"
+Output: 5
+
+===
+
+Input: word = "xyzxyzxyzxyz"
+Output: 12
+
+===
+
+Input: word = "aabbccddeeffgghhiiiiii"
+Output: 24
