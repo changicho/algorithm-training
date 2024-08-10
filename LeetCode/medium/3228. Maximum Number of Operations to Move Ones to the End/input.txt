@@ -1,0 +1,9 @@
+Input: s = "1001101"
+
+Output: 4
+
+===
+
+Input: s = "00111"
+
+Output: 0
