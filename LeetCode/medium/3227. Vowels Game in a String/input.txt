@@ -1,0 +1,9 @@
+Input: s = "leetcoder"
+
+Output: true
+
+===
+
+Input: s = "bbcd"
+
+Output: false
