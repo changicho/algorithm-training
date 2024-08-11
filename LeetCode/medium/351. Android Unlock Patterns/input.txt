@@ -1,0 +1,7 @@
+Input: m = 1, n = 1
+Output: 9
+
+===
+
+Input: m = 1, n = 2
+Output: 65
