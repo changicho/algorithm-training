@@ -1,0 +1,7 @@
+Input: grid = [[0,0,1,1],[1,0,1,0],[1,1,0,0]]
+Output: 39
+
+===
+
+Input: grid = [[0]]
+Output: 1
