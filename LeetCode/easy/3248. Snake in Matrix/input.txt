@@ -1,0 +1,9 @@
+Input: n = 2, commands = ["RIGHT","DOWN"]
+
+Output: 3
+
+===
+
+Input: n = 3, commands = ["DOWN","RIGHT","UP"]
+
+Output: 1
