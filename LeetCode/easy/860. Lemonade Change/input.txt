@@ -1,0 +1,7 @@
+Input: bills = [5,5,5,10,20]
+Output: true
+
+===
+
+Input: bills = [5,5,10,10,20]
+Output: false
