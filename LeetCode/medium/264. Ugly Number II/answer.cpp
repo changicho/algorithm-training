@@ -1,13 +1,47 @@
 #include <algorithm>
 #include <iostream>
+#include <queue>
 #include <set>
 #include <string>
+#include <unordered_set>
 #include <vector>
 
 using namespace std;
 
-// use greedy algorithm
+// use heap
+// time : O(N * log_2(N))
+// space : O(N)
+class Solution {
+ public:
+  int nthUglyNumber(int n) {
+    priority_queue<long long, vector<long long>, greater<long long>> pq;
+    unordered_set<long long> us;
+    vector<long long> factors = {2, 3, 5};
 
+    pq.push(1);
+    us.insert(1);
+
+    int answer = 0;
+    while (n--) {
+      int cur = pq.top();
+      pq.pop();
+
+      answer = cur;
+
+      for (long long &f : factors) {
+        long long next = cur * f;
+        if (us.count(next)) continue;
+        us.insert(next);
+        pq.push(cur * f);
+      }
+    }
+    return answer;
+  }
+};
+
+// use greedy algorithm
+// time : O(N * log_2(N))
+// space : O(N)
 class Solution {
  public:
   int nthUglyNumber(int n) {
@@ -35,7 +69,8 @@ class Solution {
 };
 
 // use dynamic programming
-
+// time : O(N)
+// space : O(N)
 class Solution {
  public:
   int nthUglyNumber(int n) {
@@ -44,7 +79,7 @@ class Solution {
     dp[0] = 1;
 
     for (int i = 1; i < n; i++) {
-      dp[i] = min(dp[twoIdx] * 2, min(dp[threeIdx] * 3, dp[fiveIdx] * 5));
+      dp[i] = min({dp[twoIdx] * 2, dp[threeIdx] * 3, dp[fiveIdx] * 5});
 
       if (dp[i] == dp[twoIdx] * 2) twoIdx++;
       if (dp[i] == dp[threeIdx] * 3) threeIdx++;
