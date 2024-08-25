@@ -1,0 +1,7 @@
+Input: n = "123"
+Output: "121"
+
+===
+
+Input: n = "1"
+Output: "0"
