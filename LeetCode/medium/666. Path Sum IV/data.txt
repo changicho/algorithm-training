@@ -1,0 +1,7 @@
+Input: nums = [113,215,221]
+Output: 12
+
+===
+
+Input: nums = [113,221]
+Output: 4
