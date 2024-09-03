@@ -1,0 +1,9 @@
+Input: nums = [1023,2310,2130,213]
+
+Output: 4
+
+===
+
+Input: nums = [1,10,100]
+
+Output: 3
