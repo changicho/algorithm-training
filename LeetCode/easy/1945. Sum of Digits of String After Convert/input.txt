@@ -1,0 +1,12 @@
+Input: s = "iiii", k = 1
+Output: 36
+
+===
+
+Input: s = "leetcode", k = 2
+Output: 6
+
+===
+
+Input: s = "zbax", k = 2
+Output: 8
