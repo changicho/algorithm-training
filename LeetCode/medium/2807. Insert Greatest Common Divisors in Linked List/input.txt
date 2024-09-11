@@ -1,0 +1,7 @@
+Input: head = [18,6,10,3]
+Output: [18,6,6,2,10,1,3]
+
+===
+
+Input: head = [7]
+Output: [7]
