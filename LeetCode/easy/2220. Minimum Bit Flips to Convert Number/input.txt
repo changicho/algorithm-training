@@ -1,0 +1,7 @@
+Input: start = 10, goal = 7
+Output: 3
+
+===
+
+Input: start = 3, goal = 4
+Output: 3
