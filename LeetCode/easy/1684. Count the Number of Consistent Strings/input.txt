@@ -1,0 +1,12 @@
+Input: allowed = "ab", words = ["ad","bd","aaab","baa","badab"]
+Output: 2
+
+===
+
+Input: allowed = "abc", words = ["a","b","c","ab","ac","bc","abc"]
+Output: 7
+
+===
+
+Input: allowed = "cad", words = ["cc","acd","b","ba","bac","bad","ac","d"]
+Output: 4
