@@ -1,0 +1,12 @@
+Input: s = "eleetminicoworoep"
+Output: 13
+
+===
+
+Input: s = "leetcodeisgreat"
+Output: 5
+
+===
+
+Input: s = "bcbcbc"
+Output: 6
