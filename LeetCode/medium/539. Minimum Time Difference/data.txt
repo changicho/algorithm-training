@@ -1,0 +1,7 @@
+Input: timePoints = ["23:59","00:00"]
+Output: 1
+
+===
+
+Input: timePoints = ["00:00","23:59","00:00"]
+Output: 0
