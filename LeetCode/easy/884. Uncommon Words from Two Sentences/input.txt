@@ -1,0 +1,9 @@
+Input: s1 = "this apple is sweet", s2 = "this apple is sour"
+
+Output: ["sweet","sour"]
+
+===
+
+Input: s1 = "apple apple", s2 = "banana"
+
+Output: ["banana"]
