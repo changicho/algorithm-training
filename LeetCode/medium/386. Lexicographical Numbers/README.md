@@ -50,4 +50,34 @@ vector<int> lexicalOrder(int n) {
 }
 ```
 
+### DFS
+
+| 내 코드 (ms) | 시간 복잡도 | 공간 복잡도  |
+| :----------: | :---------: | :----------: |
+|      9       |    O(N)     | O(log_10(N)) |
+
+DFS를 이용해 숫자를 우선하는 순서부터 생성한다.
+
+```cpp
+vector<int> answer;
+
+void recursive(int num, int n) {
+  answer.push_back(num);
+
+  for (int i = 0; i <= 9; i++) {
+    int next = num * 10 + i;
+    if (next <= n) recursive(next, n);
+  }
+}
+
+vector<int> lexicalOrder(int n) {
+  for (int i = 1; i <= 9; i++) {
+    if (i > n) break;
+
+    recursive(i, n);
+  }
+  return answer;
+}
+```
+
 ## 고생한 점
