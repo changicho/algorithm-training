@@ -1,0 +1,15 @@
+Input: tokens = [100], power = 50
+
+Output: 0
+
+===
+
+Input: tokens = [200,100], power = 150
+
+Output: 1
+
+===
+
+Input: tokens = [100,200,300,400], power = 200
+
+Output: 2
