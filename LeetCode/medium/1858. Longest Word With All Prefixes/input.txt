@@ -1,0 +1,12 @@
+Input: words = ["k","ki","kir","kira", "kiran"]
+Output: "kiran"
+
+===
+
+Input: words = ["a", "banana", "app", "appl", "ap", "apply", "apple"]
+Output: "apple"
+
+===
+
+Input: words = ["abc", "bc", "ab", "qwe"]
+Output: ""
