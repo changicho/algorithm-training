@@ -1,0 +1,7 @@
+Input: arr1 = [1,10,100], arr2 = [1000]
+Output: 3
+
+===
+
+Input: arr1 = [1,2,3], arr2 = [4,4,4]
+Output: 0
