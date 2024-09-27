@@ -1,0 +1,7 @@
+Input: words = ["abc","ab","bc","b"]
+Output: [5,4,3,2]
+
+===
+
+Input: words = ["abcd"]
+Output: [4]
