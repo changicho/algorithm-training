@@ -1,0 +1,12 @@
+Input: grid = [" /","/ "]
+Output: 2
+
+===
+
+Input: grid = [" /","  "]
+Output: 1
+
+===
+
+Input: grid = ["/\\","\\/"]
+Output: 5
