@@ -1,0 +1,7 @@
+Input: root = [3,0,0]
+Output: 2
+
+===
+
+Input: root = [0,3,0]
+Output: 3
