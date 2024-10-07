@@ -1,0 +1,5 @@
+Input
+["AllOne", "inc", "inc", "getMaxKey", "getMinKey", "inc", "getMaxKey", "getMinKey"]
+[[], ["hello"], ["hello"], [], [], ["leet"], [], []]
+Output
+[null, null, null, "hello", "hello", null, "hello", "leet"]
