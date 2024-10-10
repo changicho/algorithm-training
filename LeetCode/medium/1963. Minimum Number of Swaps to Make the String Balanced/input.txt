@@ -1,0 +1,12 @@
+Input: s = "][]["
+Output: 1
+
+===
+
+Input: s = "]]][[["
+Output: 2
+
+===
+
+Input: s = "[]"
+Output: 0
