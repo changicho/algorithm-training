@@ -1,0 +1,7 @@
+Input: a = 1, b = 1, c = 7
+Output: "ccaccbcc"
+
+===
+
+Input: a = 7, b = 1, c = 0
+Output: "aabaa"
