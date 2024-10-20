@@ -1,0 +1,9 @@
+Input: s = "FFF"
+
+Output: 3
+
+===
+
+Input: s = "FWEFW"
+
+Output: 18
