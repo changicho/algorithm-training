@@ -1,0 +1,7 @@
+Input: n = 3, k = 1
+Output: "0"
+
+===
+
+Input: n = 4, k = 11
+Output: "1"
