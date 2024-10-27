@@ -1,0 +1,12 @@
+Input: s = "101"
+Output: 1
+
+===
+
+Input: s = "100"
+Output: 2
+
+===
+
+Input: s = "0111"
+Output: 0
