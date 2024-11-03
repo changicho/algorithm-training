@@ -1,0 +1,12 @@
+Input: sentence = "leetcode exercises sound delightful"
+Output: true
+
+===
+
+Input: sentence = "eetcode"
+Output: true
+
+===
+
+Input: sentence = "Leetcode is cool"
+Output: false
