@@ -1,0 +1,7 @@
+Input: s = "abcaab", queries = [[0,0],[1,4],[2,5],[0,5]]
+Output: [1,5,5,10]
+
+===
+
+Input: s = "abcd", queries = [[0,3]]
+Output: [4]
