@@ -1,0 +1,9 @@
+Input: word = "abcde"
+
+Output: "1a1b1c1d1e"
+
+===
+
+Input: word = "aaaaaaaaaaaaaabb"
+
+Output: "9a5a2b"
