@@ -1,0 +1,9 @@
+Input: s = "abacb", k = 2
+
+Output: 4
+
+===
+
+Input: s = "abcde", k = 1
+
+Output: 15
