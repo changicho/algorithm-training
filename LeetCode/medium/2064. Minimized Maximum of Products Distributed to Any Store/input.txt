@@ -1,0 +1,12 @@
+Input: n = 6, quantities = [11,6]
+Output: 3
+
+===
+
+Input: n = 7, quantities = [15,10,10]
+Output: 5
+
+===
+
+Input: n = 1, quantities = [100000]
+Output: 100000
