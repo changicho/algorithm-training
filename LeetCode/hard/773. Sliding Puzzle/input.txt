@@ -1,0 +1,12 @@
+Input: board = [[1,2,3],[4,0,5]]
+Output: 1
+
+===
+
+Input: board = [[1,2,3],[5,4,0]]
+Output: -1
+
+===
+
+Input: board = [[4,1,2],[5,0,3]]
+Output: 5
