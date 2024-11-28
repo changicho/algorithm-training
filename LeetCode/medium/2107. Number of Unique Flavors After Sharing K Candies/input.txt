@@ -1,0 +1,12 @@
+Input: candies = [1,2,2,3,4,3], k = 3
+Output: 3
+
+===
+
+Input: candies = [2,2,2,2,3,3], k = 2
+Output: 2
+
+===
+
+Input: candies = [2,4,5], k = 0
+Output: 3
