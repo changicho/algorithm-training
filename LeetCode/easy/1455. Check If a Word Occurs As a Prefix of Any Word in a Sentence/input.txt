@@ -1,0 +1,12 @@
+Input: sentence = "i love eating burger", searchWord = "burg"
+Output: 4
+
+===
+
+Input: sentence = "this problem is an easy problem", searchWord = "pro"
+Output: 2
+
+===
+
+Input: sentence = "i am tired", searchWord = "you"
+Output: -1
