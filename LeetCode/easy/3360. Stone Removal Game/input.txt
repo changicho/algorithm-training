@@ -1,0 +1,9 @@
+Input: n = 12
+
+Output: true
+
+===
+
+Input: n = 1
+
+Output: false
