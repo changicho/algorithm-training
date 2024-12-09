@@ -1,0 +1,7 @@
+Input: matrix = [[1,-1],[-1,1]]
+Output: 4
+
+===
+
+Input: matrix = [[1,2,3],[-1,-2,-3],[1,2,3]]
+Output: 16
