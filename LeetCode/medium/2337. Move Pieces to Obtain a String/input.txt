@@ -1,0 +1,12 @@
+Input: start = "_L__R__R_", target = "L______RR"
+Output: true
+
+===
+
+Input: start = "R_L_", target = "__LR"
+Output: false
+
+===
+
+Input: start = "_R", target = "R_"
+Output: false
