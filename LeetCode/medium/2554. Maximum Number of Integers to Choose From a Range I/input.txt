@@ -1,0 +1,12 @@
+Input: banned = [1,6,5], n = 5, maxSum = 6
+Output: 2
+
+===
+
+Input: banned = [1,2,3,4,5,6,7], n = 8, maxSum = 1
+Output: 0
+
+===
+
+Input: banned = [11], n = 7, maxSum = 50
+Output: 7
