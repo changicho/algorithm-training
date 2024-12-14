@@ -1,0 +1,12 @@
+Input: str1 = "abc", str2 = "ad"
+Output: true
+
+===
+
+Input: str1 = "zc", str2 = "ad"
+Output: true
+
+===
+
+Input: str1 = "ab", str2 = "d"
+Output: false
