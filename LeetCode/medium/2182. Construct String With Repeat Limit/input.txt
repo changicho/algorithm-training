@@ -1,0 +1,7 @@
+Input: s = "cczazcc", repeatLimit = 3
+Output: "zzcccac"
+
+===
+
+Input: s = "aababab", repeatLimit = 2
+Output: "bbabaa"
