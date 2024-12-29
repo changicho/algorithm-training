@@ -1,0 +1,12 @@
+Input: s = "aaaa"
+Output: 2
+
+===
+
+Input: s = "abcdef"
+Output: -1
+
+===
+
+Input: s = "abcaba"
+Output: 1
