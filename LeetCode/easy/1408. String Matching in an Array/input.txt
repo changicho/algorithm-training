@@ -1,0 +1,12 @@
+Input: words = ["mass","as","hero","superhero"]
+Output: ["as","hero"]
+
+===
+
+Input: words = ["leetcode","et","code"]
+Output: ["et","code"]
+
+===
+
+Input: words = ["blue","green","bu"]
+Output: []
