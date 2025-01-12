@@ -1,0 +1,12 @@
+Input: s = "annabelle", k = 2
+Output: true
+
+===
+
+Input: s = "leetcode", k = 3
+Output: false
+
+===
+
+Input: s = "true", k = 4
+Output: true
