@@ -1,0 +1,7 @@
+Input: s = "1212"
+Output: 5
+
+===
+
+Input: s = "12321"
+Output: 9
