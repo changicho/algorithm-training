@@ -1,0 +1,12 @@
+Input: s1 = "bank", s2 = "kanb"
+Output: true
+
+===
+
+Input: s1 = "attack", s2 = "defend"
+Output: false
+
+===
+
+Input: s1 = "kelb", s2 = "kelb"
+Output: true
