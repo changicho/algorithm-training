@@ -1,0 +1,15 @@
+Input: nums = [1]
+
+Output: true
+
+===
+
+Input: nums = [2,1,4]
+
+Output: true
+
+===
+
+Input: nums = [4,3,1,6]
+
+Output: false
