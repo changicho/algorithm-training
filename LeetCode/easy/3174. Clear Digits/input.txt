@@ -1,0 +1,9 @@
+Input: s = "abc"
+
+Output: "abc"
+
+===
+
+Input: s = "cb34"
+
+Output: ""
