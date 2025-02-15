@@ -1,0 +1,7 @@
+Input: nums = [2,3,4,6]
+Output: 8
+
+===
+
+Input: nums = [1,2,4,5,10]
+Output: 16
