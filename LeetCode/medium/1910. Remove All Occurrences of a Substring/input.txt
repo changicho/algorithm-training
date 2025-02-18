@@ -1,0 +1,7 @@
+Input: s = "daabcbaabcbc", part = "abc"
+Output: "dab"
+
+===
+
+Input: s = "axxxxyyyyb", part = "xy"
+Output: "ab"
