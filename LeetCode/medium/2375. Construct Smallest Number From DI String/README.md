@@ -118,4 +118,33 @@ string smallestNumber(string s) {
 }
 ```
 
+### 스택
+
+| 내 코드 (ms) | 시간 복잡도 | 공간 복잡도 |
+| :----------: | :---------: | :---------: |
+|      0       |    O(N)     |    O(N)     |
+
+위 방법에서 뒤집는 부분을 스택을 이용해 구현할 수 있다.
+
+```cpp
+string smallestNumber(string pattern) {
+  int size = pattern.size();
+  string result;
+  stack<int> stk;
+
+  for (int i = 0; i <= size; i++) {
+    stk.push(i + 1);
+
+    if (i == pattern.size() || pattern[i] == 'I') {
+      while (!stk.empty()) {
+        result.push_back(stk.top() + '0');
+        stk.pop();
+      }
+    }
+  }
+
+  return result;
+}
+```
+
 ## 고생한 점

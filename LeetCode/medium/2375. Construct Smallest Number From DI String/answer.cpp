@@ -1,5 +1,6 @@
 #include <algorithm>
 #include <iostream>
+#include <stack>
 #include <string>
 #include <vector>
 
@@ -78,5 +79,30 @@ class Solution {
       }
     }
     return answer;
+  }
+};
+
+// use stack
+// time : O(N)
+// space : O(N)
+class Solution {
+ public:
+  string smallestNumber(string pattern) {
+    int size = pattern.size();
+    string result;
+    stack<int> stk;
+
+    for (int i = 0; i <= size; i++) {
+      stk.push(i + 1);
+
+      if (i == pattern.size() || pattern[i] == 'I') {
+        while (!stk.empty()) {
+          result.push_back(stk.top() + '0');
+          stk.pop();
+        }
+      }
+    }
+
+    return result;
   }
 };
