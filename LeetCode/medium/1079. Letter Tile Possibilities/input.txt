@@ -1,0 +1,12 @@
+Input: tiles = "AAB"
+Output: 8
+
+===
+
+Input: tiles = "AAABBC"
+Output: 188
+
+===
+
+Input: tiles = "V"
+Output: 1
