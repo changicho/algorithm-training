@@ -1,0 +1,12 @@
+Input: n = 1, k = 3
+Output: "c"
+
+===
+
+Input: n = 1, k = 4
+Output: ""
+
+===
+
+Input: n = 3, k = 9
+Output: "cab"
