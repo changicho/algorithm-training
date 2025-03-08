@@ -1,0 +1,7 @@
+Input: left = 10, right = 19
+Output: [11,13]
+
+===
+
+Input: left = 4, right = 6
+Output: [-1,-1]
