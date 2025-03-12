@@ -1,0 +1,7 @@
+Input: s = "havefunonleetcode", k = 5
+Output: 6
+
+===
+
+Input: s = "home", k = 5
+Output: 0
