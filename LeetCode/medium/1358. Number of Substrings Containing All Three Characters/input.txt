@@ -1,0 +1,12 @@
+Input: s = "abcabc"
+Output: 10
+
+===
+
+Input: s = "aaacb"
+Output: 3
+
+===
+
+Input: s = "abc"
+Output: 1
