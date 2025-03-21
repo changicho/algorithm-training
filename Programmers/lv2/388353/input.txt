@@ -1,0 +1,3 @@
+storage	requests	result
+["AZWQY", "CAABX", "BBDDA", "ACACA"]	["A", "BB", "A"]	11
+["HAH", "HBH", "HHH", "HAH", "HBH"]	["C", "B", "B", "B", "B", "H"]	4
