@@ -1,0 +1,3 @@
+n	bans	result
+30	["d", "e", "bb", "aa", "ae"]	"ah"
+7388	["gqk", "kdn", "jxj", "jxi", "fug", "jxg", "ewq", "len", "bhc"]	"jxk"
