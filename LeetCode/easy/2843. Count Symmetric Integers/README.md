@@ -51,4 +51,35 @@ int countSymmetricIntegers(int low, int high) {
 }
 ```
 
+### 완전 탐색 (계산 최적화)
+
+| 내 코드 (ms) | 시간 복잡도 | 공간 복잡도 |
+| :----------: | :---------: | :---------: |
+|      3       |    O(N)     |    O(1)     |
+
+```cpp
+bool isSymmetric(int &number) {
+  if (number < 100 && number % 11 == 0) {
+    return true;
+  }
+  if (1000 <= number && number < 10000) {
+    int left = number / 1000 + (number % 1000) / 100;
+    int right = (number % 100) / 10 + number % 10;
+
+    if (left == right) {
+      return true;
+    }
+  }
+  return false;
+}
+
+int countSymmetricIntegers(int low, int high) {
+  int count = 0;
+  for (int i = low; i <= high; i++) {
+    if (isSymmetric(i)) count++;
+  }
+  return count;
+}
+```
+
 ## 고생한 점

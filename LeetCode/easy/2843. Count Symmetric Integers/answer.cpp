@@ -32,3 +32,33 @@ class Solution {
     return count;
   }
 };
+
+// use brute force (optimized)
+// time : O(N)
+// space : O(1)
+class Solution {
+ private:
+  bool isSymmetric(int &number) {
+    if (number < 100 && number % 11 == 0) {
+      return true;
+    }
+    if (1000 <= number && number < 10000) {
+      int left = number / 1000 + (number % 1000) / 100;
+      int right = (number % 100) / 10 + number % 10;
+
+      if (left == right) {
+        return true;
+      }
+    }
+    return false;
+  }
+
+ public:
+  int countSymmetricIntegers(int low, int high) {
+    int count = 0;
+    for (int i = low; i <= high; i++) {
+      if (isSymmetric(i)) count++;
+    }
+    return count;
+  }
+};
