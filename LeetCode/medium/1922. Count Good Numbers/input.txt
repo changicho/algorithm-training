@@ -1,0 +1,12 @@
+Input: n = 1
+Output: 5
+
+===
+
+Input: n = 4
+Output: 400
+
+===
+
+Input: n = 50
+Output: 564908303
