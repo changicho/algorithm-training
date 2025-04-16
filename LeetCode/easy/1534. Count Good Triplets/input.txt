@@ -1,0 +1,7 @@
+Input: arr = [3,0,1,1,9,7], a = 7, b = 2, c = 3
+Output: 4
+
+===
+
+Input: arr = [1,1,2,2,3], a = 0, b = 0, c = 1
+Output: 0
