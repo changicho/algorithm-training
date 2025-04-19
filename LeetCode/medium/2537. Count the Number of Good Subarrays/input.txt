@@ -1,0 +1,7 @@
+Input: nums = [1,1,1,1,1], k = 10
+Output: 1
+
+===
+
+Input: nums = [3,1,4,3,2,2,4], k = 2
+Output: 4
