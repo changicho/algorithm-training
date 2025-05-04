@@ -1,0 +1,7 @@
+Input: tops = [2,1,2,4,2,2], bottoms = [5,2,6,2,3,2]
+Output: 2
+
+===
+
+Input: tops = [3,5,1,2,3], bottoms = [3,6,3,3,4]
+Output: -1
