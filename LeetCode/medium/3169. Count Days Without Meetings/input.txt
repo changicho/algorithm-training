@@ -1,0 +1,17 @@
+Input: days = 10, meetings = [[5,7],[1,3],[9,10]]
+
+Output: 2
+
+===
+
+Example 2:
+
+Input: days = 5, meetings = [[2,4],[1,3]]
+
+Output: 1
+
+===
+
+Input: days = 6, meetings = [[1,6]]
+
+Output: 0
