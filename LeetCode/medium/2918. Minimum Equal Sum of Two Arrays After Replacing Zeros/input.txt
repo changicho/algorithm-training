@@ -1,0 +1,7 @@
+Input: nums1 = [3,2,0,1,0], nums2 = [6,5,0]
+Output: 12
+
+===
+
+Input: nums1 = [2,0,2,0], nums2 = [1,4]
+Output: -1
