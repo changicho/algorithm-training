@@ -1,0 +1,9 @@
+Input: s = "abcyy", t = 2
+
+Output: 7
+
+===
+
+Input: s = "azbk", t = 1
+
+Output: 5
