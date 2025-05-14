@@ -1,0 +1,15 @@
+Input: moveTime = [[0,4],[4,4]]
+
+Output: 7
+
+===
+
+Input: moveTime = [[0,0,0,0],[0,0,0,0]]
+
+Output: 6
+
+===
+
+Input: moveTime = [[0,1],[1,2]]
+
+Output: 4
