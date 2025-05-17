@@ -1,0 +1,9 @@
+Input: words = ["e","a","b"], groups = [0,0,1]
+
+Output: ["e","b"]
+
+===
+
+Input: words = ["a","b","c","d"], groups = [1,0,1,1]
+
+Output: ["a","b","c"]
