@@ -36,42 +36,52 @@ class Solution {
 };
 
 // use matrix to check array (space complexity : O(1))
-
+// time : O(R * C)
+// space : O(1)
 class Solution {
  public:
   void setZeroes(vector<vector<int>>& matrix) {
-    bool isFirstColumnZero = false;  // to distinct matrix[0][x] == 0 or matrix[y][0] == 0
-    int row_size = matrix.size();
-    int col_size = matrix.front().size();
+    int rows = matrix.size(), cols = matrix[0].size();
 
-    for (int y = 0; y < row_size; y++) {
-      if (matrix[y][0] == 0) isFirstColumnZero = true;
+    // check first row and first column
+    bool firstCol = false;
+    bool firstRow = false;
+    for (int x = 0; x < cols; x++) {
+      if (matrix[0][x] == 0) {
+        firstRow = true;
+      }
+    }
+    for (int y = 0; y < rows; y++) {
+      if (matrix[y][0] == 0) {
+        firstCol = true;
+      }
+    }
 
-      for (int x = 1; x < col_size; x++) {
+    // check and mark zero at first row and first column
+    for (int y = 1; y < rows; y++) {
+      for (int x = 1; x < cols; x++) {
         if (matrix[y][x] == 0) {
-          matrix[0][x] = 0;
-          matrix[y][0] = 0;
+          matrix[0][x] = matrix[y][0] = 0;
         }
       }
     }
 
-    for (int y = 1; y < row_size; y++) {
-      for (int x = 1; x < col_size; x++) {
-        if (matrix[y][0] == 0 || matrix[0][x] == 0) {
+    // set zero to the rest of the matrix
+    for (int y = 1; y < rows; y++) {
+      for (int x = 1; x < cols; x++) {
+        if (matrix[0][x] == 0 || matrix[y][0] == 0) {
           matrix[y][x] = 0;
         }
       }
     }
-
-    if (matrix[0][0] == 0) {
-      for (int x = 0; x < col_size; x++) {
+    if (firstRow) {
+      for (int x = 0; x < cols; x++) {
         matrix[0][x] = 0;
       }
     }
-
-    if (isFirstColumnZero) {
-      for (int i = 0; i < row_size; i++) {
-        matrix[i][0] = 0;
+    if (firstCol) {
+      for (int y = 0; y < rows; y++) {
+        matrix[y][0] = 0;
       }
     }
   }
