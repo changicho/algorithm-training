@@ -1,0 +1,12 @@
+Input: n = 10, m = 3
+Output: 19
+
+===
+
+Input: n = 5, m = 6
+Output: 15
+
+===
+
+Input: n = 5, m = 1
+Output: -15
