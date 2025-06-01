@@ -1,0 +1,12 @@
+Input: words = ["leet","code"], x = "e"
+Output: [0,1]
+
+===
+
+Input: words = ["abc","bcd","aaaa","cbc"], x = "a"
+Output: [0,2]
+
+===
+
+Input: words = ["abc","bcd","aaaa","cbc"], x = "z"
+Output: []
