@@ -1,0 +1,7 @@
+Input: nums = [3,3,3]
+Output: "equilateral"
+
+===
+
+Input: nums = [3,4,5]
+Output: "scalene"
