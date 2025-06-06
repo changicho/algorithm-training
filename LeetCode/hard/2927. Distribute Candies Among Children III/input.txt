@@ -1,0 +1,7 @@
+Input: n = 5, limit = 2
+Output: 3
+
+===
+
+Input: n = 3, limit = 3
+Output: 10
