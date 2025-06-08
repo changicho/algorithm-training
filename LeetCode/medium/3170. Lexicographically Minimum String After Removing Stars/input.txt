@@ -1,0 +1,9 @@
+Input: s = "aaba*"
+
+Output: "aab"
+
+===
+
+Input: s = "abc"
+
+Output: "abc"
