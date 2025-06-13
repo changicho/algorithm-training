@@ -1,0 +1,9 @@
+Input: complexity = [1,2,3]
+
+Output: 2
+
+===
+
+Input: complexity = [3,3,3,4,4,4]
+
+Output: 0
