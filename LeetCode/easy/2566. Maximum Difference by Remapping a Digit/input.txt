@@ -1,0 +1,7 @@
+Input: num = 11891
+Output: 99009
+
+===
+
+Input: num = 90
+Output: 99
