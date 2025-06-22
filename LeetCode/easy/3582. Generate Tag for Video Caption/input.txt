@@ -1,0 +1,15 @@
+Input: caption = "Leetcode daily streak achieved"
+
+Output: "#leetcodeDailyStreakAchieved"
+
+===
+
+Input: caption = "can I Go There"
+
+Output: "#canIGoThere"
+
+===
+
+Input: caption = "hhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhh"
+
+Output: "#hhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhh"
