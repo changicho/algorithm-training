@@ -1,0 +1,15 @@
+Input: word = "aabcaba", k = 0
+
+Output: 3
+
+===
+
+Input: word = "dabdcbdcdcd", k = 2
+
+Output: 2
+
+===
+
+Input: word = "aaabaaa", k = 2
+
+Output: 1
