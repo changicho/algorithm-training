@@ -1,4 +1,5 @@
 #include <algorithm>
+#include <deque>
 #include <iostream>
 #include <string>
 #include <unordered_set>
@@ -46,6 +47,33 @@ class Solution {
 
       for (j = max(j, i - k); j <= i + k && j < nums.size(); ++j) {
         answer.push_back(j);
+      }
+    }
+
+    return answer;
+  }
+};
+
+// use one pass
+// time : O(N)
+// space : O(N)
+class Solution {
+ public:
+  vector<int> findKDistantIndices(vector<int>& nums, int key, int k) {
+    int size = nums.size();
+
+    vector<int> answer;
+    int minimum = 0;
+    for (int i = 0; i < size; i++) {
+      if (nums[i] == key) {
+        int left = max(minimum, i - k);
+        int right = min(size - 1, i + k);
+
+        for (int j = left; j <= right; j++) {
+          answer.push_back(j);
+        }
+
+        minimum = right + 1;
       }
     }
 
