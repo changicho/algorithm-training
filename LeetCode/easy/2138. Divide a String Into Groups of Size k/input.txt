@@ -1,0 +1,7 @@
+Input: s = "abcdefghi", k = 3, fill = "x"
+Output: ["abc","def","ghi"]
+
+===
+
+Input: s = "abcdefghij", k = 3, fill = "x"
+Output: ["abc","def","ghi","jxx"]
