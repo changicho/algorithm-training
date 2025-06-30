@@ -1,0 +1,7 @@
+Input: bulbs = [1,3,2], k = 1
+Output: 2
+
+===
+
+Input: bulbs = [1,2,3], k = 1
+Output: -1
