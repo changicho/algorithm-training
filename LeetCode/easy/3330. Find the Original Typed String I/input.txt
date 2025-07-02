@@ -1,0 +1,17 @@
+Input: word = "abbcccc"
+
+Output: 5
+
+Explanation:
+
+===
+
+Input: word = "abcd"
+
+Output: 1
+
+===
+
+Input: word = "aaaa"
+
+Output: 4
