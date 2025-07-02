@@ -1,0 +1,7 @@
+Input: root = [10,5,15,1,8,null,7]
+Output: 3
+
+===
+
+Input: root = [4,2,7,2,3,5,null,2,null,null,null,null,null,1]
+Output: 2
