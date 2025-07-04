@@ -1,0 +1,9 @@
+Input: s = "NWSE", k = 1
+
+Output: 3
+
+===
+
+Input: s = "NSWWEW", k = 3
+
+Output: 6
