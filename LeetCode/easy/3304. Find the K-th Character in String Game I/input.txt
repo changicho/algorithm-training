@@ -1,0 +1,9 @@
+Input: k = 5
+
+Output: "b"
+
+===
+
+Input: k = 10
+
+Output: "c"
