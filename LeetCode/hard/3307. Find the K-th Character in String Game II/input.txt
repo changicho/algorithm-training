@@ -1,0 +1,9 @@
+Input: k = 5, operations = [0,0,0]
+
+Output: "a"
+
+===
+
+Input: k = 10, operations = [0,1,0,1]
+
+Output: "b"
