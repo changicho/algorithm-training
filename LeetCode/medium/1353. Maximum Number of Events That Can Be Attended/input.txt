@@ -1,0 +1,7 @@
+Input: events = [[1,2],[2,3],[3,4]]
+Output: 3
+
+===
+
+Input: events= [[1,2],[2,3],[3,4],[1,2]]
+Output: 4
