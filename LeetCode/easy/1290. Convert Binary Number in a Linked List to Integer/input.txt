@@ -1,0 +1,7 @@
+Input: head = [1,0,1]
+Output: 5
+
+===
+
+Input: head = [0]
+Output: 0
