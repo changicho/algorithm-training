@@ -1,0 +1,15 @@
+Input: word = "234Adas"
+
+Output: true
+
+===
+
+Input: word = "b3"
+
+Output: false
+
+===
+
+Input: word = "a3$e"
+
+Output: false
