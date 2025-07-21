@@ -1,0 +1,9 @@
+Input: s = "a#b%*"
+
+Output: "ba"
+
+===
+
+Input: s = "z*#"
+
+Output: ""
