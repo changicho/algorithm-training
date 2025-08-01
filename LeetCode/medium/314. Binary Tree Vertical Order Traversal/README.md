@@ -76,4 +76,53 @@ vector<vector<int>> verticalOrder(TreeNode *root) {
 }
 ```
 
+### BFS & hash map
+
+| 내 코드 (ms) | 시간 복잡도 | 공간 복잡도 |
+| :----------: | :---------: | :---------: |
+|      0       |     (N)     |    O(N)     |
+
+hash map을 사용해 vertical을 key로, array를 value로 설정한다.
+
+이후 vertical의 범위에 대해 순차적으로 순회하며 정답 배열로 변환한다.
+
+```cpp
+vector<vector<int>> verticalOrder(TreeNode *root) {
+  if (!root) return {};
+
+  unordered_map<int, vector<int>> ret;
+
+  int left = 0;
+  int right = 0;
+
+  queue<pair<TreeNode *, int>> q;
+  q.push({root, 0});
+
+  while (!q.empty()) {
+    pair<TreeNode *, int> cur = q.front();
+    q.pop();
+
+    TreeNode *node = cur.first;
+    int x = cur.second;
+    left = min(x, left);
+    right = max(x, right);
+
+    ret[x].push_back(node->val);
+    if (node->left) {
+      q.push({node->left, x - 1});
+    }
+    if (node->right) {
+      q.push({node->right, x + 1});
+    }
+  }
+
+  vector<vector<int>> answer;
+  for (int i = left; i <= right; i++) {
+    answer.push_back(ret[i]);
+  }
+
+  return answer;
+}
+```
+
 ## 고생한 점

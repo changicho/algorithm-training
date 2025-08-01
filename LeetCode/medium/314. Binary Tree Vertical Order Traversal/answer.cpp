@@ -18,7 +18,8 @@ struct TreeNode {
 };
 
 // use BFS
-
+// time : O(N * log_2(N))
+// space : O(N)
 class Solution {
  public:
   vector<vector<int>> verticalOrder(TreeNode *root) {
@@ -46,5 +47,48 @@ class Solution {
       ret.push_back(it.second);
     }
     return ret;
+  }
+};
+
+// use hash map & BFS
+// time : O(N)
+// space : O(N)
+class Solution {
+ public:
+  vector<vector<int>> verticalOrder(TreeNode *root) {
+    if (!root) return {};
+
+    unordered_map<int, vector<int>> ret;
+
+    int left = 0;
+    int right = 0;
+
+    queue<pair<TreeNode *, int>> q;
+    q.push({root, 0});
+
+    while (!q.empty()) {
+      pair<TreeNode *, int> cur = q.front();
+      q.pop();
+
+      TreeNode *node = cur.first;
+      int x = cur.second;
+      left = min(x, left);
+      right = max(x, right);
+
+      ret[x].push_back(node->val);
+      if (node->left) {
+        q.push({node->left, x - 1});
+      }
+      if (node->right) {
+        q.push({node->right, x + 1});
+      }
+    }
+
+    vector<vector<int>> answer;
+    for (int i = left; i <= right; i++) {
+      answer.push_back(ret[i]);
+    }
+
+    return answer;
   }
 };
