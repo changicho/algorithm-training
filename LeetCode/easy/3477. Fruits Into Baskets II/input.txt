@@ -1,0 +1,9 @@
+Input: fruits = [4,2,5], baskets = [3,5,4]
+
+Output: 1
+
+===
+
+Input: fruits = [3,6,1], baskets = [6,4,7]
+
+Output: 0
