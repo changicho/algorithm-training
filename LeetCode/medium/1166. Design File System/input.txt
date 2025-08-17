@@ -1,0 +1,13 @@
+Input: 
+["FileSystem","createPath","get"]
+[[],["/a",1],["/a"]]
+Output: 
+[null,true,1]
+
+===
+
+Input: 
+["FileSystem","createPath","createPath","get","createPath","get"]
+[[],["/leet",1],["/leet/code",2],["/leet/code"],["/c/d",1],["/c"]]
+Output: 
+[null,true,true,2,false,-1]
