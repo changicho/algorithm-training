@@ -1,0 +1,7 @@
+Input: n = 15, queries = [[0,1],[2,2],[0,3]]
+Output: [2,4,64]
+
+===
+
+Input: n = 2, queries = [[0,0]]
+Output: [2]
