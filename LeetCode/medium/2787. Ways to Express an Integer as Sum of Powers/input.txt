@@ -1,0 +1,7 @@
+Input: n = 10, x = 2
+Output: 1
+
+===
+
+Input: n = 4, x = 1
+Output: 2
