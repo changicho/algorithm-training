@@ -65,4 +65,31 @@ long long zeroFilledSubarray(vector<int>& nums) {
 }
 ```
 
+### one pass
+
+| 내 코드 (ms) | 시간 복잡도 | 공간 복잡도 |
+| :----------: | :---------: | :---------: |
+|      0       |    O(N)     |    O(1)     |
+
+위 수식에서 매 방문마다 0의 갯수를 더하는 방식을 사용할 수 있다.
+
+```cpp
+long long zeroFilledSubarray(vector<int>& nums) {
+  long long answer = 0;
+
+  long long count = 0;
+  for (int& num : nums) {
+    if (num != 0) {
+      count = 0;
+    } else {
+      count++;
+    }
+
+    answer += count;
+  }
+
+  return answer;
+}
+```
+
 ## 고생한 점

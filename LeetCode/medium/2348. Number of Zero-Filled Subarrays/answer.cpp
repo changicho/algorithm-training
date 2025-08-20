@@ -30,3 +30,26 @@ class Solution {
     return answer;
   }
 };
+
+// use one pass & count continuous zero
+// time : O(N)
+// space : O(1)
+class Solution {
+ public:
+  long long zeroFilledSubarray(vector<int>& nums) {
+    long long answer = 0;
+
+    long long count = 0;
+    for (int& num : nums) {
+      if (num != 0) {
+        count = 0;
+      } else {
+        count++;
+      }
+
+      answer += count;
+    }
+
+    return answer;
+  }
+};
