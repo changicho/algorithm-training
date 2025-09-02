@@ -1,0 +1,5 @@
+3
+sato
+suzuki
+takahashi
+3 takahashi
