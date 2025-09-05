@@ -15,28 +15,23 @@
 
 using namespace std;
 
-long long calc(string s, string &target, queue<int> aIs, queue<int> bIs) {
+long long calc(string s, string &target) {
   int size = s.size();
 
-  long long ret = 0;
+  vector<int> aIs, tIs;
+
   for (int i = 0; i < size; i++) {
-    if (target[i] == 'A') {
-      if (bIs.empty() || aIs.front() < bIs.front()) {
-        aIs.pop();
-      } else {
-        ret += aIs.front() - i;
-
-        aIs.pop();
-      }
-    } else {
-      if (aIs.empty() || bIs.front() < aIs.front()) {
-        bIs.pop();
-      } else {
-        ret += bIs.front() - i;
-
-        bIs.pop();
-      }
+    if (s[i] == 'A') {
+      aIs.push_back(i);
     }
+    if (target[i] == 'A') {
+      tIs.push_back(i);
+    }
+  }
+
+  long long ret = 0;
+  for (int i = 0; i < size / 2; i++) {
+    ret += abs(aIs[i] - tIs[i]);
   }
 
   return ret;
@@ -47,32 +42,19 @@ auto solution(int n, string &s) {
 
   int size = n * 2;
 
-  queue<int> aIs;
-  queue<int> bIs;
-
-  for (int i = 0; i < size; i++) {
-    if (s[i] == 'A') {
-      aIs.push(i);
-    } else {
-      bIs.push(i);
-    }
-  }
-  aIs.push(INT_MAX);
-  bIs.push(INT_MAX);
-
   string target = "";
   for (int i = 0; i < size; i++) {
     target += (i % 2) ? 'A' : 'B';
   }
 
-  answer = calc(s, target, aIs, bIs);
+  answer = calc(s, target);
 
   target = "";
   for (int i = 0; i < size; i++) {
     target += (i % 2) ? 'B' : 'A';
   }
 
-  answer = min(answer, calc(s, target, aIs, bIs));
+  answer = min(answer, calc(s, target));
 
   return answer;
 }

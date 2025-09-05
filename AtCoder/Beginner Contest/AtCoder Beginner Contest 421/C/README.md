@@ -104,4 +104,60 @@ auto solution(int n, string &s) {
 }
 ```
 
+### 인덱스 비교
+
+| 내 코드 (ms) | 시간 복잡도 | 공간 복잡도 |
+| :----------: | :---------: | :---------: |
+|      24      |    O(N)     |    O(N)     |
+
+현재 만들어야 하는 target 과 현재 문자열의 'A'의 index들을 저장한다.
+
+이후 순서대로 두 index들의 차이를 비교한다.
+
+```cpp
+long long calc(string s, string &target) {
+  int size = s.size();
+
+  vector<int> aIs, tIs;
+
+  for (int i = 0; i < size; i++) {
+    if (s[i] == 'A') {
+      aIs.push_back(i);
+    }
+    if (target[i] == 'A') {
+      tIs.push_back(i);
+    }
+  }
+
+  long long ret = 0;
+  for (int i = 0; i < size / 2; i++) {
+    ret += abs(aIs[i] - tIs[i]);
+  }
+
+  return ret;
+}
+
+auto solution(int n, string &s) {
+  long long answer = 0;
+
+  int size = n * 2;
+
+  string target = "";
+  for (int i = 0; i < size; i++) {
+    target += (i % 2) ? 'A' : 'B';
+  }
+
+  answer = calc(s, target);
+
+  target = "";
+  for (int i = 0; i < size; i++) {
+    target += (i % 2) ? 'B' : 'A';
+  }
+
+  answer = min(answer, calc(s, target));
+
+  return answer;
+}
+```
+
 ## 고생한 점
