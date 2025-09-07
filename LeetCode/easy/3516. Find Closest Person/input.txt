@@ -1,0 +1,15 @@
+Input: x = 2, y = 7, z = 4
+
+Output: 1
+
+---
+
+Input: x = 2, y = 5, z = 6
+
+Output: 2
+
+---
+
+Input: x = 1, y = 5, z = 3
+
+Output: 0
