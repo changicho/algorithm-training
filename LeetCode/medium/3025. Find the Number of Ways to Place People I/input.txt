@@ -1,0 +1,9 @@
+Input: points = [[1,1],[2,2],[3,3]]
+
+Output: 0
+
+===
+
+Input: points = [[6,2],[4,4],[2,6]]
+
+Output: 2
