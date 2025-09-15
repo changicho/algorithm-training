@@ -1,0 +1,9 @@
+Input: s = "yz"
+
+Output: 2
+
+===
+
+Input: s = "a"
+
+Output: 0
