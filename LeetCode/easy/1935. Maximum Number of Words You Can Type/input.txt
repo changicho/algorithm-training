@@ -1,0 +1,12 @@
+Input: text = "hello world", brokenLetters = "ad"
+Output: 1
+
+===
+
+Input: text = "leet code", brokenLetters = "lt"
+Output: 1
+
+===
+
+Input: text = "leet code", brokenLetters = "e"
+Output: 0
