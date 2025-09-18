@@ -1,0 +1,15 @@
+Input: nums = [2,5,3,1,4]
+
+Output: 2
+
+===
+
+Input: nums = [5,1,2,3,4]
+
+Output: 3
+
+===
+
+Input: nums = [1000000000,999999999,999999998]
+
+Output: 0
