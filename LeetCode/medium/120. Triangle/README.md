@@ -26,6 +26,39 @@
 
 이 경우 공간 복잡도는 O(N)이다.
 
+### 동적 계획법 (in-place)
+
+| 내 코드 (ms) | 시간 복잡도 | 공간 복잡도 |
+| :----------: | :---------: | :---------: |
+|      0       |   O(N^2)    |    O(1)     |
+
+```cpp
+  int minimumTotal(vector<vector<int>>& triangle) {
+    int size = triangle.size();
+
+    for (int y = 1; y < size; y++) {
+      for (int x = 0; x <= y; x++) {
+        int target = INT_MAX;
+
+        if (x > 0) {
+          target = min(target, triangle[y - 1][x - 1]);
+        }
+        if (x < y) {
+          target = min(target, triangle[y - 1][x]);
+        }
+
+        triangle[y][x] += target;
+      }
+    }
+
+    int answer = INT_MAX;
+    for (int i = 0; i < size; i++) {
+      answer = min(answer, triangle[size - 1][i]);
+    }
+    return answer;
+  }
+```
+
 ### 동적 계획법 O(N^2)
 
 | 내 코드 (ms) | 시간 복잡도 | 공간 복잡도 |

@@ -1,4 +1,5 @@
 #include <algorithm>
+#include <climits>
 #include <iostream>
 #include <string>
 #include <vector>
@@ -6,7 +7,8 @@
 using namespace std;
 
 // use dp O(N^2)
-
+// time : O(N^2)
+// space : O(N^2)
 class Solution {
  public:
   int minimumTotal(vector<vector<int>>& triangle) {
@@ -30,7 +32,8 @@ class Solution {
 };
 
 // use dp O(N)
-
+// time : O(N^2)
+// space : O(N)
 class Solution {
  public:
   int minimumTotal(vector<vector<int>>& triangle) {
@@ -49,6 +52,37 @@ class Solution {
 
     int answer = dp[0];
     for (int val : dp) answer = min(answer, val);
+    return answer;
+  }
+};
+
+// use dynamic programming (in-place)
+// time : O(N^2)
+// space : O(1)
+class Solution {
+ public:
+  int minimumTotal(vector<vector<int>>& triangle) {
+    int size = triangle.size();
+
+    for (int y = 1; y < size; y++) {
+      for (int x = 0; x <= y; x++) {
+        int target = INT_MAX;
+
+        if (x > 0) {
+          target = min(target, triangle[y - 1][x - 1]);
+        }
+        if (x < y) {
+          target = min(target, triangle[y - 1][x]);
+        }
+
+        triangle[y][x] += target;
+      }
+    }
+
+    int answer = INT_MAX;
+    for (int i = 0; i < size; i++) {
+      answer = min(answer, triangle[size - 1][i]);
+    }
     return answer;
   }
 };
