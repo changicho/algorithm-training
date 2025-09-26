@@ -1,0 +1,7 @@
+Input: dominoes = "RR.L"
+Output: "RR.L"
+
+===
+
+Input: dominoes = ".L.R...LR..L.."
+Output: "LL.RR.LLRRLL.."
