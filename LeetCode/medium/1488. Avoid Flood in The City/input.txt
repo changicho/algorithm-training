@@ -1,0 +1,12 @@
+Input: rains = [1,2,3,4]
+Output: [-1,-1,-1,-1]
+
+===
+
+Input: rains = [1,2,0,0,2,1]
+Output: [-1,-1,2,1,-1,-1]
+
+===
+
+Input: rains = [1,2,0,1,2]
+Output: []
