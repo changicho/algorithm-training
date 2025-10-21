@@ -1,0 +1,12 @@
+Input: operations = ["--X","X++","X++"]
+Output: 1
+
+===
+
+Input: operations = ["++X","++X","X++"]
+Output: 3
+
+===
+
+Input: operations = ["X++","++X","--X","X--"]
+Output: 0
