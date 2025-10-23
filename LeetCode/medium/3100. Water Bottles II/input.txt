@@ -1,0 +1,7 @@
+Input: numBottles = 13, numExchange = 6
+Output: 15
+
+===
+
+Input: numBottles = 10, numExchange = 3
+Output: 13
