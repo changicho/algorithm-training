@@ -1,0 +1,9 @@
+Input: power = [1,1,3,4]
+
+Output: 6
+
+===
+
+Input: power = [7,1,6,6]
+
+Output: 13
