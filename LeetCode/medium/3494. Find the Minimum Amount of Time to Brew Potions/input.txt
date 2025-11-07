@@ -1,0 +1,15 @@
+Input: skill = [1,5,2,4], mana = [5,1,4,2]
+
+Output: 110
+
+===
+
+Input: skill = [1,1,1], mana = [1,1,1]
+
+Output: 5
+
+===
+
+Input: skill = [1,2,3,4], mana = [1,2]
+
+Output: 21
