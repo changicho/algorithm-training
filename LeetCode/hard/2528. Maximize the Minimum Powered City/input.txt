@@ -1,0 +1,7 @@
+Input: stations = [1,2,4,5,0], r = 1, k = 2
+Output: 5
+
+===
+
+Input: stations = [4,4,4,4], r = 0, k = 3
+Output: 4
