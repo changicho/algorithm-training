@@ -1,0 +1,7 @@
+Input: n = 1
+Output: true
+
+===
+
+Input: n = 10
+Output: false
