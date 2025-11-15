@@ -1,0 +1,12 @@
+Input: arr = [0]
+Output: 1
+
+===
+
+Input: arr = [1,1,2]
+Output: 3
+
+===
+
+Input: arr = [1,2,4]
+Output: 6
