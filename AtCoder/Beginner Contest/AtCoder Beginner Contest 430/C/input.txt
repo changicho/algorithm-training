@@ -1,0 +1,6 @@
+11 4 2
+abbaaabaaba
+
+9 4 2
+aaaaaaaaa
+
