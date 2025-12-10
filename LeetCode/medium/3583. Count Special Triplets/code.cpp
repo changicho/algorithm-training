@@ -15,23 +15,60 @@
 
 using namespace std;
 
+// use prefix suffix
+// time : O(N)
+// space : O(M)
+class Solution {
+ public:
+  int specialTriplets(vector<int>& nums) {
+    const int MOD = 1e9 + 7;
+    int leftCount[100001] = {
+        0,
+    };
+    int rightCount[100001] = {
+        0,
+    };
+
+    for (int& num : nums) {
+      rightCount[num]++;
+    }
+
+    int answer = 0;
+    for (int& num : nums) {
+      rightCount[num]--;
+
+      if (num * 2 <= 1e5) {
+        long long count = leftCount[num * 2];
+        count *= rightCount[num * 2];
+        count %= MOD;
+
+        answer += count;
+        answer %= MOD;
+      }
+
+      leftCount[num]++;
+    }
+    return answer;
+  }
+};
+
 // use two pass
 // time : O(N)
 // space : O(N)
 class Solution {
  public:
-  int specialTriplets(vector<int> &nums) {
+  int specialTriplets(vector<int>& nums) {
     int MOD = 1e9 + 7;
 
     int size = nums.size();
 
     unordered_map<int, int> rightCount;
     unordered_map<int, int> leftCount;
-    for (int &num : nums) {
+    for (int& num : nums) {
       rightCount[num]++;
     }
     int answer = 0;
-    for (int &num : nums) {
+    for (int& num : nums) {
       rightCount[num]--;
 
       int target = num * 2;
