@@ -1,0 +1,7 @@
+Input: nums = [1,0,0,0,1,0,0,1], k = 2
+Output: true
+
+===
+
+Input: nums = [1,0,0,1,0,1], k = 2
+Output: false
