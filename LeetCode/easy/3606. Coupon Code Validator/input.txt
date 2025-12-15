@@ -1,0 +1,9 @@
+Input: code = ["SAVE20","","PHARMA5","SAVE@20"], businessLine = ["restaurant","grocery","pharmacy","restaurant"], isActive = [true,true,true,true]
+
+Output: ["PHARMA5","SAVE20"]
+
+===
+
+Input: code = ["GROCERY15","ELECTRONICS_50","DISCOUNT10"], businessLine = ["grocery","electronics","invalid"], isActive = [false,true,true]
+
+Output: ["ELECTRONICS_50"]
