@@ -1,0 +1,12 @@
+Input: prices = [3,2,1,4]
+Output: 7
+
+===
+
+Input: prices = [8,6,7,7]
+Output: 4
+
+===
+
+Input: prices = [1]
+Output: 1
