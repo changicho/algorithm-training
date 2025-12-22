@@ -1,0 +1,7 @@
+Input: bits = [1,0,0]
+Output: true
+
+===
+
+Input: bits = [1,1,1,0]
+Output: false
