@@ -1,0 +1,12 @@
+Input: k = 1
+Output: 1
+
+===
+
+Input: k = 2
+Output: -1
+
+===
+
+Input: k = 3
+Output: 3
