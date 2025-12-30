@@ -59,7 +59,7 @@ class Solution {
 
  public:
   int numMagicSquaresInside(vector<vector<int>>& grid) {
-    int rows = grid.size(), cols = grid.size();
+    int rows = grid.size(), cols = grid[0].size();
     int answer = 0;
     for (int y = 0; y <= rows - 3; y++) {
       for (int x = 0; x <= cols - 3; x++) {
