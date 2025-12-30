@@ -1,0 +1,12 @@
+Input: calories = [1,2,3,4,5], k = 1, lower = 3, upper = 3
+Output: 0
+
+===
+
+Input: calories = [3,2], k = 2, lower = 0, upper = 1
+Output: 1
+
+===
+
+Input: calories = [6,5,0,0], k = 2, lower = 1, upper = 5
+Output: 0
