@@ -1,0 +1,5 @@
+Input: 
+["Leaderboard","addScore","addScore","addScore","addScore","addScore","top","reset","reset","addScore","top"]
+[[],[1,73],[2,56],[3,39],[4,51],[5,4],[1],[1],[2],[2,51],[3]]
+Output: 
+[null,null,null,null,null,null,73,null,null,null,141]
