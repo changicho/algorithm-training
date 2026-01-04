@@ -1,0 +1,7 @@
+Input: n = 1
+Output: 12
+
+===
+
+Input: n = 5000
+Output: 30228214
