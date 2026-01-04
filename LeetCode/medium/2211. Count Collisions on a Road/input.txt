@@ -1,0 +1,7 @@
+Input: directions = "RLRSLL"
+Output: 5
+
+===
+
+Input: directions = "LLRR"
+Output: 0
