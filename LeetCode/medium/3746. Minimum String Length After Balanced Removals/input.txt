@@ -1,0 +1,15 @@
+Input: s = "aabbab"
+
+Output: 0
+
+===
+
+Input: s = "aaaa"
+
+Output: 4
+
+===
+
+Input: s = "aaabb"
+
+Output: 1
