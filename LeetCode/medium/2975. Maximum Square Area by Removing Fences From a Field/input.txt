@@ -1,0 +1,7 @@
+Input: m = 4, n = 3, hFences = [2,3], vFences = [2]
+Output: 4
+
+===
+
+Input: m = 6, n = 7, hFences = [2], vFences = [4]
+Output: -1
