@@ -1,0 +1,7 @@
+Input: nums = [90], k = 1
+Output: 0
+
+===
+
+Input: nums = [9,4,1,7], k = 2
+Output: 2
