@@ -1,0 +1,9 @@
+Input: squares = [[0,0,1],[2,2,1]]
+
+Output: 1.00000
+
+===
+
+Input: squares = [[0,0,2],[1,1,1]]
+
+Output: 1.16667
