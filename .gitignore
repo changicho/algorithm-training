@@ -26,3 +26,6 @@ answer
 
 !count.sh
 !count-cpp.sh
+
+docs/
+mkdocs.yml
