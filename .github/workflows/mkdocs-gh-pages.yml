@@ -22,6 +22,9 @@ jobs:
           python -m pip install --upgrade pip
           pip install mkdocs
 
+      - name: Generate mkdocs.yml
+        run: python scripts/generate_mkdocs_yml.py
+
       - name: Collect README.md files
         run: python scripts/collect_readmes.py
 
