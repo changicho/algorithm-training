@@ -38,6 +38,23 @@ uint32_t reverseBits(uint32_t n) {
 }
 ```
 
+절반만 순회할 경우 다음과 같다.
+
+```cpp
+int reverseBits(int n) {
+  int answer = 0;
+
+  for (int i = 0; i < 16; i++) {
+    int left = 1 << i;
+    int right = 1 << (31 - i);
+
+    answer += (n & right) ? left : 0;
+    answer += (n & left) ? right : 0;
+  }
+  return answer;
+}
+```
+
 ### 바이트단위 이동
 
 | 내 코드 (ms) | 시간 복잡도 | 공간 복잡도 |
