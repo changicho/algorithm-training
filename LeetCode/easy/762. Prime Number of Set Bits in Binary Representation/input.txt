@@ -1,0 +1,7 @@
+Input: left = 6, right = 10
+Output: 4
+
+===
+
+Input: left = 10, right = 15
+Output: 5
