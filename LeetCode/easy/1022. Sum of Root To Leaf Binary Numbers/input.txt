@@ -1,0 +1,7 @@
+Input: root = [1,0,1,0,1,0,1]
+Output: 22
+
+===
+
+Input: root = [0]
+Output: 0
