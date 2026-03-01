@@ -1,0 +1,12 @@
+Input: n = 22
+Output: 2
+
+===
+
+Input: n = 8
+Output: 0
+
+===
+
+Input: n = 5
+Output: 2
