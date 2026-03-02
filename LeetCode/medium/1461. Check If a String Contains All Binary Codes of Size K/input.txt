@@ -1,0 +1,12 @@
+Input: s = "00110110", k = 2
+Output: true
+
+===
+
+Input: s = "0110", k = 1
+Output: true
+
+===
+
+Input: s = "0110", k = 2
+Output: false
