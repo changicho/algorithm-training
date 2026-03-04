@@ -1,0 +1,12 @@
+Input: n = 1
+Output: 1
+
+===
+
+Input: n = 3
+Output: 27
+
+===
+
+Input: n = 12
+Output: 505379714
