@@ -1,0 +1,7 @@
+Input: s = "1001"
+Output: false
+
+===
+
+Input: s = "110"
+Output: true
