@@ -1,0 +1,17 @@
+Input: s = "111000"
+Output: 2
+
+===
+
+Input: s = "010"
+Output: 0
+
+===
+
+Input: s = "1110"
+Output: 1
+
+===
+
+Input: "01001001101"
+Output: 2
