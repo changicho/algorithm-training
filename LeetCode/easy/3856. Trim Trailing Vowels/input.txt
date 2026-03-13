@@ -1,0 +1,15 @@
+Input: s = "idea"
+
+Output: "id"
+
+===
+
+Input: s = "day"
+
+Output: "day"
+
+===
+
+Input: s = "aeiou"
+
+Output: ""
