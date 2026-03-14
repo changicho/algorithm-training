@@ -1,0 +1,7 @@
+Input: bottom = "BCD", allowed = ["BCC","CDE","CEA","FFF"]
+Output: true
+
+===
+
+Input: bottom = "AAAA", allowed = ["AAB","AAC","BCD","BBE","DEF"]
+Output: false
