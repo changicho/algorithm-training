@@ -1,0 +1,15 @@
+Input: mountainHeight = 4, workerTimes = [2,1,1]
+
+Output: 3
+
+===
+
+Input: mountainHeight = 10, workerTimes = [3,2,2,4]
+
+Output: 12
+
+===
+
+Input: mountainHeight = 5, workerTimes = [1]
+
+Output: 15
