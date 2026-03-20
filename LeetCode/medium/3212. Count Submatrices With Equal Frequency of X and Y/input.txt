@@ -1,0 +1,15 @@
+Input: grid = [["X","Y","."],["Y",".","."]]
+
+Output: 3
+
+===
+
+Input: grid = [["X","X"],["X","Y"]]
+
+Output: 0
+
+===
+
+Input: grid = [[".","."],[".","."]]
+
+Output: 0
