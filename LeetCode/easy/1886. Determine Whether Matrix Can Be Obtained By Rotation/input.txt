@@ -1,0 +1,12 @@
+Input: mat = [[0,1],[1,0]], target = [[1,0],[0,1]]
+Output: true
+
+===
+
+Input: mat = [[0,1],[1,1]], target = [[1,0],[0,1]]
+Output: false
+
+===
+
+Input: mat = [[0,0,0],[0,1,0],[1,1,1]], target = [[1,1,1],[0,1,0],[0,0,0]]
+Output: true
