@@ -1,0 +1,9 @@
+Input: nums1 = [2,3]
+
+Output: true
+
+===
+
+Input: nums1 = [4,6]
+
+Output: true
