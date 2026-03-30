@@ -6,8 +6,8 @@
 using namespace std;
 
 // use compare part
-// time : O(N)
-// space : O(N)
+// time : O(1)
+// space : O(1)
 class Solution {
  private:
   string convert(string s) {
@@ -26,4 +26,21 @@ class Solution {
 
  public:
   bool canBeEqual(string s1, string s2) { return convert(s1) == convert(s2); }
+};
+
+// greedy compare
+// time : O(1)
+// space : O(1)
+class Solution {
+ public:
+  bool canBeEqual(string s1, string s2) {
+    if (s1[0] != s2[0]) {
+      swap(s1[0], s1[2]);
+    }
+    if (s1[1] != s2[1]) {
+      swap(s1[1], s1[3]);
+    }
+
+    return s1 == s2;
+  }
 };
