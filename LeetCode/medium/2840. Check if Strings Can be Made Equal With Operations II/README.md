@@ -26,6 +26,39 @@
 
 카운팅을 이용할 경우 O(1)의 공간 복잡도를 사용한다.
 
+### 카운팅 (diff)
+
+| 내 코드 (ms) | 시간 복잡도 | 공간 복잡도 |
+| :----------: | :---------: | :---------: |
+|      7       |    O(N)     |    O(1)     |
+
+짝수, 홀수 index마다 26가지 알파벳이 존재할 수 있다.
+
+하나의 배열로 두 문자열의 알파벳 차이를 관리한다.
+
+모든 알파벳의 차이가 0이 아닌 경우 두 문자열을 같게 만들 수 없다.
+
+```cpp
+bool checkStrings(string s1, string s2) {
+  int size = s1.size();
+  int counts[52] = {
+      0,
+  };
+
+  for (int i = 0; i < size; i++) {
+    int diff = i % 2 ? 26 : 0;
+
+    counts[s1[i] - 'a' + diff]++;
+    counts[s2[i] - 'a' + diff]--;
+  }
+
+  for (int i = 0; i < 52; i++) {
+    if (counts[i] != 0) return false;
+  }
+  return true;
+}
+```
+
 ### 카운팅
 
 | 내 코드 (ms) | 시간 복잡도 | 공간 복잡도 |
