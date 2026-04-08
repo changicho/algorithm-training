@@ -1,0 +1,5 @@
+Input
+["Robot", "step", "step", "getPos", "getDir", "step", "step", "step", "getPos", "getDir"]
+[[6, 3], [2], [2], [], [], [2], [1], [4], [], []]
+Output
+[null, null, null, [4, 0], "East", null, null, null, [1, 2], "West"]
