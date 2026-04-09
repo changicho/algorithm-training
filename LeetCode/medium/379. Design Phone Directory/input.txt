@@ -1,0 +1,5 @@
+Input
+["PhoneDirectory", "get", "get", "check", "get", "check", "release", "check"]
+[[3], [], [], [2], [], [2], [2], [2]]
+Output
+[null, 0, 1, true, 2, false, null, true]
