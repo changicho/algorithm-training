@@ -1,0 +1,9 @@
+Input: n = 145
+
+Output: true
+
+===
+
+Input: n = 10
+
+Output: false
