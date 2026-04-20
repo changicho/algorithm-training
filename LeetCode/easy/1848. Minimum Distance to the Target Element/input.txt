@@ -1,0 +1,12 @@
+Input: nums = [1,2,3,4,5], target = 5, start = 3
+Output: 1
+
+===
+
+Input: nums = [1], target = 1, start = 0
+Output: 0
+
+===
+
+Input: nums = [1,1,1,1,1,1,1,1,1,1], target = 1, start = 0
+Output: 0
