@@ -1,0 +1,12 @@
+Input: colors = [1,1,1,6,1,1,1]
+Output: 3
+
+===
+
+Input: colors = [1,8,3,8,3]
+Output: 4
+
+===
+
+Input: colors = [0,1]
+Output: 1
