@@ -1,0 +1,12 @@
+Input: moves = "L_RL__R"
+Output: 3
+
+===
+
+Input: moves = "_R__LL_"
+Output: 5
+
+===
+
+Input: moves = "_______"
+Output: 7
