@@ -1,0 +1,7 @@
+Input: word = "CAKE"
+Output: 3
+
+===
+
+Input: word = "HAPPY"
+Output: 6
