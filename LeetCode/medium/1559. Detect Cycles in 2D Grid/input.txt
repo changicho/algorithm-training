@@ -1,0 +1,12 @@
+Input: grid = [["a","a","a","a"],["a","b","b","a"],["a","b","b","a"],["a","a","a","a"]]
+Output: true
+
+===
+
+Input: grid = [["c","c","c","a"],["c","d","c","c"],["c","c","e","c"],["f","c","c","c"]]
+Output: true
+
+===
+
+Input: grid = [["a","b","b"],["b","z","b"],["b","b","a"]]
+Output: false
