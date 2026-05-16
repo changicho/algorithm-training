@@ -1,0 +1,7 @@
+Input: queries = ["word","note","ants","wood"], dictionary = ["wood","joke","moat"]
+Output: ["word","note","wood"]
+
+===
+
+Input: queries = ["yes"], dictionary = ["not"]
+Output: []
