@@ -1,0 +1,12 @@
+Input: arr = [4,2,3,0,3,1,2], start = 5
+Output: true
+
+===
+
+Input: arr = [4,2,3,0,3,1,2], start = 0
+Output: true 
+
+===
+
+Input: arr = [3,0,2,1,2], start = 2
+Output: false
