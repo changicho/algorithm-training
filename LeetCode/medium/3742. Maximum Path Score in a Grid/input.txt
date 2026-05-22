@@ -1,0 +1,9 @@
+Input: grid = [[0, 1],[2, 0]], k = 1
+
+Output: 2
+
+===
+
+Input: grid = [[0, 1],[1, 2]], k = 1
+
+Output: -1
