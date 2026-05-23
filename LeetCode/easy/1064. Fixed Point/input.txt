@@ -1,0 +1,12 @@
+Input: arr = [-10,-5,0,3,7]
+Output: 3
+
+===
+
+Input: arr = [0,2,5,8,17]
+Output: 0
+
+===
+
+Input: arr = [-10,-5,3,4,7,9]
+Output: -1
