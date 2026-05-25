@@ -1,0 +1,7 @@
+Input: s = "011010", minJump = 2, maxJump = 3
+Output: true
+
+===
+
+Input: s = "01101110", minJump = 2, maxJump = 3
+Output: false
