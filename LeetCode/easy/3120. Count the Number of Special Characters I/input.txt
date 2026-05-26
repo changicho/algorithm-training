@@ -1,0 +1,15 @@
+Input: word = "aaAbcBC"
+
+Output: 3
+
+===
+
+Input: word = "abc"
+
+Output: 0
+
+===
+
+Input: word = "abBCab"
+
+Output: 1
