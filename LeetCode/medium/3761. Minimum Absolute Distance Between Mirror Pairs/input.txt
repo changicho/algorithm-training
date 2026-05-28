@@ -1,0 +1,15 @@
+Input: nums = [12,21,45,33,54]
+
+Output: 1
+
+===
+
+Input: nums = [120,21]
+
+Output: 1
+
+===
+
+Input: nums = [21,120]
+
+Output: -1
