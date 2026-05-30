@@ -1,0 +1,15 @@
+Input: nums = [10,12,13,14]
+
+Output: 1
+
+===
+
+Input: nums = [1,2,3,4]
+
+Output: 1
+
+===
+
+Input: nums = [999,19,199]
+
+Output: 10
