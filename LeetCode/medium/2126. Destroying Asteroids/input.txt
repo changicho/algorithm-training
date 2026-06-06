@@ -1,0 +1,7 @@
+Input: mass = 10, asteroids = [3,9,19,5,21]
+Output: true
+
+===
+
+Input: mass = 5, asteroids = [4,9,23,4]
+Output: false
