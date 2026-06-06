@@ -20,6 +20,8 @@ nums의 크기를 N이라 하자.
 
 prefixSum을 직접 생성할 경우 O(N)의 공간 복잡도를 사용한다.
 
+직전값만 업데이트해 사용하므로 순회에 O(1)의 공간 복잡도를 사용한다.
+
 정답으로 반환하는 공간에 O(N)의 공간 복잡도를 사용한다.
 
 ### prefix sum
@@ -45,6 +47,28 @@ vector<int> leftRigthDifference(vector<int>& nums) {
   vector<int> answer(size);
   for (int i = 0; i < size; i++) {
     answer[i] = abs(leftSums[i] - rightSums[i]);
+  }
+  return answer;
+}
+```
+
+### 순회
+
+| 내 코드 (ms) | 시간 복잡도 | 공간 복잡도 |
+| :----------: | :---------: | :---------: |
+|      0       |    O(N)     |    O(1)     |
+
+```cpp
+vector<int> leftRightDifference(vector<int>& nums) {
+  int left = 0;
+  int right = accumulate(nums.begin(), nums.end(), 0);
+
+  vector<int> answer;
+  for (int& num : nums) {
+    right -= num;
+    answer.push_back(abs(right - left));
+
+    left += num;
   }
   return answer;
 }
