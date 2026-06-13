@@ -1,0 +1,15 @@
+Input: num1 = 120, num2 = 130
+
+Output: 3
+
+===
+
+Input: num1 = 198, num2 = 202
+
+Output: 3
+
+===
+
+Input: num1 = 4848, num2 = 4848
+
+Output: 2
