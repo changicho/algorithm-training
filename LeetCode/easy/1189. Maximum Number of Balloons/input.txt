@@ -1,0 +1,12 @@
+Input: text = "nlaebolko"
+Output: 1
+
+===
+
+Input: text = "loonbalxballpoon"
+Output: 2
+
+===
+
+Input: text = "leetcode"
+Output: 0
