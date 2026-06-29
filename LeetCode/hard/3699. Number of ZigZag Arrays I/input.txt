@@ -1,0 +1,9 @@
+Input: n = 3, l = 4, r = 5
+
+Output: 2
+
+===
+
+Input: n = 3, l = 1, r = 3
+
+Output: 10
