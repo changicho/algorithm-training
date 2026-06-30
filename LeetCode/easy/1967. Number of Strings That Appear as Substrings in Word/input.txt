@@ -1,0 +1,12 @@
+Input: patterns = ["a","abc","bc","d"], word = "abc"
+Output: 3
+
+===
+
+Input: patterns = ["a","b","c"], word = "aaaaabbbbb"
+Output: 2
+
+===
+
+Input: patterns = ["a","a","a"], word = "ab"
+Output: 3
