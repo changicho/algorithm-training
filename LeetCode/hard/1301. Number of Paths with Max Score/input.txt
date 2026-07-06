@@ -1,0 +1,12 @@
+Input: board = ["E23","2X2","12S"]
+Output: [7,1]
+
+===
+
+Input: board = ["E12","1X1","21S"]
+Output: [4,2]
+
+===
+
+Input: board = ["E11","XXX","11S"]
+Output: [0,0]
