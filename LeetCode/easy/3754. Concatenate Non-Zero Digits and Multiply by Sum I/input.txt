@@ -1,0 +1,9 @@
+Input: n = 10203004
+
+Output: 12340
+
+===
+
+Input: n = 1000
+
+Output: 1
