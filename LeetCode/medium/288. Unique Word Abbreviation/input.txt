@@ -1,0 +1,5 @@
+Input
+["ValidWordAbbr", "isUnique", "isUnique", "isUnique", "isUnique", "isUnique"]
+[[["deer", "door", "cake", "card"]], ["dear"], ["cart"], ["cane"], ["make"], ["cake"]]
+Output
+[null, false, true, false, true, true]
