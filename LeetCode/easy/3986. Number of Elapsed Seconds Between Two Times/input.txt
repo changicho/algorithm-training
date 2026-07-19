@@ -1,0 +1,9 @@
+Input: startTime = "01:00:00", endTime = "01:00:25"
+
+Output: 25
+
+===
+
+Input: startTime = "12:34:56", endTime = "13:00:00"
+
+Output: 1504
