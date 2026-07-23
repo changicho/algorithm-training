@@ -1,0 +1,21 @@
+Input: s = "01"
+
+Output: 1
+
+===
+
+Input: s = "0100"
+
+Output: 4
+
+===
+
+Input: s = "1000100"
+
+Output: 7
+
+===
+
+Input: s = "01010"
+
+Output: 4
