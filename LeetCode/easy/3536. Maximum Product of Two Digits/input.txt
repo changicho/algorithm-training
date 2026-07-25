@@ -1,0 +1,15 @@
+Input: n = 31
+
+Output: 3
+
+===
+
+Input: n = 22
+
+Output: 4
+
+===
+
+Input: n = 124
+
+Output: 8
