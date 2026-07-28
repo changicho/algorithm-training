@@ -1,0 +1,15 @@
+Input: n = 2, s = 9
+
+Output: 90
+
+===
+
+Input: n = 2, s = 19
+
+Output: -1
+
+===
+
+Input: n = 5, s = 0
+
+Output: 0
