@@ -1,0 +1,15 @@
+Input: s = "z"
+
+Output: "z"
+
+===
+
+Input: s = "babab"
+
+Output: "abbba"
+
+===
+
+Input: s = "daccad"
+
+Output: "acddca"
