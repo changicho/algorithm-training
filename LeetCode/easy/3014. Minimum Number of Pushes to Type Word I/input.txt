@@ -1,0 +1,7 @@
+Input: word = "abcde"
+Output: 5
+
+===
+
+Input: word = "xycdefghij"
+Output: 12
