@@ -1,0 +1,15 @@
+Input: s = "aabc", x = "a", y = "c"
+
+Output: "cbaa"
+
+==
+
+Input: s = "dcab", x = "d", y = "b"
+
+Output: "cabd"
+
+===
+
+Input: s = "axe", x = "o", y = "x"
+
+Output: "axe"
