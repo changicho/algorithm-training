@@ -1,0 +1,9 @@
+Input: n = 4, s = 3, m = 5
+
+Output: 12
+
+===
+
+Input: n = 2, s = 4, m = 3
+
+Output: 7
