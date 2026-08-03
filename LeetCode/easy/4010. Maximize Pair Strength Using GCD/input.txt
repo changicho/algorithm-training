@@ -1,0 +1,15 @@
+Input: nums = [2,3,5]
+
+Output: 15
+
+===
+
+Input: nums = [4,6,8]
+
+Output: 12
+
+===
+
+Input: nums = [3,3]
+
+Output: 1
