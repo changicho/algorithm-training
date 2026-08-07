@@ -1,0 +1,9 @@
+Input: n = 10, t = 2
+
+Output: 10
+
+===
+
+Input: n = 15, t = 3
+
+Output: 16
