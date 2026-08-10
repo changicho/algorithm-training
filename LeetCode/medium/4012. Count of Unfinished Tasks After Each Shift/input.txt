@@ -1,0 +1,15 @@
+Input: tasks = [1,4,4], shifts = [9,1,4]
+
+Output: [0,2,1]
+
+===
+
+Input: tasks = [2,3,4], shifts = [20,4,5]
+
+Output: [0,2,0]
+
+===
+
+Input: tasks = [4,2], shifts = [3,6,1]
+
+Output: [2,0,2]
