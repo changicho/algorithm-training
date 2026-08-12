@@ -1,0 +1,15 @@
+Input: prices = [10,30,21], discounts = [50,60]
+
+Output: 32.50000
+
+===
+
+Input: prices = [100,70], discounts = [10,40,50]
+
+Output: 92.00000
+
+===
+
+Input: prices = [7,3,9], discounts = [100,100]
+
+Output: 3.00000
