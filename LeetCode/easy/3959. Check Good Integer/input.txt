@@ -1,0 +1,9 @@
+Input: n = 1000
+
+Output: false
+
+===
+
+Input: n = 19
+
+Output: true
