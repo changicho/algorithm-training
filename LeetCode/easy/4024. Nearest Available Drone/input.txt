@@ -1,0 +1,15 @@
+Input: drones = [[0,0,8],[2,2,9]], target = [3,4]
+
+Output: 1
+
+===
+
+Input: drones = [[2,1,5],[4,4,5],[6,6,8]], target = [5,5]
+
+Output: 1
+
+===
+
+Input: drones = [[4,4,5]], target = [8,6]
+
+Output: -1
