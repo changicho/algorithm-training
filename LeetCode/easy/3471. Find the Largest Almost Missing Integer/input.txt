@@ -1,0 +1,15 @@
+Input: nums = [3,9,2,1,7], k = 3
+
+Output: 7
+
+===
+
+Input: nums = [3,9,7,2,1,7], k = 4
+
+Output: 3
+
+===
+
+Input: nums = [0,0], k = 1
+
+Output: -1
