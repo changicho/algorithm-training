@@ -1,0 +1,9 @@
+Input: n = 5, requests = [2,1,4,3]
+
+Output: 7
+
+===
+
+Input: n = 3, requests = [2,0,0]
+
+Output: 4
