@@ -1,0 +1,15 @@
+Input:
+["EventManager", "pollHighest", "updatePriority", "pollHighest", "pollHighest"]
+[[[[5, 7], [2, 7], [9, 4]]], [], [9, 7], [], []]
+
+Output:
+[null, 2, null, 5, 9]
+
+===
+
+Input:
+["EventManager", "pollHighest", "pollHighest", "pollHighest"]
+[[[[4, 1], [7, 2]]], [], [], []]
+
+Output:
+[null, 7, 4, -1]
