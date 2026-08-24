@@ -1,0 +1,9 @@
+Input: n = 99
+
+Output: true
+
+===
+
+Input: n = 23
+
+Output: false
