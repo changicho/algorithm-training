@@ -1,0 +1,9 @@
+Input: s = "ff"
+
+Output: true
+
+===
+
+Input: s = "leet"
+
+Output: false
