@@ -1,0 +1,9 @@
+Input: s = "abc"
+
+Output: 2
+
+===
+
+Input: s = "yb"
+
+Output: 3
