@@ -1,0 +1,15 @@
+Input: s = "abc", target = "bba"
+
+Output: "bca"
+
+===
+
+Input: s = "leet", target = "code"
+
+Output: "eelt"
+
+===
+
+Input: s = "baba", target = "bbaa"
+
+Output: ""
