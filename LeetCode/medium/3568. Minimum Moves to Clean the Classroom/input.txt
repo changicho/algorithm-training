@@ -1,0 +1,15 @@
+Input: classroom = ["S.", "XL"], energy = 2
+
+Output: 2
+
+===
+
+Input: classroom = ["LS", "RL"], energy = 4
+
+Output: 3
+
+===
+
+Input: classroom = ["L.S", "RXL"], energy = 3
+
+Output: -1
