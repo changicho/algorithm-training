@@ -1,0 +1,15 @@
+Input: nums = [5,0,1,4], k = 3
+
+Output: 3
+
+===
+
+Input: nums = [3,2,1], k = 1
+
+Output: -1
+
+===
+
+Input: nums = [0], k = 0
+
+Output: 0
