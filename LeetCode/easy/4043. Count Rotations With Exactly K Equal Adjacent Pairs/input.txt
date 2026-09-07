@@ -1,0 +1,9 @@
+Input: s = "aab", k = 1
+
+Output: 2
+
+===
+
+Input: s = "abca", k = 0
+
+Output: 1
