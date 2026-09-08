@@ -1,0 +1,15 @@
+Input: nums = [231]
+
+Output: 8
+
+===
+
+Input: nums = [2522,2101]
+
+Output: 1649
+
+===
+
+Input: nums = [2301]
+
+Output: 73741817
