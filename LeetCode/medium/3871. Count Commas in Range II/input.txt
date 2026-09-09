@@ -1,0 +1,9 @@
+Input: n = 1002
+
+Output: 3
+
+===
+
+Input: n = 998
+
+Output: 0
