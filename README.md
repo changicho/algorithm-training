@@ -1,4 +1,4 @@
-# 🖐 Changi Cho's Problem Solving Repository
+# 🖐 Problem Solving Repository
 
 > 알고리즘 문제 풀이 저장소입니다. (백준, 삼성, 프로그래머스 등등)
 
@@ -12,15 +12,13 @@ README.md 에 문제를 풀며 정리한 내용과 정답률 퍼센트, 원본 �
 
 ## 🗂 폴더 구조
 
-폴더명에 문제 번호와 문제 종류 태그로 구성 되어있습니다
+폴더명에 문제 번호와 문제 명으로 구성되어있습니다.
 
 ```sh
-number_tags
+problem_title
 ├── README.md   # 문제 풀이 정리 기록
-├── answer.cpp  # 문제 풀이 파일 (.cpp, .js, .py ...)
-└── data        # input & output 정리
-    ├── data.txt    # test cases (input & output)
-    └── input.txt   # input
+├── code.cpp, answer.cpp  # 문제 풀이 파일 (.cpp, .js, .py ...)
+└── input.txt   # input
 ```
 
 ---
