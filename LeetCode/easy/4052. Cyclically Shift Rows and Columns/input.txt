@@ -1,0 +1,9 @@
+Input: n = 2, grid = [[1,2],[3,4]], rowShift = [1,0], colShift = [0,1]
+
+Output: [[2,4],[3,1]]
+
+===
+
+Input: n = 3, grid = [[1,2,3],[4,5,6],[7,8,9]], rowShift = [1,2,0], colShift = [2,2,1]
+
+Output: [[7,8,5],[2,3,9],[6,4,1]]
