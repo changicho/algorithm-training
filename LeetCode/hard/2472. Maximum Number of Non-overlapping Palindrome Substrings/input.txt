@@ -1,0 +1,7 @@
+Input: s = "abaccdbbd", k = 3
+Output: 2
+
+===
+
+Input: s = "adbcda", k = 2
+Output: 0
