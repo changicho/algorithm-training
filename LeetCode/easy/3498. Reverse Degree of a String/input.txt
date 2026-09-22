@@ -1,0 +1,9 @@
+Input: s = "abc"
+
+Output: 148
+
+===
+
+Input: s = "zaza"
+
+Output: 160
