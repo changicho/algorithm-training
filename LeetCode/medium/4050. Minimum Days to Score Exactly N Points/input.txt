@@ -1,0 +1,15 @@
+Input: n = 2
+
+Output: 3
+
+===
+
+Input: n = 9
+
+Output: 6
+
+===
+
+Input: n = 12
+
+Output: 7
