@@ -92,44 +92,46 @@ bool hasValidPath(vector<vector<char>> &grid) {
 
 ### 동적 계획법
 
-| 내 코드 (ms) |    시간 복잡도     |    공간 복잡도     |
-| :----------: | :----------------: | :----------------: |
-|     237      | O(R * C * (R + C)) | O(R * C * (R + C)) |
+| 내 코드 (ms) |   시간 복잡도   |   공간 복잡도   |
+| :----------: | :-------------: | :-------------: |
+|     194      | O(RC * (R + C)) | O(RC * (R + C)) |
 
 위 방법에서 재귀호출이 아닌 반복문을 이용해 풀이할 수 있다.
 
+각 좌표마다 위에서 내려오는 경우와 왼쪽에서 오는 경우 2가지 경우에 대해서 가능한지 dp식을 갱신한다.
+
 ```cpp
-bool hasValidPath(vector<vector<char>> &grid) {
-  int rows = grid.size(), cols = grid.front().size();
-  // edge case
+bool hasValidPath(vector<vector<char>>& grid) {
+  int rows = grid.size(), cols = grid[0].size();
+  int limit = rows + cols - 1;
   if (grid[0][0] == ')') return false;
 
-  // need to initialize for all test case
-  // isAppear[y][x][openCount]
-  bool isAppear[101][101][201] = {
+  bool dp[101][101][202] = {
       false,
   };
-  isAppear[0][0][1] = true;
+  dp[0][0][1] = true;
 
   for (int y = 0; y < rows; y++) {
     for (int x = 0; x < cols; x++) {
-      int cur = grid[y][x] == '(' ? 1 : -1;
+      bool isOpen = grid[y][x] == '(';
 
-      for (int before = 0; before <= 200; before++) {
-        if (before + cur < 0) continue;
-        // from up
-        if (y - 1 >= 0 && isAppear[y - 1][x][before]) {
-          isAppear[y][x][before + cur] = true;
+      for (int before = 0; before < limit; before++) {
+        int next = before + (isOpen ? +1 : -1);
+        if (next < 0) continue;
+
+        // from top
+        if (y > 0) {
+          dp[y][x][next] |= dp[y - 1][x][before];
         }
-        // from left
-        if (x - 1 >= 0 && isAppear[y][x - 1][before]) {
-          isAppear[y][x][before + cur] = true;
+        // fron left
+        if (x > 0) {
+          dp[y][x][next] |= dp[y][x - 1][before];
         }
       }
     }
   }
 
-  return isAppear[rows - 1][cols - 1][0];
+  return dp[rows - 1][cols - 1][0];
 }
 ```
 
