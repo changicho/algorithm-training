@@ -1,0 +1,15 @@
+Input: nums = [5,6,10], sum = 4
+
+Output: 3
+
+===
+
+Input: nums = [10,2], sum = 13
+
+Output: 3
+
+===
+
+Input: nums = [6,3], sum = 8
+
+Output: -1
