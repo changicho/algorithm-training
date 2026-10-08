@@ -1,0 +1,15 @@
+Input: n = 4, s = "1502"
+
+Output: 9
+
+===
+
+Input: n = 4, s = "2916"
+
+Output: 12
+
+===
+
+Input: n = 4, s = "4219"
+
+Output: 6
