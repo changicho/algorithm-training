@@ -1,0 +1,15 @@
+Input: n = 16
+
+Output: true
+
+===
+
+Input: n = 8
+
+Output: false
+
+===
+
+Input: n = 2
+
+Output: true
