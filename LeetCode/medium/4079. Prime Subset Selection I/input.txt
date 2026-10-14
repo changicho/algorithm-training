@@ -1,0 +1,15 @@
+Input: n = 7, s = 20
+
+Output: [2,3,5,7]
+
+===
+
+Input: n = 15, s = 15
+
+Output: [3,5,7]
+
+===
+
+Input: n = 5, s = 1
+
+Output: []
