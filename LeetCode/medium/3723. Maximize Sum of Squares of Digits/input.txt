@@ -1,0 +1,15 @@
+Input: num = 2, sum = 3
+
+Output: "30"
+
+===
+
+Input: num = 2, sum = 17
+
+Output: "98"
+
+===
+
+Input: num = 1, sum = 10
+
+Output: ""
