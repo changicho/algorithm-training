@@ -1,0 +1,9 @@
+Input: grid = [["R","D"],["U","L"]]
+
+Output: [1,0]
+
+===
+
+Input: grid = [["R","R","R"]]
+
+Output: [0,2]
