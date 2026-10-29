@@ -1,0 +1,15 @@
+Input: grid = [[1,2],[3,4]]
+
+Output: 6
+
+===
+
+Input: grid = [[6,7],[5,8]]
+
+Output: 9
+
+===
+
+Input: grid = [[2,7,5]]
+
+Output: 0
