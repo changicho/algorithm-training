@@ -1,0 +1,15 @@
+Input: a = 14, b = 6
+
+Output: 6
+
+===
+
+Input: a = 5, b = 15
+
+Output: 2
+
+===
+
+Input: a = 10, b = 12
+
+Output: 4
