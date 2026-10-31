@@ -1,0 +1,15 @@
+Input: grid = [[0,1,0],[0,0,1],[1,0,0]]
+
+Output: 5
+
+===
+
+Input: grid = [[0,0],[0,0]]
+
+Output: 2
+
+===
+
+Input: grid = [[0,1,1],[1,1,0]]
+
+Output: 1
