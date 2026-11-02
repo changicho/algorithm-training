@@ -52,6 +52,24 @@ int minMoves2(vector<int> &nums) {
 }
 ```
 
+혹은 정렬된 배열에서 양 끝 값의 차이만큼 순서대로 더한다.
+
+결과적으로 두 수를 중앙값에 맞게 바꾸기 위해선 두 수의 차이만큼 연산을 수행해야 한다.
+
+```cpp
+int minMoves2(vector<int>& nums) {
+  int size = nums.size();
+  sort(nums.begin(), nums.end());
+
+  int answer = 0;
+  for (int left = 0, right = size - 1; left < right; left++, right--) {
+    answer += nums[right] - nums[left];
+  }
+
+  return answer;
+}
+```
+
 ### 삼분 탐색
 
 | 내 코드 (ms) |   시간 복잡도    | 공간 복잡도 |

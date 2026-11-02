@@ -10,16 +10,16 @@ using namespace std;
 // space : O(1)
 class Solution {
  private:
-  long long getDiff(vector<int> &nums, int key) {
+  long long getDiff(vector<int>& nums, int key) {
     long long diff = 0;
-    for (int &n : nums) {
+    for (int& n : nums) {
       diff += abs(key - n);
     }
     return diff;
   }
 
  public:
-  int minMoves2(vector<int> &nums) {
+  int minMoves2(vector<int>& nums) {
     int size = nums.size();
 
     long long answer = getDiff(nums, nums.front());
@@ -49,18 +49,36 @@ class Solution {
 
 // use find median
 // time : O(N * log_2(N))
-// space : O(1)
+// space : O(N)
 class Solution {
  public:
-  int minMoves2(vector<int> &nums) {
+  int minMoves2(vector<int>& nums) {
     int size = nums.size();
 
     sort(nums.begin(), nums.end());
 
     int median = nums[size / 2];
     int answer = 0;
-    for (int &n : nums) {
+    for (int& n : nums) {
       answer += abs(n - median);
+    }
+
+    return answer;
+  }
+};
+
+// use find median
+// time : O(N * log_2(N))
+// space : O(N)
+class Solution {
+ public:
+  int minMoves2(vector<int>& nums) {
+    int size = nums.size();
+    sort(nums.begin(), nums.end());
+
+    int answer = 0;
+    for (int left = 0, right = size - 1; left < right; left++, right--) {
+      answer += nums[right] - nums[left];
     }
 
     return answer;
@@ -69,10 +87,10 @@ class Solution {
 
 // use find diff
 // time : O(N * log_2(N))
-// space : O(1)
+// space : O(N)
 class Solution {
  public:
-  int minMoves2(vector<int> &nums) {
+  int minMoves2(vector<int>& nums) {
     int size = nums.size();
 
     sort(nums.begin(), nums.end());
@@ -91,13 +109,13 @@ class Solution {
 // space : O(1)
 class Solution {
  public:
-  int minMoves2(vector<int> &nums) {
+  int minMoves2(vector<int>& nums) {
     int size = nums.size();
     int answer = 0;
     nth_element(nums.begin(), nums.begin() + (size / 2), nums.end());
 
     int median = nums[size / 2];
-    for (int &n : nums) {
+    for (int& n : nums) {
       answer += abs(n - median);
     }
     return answer;
