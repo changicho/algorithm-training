@@ -1,0 +1,15 @@
+Input: s = "dog"
+
+Output: 1
+
+===
+
+Input: s = "card"
+
+Output: 2
+
+===
+
+Input: s = "gf"
+
+Output: -1
