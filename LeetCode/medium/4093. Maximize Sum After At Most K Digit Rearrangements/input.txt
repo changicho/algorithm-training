@@ -1,0 +1,9 @@
+Input: nums = [123,45], k = 1
+
+Output: 366
+
+===
+
+Input: nums = [102,90,14], k = 2
+
+Output: 341
