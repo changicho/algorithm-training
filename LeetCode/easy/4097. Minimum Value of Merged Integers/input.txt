@@ -1,0 +1,15 @@
+Input: nums = [23,55,42,21]
+
+Output: 2355
+
+===
+
+Input: nums = [34,7,11,11]
+
+Output: 347
+
+===
+
+Input: nums = [9,20]
+
+Output: 920
