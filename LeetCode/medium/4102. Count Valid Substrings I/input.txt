@@ -1,0 +1,15 @@
+Input: s = "abac"
+
+Output: 10
+
+===
+
+Input: s = "abc"
+
+Output: 5
+
+===
+
+Input: s = "ac"
+
+Output: 3
