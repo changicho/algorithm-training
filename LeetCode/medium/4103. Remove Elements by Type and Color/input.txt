@@ -1,0 +1,15 @@
+Input: types = [0,1,1,0], colors = [5,3,3,5] , groupSize = [2,2]
+
+Output: true
+
+===
+
+Input: types = [0,1,0], colors = [9,9,9], groupSize = [3,2]
+
+Output: false
+
+===
+
+Input: types = [2,0,1,2], colors = [7,5,4,7], groupSize = [3,1,2]
+
+Output: false
