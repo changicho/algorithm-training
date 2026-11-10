@@ -1,0 +1,15 @@
+Input: n = 4, costs = [1,2,3,4]
+
+Output: 13
+
+===
+
+Input: n = 4, costs = [5,1,6,2]
+
+Output: 11
+
+===
+
+Input: n = 3, costs = [9,8,3]
+
+Output: 12
