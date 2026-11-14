@@ -1,0 +1,15 @@
+Input: nums = [3, -2, 1, 4], l = 2, r = 3
+
+Output: 1
+
+===
+
+Input: nums = [-2, 2, -3, 1], l = 2, r = 3
+
+Output: -1
+
+===
+
+Input: nums = [1, 2, 3, 4], l = 2, r = 4
+
+Output: 3
