@@ -1,0 +1,12 @@
+Input: s = "aaabbb"
+Output: true
+
+===
+
+Input: s = "abab"
+Output: false
+
+===
+
+Input: s = "bbb"
+Output: true
